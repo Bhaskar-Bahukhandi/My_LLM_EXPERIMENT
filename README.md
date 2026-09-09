@@ -1,13 +1,14 @@
 # Unified Edge-400
 
-Current scope: configuration resolution, parameter accounting and an executable generic CPU FP32 dense byte/Mamba-2 model. The model is untrained; there is **no training pipeline yet**. The original FINAL Bible and Roadmap remain unchanged.
+Current scope: configuration resolution, exact parameter accounting, the generic CPU FP32 dense byte/Mamba-2 model, and bounded deterministic CPU training infrastructure. A fixed tiny synthetic overfit experiment exercises learning and restart mechanics; it is not evidence of language-model quality. The original FINAL Bible and Roadmap remain unchanged.
 
 The closest inventory in the default 18-candidate search is **1,929,579 parameters**, 3.52105% below 2M. The nominal 2% gate is honestly rejected. Width/depth are 256/4; no dimensions were distorted to meet the target. The full instantiated model now matches this inventory exactly; the candidate remains an explicit smoke-stage exception to the unchanged tolerance.
 
 ## Use the existing local environment (PowerShell)
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pytest -q -m "not overfit"
+.\.venv\Scripts\python.exe -m pytest -q -s tests/test_training_overfit.py -m overfit
 .\.venv\Scripts\python.exe -m ruff check src tests
 .\.venv\Scripts\python.exe -m ruff format --check src tests
 .\.venv\Scripts\python.exe -m unified_edge.cli configs/models/edge_2m.yaml
@@ -31,12 +32,12 @@ Replace `python` with the new environment's executable. No system environment mo
 - Authored configuration: `configs/models/edge_2m.yaml`; unknown fields, wrong types, unsupported versions, duplicate YAML keys and unsupported backends fail explicitly.
 - Immutable resolved config: `unified_edge.resolve.ResolvedConfig`, with derived dimensions, control registry, backend/reference identity and SHA-256.
 - Parameter inventory: real metadata-device Parameters, counted by identity. Auditing also works on ordinary PyTorch modules, distinguishes frozen parameters/buffers/aliases, and reports logical state-dict entries separately from serialized file size.
-- Memory: declared FP32 payload and recurrent-state shapes only. Passing a lower-bound budget check remains UNKNOWN_REQUIRES_MEASUREMENT. Runtime RSS, activations and allocator costs are not measured.
+- Memory: the configuration preflight remains a lower-bound check. Bounded CPU training now records actual Windows process working set separately from parameter, gradient, AdamW and canonical recurrent tensor payloads. Activation/autograd storage is not separately measured; short-run evidence does not establish long-context capacity.
 - The candidate search sorts explicit width/depth choices, rejects legality/policy/memory violations, then ranks absolute parameter distance; ties prefer fewer layers then narrower width. Explicit dimensions are never silently replaced.
 
 See [tranche report](reports/configuration_tranche.md), [inventory contract](docs/parameter_inventory.md), [reference pin](docs/backend_reference.md), [correction proposals](docs/architecture_changes), [implementation plan](docs/implementation_plan.md), and [project state](docs/project_state.md).
 
-The byte hierarchy has 201,483 executable parameters and the shared Mamba trunk has 1,728,096, totaling 1,929,579. All 143 tests pass; this is readiness to implement training infrastructure, not training readiness. MoE remains deferred pending its causal scheduling decision.
+The byte hierarchy has 201,483 executable parameters and the shared Mamba trunk has 1,728,096, totaling 1,929,579. The accepted 143 architecture tests are preserved. Training tests and a separate fixed overfit gate cover the CPU mechanics. MoE remains deferred pending its causal scheduling decision.
 
 ## Byte hierarchy
 
@@ -70,4 +71,34 @@ with torch.inference_mode():
 
 The full differentiable call `model(targets)` accepts equal-length [B,T] symbol rows. Its independent dense SSD reference path uses quadratic storage in patch length; use bounded sequences/chunks. Incremental `predict`/`consume` manages completed patches internally. Reset and tagged export/restore cover both local and shared state. Use inference mode for streaming inference; exported state is detached and requires identical weights.
 
-See [Mamba readiness](reports/mamba_integration_readiness.md), [numerical evidence](reports/mamba_integration_evidence.json), and [state/math contract](docs/mamba_integration_contract.md). Upstream package-runtime parity and process memory remain unverified; no GPU or training code was added.
+See [Mamba readiness](reports/mamba_integration_readiness.md), [numerical evidence](reports/mamba_integration_evidence.json), and [state/math contract](docs/mamba_integration_contract.md). Upstream package-runtime parity remains unverified on this Windows CPU environment. Bounded training memory is now measured; no GPU code was added.
+
+
+## Bounded CPU training
+
+Read [training contract](docs/training_contract.md), [readiness report](reports/training_infrastructure_readiness.md), and [machine-readable evidence](reports/training_infrastructure_evidence.json). The two pytest commands above separate ordinary regressions from the fixed 60-update experiment; plain pytest runs both. The experiment creates a fresh ignored directory under `evidence/training_infrastructure/` containing its tiny fixtures, manifests, JSONL metrics and checkpoints. Existing runs are never overwritten. No data is downloaded.
+
+For explicit local runs, use the same tested API:
+
+```python
+from unified_edge.training.config import TrainingConfig
+from unified_edge.training.data import create_tiny_fixture
+from unified_edge.training.trainer import Trainer
+
+# `config` is the resolved model configuration loaded above.
+root = Path("evidence/my_cpu_run")  # choose an unused run identity
+manifest = create_tiny_fixture(root / "data")
+training = TrainingConfig()  # 32-byte windows, 60 optimizer updates, CPU FP32
+trainer = Trainer(config, training, manifest, root / "data", root / "initial")
+trainer.train_until(30)
+checkpoint = trainer.save()  # completed update boundary only
+
+del trainer
+trainer = Trainer(
+    config, training, manifest, root / "data", root / "resumed", resume_from=checkpoint
+)
+trainer.train_until(60)
+validation = trainer.validate()
+```
+
+Resume requires identical model/training semantics, manifest hash, source identity and supported environment. It restores optimizer state (including lazy per-parameter update counts), scheduler, RNG and data cursor. A failed update requires restoration from the last complete checkpoint. GPU enablement, large data and substantive model training remain separate work.

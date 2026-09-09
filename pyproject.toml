@@ -22,6 +22,7 @@ where = ["src"]
 testpaths = ["tests"]
 pythonpath = ["src"]
 addopts = "-ra"
+markers = ["overfit: fixed 60-update CPU learning and post-checkpoint generation gate"]
 
 [tool.ruff]
 target-version = "py312"
