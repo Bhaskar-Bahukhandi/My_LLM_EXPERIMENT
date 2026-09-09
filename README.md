@@ -1,8 +1,8 @@
 # Unified Edge-400
 
-Current scope: configuration resolution, structural parameter inventory, preliminary memory screening and the executable byte hierarchy for the approximately 2M dense proof. There is **no executable language model or training pipeline yet**. The original FINAL Bible and Roadmap remain unchanged.
+Current scope: configuration resolution, parameter accounting and an executable generic CPU FP32 dense byte/Mamba-2 model. The model is untrained; there is **no training pipeline yet**. The original FINAL Bible and Roadmap remain unchanged.
 
-The closest inventory in the default 18-candidate search is **1,929,579 parameters**, 3.52105% below 2M. The nominal 2% gate is honestly rejected. Width/depth are 256/4; no dimensions were distorted to meet the target. This is a declared parameter budget, not the final executable model count.
+The closest inventory in the default 18-candidate search is **1,929,579 parameters**, 3.52105% below 2M. The nominal 2% gate is honestly rejected. Width/depth are 256/4; no dimensions were distorted to meet the target. The full instantiated model now matches this inventory exactly; the candidate remains an explicit smoke-stage exception to the unchanged tolerance.
 
 ## Use the existing local environment (PowerShell)
 
@@ -36,7 +36,7 @@ Replace `python` with the new environment's executable. No system environment mo
 
 See [tranche report](reports/configuration_tranche.md), [inventory contract](docs/parameter_inventory.md), [reference pin](docs/backend_reference.md), [correction proposals](docs/architecture_changes), [implementation plan](docs/implementation_plan.md), and [project state](docs/project_state.md).
 
-The byte hierarchy now has 201,483 executable parameters, exactly matching its five inventory groups. The shared 1,728,096 parameters remain structural only. All 118 tests pass; no Mamba implementation or training readiness is claimed. MoE remains deferred pending its causal scheduling decision.
+The byte hierarchy has 201,483 executable parameters and the shared Mamba trunk has 1,728,096, totaling 1,929,579. All 143 tests pass; this is readiness to implement training infrastructure, not training readiness. MoE remains deferred pending its causal scheduling decision.
 
 ## Byte hierarchy
 
@@ -54,4 +54,20 @@ logits = hierarchy(torch.tensor([[0, 255, 128, 1]], dtype=torch.long))  # [1,4,2
 
 This teacher-forced API predicts at most one patch using shifted local inputs and learned BOS conditioning. For streaming, `start`, `predict` and `consume` emit a completed event only after eight observed symbols. The hierarchy then waits for explicit external conditioning through `condition`; no global trunk is supplied yet. Raw binary conversion and padding helpers live in `unified_edge.symbols`.
 
-Read the [byte contract](docs/byte_hierarchy_contract.md) for state/serialization and caller obligations, and the [byte readiness report](reports/byte_hierarchy_readiness.md) for reconciliation, causality evidence and rollback. The next bounded step is Mamba integration when authorized.
+Read the [byte contract](docs/byte_hierarchy_contract.md) for state/serialization and caller obligations, and the [byte readiness report](reports/byte_hierarchy_readiness.md) for reconciliation, causality evidence and rollback. The standalone byte hierarchy remains available; the full model supplies real shared conditioning.
+
+## Integrated dense model
+
+```python
+from unified_edge.dense_model import DenseByteModel
+
+model = DenseByteModel(config).eval()  # resolved config loaded above
+with torch.inference_mode():
+    state = model.start()  # learned BOS is processed through all four Mamba layers
+    first_logits = model.predict(state)
+    state = model.consume(torch.tensor([65]), state)
+```
+
+The full differentiable call `model(targets)` accepts equal-length [B,T] symbol rows. Its independent dense SSD reference path uses quadratic storage in patch length; use bounded sequences/chunks. Incremental `predict`/`consume` manages completed patches internally. Reset and tagged export/restore cover both local and shared state. Use inference mode for streaming inference; exported state is detached and requires identical weights.
+
+See [Mamba readiness](reports/mamba_integration_readiness.md), [numerical evidence](reports/mamba_integration_evidence.json), and [state/math contract](docs/mamba_integration_contract.md). Upstream package-runtime parity and process memory remain unverified; no GPU or training code was added.

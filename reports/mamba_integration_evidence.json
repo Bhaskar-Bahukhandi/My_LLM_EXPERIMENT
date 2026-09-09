@@ -1,0 +1,1684 @@
+{
+  "created_utc": "2026-09-09T05:16:26.092553+00:00",
+  "starting_byte_commit": "78c179bda571237d3c0d9aa6ec396bf3f6374b0b",
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.6.0+cpu",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 1
+  },
+  "tolerance": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "relative_denominator_floor": 1e-08
+  },
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "143",
+    "time": "61.611",
+    "timestamp": "2026-09-09T10:45:00.687353+05:30",
+    "hostname": "LAPTOP-2KQTNN8H"
+  },
+  "test_xml_sha256": "c4265687c09991725de3a423d5384e77c4eaf08904bbb1a861003800b6a0907f",
+  "static_checks": {
+    "ruff": {
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    "format": {
+      "exit_code": 0,
+      "output": "19 files already formatted"
+    },
+    "compileall": {
+      "exit_code": 0,
+      "output": ""
+    },
+    "dependencies": {
+      "exit_code": 0,
+      "output": "No broken requirements found."
+    }
+  },
+  "upstream_sources": {
+    "retrieved_utc": "2026-09-09T01:39:57.196521+00:00",
+    "commit": "d7b1ceb3c367ec9022925e812f507bcf706937c6",
+    "sources": [
+      {
+        "path": "mamba_ssm/modules/mamba2.py",
+        "url": "https://raw.githubusercontent.com/state-spaces/mamba/d7b1ceb3c367ec9022925e812f507bcf706937c6/mamba_ssm/modules/mamba2.py",
+        "sha256": "605e4439ff0baec8d8acaf4a191d9f0570eea9900065a065909124c472b08707"
+      },
+      {
+        "path": "mamba_ssm/modules/ssd_minimal.py",
+        "url": "https://raw.githubusercontent.com/state-spaces/mamba/d7b1ceb3c367ec9022925e812f507bcf706937c6/mamba_ssm/modules/ssd_minimal.py",
+        "sha256": "6442a9fe25a6792258df657392ab1fab4dd873ee777d9dd5783cc76030218e07"
+      },
+      {
+        "path": "mamba_ssm/ops/triton/layernorm_gated.py",
+        "url": "https://raw.githubusercontent.com/state-spaces/mamba/d7b1ceb3c367ec9022925e812f507bcf706937c6/mamba_ssm/ops/triton/layernorm_gated.py",
+        "sha256": "eb6252e247b90f1c8a75946efbc1a221e0c4da701b6757ddae49f3495cf7a42f"
+      },
+      {
+        "path": "mamba_ssm/modules/block.py",
+        "url": "https://raw.githubusercontent.com/state-spaces/mamba/d7b1ceb3c367ec9022925e812f507bcf706937c6/mamba_ssm/modules/block.py",
+        "sha256": "b62e755195c277a027c5d9cc8d576a8ae4a1d1317143b91370b2f8ce683b4cc1"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/state-spaces/mamba/d7b1ceb3c367ec9022925e812f507bcf706937c6/LICENSE",
+        "sha256": "760939b000194d04548ede6a857bbe735d1695d8422ec85955c8e2bd7f4b95c5"
+      }
+    ]
+  },
+  "upstream_package_runtime": {
+    "status": "UNVERIFIED_BLOCKED",
+    "reason": "Windows CPU profile has no mamba_ssm/Triton runtime; no dependency changes made",
+    "mamba_ssm_present": false,
+    "triton_present": false
+  },
+  "parameter_audit": {
+    "unique_trainable_parameters": 1929579,
+    "unique_frozen_parameters": 0,
+    "unique_buffer_elements": 0,
+    "unique_parameter_bytes": 7718316,
+    "unique_buffer_bytes": 0,
+    "components": {
+      "hierarchy": 201483,
+      "shared": 1728096
+    },
+    "aliases": {},
+    "state_dict_tensor_entries": 56,
+    "state_dict_non_tensor_entries": [],
+    "state_dict_entry_elements": 1929579,
+    "state_dict_logical_payload_bytes": 7718316,
+    "serialized_file_bytes": null,
+    "payload_note": "logical entries; aliases may share storage; not serialized file size"
+  },
+  "byte_component_audit": {
+    "unique_trainable_parameters": 201483,
+    "unique_frozen_parameters": 0,
+    "unique_buffer_elements": 0,
+    "unique_parameter_bytes": 805932,
+    "unique_buffer_bytes": 0,
+    "components": {
+      "bootstrap": 16640,
+      "decoder": 107520,
+      "embedding": 17600,
+      "encoder": 25280,
+      "output": 34443
+    },
+    "aliases": {},
+    "state_dict_tensor_entries": 20,
+    "state_dict_non_tensor_entries": [],
+    "state_dict_entry_elements": 201483,
+    "state_dict_logical_payload_bytes": 805932,
+    "serialized_file_bytes": null,
+    "payload_note": "logical entries; aliases may share storage; not serialized file size"
+  },
+  "shared_tensor_reconciliation": [
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.pre_norm.weight",
+      "expected_shape": [
+        256
+      ],
+      "inventory_count": 256,
+      "actual_shape": [
+        256
+      ],
+      "actual_count": 256,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.in_proj.weight",
+      "expected_shape": [
+        1160,
+        256
+      ],
+      "inventory_count": 296960,
+      "actual_shape": [
+        1160,
+        256
+      ],
+      "actual_count": 296960,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.conv.weight",
+      "expected_shape": [
+        640,
+        1,
+        4
+      ],
+      "inventory_count": 2560,
+      "actual_shape": [
+        640,
+        1,
+        4
+      ],
+      "actual_count": 2560,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.conv.bias",
+      "expected_shape": [
+        640
+      ],
+      "inventory_count": 640,
+      "actual_shape": [
+        640
+      ],
+      "actual_count": 640,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.dt_bias",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.A_log",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.D",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.gated_norm.weight",
+      "expected_shape": [
+        512
+      ],
+      "inventory_count": 512,
+      "actual_shape": [
+        512
+      ],
+      "actual_count": 512,
+      "difference": 0
+    },
+    {
+      "layer": 0,
+      "tensor_name": "layers.0.out_proj.weight",
+      "expected_shape": [
+        256,
+        512
+      ],
+      "inventory_count": 131072,
+      "actual_shape": [
+        256,
+        512
+      ],
+      "actual_count": 131072,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.pre_norm.weight",
+      "expected_shape": [
+        256
+      ],
+      "inventory_count": 256,
+      "actual_shape": [
+        256
+      ],
+      "actual_count": 256,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.in_proj.weight",
+      "expected_shape": [
+        1160,
+        256
+      ],
+      "inventory_count": 296960,
+      "actual_shape": [
+        1160,
+        256
+      ],
+      "actual_count": 296960,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.conv.weight",
+      "expected_shape": [
+        640,
+        1,
+        4
+      ],
+      "inventory_count": 2560,
+      "actual_shape": [
+        640,
+        1,
+        4
+      ],
+      "actual_count": 2560,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.conv.bias",
+      "expected_shape": [
+        640
+      ],
+      "inventory_count": 640,
+      "actual_shape": [
+        640
+      ],
+      "actual_count": 640,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.dt_bias",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.A_log",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.D",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.gated_norm.weight",
+      "expected_shape": [
+        512
+      ],
+      "inventory_count": 512,
+      "actual_shape": [
+        512
+      ],
+      "actual_count": 512,
+      "difference": 0
+    },
+    {
+      "layer": 1,
+      "tensor_name": "layers.1.out_proj.weight",
+      "expected_shape": [
+        256,
+        512
+      ],
+      "inventory_count": 131072,
+      "actual_shape": [
+        256,
+        512
+      ],
+      "actual_count": 131072,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.pre_norm.weight",
+      "expected_shape": [
+        256
+      ],
+      "inventory_count": 256,
+      "actual_shape": [
+        256
+      ],
+      "actual_count": 256,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.in_proj.weight",
+      "expected_shape": [
+        1160,
+        256
+      ],
+      "inventory_count": 296960,
+      "actual_shape": [
+        1160,
+        256
+      ],
+      "actual_count": 296960,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.conv.weight",
+      "expected_shape": [
+        640,
+        1,
+        4
+      ],
+      "inventory_count": 2560,
+      "actual_shape": [
+        640,
+        1,
+        4
+      ],
+      "actual_count": 2560,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.conv.bias",
+      "expected_shape": [
+        640
+      ],
+      "inventory_count": 640,
+      "actual_shape": [
+        640
+      ],
+      "actual_count": 640,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.dt_bias",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.A_log",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.D",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.gated_norm.weight",
+      "expected_shape": [
+        512
+      ],
+      "inventory_count": 512,
+      "actual_shape": [
+        512
+      ],
+      "actual_count": 512,
+      "difference": 0
+    },
+    {
+      "layer": 2,
+      "tensor_name": "layers.2.out_proj.weight",
+      "expected_shape": [
+        256,
+        512
+      ],
+      "inventory_count": 131072,
+      "actual_shape": [
+        256,
+        512
+      ],
+      "actual_count": 131072,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.pre_norm.weight",
+      "expected_shape": [
+        256
+      ],
+      "inventory_count": 256,
+      "actual_shape": [
+        256
+      ],
+      "actual_count": 256,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.in_proj.weight",
+      "expected_shape": [
+        1160,
+        256
+      ],
+      "inventory_count": 296960,
+      "actual_shape": [
+        1160,
+        256
+      ],
+      "actual_count": 296960,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.conv.weight",
+      "expected_shape": [
+        640,
+        1,
+        4
+      ],
+      "inventory_count": 2560,
+      "actual_shape": [
+        640,
+        1,
+        4
+      ],
+      "actual_count": 2560,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.conv.bias",
+      "expected_shape": [
+        640
+      ],
+      "inventory_count": 640,
+      "actual_shape": [
+        640
+      ],
+      "actual_count": 640,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.dt_bias",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.A_log",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.D",
+      "expected_shape": [
+        8
+      ],
+      "inventory_count": 8,
+      "actual_shape": [
+        8
+      ],
+      "actual_count": 8,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.gated_norm.weight",
+      "expected_shape": [
+        512
+      ],
+      "inventory_count": 512,
+      "actual_shape": [
+        512
+      ],
+      "actual_count": 512,
+      "difference": 0
+    },
+    {
+      "layer": 3,
+      "tensor_name": "layers.3.out_proj.weight",
+      "expected_shape": [
+        256,
+        512
+      ],
+      "inventory_count": 131072,
+      "actual_shape": [
+        256,
+        512
+      ],
+      "actual_count": 131072,
+      "difference": 0
+    }
+  ],
+  "actual_recurrent_state": [
+    {
+      "batch": 1,
+      "ssm": {
+        "elements": 131072,
+        "tensor_bytes": 524288,
+        "storage_bytes": 524288,
+        "per_layer_shape": [
+          1,
+          8,
+          64,
+          64
+        ]
+      },
+      "conv": {
+        "elements": 10240,
+        "tensor_bytes": 40960,
+        "storage_bytes": 40960,
+        "per_layer_shape": [
+          1,
+          640,
+          4
+        ]
+      },
+      "combined_bytes": 565248
+    },
+    {
+      "batch": 2,
+      "ssm": {
+        "elements": 262144,
+        "tensor_bytes": 1048576,
+        "storage_bytes": 1048576,
+        "per_layer_shape": [
+          2,
+          8,
+          64,
+          64
+        ]
+      },
+      "conv": {
+        "elements": 20480,
+        "tensor_bytes": 81920,
+        "storage_bytes": 81920,
+        "per_layer_shape": [
+          2,
+          640,
+          4
+        ]
+      },
+      "combined_bytes": 1130496
+    },
+    {
+      "batch": 4,
+      "ssm": {
+        "elements": 524288,
+        "tensor_bytes": 2097152,
+        "storage_bytes": 2097152,
+        "per_layer_shape": [
+          4,
+          8,
+          64,
+          64
+        ]
+      },
+      "conv": {
+        "elements": 40960,
+        "tensor_bytes": 163840,
+        "storage_bytes": 163840,
+        "per_layer_shape": [
+          4,
+          640,
+          4
+        ]
+      },
+      "combined_bytes": 2260992
+    }
+  ],
+  "overall_runtime_memory": "UNKNOWN_REQUIRES_MEASUREMENT",
+  "recurrence_measurements": [
+    {
+      "seed": 7,
+      "batch": 1,
+      "lengths": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        31,
+        32
+      ],
+      "full_vs_step": {
+        "max_abs": 2.9802322387695312e-06,
+        "max_relative": 0.036363635212183
+      },
+      "state_full_vs_step": {
+        "max_abs": 1.3113021850585938e-06,
+        "max_relative": 0.14634427428245544
+      },
+      "chunk_split": {
+        "max_abs": 2.5033950805664062e-06,
+        "max_relative": 0.025757575407624245
+      },
+      "serialized_resume_vs_same_split": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "fp64_equation_oracle": {
+        "max_abs": 1.3675449236361104e-06,
+        "max_relative": 5.1562274362041636e-05
+      },
+      "max_state_l2_norm": 30.334997177124023,
+      "max_abs_recurrent_tensor": 2.8499770164489746
+    },
+    {
+      "seed": 29,
+      "batch": 2,
+      "lengths": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        31,
+        32
+      ],
+      "full_vs_step": {
+        "max_abs": 3.2186508178710938e-06,
+        "max_relative": 0.04827586188912392
+      },
+      "state_full_vs_step": {
+        "max_abs": 1.3113021850585938e-06,
+        "max_relative": 0.07688667625188828
+      },
+      "chunk_split": {
+        "max_abs": 2.3245811462402344e-06,
+        "max_relative": 0.01101591158658266
+      },
+      "serialized_resume_vs_same_split": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "fp64_equation_oracle": {
+        "max_abs": 1.6897558374751043e-06,
+        "max_relative": 0.00014114068211831807
+      },
+      "max_state_l2_norm": 42.62202835083008,
+      "max_abs_recurrent_tensor": 2.690392255783081
+    },
+    {
+      "seed": 101,
+      "batch": 4,
+      "lengths": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        31,
+        32
+      ],
+      "full_vs_step": {
+        "max_abs": 2.205371856689453e-06,
+        "max_relative": 0.014989293180406094
+      },
+      "state_full_vs_step": {
+        "max_abs": 1.2516975402832031e-06,
+        "max_relative": 0.1786922663450241
+      },
+      "chunk_split": {
+        "max_abs": 1.9073486328125e-06,
+        "max_relative": 0.03550295904278755
+      },
+      "serialized_resume_vs_same_split": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "fp64_equation_oracle": {
+        "max_abs": 1.8850363225908495e-06,
+        "max_relative": 0.0012287421775476124
+      },
+      "max_state_l2_norm": 59.6529655456543,
+      "max_abs_recurrent_tensor": 2.979109525680542
+    }
+  ],
+  "integration_measurements": [
+    {
+      "seed": 3,
+      "batch": 1,
+      "byte_length": 137,
+      "mutation_indices": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        62,
+        63,
+        64,
+        65,
+        126,
+        127,
+        128,
+        129
+      ],
+      "full_vs_step": {
+        "max_abs": 1.9073486328125e-06,
+        "max_relative": 0.005828586407005787
+      },
+      "future_suffix_prefix_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "restored_prefix_prediction_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "serialized_continuation_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "serialized_final_recurrent_state_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "max_abs_admissible_logit": 2.5197300910949707
+    },
+    {
+      "seed": 37,
+      "batch": 2,
+      "byte_length": 137,
+      "mutation_indices": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        62,
+        63,
+        64,
+        65,
+        126,
+        127,
+        128,
+        129
+      ],
+      "full_vs_step": {
+        "max_abs": 2.2649765014648438e-06,
+        "max_relative": 0.02926829271018505
+      },
+      "future_suffix_prefix_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "restored_prefix_prediction_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "serialized_continuation_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "serialized_final_recurrent_state_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "max_abs_admissible_logit": 2.34411358833313
+    },
+    {
+      "seed": 79,
+      "batch": 1,
+      "byte_length": 137,
+      "mutation_indices": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        62,
+        63,
+        64,
+        65,
+        126,
+        127,
+        128,
+        129
+      ],
+      "full_vs_step": {
+        "max_abs": 2.086162567138672e-06,
+        "max_relative": 0.0036137879360467196
+      },
+      "future_suffix_prefix_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "restored_prefix_prediction_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "serialized_continuation_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "serialized_final_recurrent_state_error": {
+        "max_abs": 0.0,
+        "max_relative": 0.0
+      },
+      "max_abs_admissible_logit": 2.36334228515625
+    }
+  ],
+  "gradient_measurements": [
+    {
+      "seed": 13,
+      "loss": 5.7792887687683105,
+      "parameter_tensors": {
+        "hierarchy.embedding.symbols.weight": {
+          "l2_norm": 0.06931407004594803,
+          "max_abs": 0.00872998870909214
+        },
+        "hierarchy.embedding.positions.weight": {
+          "l2_norm": 0.05778694525361061,
+          "max_abs": 0.010440086014568806
+        },
+        "hierarchy.encoder.conv.weight": {
+          "l2_norm": 0.15699036419391632,
+          "max_abs": 0.035600025206804276
+        },
+        "hierarchy.encoder.conv.bias": {
+          "l2_norm": 0.0936385989189148,
+          "max_abs": 0.029297295957803726
+        },
+        "hierarchy.encoder.gate.weight": {
+          "l2_norm": 0.8370788097381592,
+          "max_abs": 0.09466134756803513
+        },
+        "hierarchy.encoder.gate.bias": {
+          "l2_norm": 0.17709486186504364,
+          "max_abs": 0.08261117339134216
+        },
+        "hierarchy.encoder.norm.weight": {
+          "l2_norm": 0.053217194974422455,
+          "max_abs": 0.04116964712738991
+        },
+        "hierarchy.encoder.projection.weight": {
+          "l2_norm": 0.6817321181297302,
+          "max_abs": 0.050781384110450745
+        },
+        "hierarchy.encoder.projection.bias": {
+          "l2_norm": 0.19267520308494568,
+          "max_abs": 0.03328670561313629
+        },
+        "hierarchy.decoder.context.weight": {
+          "l2_norm": 1.3079646825790405,
+          "max_abs": 0.049349479377269745
+        },
+        "hierarchy.decoder.context.bias": {
+          "l2_norm": 0.06852017343044281,
+          "max_abs": 0.01598883420228958
+        },
+        "hierarchy.decoder.gru.weight_ih": {
+          "l2_norm": 1.4215002059936523,
+          "max_abs": 0.08757609874010086
+        },
+        "hierarchy.decoder.gru.weight_hh": {
+          "l2_norm": 0.33773064613342285,
+          "max_abs": 0.011728937737643719
+        },
+        "hierarchy.decoder.gru.bias_ih": {
+          "l2_norm": 0.1855553835630417,
+          "max_abs": 0.047861527651548386
+        },
+        "hierarchy.decoder.gru.bias_hh": {
+          "l2_norm": 0.10226338356733322,
+          "max_abs": 0.024696296080946922
+        },
+        "hierarchy.decoder.norm.weight": {
+          "l2_norm": 0.08451952040195465,
+          "max_abs": 0.018616126850247383
+        },
+        "hierarchy.output.weight": {
+          "l2_norm": 1.6130696535110474,
+          "max_abs": 0.08520424365997314
+        },
+        "hierarchy.output.bias": {
+          "l2_norm": 0.14298151433467865,
+          "max_abs": 0.03773060441017151
+        },
+        "hierarchy.bootstrap.weight": {
+          "l2_norm": 0.4986168146133423,
+          "max_abs": 0.03177247196435928
+        },
+        "hierarchy.bootstrap.bias": {
+          "l2_norm": 0.06133629381656647,
+          "max_abs": 0.012029317207634449
+        },
+        "shared.layers.0.dt_bias": {
+          "l2_norm": 0.00027784641133621335,
+          "max_abs": 0.0001982612448045984
+        },
+        "shared.layers.0.A_log": {
+          "l2_norm": 4.486179750529118e-05,
+          "max_abs": 3.534262941684574e-05
+        },
+        "shared.layers.0.D": {
+          "l2_norm": 0.04307514801621437,
+          "max_abs": 0.025256270542740822
+        },
+        "shared.layers.0.pre_norm.weight": {
+          "l2_norm": 0.055692680180072784,
+          "max_abs": 0.014408263377845287
+        },
+        "shared.layers.0.in_proj.weight": {
+          "l2_norm": 1.5319582223892212,
+          "max_abs": 0.060673829168081284
+        },
+        "shared.layers.0.conv.weight": {
+          "l2_norm": 0.10723960399627686,
+          "max_abs": 0.027816202491521835
+        },
+        "shared.layers.0.conv.bias": {
+          "l2_norm": 0.12049489468336105,
+          "max_abs": 0.035028472542762756
+        },
+        "shared.layers.0.gated_norm.weight": {
+          "l2_norm": 0.0490238219499588,
+          "max_abs": 0.017760109156370163
+        },
+        "shared.layers.0.out_proj.weight": {
+          "l2_norm": 1.8964654207229614,
+          "max_abs": 0.09296112507581711
+        },
+        "shared.layers.1.dt_bias": {
+          "l2_norm": 0.00026201034779660404,
+          "max_abs": 0.00020202175073791295
+        },
+        "shared.layers.1.A_log": {
+          "l2_norm": 2.411357309028972e-05,
+          "max_abs": 1.786597385944333e-05
+        },
+        "shared.layers.1.D": {
+          "l2_norm": 0.0354180783033371,
+          "max_abs": 0.020472558215260506
+        },
+        "shared.layers.1.pre_norm.weight": {
+          "l2_norm": 0.03902768716216087,
+          "max_abs": 0.008403465151786804
+        },
+        "shared.layers.1.in_proj.weight": {
+          "l2_norm": 1.1271357536315918,
+          "max_abs": 0.04134650528430939
+        },
+        "shared.layers.1.conv.weight": {
+          "l2_norm": 0.0846952274441719,
+          "max_abs": 0.03603503480553627
+        },
+        "shared.layers.1.conv.bias": {
+          "l2_norm": 0.09890570491552353,
+          "max_abs": 0.03504884988069534
+        },
+        "shared.layers.1.gated_norm.weight": {
+          "l2_norm": 0.032700274139642715,
+          "max_abs": 0.012388015165925026
+        },
+        "shared.layers.1.out_proj.weight": {
+          "l2_norm": 1.3065871000289917,
+          "max_abs": 0.05022706463932991
+        },
+        "shared.layers.2.dt_bias": {
+          "l2_norm": 0.000241516376263462,
+          "max_abs": 0.00023132975911721587
+        },
+        "shared.layers.2.A_log": {
+          "l2_norm": 1.7248332369490527e-05,
+          "max_abs": 1.5940884622978047e-05
+        },
+        "shared.layers.2.D": {
+          "l2_norm": 0.025529665872454643,
+          "max_abs": 0.015217294916510582
+        },
+        "shared.layers.2.pre_norm.weight": {
+          "l2_norm": 0.03499191254377365,
+          "max_abs": 0.009656719863414764
+        },
+        "shared.layers.2.in_proj.weight": {
+          "l2_norm": 0.8830721974372864,
+          "max_abs": 0.030966078862547874
+        },
+        "shared.layers.2.conv.weight": {
+          "l2_norm": 0.061579786241054535,
+          "max_abs": 0.01837564818561077
+        },
+        "shared.layers.2.conv.bias": {
+          "l2_norm": 0.07175509631633759,
+          "max_abs": 0.014337560161948204
+        },
+        "shared.layers.2.gated_norm.weight": {
+          "l2_norm": 0.027513086795806885,
+          "max_abs": 0.007701928727328777
+        },
+        "shared.layers.2.out_proj.weight": {
+          "l2_norm": 0.9926590919494629,
+          "max_abs": 0.03689177706837654
+        },
+        "shared.layers.3.dt_bias": {
+          "l2_norm": 0.00022129355056677014,
+          "max_abs": 0.00016772354138083756
+        },
+        "shared.layers.3.A_log": {
+          "l2_norm": 2.6514908313401975e-05,
+          "max_abs": 1.8551269022282213e-05
+        },
+        "shared.layers.3.D": {
+          "l2_norm": 0.010438328608870506,
+          "max_abs": 0.006393848918378353
+        },
+        "shared.layers.3.pre_norm.weight": {
+          "l2_norm": 0.024972088634967804,
+          "max_abs": 0.0059551699087023735
+        },
+        "shared.layers.3.in_proj.weight": {
+          "l2_norm": 0.6994301676750183,
+          "max_abs": 0.02309916354715824
+        },
+        "shared.layers.3.conv.weight": {
+          "l2_norm": 0.04506215825676918,
+          "max_abs": 0.008690052665770054
+        },
+        "shared.layers.3.conv.bias": {
+          "l2_norm": 0.05564778670668602,
+          "max_abs": 0.017507433891296387
+        },
+        "shared.layers.3.gated_norm.weight": {
+          "l2_norm": 0.019914895296096802,
+          "max_abs": 0.007128922734409571
+        },
+        "shared.layers.3.out_proj.weight": {
+          "l2_norm": 0.8722959756851196,
+          "max_abs": 0.03323571756482124
+        }
+      }
+    },
+    {
+      "seed": 59,
+      "loss": 5.549368381500244,
+      "parameter_tensors": {
+        "hierarchy.embedding.symbols.weight": {
+          "l2_norm": 0.08409257978200912,
+          "max_abs": 0.01300297025591135
+        },
+        "hierarchy.embedding.positions.weight": {
+          "l2_norm": 0.07271251827478409,
+          "max_abs": 0.011879108846187592
+        },
+        "hierarchy.encoder.conv.weight": {
+          "l2_norm": 0.19276036322116852,
+          "max_abs": 0.05238580331206322
+        },
+        "hierarchy.encoder.conv.bias": {
+          "l2_norm": 0.09302571415901184,
+          "max_abs": 0.026688765734434128
+        },
+        "hierarchy.encoder.gate.weight": {
+          "l2_norm": 1.0213675498962402,
+          "max_abs": 0.08480002731084824
+        },
+        "hierarchy.encoder.gate.bias": {
+          "l2_norm": 0.196792334318161,
+          "max_abs": 0.07446138560771942
+        },
+        "hierarchy.encoder.norm.weight": {
+          "l2_norm": 0.046665921807289124,
+          "max_abs": 0.01871485263109207
+        },
+        "hierarchy.encoder.projection.weight": {
+          "l2_norm": 0.7806451916694641,
+          "max_abs": 0.04726925492286682
+        },
+        "hierarchy.encoder.projection.bias": {
+          "l2_norm": 0.2425260841846466,
+          "max_abs": 0.04230989143252373
+        },
+        "hierarchy.decoder.context.weight": {
+          "l2_norm": 1.3534586429595947,
+          "max_abs": 0.040476150810718536
+        },
+        "hierarchy.decoder.context.bias": {
+          "l2_norm": 0.0717659667134285,
+          "max_abs": 0.017828848212957382
+        },
+        "hierarchy.decoder.gru.weight_ih": {
+          "l2_norm": 1.5424151420593262,
+          "max_abs": 0.06679229438304901
+        },
+        "hierarchy.decoder.gru.weight_hh": {
+          "l2_norm": 0.33377793431282043,
+          "max_abs": 0.012400862760841846
+        },
+        "hierarchy.decoder.gru.bias_ih": {
+          "l2_norm": 0.19189025461673737,
+          "max_abs": 0.04595843330025673
+        },
+        "hierarchy.decoder.gru.bias_hh": {
+          "l2_norm": 0.10046610981225967,
+          "max_abs": 0.021859951317310333
+        },
+        "hierarchy.decoder.norm.weight": {
+          "l2_norm": 0.0773366317152977,
+          "max_abs": 0.022165771573781967
+        },
+        "hierarchy.output.weight": {
+          "l2_norm": 1.603506088256836,
+          "max_abs": 0.09359011799097061
+        },
+        "hierarchy.output.bias": {
+          "l2_norm": 0.14469531178474426,
+          "max_abs": 0.0372714139521122
+        },
+        "hierarchy.bootstrap.weight": {
+          "l2_norm": 0.6832619309425354,
+          "max_abs": 0.03711571544408798
+        },
+        "hierarchy.bootstrap.bias": {
+          "l2_norm": 0.0875396877527237,
+          "max_abs": 0.01517665944993496
+        },
+        "shared.layers.0.dt_bias": {
+          "l2_norm": 0.000368080276530236,
+          "max_abs": 0.00035217663389630616
+        },
+        "shared.layers.0.A_log": {
+          "l2_norm": 1.4739430298504885e-05,
+          "max_abs": 1.1042186997656245e-05
+        },
+        "shared.layers.0.D": {
+          "l2_norm": 0.03895724564790726,
+          "max_abs": 0.0221894308924675
+        },
+        "shared.layers.0.pre_norm.weight": {
+          "l2_norm": 0.07100945711135864,
+          "max_abs": 0.018935326486825943
+        },
+        "shared.layers.0.in_proj.weight": {
+          "l2_norm": 1.987022876739502,
+          "max_abs": 0.08944035321474075
+        },
+        "shared.layers.0.conv.weight": {
+          "l2_norm": 0.14394502341747284,
+          "max_abs": 0.044410500675439835
+        },
+        "shared.layers.0.conv.bias": {
+          "l2_norm": 0.15547962486743927,
+          "max_abs": 0.034950003027915955
+        },
+        "shared.layers.0.gated_norm.weight": {
+          "l2_norm": 0.05570616573095322,
+          "max_abs": 0.02243536338210106
+        },
+        "shared.layers.0.out_proj.weight": {
+          "l2_norm": 2.1190989017486572,
+          "max_abs": 0.07658009976148605
+        },
+        "shared.layers.1.dt_bias": {
+          "l2_norm": 0.00016402862092945725,
+          "max_abs": 0.00011829087452497333
+        },
+        "shared.layers.1.A_log": {
+          "l2_norm": 1.621370029170066e-05,
+          "max_abs": 1.022587366605876e-05
+        },
+        "shared.layers.1.D": {
+          "l2_norm": 0.021489890292286873,
+          "max_abs": 0.014545813202857971
+        },
+        "shared.layers.1.pre_norm.weight": {
+          "l2_norm": 0.04335084930062294,
+          "max_abs": 0.008550598286092281
+        },
+        "shared.layers.1.in_proj.weight": {
+          "l2_norm": 1.2859864234924316,
+          "max_abs": 0.05083677917718887
+        },
+        "shared.layers.1.conv.weight": {
+          "l2_norm": 0.09202265739440918,
+          "max_abs": 0.03148213401436806
+        },
+        "shared.layers.1.conv.bias": {
+          "l2_norm": 0.10299254208803177,
+          "max_abs": 0.021965304389595985
+        },
+        "shared.layers.1.gated_norm.weight": {
+          "l2_norm": 0.03755876049399376,
+          "max_abs": 0.011725977063179016
+        },
+        "shared.layers.1.out_proj.weight": {
+          "l2_norm": 1.4525747299194336,
+          "max_abs": 0.06894524395465851
+        },
+        "shared.layers.2.dt_bias": {
+          "l2_norm": 0.0002968652406707406,
+          "max_abs": 0.00019052857533097267
+        },
+        "shared.layers.2.A_log": {
+          "l2_norm": 3.8177549868123606e-05,
+          "max_abs": 3.693866528919898e-05
+        },
+        "shared.layers.2.D": {
+          "l2_norm": 0.022330686450004578,
+          "max_abs": 0.018841546028852463
+        },
+        "shared.layers.2.pre_norm.weight": {
+          "l2_norm": 0.038753096014261246,
+          "max_abs": 0.012258163653314114
+        },
+        "shared.layers.2.in_proj.weight": {
+          "l2_norm": 0.9947470426559448,
+          "max_abs": 0.058722905814647675
+        },
+        "shared.layers.2.conv.weight": {
+          "l2_norm": 0.06024355813860893,
+          "max_abs": 0.01279991865158081
+        },
+        "shared.layers.2.conv.bias": {
+          "l2_norm": 0.08194781094789505,
+          "max_abs": 0.037332095205783844
+        },
+        "shared.layers.2.gated_norm.weight": {
+          "l2_norm": 0.02747867815196514,
+          "max_abs": 0.008154762908816338
+        },
+        "shared.layers.2.out_proj.weight": {
+          "l2_norm": 1.0875470638275146,
+          "max_abs": 0.0540335439145565
+        },
+        "shared.layers.3.dt_bias": {
+          "l2_norm": 0.0007861839258112013,
+          "max_abs": 0.0007669345359317958
+        },
+        "shared.layers.3.A_log": {
+          "l2_norm": 5.31823025085032e-06,
+          "max_abs": 4.84776182929636e-06
+        },
+        "shared.layers.3.D": {
+          "l2_norm": 0.016046324744820595,
+          "max_abs": 0.011253979057073593
+        },
+        "shared.layers.3.pre_norm.weight": {
+          "l2_norm": 0.029747994616627693,
+          "max_abs": 0.00791697483509779
+        },
+        "shared.layers.3.in_proj.weight": {
+          "l2_norm": 0.8133358955383301,
+          "max_abs": 0.027434661984443665
+        },
+        "shared.layers.3.conv.weight": {
+          "l2_norm": 0.05118636414408684,
+          "max_abs": 0.013516979292035103
+        },
+        "shared.layers.3.conv.bias": {
+          "l2_norm": 0.06558423489332199,
+          "max_abs": 0.019823411479592323
+        },
+        "shared.layers.3.gated_norm.weight": {
+          "l2_norm": 0.026062708348035812,
+          "max_abs": 0.010076633654534817
+        },
+        "shared.layers.3.out_proj.weight": {
+          "l2_norm": 0.9302133321762085,
+          "max_abs": 0.04480524733662605
+        }
+      }
+    },
+    {
+      "seed": 97,
+      "loss": 5.8581342697143555,
+      "parameter_tensors": {
+        "hierarchy.embedding.symbols.weight": {
+          "l2_norm": 0.07718255370855331,
+          "max_abs": 0.009269999340176582
+        },
+        "hierarchy.embedding.positions.weight": {
+          "l2_norm": 0.0728239193558693,
+          "max_abs": 0.01265689730644226
+        },
+        "hierarchy.encoder.conv.weight": {
+          "l2_norm": 0.16380815207958221,
+          "max_abs": 0.035196490585803986
+        },
+        "hierarchy.encoder.conv.bias": {
+          "l2_norm": 0.10593483597040176,
+          "max_abs": 0.03638862073421478
+        },
+        "hierarchy.encoder.gate.weight": {
+          "l2_norm": 1.0364947319030762,
+          "max_abs": 0.07744579017162323
+        },
+        "hierarchy.encoder.gate.bias": {
+          "l2_norm": 0.22545857727527618,
+          "max_abs": 0.0726688951253891
+        },
+        "hierarchy.encoder.norm.weight": {
+          "l2_norm": 0.04671848192811012,
+          "max_abs": 0.018773602321743965
+        },
+        "hierarchy.encoder.projection.weight": {
+          "l2_norm": 0.6821068525314331,
+          "max_abs": 0.0418090745806694
+        },
+        "hierarchy.encoder.projection.bias": {
+          "l2_norm": 0.21203114092350006,
+          "max_abs": 0.046831924468278885
+        },
+        "hierarchy.decoder.context.weight": {
+          "l2_norm": 1.2376965284347534,
+          "max_abs": 0.0457875095307827
+        },
+        "hierarchy.decoder.context.bias": {
+          "l2_norm": 0.06537722796201706,
+          "max_abs": 0.018383894115686417
+        },
+        "hierarchy.decoder.gru.weight_ih": {
+          "l2_norm": 1.57294499874115,
+          "max_abs": 0.08855032175779343
+        },
+        "hierarchy.decoder.gru.weight_hh": {
+          "l2_norm": 0.3533795177936554,
+          "max_abs": 0.013183127157390118
+        },
+        "hierarchy.decoder.gru.bias_ih": {
+          "l2_norm": 0.20299112796783447,
+          "max_abs": 0.06205711141228676
+        },
+        "hierarchy.decoder.gru.bias_hh": {
+          "l2_norm": 0.10319474339485168,
+          "max_abs": 0.027134690433740616
+        },
+        "hierarchy.decoder.norm.weight": {
+          "l2_norm": 0.09352552890777588,
+          "max_abs": 0.021634014323353767
+        },
+        "hierarchy.output.weight": {
+          "l2_norm": 1.6230337619781494,
+          "max_abs": 0.08941870182752609
+        },
+        "hierarchy.output.bias": {
+          "l2_norm": 0.14379242062568665,
+          "max_abs": 0.0376708023250103
+        },
+        "hierarchy.bootstrap.weight": {
+          "l2_norm": 0.5220448970794678,
+          "max_abs": 0.030909758061170578
+        },
+        "hierarchy.bootstrap.bias": {
+          "l2_norm": 0.05726984888315201,
+          "max_abs": 0.008982015773653984
+        },
+        "shared.layers.0.dt_bias": {
+          "l2_norm": 0.0002624444314278662,
+          "max_abs": 0.00022710621124133468
+        },
+        "shared.layers.0.A_log": {
+          "l2_norm": 9.350277832709253e-05,
+          "max_abs": 7.432826532749459e-05
+        },
+        "shared.layers.0.D": {
+          "l2_norm": 0.05143965035676956,
+          "max_abs": 0.04120001196861267
+        },
+        "shared.layers.0.pre_norm.weight": {
+          "l2_norm": 0.05386105179786682,
+          "max_abs": 0.0136032123118639
+        },
+        "shared.layers.0.in_proj.weight": {
+          "l2_norm": 1.5264300107955933,
+          "max_abs": 0.0753452479839325
+        },
+        "shared.layers.0.conv.weight": {
+          "l2_norm": 0.09861458837985992,
+          "max_abs": 0.03516542166471481
+        },
+        "shared.layers.0.conv.bias": {
+          "l2_norm": 0.11557848751544952,
+          "max_abs": 0.03478679060935974
+        },
+        "shared.layers.0.gated_norm.weight": {
+          "l2_norm": 0.047356970608234406,
+          "max_abs": 0.02575680986046791
+        },
+        "shared.layers.0.out_proj.weight": {
+          "l2_norm": 1.8549429178237915,
+          "max_abs": 0.08975881338119507
+        },
+        "shared.layers.1.dt_bias": {
+          "l2_norm": 0.00029324457864277065,
+          "max_abs": 0.0002602418535389006
+        },
+        "shared.layers.1.A_log": {
+          "l2_norm": 0.00013809242227580398,
+          "max_abs": 0.00010857062443392351
+        },
+        "shared.layers.1.D": {
+          "l2_norm": 0.02574569173157215,
+          "max_abs": 0.019197093322873116
+        },
+        "shared.layers.1.pre_norm.weight": {
+          "l2_norm": 0.035247430205345154,
+          "max_abs": 0.008239494636654854
+        },
+        "shared.layers.1.in_proj.weight": {
+          "l2_norm": 1.1228737831115723,
+          "max_abs": 0.036430537700653076
+        },
+        "shared.layers.1.conv.weight": {
+          "l2_norm": 0.08117564767599106,
+          "max_abs": 0.030878286808729172
+        },
+        "shared.layers.1.conv.bias": {
+          "l2_norm": 0.09848079085350037,
+          "max_abs": 0.030666902661323547
+        },
+        "shared.layers.1.gated_norm.weight": {
+          "l2_norm": 0.03527628257870674,
+          "max_abs": 0.015824012458324432
+        },
+        "shared.layers.1.out_proj.weight": {
+          "l2_norm": 1.304510235786438,
+          "max_abs": 0.0613255612552166
+        },
+        "shared.layers.2.dt_bias": {
+          "l2_norm": 0.00013799997395835817,
+          "max_abs": 0.0001316943089477718
+        },
+        "shared.layers.2.A_log": {
+          "l2_norm": 2.61619843513472e-05,
+          "max_abs": 2.4508855858584866e-05
+        },
+        "shared.layers.2.D": {
+          "l2_norm": 0.013213139027357101,
+          "max_abs": 0.008395757526159286
+        },
+        "shared.layers.2.pre_norm.weight": {
+          "l2_norm": 0.030584678053855896,
+          "max_abs": 0.007476069964468479
+        },
+        "shared.layers.2.in_proj.weight": {
+          "l2_norm": 0.8839122653007507,
+          "max_abs": 0.030797850340604782
+        },
+        "shared.layers.2.conv.weight": {
+          "l2_norm": 0.057402897626161575,
+          "max_abs": 0.010271645151078701
+        },
+        "shared.layers.2.conv.bias": {
+          "l2_norm": 0.0720452144742012,
+          "max_abs": 0.014412240125238895
+        },
+        "shared.layers.2.gated_norm.weight": {
+          "l2_norm": 0.025483785197138786,
+          "max_abs": 0.007673329208046198
+        },
+        "shared.layers.2.out_proj.weight": {
+          "l2_norm": 1.030639410018921,
+          "max_abs": 0.04669779911637306
+        },
+        "shared.layers.3.dt_bias": {
+          "l2_norm": 0.0002633121039252728,
+          "max_abs": 0.00019376465934328735
+        },
+        "shared.layers.3.A_log": {
+          "l2_norm": 4.5223314373288304e-05,
+          "max_abs": 3.255179399275221e-05
+        },
+        "shared.layers.3.D": {
+          "l2_norm": 0.021399177610874176,
+          "max_abs": 0.01321089081466198
+        },
+        "shared.layers.3.pre_norm.weight": {
+          "l2_norm": 0.025782164186239243,
+          "max_abs": 0.00793463084846735
+        },
+        "shared.layers.3.in_proj.weight": {
+          "l2_norm": 0.7643029093742371,
+          "max_abs": 0.025216063484549522
+        },
+        "shared.layers.3.conv.weight": {
+          "l2_norm": 0.04856230691075325,
+          "max_abs": 0.012900369241833687
+        },
+        "shared.layers.3.conv.bias": {
+          "l2_norm": 0.05531641095876694,
+          "max_abs": 0.011611505411565304
+        },
+        "shared.layers.3.gated_norm.weight": {
+          "l2_norm": 0.020479852333664894,
+          "max_abs": 0.004535498563200235
+        },
+        "shared.layers.3.out_proj.weight": {
+          "l2_norm": 0.8433901071548462,
+          "max_abs": 0.027075212448835373
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "src/unified_edge/__init__.py": "d17df431bd1fdcc4aaed4826250a71c6c5cf238fae1a61a1c589eb4623f79d32",
+    "src/unified_edge/byte_hierarchy.py": "fce726593d04b3d99158a12653a0aaa5789bbad7bcaf3f1546db073396c1f2ed",
+    "src/unified_edge/byte_layers.py": "8cfabe734c1ccab6bb463c42c7e10b498692de4c94e82ee29b0926b18bab4a7d",
+    "src/unified_edge/cli.py": "9eba733a5d8be26cf3b8c8253a4407bcb2912529e83685428602dcb355425cb0",
+    "src/unified_edge/config.py": "0ec93d74ae5eb3e493cd435635e71a458655a50e4924a26078871f2e4a19b20f",
+    "src/unified_edge/dense_model.py": "90f77bdac9eb9ac1bafd22a0cf9a543d5a7ea691d97680dc3f21fd2520861562",
+    "src/unified_edge/mamba.py": "b30f120b9693b0983395e393fcfc1e49d4e9f47f5e6553bd45723dfeda8a0017",
+    "src/unified_edge/parameters.py": "eb15ce2ceba09a25b7d75959d7291bc1742d88362b666a0037dd268d782b7dda",
+    "src/unified_edge/preflight.py": "e8e5f5fd9f334ba708911869a4c3bb9e5cb2155270a071727c61ac74b1dcaf44",
+    "src/unified_edge/resolve.py": "c111d266dab2a9135cd99a5a0d95699b257e56d7d569cddef3b15bdcc9b6e4cd",
+    "src/unified_edge/symbols.py": "955fba05b6a7b058a34250146d10a9bf00d6811787b7758def8de63b35f2897e",
+    "tests/measure_mamba.py": "5bf3c7b7d22a767b7505e05f331df48af0cc2d26d53966adae08a80bb1831e86",
+    "tests/test_accounting.py": "3305a90bbfb05d7f5f2e5064653e5aaa7765dbf19daa7e47d29213967da372b9",
+    "tests/test_byte_hierarchy.py": "397aa4ae40bbe2c1e3135fcbcf13e1e3c7ded6ea4d0722e1744cdc3cf5dd69db",
+    "tests/test_cli.py": "cea15a9bd33a72b95be92c70dbf1bc2b051f6b21084c7b6647ca2f772e60782a",
+    "tests/test_config.py": "f38897b02bc5f4c015b6eec58c288be1a908891d0bf4d99161d30ce74ac7cbb0",
+    "tests/test_dense_model.py": "46c7ea227252069436b53c52a4d3795ff58a4e9f6615fa5403a5351166049fe9",
+    "tests/test_mamba.py": "c91afccee211570d3e5288c3119c86b0d7caac398b28a335db9b2292a6e2f657",
+    "tests/test_symbols.py": "7a1295b6289c1c8e43ec53119229255d6025576881f7dad1aae477edf59eb525",
+    "configs/models/edge_2m.yaml": "66729fb6ced67055f2e1e81ff6569fc8bf979d8c9a1bd91ddd4c9f8f4456a127",
+    "reports/edge_2m_resolved.json": "ca5b4a66a8f3f017c3e5f070cb13f13916cdc7bd083920580d65bcaea96b0f84",
+    "requirements-lock.txt": "0cec6b4428ab6320d111f0b0c56ab4d31a0d9de321b3ab24fe0e71eefbd74ffe",
+    "pyproject.toml": "7f02ce82838a9c6ea09c2765ad152ac53006fb35d73d64946fef3915d1171f0c",
+    "Unified_Edge400_Master_Bible_v3.0_FINAL.md": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
+    "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99"
+  },
+  "warnings": [
+    "NumPy optional bridge absent; tensor/autograd/serialization paths validated"
+  ],
+  "decision": "READY FOR TRAINING INFRASTRUCTURE"
+}
