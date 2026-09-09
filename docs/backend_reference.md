@@ -14,3 +14,7 @@ The current inventory supports the reference subset: full SSM width (d_ssm=d_inn
 Profile: **torch_reference_inventory_v1**, classification **VALID_GENERIC_PATH**. This tranche implements parameter/state structure only. No Mamba forward, recurrence, kernel, initialization or numerical-parity claim is made. CUDA/Triton profiles and reduced precision are rejected explicitly. Official mamba-ssm, causal-conv1d and Triton are not installed because executable Mamba is outside this tranche.
 
 Local verification pins: Python 3.12.14 from the existing bundled runtime used to create project .venv; torch 2.6.0+cpu from the official CPU wheel index; PyYAML 6.0.2 for authored YAML; pytest 8.3.5 and Ruff 0.11.13 for validation. Versions are fixed to reproduce this tested environment, not asserted to be Bible mandates. Transitive versions are captured in requirements-lock.txt. This CPU structural profile has no CUDA requirement; the visible RTX 2050/driver 596.21 remains unvalidated for model execution.
+
+## Byte-hierarchy continuation verification
+
+Retrieval/check date (UTC): 2026-09-09T00:09:05.154254+00:00. Official repository identity: https://github.com/state-spaces/mamba. Local git ls-remote independently confirmed the exact v2.2.6 tag/commit relationship; command and response are preserved in reports/mamba_reference_verification.json. The pin remains a semantic reference, not an installed Mamba implementation dependency. No version upgrade or Mamba implementation occurs in this tranche.

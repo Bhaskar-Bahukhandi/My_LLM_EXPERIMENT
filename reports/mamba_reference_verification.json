@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/state-spaces/mamba",
+  "tag": "v2.2.6",
+  "commit": "d7b1ceb3c367ec9022925e812f507bcf706937c6",
+  "retrieved_utc": "2026-09-09T00:09:05.154254+00:00",
+  "verification_command": "git ls-remote https://github.com/state-spaces/mamba.git refs/tags/v2.2.6",
+  "verification_output": "d7b1ceb3c367ec9022925e812f507bcf706937c6\trefs/tags/v2.2.6",
+  "role": "semantic reference; not installed dependency"
+}

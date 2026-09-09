@@ -1,0 +1,201 @@
+{
+  "created_utc": "2026-09-09T00:23:57.181097+00:00",
+  "device": "cpu",
+  "foundation_commit": "5265179e84e3b3fcc38eb22528fcb349c78f7fee",
+  "full_executable_model_parameters": null,
+  "full_suite_xml_sha256": "1029c26f1b0a8a2f3ecc8d4c3b6c072f5bd1ca4743d2301e6c2b4a98c4cfa064",
+  "numerical_measurements": [
+    {
+      "encoder_gradient_l1_by_patch_position": [
+        15.523454666137695,
+        11.880125999450684,
+        9.253114700317383,
+        8.44450569152832,
+        8.218585014343262,
+        12.117798805236816,
+        9.607102394104004,
+        9.303664207458496
+      ],
+      "independent_gru_max_logit_error": 7.152557373046875e-07,
+      "max_prefix_logit_error": 0.0,
+      "max_restored_prefix_logit_error": 0.0,
+      "prefix_cuts": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        126,
+        127,
+        128,
+        129
+      ],
+      "seed": 19
+    },
+    {
+      "encoder_gradient_l1_by_patch_position": [
+        14.548402786254883,
+        12.158506393432617,
+        11.366844177246094,
+        12.784998893737793,
+        12.692597389221191,
+        12.954948425292969,
+        9.130444526672363,
+        8.505880355834961
+      ],
+      "independent_gru_max_logit_error": 9.5367431640625e-07,
+      "max_prefix_logit_error": 0.0,
+      "max_restored_prefix_logit_error": 0.0,
+      "prefix_cuts": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        126,
+        127,
+        128,
+        129
+      ],
+      "seed": 27
+    },
+    {
+      "encoder_gradient_l1_by_patch_position": [
+        13.971647262573242,
+        13.685982704162598,
+        10.48257064819336,
+        8.809383392333984,
+        7.601086139678955,
+        8.288450241088867,
+        7.21220064163208,
+        6.246709823608398
+      ],
+      "independent_gru_max_logit_error": 8.344650268554688e-07,
+      "max_prefix_logit_error": 0.0,
+      "max_restored_prefix_logit_error": 0.0,
+      "prefix_cuts": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        126,
+        127,
+        128,
+        129
+      ],
+      "seed": 73
+    }
+  ],
+  "numpy_warning": {
+    "bridge_probe": "Numpy is not available",
+    "classification": "optional bridge unavailable; supported tensor/autograd/save/restore paths validated",
+    "installed": false,
+    "used_by_hierarchy": false
+  },
+  "partial_parameter_reconciliation": [
+    {
+      "component": "embedding",
+      "difference": 0,
+      "executable_parameters": 17600,
+      "reason": "exact reconciliation",
+      "structural_parameters": 17600
+    },
+    {
+      "component": "encoder",
+      "difference": 0,
+      "executable_parameters": 25280,
+      "reason": "exact reconciliation",
+      "structural_parameters": 25280
+    },
+    {
+      "component": "shared",
+      "difference": null,
+      "executable_parameters": null,
+      "reason": "Mamba intentionally not implemented",
+      "structural_parameters": 1728096
+    },
+    {
+      "component": "decoder",
+      "difference": 0,
+      "executable_parameters": 107520,
+      "reason": "exact reconciliation",
+      "structural_parameters": 107520
+    },
+    {
+      "component": "output",
+      "difference": 0,
+      "executable_parameters": 34443,
+      "reason": "exact reconciliation",
+      "structural_parameters": 34443
+    },
+    {
+      "component": "bootstrap",
+      "difference": 0,
+      "executable_parameters": 16640,
+      "reason": "exact reconciliation",
+      "structural_parameters": 16640
+    }
+  ],
+  "precision": "fp32",
+  "resolved_config_sha256": "7fe06b639741003e4c5ad9d57d32c2fd2b86f6805b2048ad1efd6aaa75e3a6f1",
+  "scope": "byte hierarchy; test-only causal accumulator is not a production shared trunk",
+  "source_sha256": {
+    "configs/models/edge_2m.yaml": "66729fb6ced67055f2e1e81ff6569fc8bf979d8c9a1bd91ddd4c9f8f4456a127",
+    "pyproject.toml": "7f02ce82838a9c6ea09c2765ad152ac53006fb35d73d64946fef3915d1171f0c",
+    "requirements-lock.txt": "0cec6b4428ab6320d111f0b0c56ab4d31a0d9de321b3ab24fe0e71eefbd74ffe",
+    "src/unified_edge/__init__.py": "d17df431bd1fdcc4aaed4826250a71c6c5cf238fae1a61a1c589eb4623f79d32",
+    "src/unified_edge/byte_hierarchy.py": "fce726593d04b3d99158a12653a0aaa5789bbad7bcaf3f1546db073396c1f2ed",
+    "src/unified_edge/byte_layers.py": "8cfabe734c1ccab6bb463c42c7e10b498692de4c94e82ee29b0926b18bab4a7d",
+    "src/unified_edge/cli.py": "9eba733a5d8be26cf3b8c8253a4407bcb2912529e83685428602dcb355425cb0",
+    "src/unified_edge/config.py": "0ec93d74ae5eb3e493cd435635e71a458655a50e4924a26078871f2e4a19b20f",
+    "src/unified_edge/parameters.py": "eb15ce2ceba09a25b7d75959d7291bc1742d88362b666a0037dd268d782b7dda",
+    "src/unified_edge/preflight.py": "e8e5f5fd9f334ba708911869a4c3bb9e5cb2155270a071727c61ac74b1dcaf44",
+    "src/unified_edge/resolve.py": "c111d266dab2a9135cd99a5a0d95699b257e56d7d569cddef3b15bdcc9b6e4cd",
+    "src/unified_edge/symbols.py": "955fba05b6a7b058a34250146d10a9bf00d6811787b7758def8de63b35f2897e",
+    "tests/test_accounting.py": "3305a90bbfb05d7f5f2e5064653e5aaa7765dbf19daa7e47d29213967da372b9",
+    "tests/test_byte_hierarchy.py": "397aa4ae40bbe2c1e3135fcbcf13e1e3c7ded6ea4d0722e1744cdc3cf5dd69db",
+    "tests/test_cli.py": "cea15a9bd33a72b95be92c70dbf1bc2b051f6b21084c7b6647ca2f772e60782a",
+    "tests/test_config.py": "f38897b02bc5f4c015b6eec58c288be1a908891d0bf4d99161d30ce74ac7cbb0",
+    "tests/test_symbols.py": "7a1295b6289c1c8e43ec53119229255d6025576881f7dad1aae477edf59eb525"
+  },
+  "static_validation": {
+    "compileall": "PASS",
+    "format": "PASS",
+    "pip_check": "PASS",
+    "ruff": "PASS"
+  },
+  "status": "READY FOR MAMBA INTEGRATION",
+  "tests": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "LAPTOP-2KQTNN8H",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "118",
+    "time": "21.091",
+    "timestamp": "2026-09-09T05:49:09.183328+05:30"
+  },
+  "tolerance": {
+    "atol": 1e-06,
+    "rtol": 1e-05
+  },
+  "torch_version": "2.6.0+cpu",
+  "total_executable_hierarchy_parameters": 201483,
+  "total_structural_inventory_parameters": 1929579
+}

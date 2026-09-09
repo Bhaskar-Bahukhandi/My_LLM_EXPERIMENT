@@ -1,6 +1,6 @@
 # Unified Edge-400
 
-Current scope: configuration resolution, structural parameter inventory and preliminary memory screening for the approximately 2M dense proof. There is **no executable language model or training pipeline yet**. The original FINAL Bible and Roadmap remain unchanged.
+Current scope: configuration resolution, structural parameter inventory, preliminary memory screening and the executable byte hierarchy for the approximately 2M dense proof. There is **no executable language model or training pipeline yet**. The original FINAL Bible and Roadmap remain unchanged.
 
 The closest inventory in the default 18-candidate search is **1,929,579 parameters**, 3.52105% below 2M. The nominal 2% gate is honestly rejected. Width/depth are 256/4; no dimensions were distorted to meet the target. This is a declared parameter budget, not the final executable model count.
 
@@ -36,4 +36,22 @@ Replace `python` with the new environment's executable. No system environment mo
 
 See [tranche report](reports/configuration_tranche.md), [inventory contract](docs/parameter_inventory.md), [reference pin](docs/backend_reference.md), [correction proposals](docs/architecture_changes), [implementation plan](docs/implementation_plan.md), and [project state](docs/project_state.md).
 
-Next: implement the byte-model tranche against the documented structural contract, then reconcile actual tensors and parameter counts before any training readiness claim. MoE remains deferred pending its causal scheduling decision.
+The byte hierarchy now has 201,483 executable parameters, exactly matching its five inventory groups. The shared 1,728,096 parameters remain structural only. All 118 tests pass; no Mamba implementation or training readiness is claimed. MoE remains deferred pending its causal scheduling decision.
+
+## Byte hierarchy
+
+```python
+import json
+from pathlib import Path
+import torch
+from unified_edge.resolve import ResolvedConfig
+from unified_edge.byte_hierarchy import ByteHierarchy
+
+config = ResolvedConfig.from_dict(json.loads(Path("reports/edge_2m_resolved.json").read_text()))
+hierarchy = ByteHierarchy(config)
+logits = hierarchy(torch.tensor([[0, 255, 128, 1]], dtype=torch.long))  # [1,4,267]
+```
+
+This teacher-forced API predicts at most one patch using shifted local inputs and learned BOS conditioning. For streaming, `start`, `predict` and `consume` emit a completed event only after eight observed symbols. The hierarchy then waits for explicit external conditioning through `condition`; no global trunk is supplied yet. Raw binary conversion and padding helpers live in `unified_edge.symbols`.
+
+Read the [byte contract](docs/byte_hierarchy_contract.md) for state/serialization and caller obligations, and the [byte readiness report](reports/byte_hierarchy_readiness.md) for reconciliation, causality evidence and rollback. The next bounded step is Mamba integration when authorized.
