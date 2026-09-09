@@ -1,0 +1,49 @@
+{
+  "architecture_family": "edge_mamba_dense_inventory",
+  "authored_sha256": "58b07295af743b11f1d2dabfd0facfcdcf6fc2093ccb7cd41def256b15a8a334",
+  "backend_classification": "VALID_GENERIC_PATH",
+  "control_ids": {
+    "bos": 257,
+    "code_begin": 263,
+    "code_end": 264,
+    "eos": 258,
+    "error": 265,
+    "pad": 256,
+    "rag_begin": 261,
+    "rag_end": 262,
+    "retry": 266,
+    "tool_call": 259,
+    "tool_result": 260
+  },
+  "control_version": "1",
+  "derived": {
+    "bytes_per_chunk": 128,
+    "d_inner": 512,
+    "nheads": 8,
+    "num_symbols": 267
+  },
+  "hardware": {
+    "backend": "torch_reference_inventory_v1",
+    "batch_size": 1,
+    "device": "cpu",
+    "memory_budget_bytes": null,
+    "precision": "fp32"
+  },
+  "inventory_version": "1",
+  "model": {
+    "byte_dim": 64,
+    "chunk_patches": 16,
+    "d_conv": 4,
+    "d_model": 256,
+    "d_state": 64,
+    "decoder_dim": 128,
+    "expand": 2,
+    "headdim": 64,
+    "patch_size": 8,
+    "shared_layers": 4
+  },
+  "parameter_tolerance": 0.02,
+  "schema_version": "1",
+  "semantic_reference_commit": "d7b1ceb3c367ec9022925e812f507bcf706937c6",
+  "target_parameters": 2000000
+}

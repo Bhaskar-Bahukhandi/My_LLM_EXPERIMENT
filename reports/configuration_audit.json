@@ -1,0 +1,283 @@
+{
+  "active_inventory_parameters_dense": 1929579,
+  "actual_inventory_parameters": 1929579,
+  "backend": "torch_reference_inventory_v1",
+  "candidates": [
+    {
+      "d_model": 128,
+      "delta": -1596509,
+      "known_training_payload_bytes": 6600296,
+      "parameters": 403491,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 2,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 128,
+      "delta": -1478993,
+      "known_training_payload_bytes": 8552232,
+      "parameters": 521007,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 128,
+      "delta": -1361477,
+      "known_training_payload_bytes": 10504168,
+      "parameters": 638523,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 128,
+      "delta": -1126445,
+      "known_training_payload_bytes": 14408040,
+      "parameters": 873555,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 6,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 128,
+      "delta": -891413,
+      "known_training_payload_bytes": 18311912,
+      "parameters": 1108587,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 128,
+      "delta": -421349,
+      "known_training_payload_bytes": 26119656,
+      "parameters": 1578651,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 192,
+      "delta": -1314897,
+      "known_training_payload_bytes": 11175976,
+      "parameters": 685103,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 2,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 192,
+      "delta": -1064831,
+      "known_training_payload_bytes": 15283528,
+      "parameters": 935169,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 192,
+      "delta": -814765,
+      "known_training_payload_bytes": 19391080,
+      "parameters": 1185235,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 192,
+      "delta": -314633,
+      "known_training_payload_bytes": 27606184,
+      "parameters": 1685367,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 6,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 192,
+      "delta": 185499,
+      "known_training_payload_bytes": 35821288,
+      "parameters": 2185499,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 192,
+      "delta": 1185763,
+      "known_training_payload_bytes": 52251496,
+      "parameters": 3185763,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 256,
+      "delta": -934469,
+      "known_training_payload_bytes": 17332712,
+      "parameters": 1065531,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 2,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 256,
+      "delta": -502445,
+      "known_training_payload_bytes": 24386408,
+      "parameters": 1497555,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 256,
+      "delta": -70421,
+      "known_training_payload_bytes": 31440104,
+      "parameters": 1929579,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 256,
+      "delta": 793627,
+      "known_training_payload_bytes": 45547496,
+      "parameters": 2793627,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 6,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 256,
+      "delta": 1657675,
+      "known_training_payload_bytes": 59654888,
+      "parameters": 3657675,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    },
+    {
+      "d_model": 256,
+      "delta": 3385771,
+      "known_training_payload_bytes": 87869672,
+      "parameters": 5385771,
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "within_tolerance": false
+    }
+  ],
+  "delta": -70421,
+  "delta_percent": -3.52105,
+  "memory_preflight": {
+    "activation_bytes": null,
+    "adam_moment_bytes": 15436632,
+    "allocator_overhead_bytes": null,
+    "convolution_state_bytes": 40960,
+    "gradient_bytes": 7718316,
+    "known_inference_payload_bytes": 8285156,
+    "known_training_payload_bytes": 31440104,
+    "local_state_bytes": 1592,
+    "measured_runtime": false,
+    "memory_budget_bytes": null,
+    "parameter_bytes": 7718316,
+    "peak_process_rss_bytes": null,
+    "ssm_state_bytes": 524288,
+    "status": "UNKNOWN_REQUIRES_MEASUREMENT",
+    "temporary_buffer_bytes": null
+  },
+  "next_gate": "reconcile executable byte-model tensors against inventory v1",
+  "parameter_audit": {
+    "aliases": {},
+    "components": {
+      "bootstrap": 16640,
+      "decoder": 107520,
+      "embedding": 17600,
+      "encoder": 25280,
+      "output": 34443,
+      "shared": 1728096
+    },
+    "payload_note": "logical entries; aliases may share storage; not serialized file size",
+    "serialized_file_bytes": null,
+    "state_dict_entry_elements": 1929579,
+    "state_dict_logical_payload_bytes": 7718316,
+    "state_dict_non_tensor_entries": [],
+    "state_dict_tensor_entries": 56,
+    "unique_buffer_bytes": 0,
+    "unique_buffer_elements": 0,
+    "unique_frozen_parameters": 0,
+    "unique_parameter_bytes": 7718316,
+    "unique_trainable_parameters": 1929579
+  },
+  "resolved_config": {
+    "architecture_family": "edge_mamba_dense_inventory",
+    "authored_sha256": "58b07295af743b11f1d2dabfd0facfcdcf6fc2093ccb7cd41def256b15a8a334",
+    "backend_classification": "VALID_GENERIC_PATH",
+    "control_ids": {
+      "bos": 257,
+      "code_begin": 263,
+      "code_end": 264,
+      "eos": 258,
+      "error": 265,
+      "pad": 256,
+      "rag_begin": 261,
+      "rag_end": 262,
+      "retry": 266,
+      "tool_call": 259,
+      "tool_result": 260
+    },
+    "control_version": "1",
+    "derived": {
+      "bytes_per_chunk": 128,
+      "d_inner": 512,
+      "nheads": 8,
+      "num_symbols": 267
+    },
+    "hardware": {
+      "backend": "torch_reference_inventory_v1",
+      "batch_size": 1,
+      "device": "cpu",
+      "memory_budget_bytes": null,
+      "precision": "fp32"
+    },
+    "inventory_version": "1",
+    "model": {
+      "byte_dim": 64,
+      "chunk_patches": 16,
+      "d_conv": 4,
+      "d_model": 256,
+      "d_state": 64,
+      "decoder_dim": 128,
+      "expand": 2,
+      "headdim": 64,
+      "patch_size": 8,
+      "shared_layers": 4
+    },
+    "parameter_tolerance": 0.02,
+    "schema_version": "1",
+    "semantic_reference_commit": "d7b1ceb3c367ec9022925e812f507bcf706937c6",
+    "target_parameters": 2000000
+  },
+  "resolved_sha256": "7fe06b639741003e4c5ad9d57d32c2fd2b86f6805b2048ad1efd6aaa75e3a6f1",
+  "scope": "declared parameter inventory; executable model not implemented",
+  "status": "OUTSIDE_TARGET",
+  "target_parameters": 2000000,
+  "training_ready": false
+}

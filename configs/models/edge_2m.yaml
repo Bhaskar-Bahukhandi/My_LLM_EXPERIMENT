@@ -1,0 +1,25 @@
+schema_version: "1"
+model:
+  target_parameters: 2000000
+  parameter_tolerance: 0.02
+  d_model: auto
+  shared_layers: auto
+  byte_dim: 64
+  decoder_dim: 128
+  d_state: 64
+  d_conv: 4
+  expand: 2
+  headdim: 64
+  patch_size: 8
+  chunk_patches: 16
+  moe_enabled: false
+search:
+  widths: [128, 192, 256]
+  depths: [2, 3, 4, 6, 8, 12]
+  width_multiple: 64
+hardware:
+  backend: torch_reference_inventory_v1
+  device: cpu
+  precision: fp32
+  batch_size: 1
+  memory_budget_bytes: null
