@@ -1,0 +1,170 @@
+{
+  "schema_version": "1",
+  "status": "READY",
+  "created_utc": "2026-09-10T00:32:42.550081+00:00",
+  "source_approval_table": {
+    "path": "reports/source_approval_table_2m.json",
+    "sha256": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6"
+  },
+  "approved_source_allocations": {
+    "gutenberg": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "cpython": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "numpy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "sympy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "mathlib": {
+      "train": 500000,
+      "validation": 25000,
+      "test": 25000
+    }
+  },
+  "domain_allocation": {
+    "general_text": {
+      "percent": 50,
+      "train_bytes": 5000000,
+      "validation_bytes": 250000,
+      "test_bytes": 250000
+    },
+    "code": {
+      "percent": 25,
+      "train_bytes": 2500000,
+      "validation_bytes": 125000,
+      "test_bytes": 125000
+    },
+    "documentation": {
+      "percent": 15,
+      "train_bytes": 1500000,
+      "validation_bytes": 75000,
+      "test_bytes": 75000
+    },
+    "structured_math": {
+      "percent": 10,
+      "train_bytes": 1000000,
+      "validation_bytes": 50000,
+      "test_bytes": 50000
+    }
+  },
+  "wikipedia": "DEFERRED; zero train/validation/test; separate future CC BY-SA policy required",
+  "gutenberg": {
+    "allowlist": "docs/gutenberg_work_allowlist_2m.json",
+    "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
+    "approved_ids": [
+      1400,
+      766,
+      1023,
+      145,
+      1342,
+      158,
+      768,
+      1661
+    ],
+    "rejected_ids": [
+      1260
+    ],
+    "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+    "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+    "full_books_downloaded": 0,
+    "bounded_header_bytes": 36864
+  },
+  "repository_file_allowlists": {
+    "path": "docs/source_file_allowlists_2m.json",
+    "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+    "files_by_source": {
+      "cpython": 665,
+      "numpy": 84,
+      "sympy": 1059,
+      "mathlib": 1890
+    }
+  },
+  "benchmark_coverage": {
+    "report": "reports/benchmark_exclusion_coverage.json",
+    "sha256": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "raw_files": 25,
+    "raw_bytes": 24450646,
+    "fingerprinted_records": 45475,
+    "artifact": {
+      "path": "evidence/download_authorization/benchmark_fingerprints_v1.jsonl.gz",
+      "sha256": "1415778eac25407107bfbe0aae312d55573b79f87882688c91a48528fface90d",
+      "bytes": 59289417
+    },
+    "math_original_splits": {
+      "test": 5000,
+      "train": 7500
+    },
+    "math_exact_multiset_match": true
+  },
+  "exclusion_registry": {
+    "path": "docs/data_exclusion_registry.json",
+    "sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3"
+  },
+  "storage": {
+    "projected_acquisition_preprocessing_bytes": 416000000,
+    "data_working_hard_cap_bytes": 800000000,
+    "checkpoint_run_allowance_separate_bytes": 200000000,
+    "projected_combined_bytes": 616000000,
+    "maximum_allowed_combined_bytes": 1000000000,
+    "corpus_transfer_cap_bytes": 80000000,
+    "components": {
+      "retained_compressed_archives": 60000000,
+      "retained_plain_sources_and_api_responses": 20000000,
+      "temporary_extraction_one_archive": 250000000,
+      "cleaned_before_dedup": 20000000,
+      "unique_train": 10000000,
+      "unique_validation": 500000,
+      "unique_test": 500000,
+      "manifests_indexes_notices": 5000000,
+      "preprocessing_scratch": 50000000
+    },
+    "status": "Data/projection logical bytes, not process memory. Includes current evaluation raw files, both fingerprint builds, metadata and isolated reader. New data/preprocessing hard cap800 MB plus separate run allowance200 MB =1 GB; existing CPU/CUDA environments and historical runs are not new acquisition storage.",
+    "observed_evaluation_infrastructure_logical_bytes": 182284509,
+    "projected_acquisition_preprocessing_plus_evaluation_bytes": 598284509,
+    "projected_combined_with_run_allowance_bytes": 798284509
+  },
+  "acquisition_order": [
+    "Verify registry, raw benchmark and fingerprint sidecar hashes and pinned source-unit allowlists.",
+    "After human download authorization, process CPython 3.12.10 eligible files.",
+    "Process NumPy 2.2.4 eligible files.",
+    "Process SymPy 1.13.3 eligible files.",
+    "Process selected mathlib4 v4.19.0 files; no whole-repository download.",
+    "Process Gutenberg train candidates in order 1400, 766, 1023, 145, 1342, 158 as needed; validation1661; test768. Never acquire rejected1260 or Wikipedia. Retain whole work/author separation.",
+    "Verify full-file hashes/notices; extract and hash only eligible payloads. Globally deduplicate/exclude benchmark matches before final source-unit split/window generation. Cross-role duplicate clusters are excluded.",
+    "Freeze training/validation/test manifests and report measured underfill/retention. Stop before any training."
+  ],
+  "unresolved_authorization_blockers": [],
+  "mandatory_next_acquisition_checks": [
+    "No source outside the pinned allowlists. Unknown/copied/differently licensed material rejected, not authorized by repository root.",
+    "Gutenberg whole-text and cleaned-payload hashes PENDING_AUTHORIZED_ACQUISITION; required immediately after retrieval/extraction.",
+    "Incomplete notice or uncertain supplement boundary on actual retrieval means quarantine; no silent eligibility fallback.",
+    "Metadata changes, benchmark index hash failures, source-unit collisions or byte/disk cap violations stop acquisition."
+  ],
+  "validation": {
+    "records_verified": 45475,
+    "normalized_hashes_independently_recomputed": true,
+    "all_other_record_fields_identical_to_first_build": true,
+    "original_split_labels_retained": true,
+    "raw_hashes_reverified": true,
+    "tests": "5 passed",
+    "ruff": "PASS",
+    "format": "35 files PASS",
+    "compile": "PASS",
+    "cpu_and_cuda_dependency_checks": "PASS"
+  },
+  "model_source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+  "environment_changes": "No CPU/CUDA model environment change. duckdb1.4.4 installed only into ignored evaluation reader_deps for parquet reading.",
+  "scope_boundary": "No full training-source file or full Gutenberg book acquired. No model training or architecture change."
+}

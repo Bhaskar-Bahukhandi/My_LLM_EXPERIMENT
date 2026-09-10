@@ -72,4 +72,21 @@ def training_memory(model, optimizer, batch: int) -> dict:
         "recurrent_note": "standalone canonical allocation; not persistent trainer cache",
         "activation_autograd_bytes": "UNMEASURED_SEPARATELY",
         **process_memory(),
+        **({"cuda": cuda_memory(parameters[0].device)} if parameters[0].is_cuda else {}),
+    }
+
+
+def cuda_memory(device: torch.device) -> dict:
+    """Synchronized allocator metrics and driver free memory; neither is process RSS."""
+    if device.type != "cuda":
+        raise ValueError("CUDA memory measurement requires a CUDA device")
+    torch.cuda.synchronize(device)
+    free, total = torch.cuda.mem_get_info(device)
+    return {
+        "allocated_bytes": torch.cuda.memory_allocated(device),
+        "reserved_bytes": torch.cuda.memory_reserved(device),
+        "peak_allocated_bytes": torch.cuda.max_memory_allocated(device),
+        "peak_reserved_bytes": torch.cuda.max_memory_reserved(device),
+        "free_device_bytes": free,
+        "total_device_bytes": total,
     }

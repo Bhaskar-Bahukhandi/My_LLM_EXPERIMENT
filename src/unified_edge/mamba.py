@@ -1,4 +1,4 @@
-"""Generic CPU FP32 Mamba-2: explicit recurrence and independent dense SSD execution."""
+"""Generic CPU/CUDA FP32 Mamba-2: explicit recurrence and independent dense SSD execution."""
 
 import math
 from dataclasses import dataclass
@@ -49,8 +49,11 @@ class Mamba2Block(nn.Module):
         self.out_proj = nn.Linear(i, shape.d_model, bias=False)
 
     def _validate_profile(self) -> None:
-        if any(p.dtype != torch.float32 or p.device.type != "cpu" for p in self.parameters()):
-            raise ValueError("generic Mamba profile requires CPU FP32 parameters")
+        device = self.in_proj.weight.device
+        if device.type not in ("cpu", "cuda") or any(
+            p.dtype != torch.float32 or p.device != device for p in self.parameters()
+        ):
+            raise ValueError("generic Mamba profile requires CPU FP32 or CUDA FP32 on one device")
 
     def initialize_state(self, batch: int) -> LayerState:
         self._validate_profile()
@@ -75,8 +78,8 @@ class Mamba2Block(nn.Module):
         ):
             if not isinstance(value, torch.Tensor) or value.shape != shape:
                 raise ValueError(f"{name} state must have shape {shape}")
-            if value.dtype != torch.float32 or value.device.type != "cpu":
-                raise ValueError(f"{name} state must be CPU FP32")
+            if value.dtype != torch.float32 or value.device != self.in_proj.weight.device:
+                raise ValueError(f"{name} state must be FP32 on the parameter device")
             _finite(value, name + " state")
 
     def _validate_input(self, inputs: torch.Tensor, ndim: int) -> None:
@@ -89,8 +92,8 @@ class Mamba2Block(nn.Module):
             raise ValueError(
                 f"Mamba input must have {ndim} axes, positive batch, last axis d_model"
             )
-        if inputs.dtype != torch.float32 or inputs.device.type != "cpu":
-            raise ValueError("Mamba input must be CPU FP32")
+        if inputs.dtype != torch.float32 or inputs.device != self.in_proj.weight.device:
+            raise ValueError("Mamba input must be FP32 on the parameter device")
         _finite(inputs, "Mamba input")
 
     def _project(self, inputs: torch.Tensor):

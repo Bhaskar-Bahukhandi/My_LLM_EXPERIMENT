@@ -23,6 +23,12 @@ from unified_edge.training.data import (
     WindowDataset,
     batches_by_length,
 )
+from unified_edge.training.device import (
+    CUDA_ALLOCATOR_BUDGET_BYTES,
+    configure_device,
+    cuda_rng_state,
+    validate_cuda_rng,
+)
 from unified_edge.training.memory import training_memory
 from unified_edge.training.optimization import (
     WarmupCosine,
@@ -54,14 +60,28 @@ def code_identity() -> dict:
 
 
 def environment(config: TrainingConfig) -> dict:
-    return {
+    result = {
         "python": platform.python_version(),
         "torch": str(torch.__version__),
-        "device": "cpu",
+        "device": config.device,
         "dtype": "float32",
         "threads": config.cpu_threads,
         "deterministic_algorithms": True,
     }
+    if config.device == "cuda:0":
+        properties = torch.cuda.get_device_properties(0)
+        result["cuda"] = {
+            "runtime": torch.version.cuda,
+            "cudnn": torch.backends.cudnn.version(),
+            "gpu": properties.name,
+            "compute_capability": [properties.major, properties.minor],
+            "allocator_budget_bytes": CUDA_ALLOCATOR_BUDGET_BYTES,
+            "tf32": False,
+            "cudnn_benchmark": False,
+            "cudnn_deterministic": True,
+            "cublas_workspace_config": ":4096:8",
+        }
+    return result
 
 
 class Trainer:
@@ -85,11 +105,12 @@ class Trainer:
         self.validation_data = WindowDataset(
             manifest, data_root, "validation", config.sequence_length
         )
+        self.device = configure_device(config.device)
         random.seed(config.seed)
         torch.manual_seed(config.seed)
         torch.set_num_threads(config.cpu_threads)
         torch.use_deterministic_algorithms(True)
-        self.model = DenseByteModel(model_config)
+        self.model = DenseByteModel(model_config).to(self.device)
         self.optimizer = build_optimizer(self.model, config)
         self.scheduler = WarmupCosine(self.optimizer, config)
         self.stream = BatchStream(self.train_data, config.seed, config.batch_size)
@@ -166,7 +187,7 @@ class Trainer:
                 try:
                     loss = sum(
                         raw_byte_nll(self.model(target), target)[0]
-                        for target in batches_by_length(windows)
+                        for target in (t.to(self.device) for t in batches_by_length(windows))
                     )
                     (loss / count).backward()
                 except ValueError as error:
@@ -238,6 +259,7 @@ class Trainer:
                     for target in batches_by_length(
                         list(data.windows[start : start + self.config.batch_size])
                     ):
+                        target = target.to(self.device)
                         loss, valid = raw_byte_nll(self.model(target), target)
                         total += loss.item()
                         count += valid
@@ -263,7 +285,7 @@ class Trainer:
         if any(p.grad is not None for p in self.model.parameters()):
             raise RuntimeError("checkpoint requires cleared gradients at an optimizer boundary")
         state = {
-            "schema": "1",
+            "schema": "2",
             "run_id": self.run_manifest["run_id"],
             "model_config": self.model_config.to_dict(),
             "training_config": self.config.to_dict(),
@@ -285,6 +307,7 @@ class Trainer:
             "bytes_seen": self.bytes_seen,
             "python_rng": random.getstate(),
             "torch_cpu_rng": torch.get_rng_state(),
+            "cuda_rng": cuda_rng_state(self.device),
             "data_cursor": self.stream.state_dict(),
             "code": self.code,
             "environment": self.env,
@@ -313,13 +336,14 @@ class Trainer:
             "bytes_seen",
             "python_rng",
             "torch_cpu_rng",
+            "cuda_rng",
             "data_cursor",
             "code",
             "environment",
             "metrics",
             "elapsed_seconds",
         }
-        if set(state) != required or state["schema"] != "1":
+        if set(state) != required or state["schema"] != "2":
             raise CheckpointError("checkpoint schema/fields mismatch")
         for key, expected in (
             ("model_config", self.model_config.to_dict()),
@@ -412,6 +436,7 @@ class Trainer:
             or rng.shape != torch.get_rng_state().shape
         ):
             raise CheckpointError("invalid Torch CPU RNG state")
+        validate_cuda_rng(state["cuda_rng"], self.device)
         self.model.load_state_dict(state["model"], strict=True)
         self.optimizer.load_state_dict(state["optimizer"])
         self.scheduler.load_state_dict(state["scheduler"])
@@ -423,6 +448,8 @@ class Trainer:
         self._elapsed_offset = state["elapsed_seconds"]
         random.setstate(state["python_rng"])
         torch.set_rng_state(rng)
+        if self.device.type == "cuda":
+            torch.cuda.set_rng_state_all(state["cuda_rng"])
 
     def _validate_optimizer(self, state, step, update_counts):
         if not isinstance(state, dict) or set(state) != {"state", "param_groups"}:

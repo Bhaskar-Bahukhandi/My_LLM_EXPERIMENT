@@ -1,0 +1,514 @@
+{
+  "schema_version": "1",
+  "algorithm": {
+    "version": "edge-exclusion-v1",
+    "normalization": "Unicode NFKC, casefold, collapse Unicode whitespace, UTF-8",
+    "exact": "SHA-256 of normalized content, separately for every string field",
+    "near": "64 minimum distinct BLAKE2b-64 hashes of consecutive 5-token shingles",
+    "tokens": "Python Unicode regex: \\w+|[^\\w\\s]",
+    "shingle_encoding": "compact JSON array, ensure_ascii=False, UTF-8",
+    "personalization": "edge-excl-v1",
+    "short_fields": "fewer than 5 tokens: exact hash only",
+    "matching": "Candidate retrieval only; verify original content before exclusion. No semantic/paraphrase completeness claim.",
+    "payload_policy": "Normalization affects detection only, never training bytes.",
+    "normalized_example": "SHA-256 of sorted compact UTF-8 JSON mapping flattened string-field paths to normalized strings; numeric IDs separately preserved where supplied."
+  },
+  "unicode_database": "15.0.0",
+  "python": "3.12.14",
+  "reader": "duckdb==1.4.4 (isolated ignored tool directory)",
+  "files": [
+    {
+      "dataset": "human_eval",
+      "repository": "https://github.com/openai/human-eval",
+      "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+      "source_path": "data/HumanEval.jsonl.gz",
+      "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/data/HumanEval.jsonl.gz",
+      "split": "test",
+      "variant": "HumanEval.jsonl.gz",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/00_data__HumanEval.jsonl.gz",
+      "raw_sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+      "raw_bytes": 44877,
+      "examples": 164,
+      "split_counts": {
+        "test": 164
+      }
+    },
+    {
+      "dataset": "human_eval",
+      "repository": "https://github.com/openai/human-eval",
+      "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+      "source_path": "data/example_problem.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/data/example_problem.jsonl",
+      "split": "illustrative_examples",
+      "variant": "example_problem.jsonl",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/01_data__example_problem.jsonl",
+      "raw_sha256": "701442bbe5a65db1e4ac218d0d2bb29a6caf9615a769759bcf4ca38621ba1d7f",
+      "raw_bytes": 178,
+      "examples": 1,
+      "split_counts": {
+        "illustrative_examples": 1
+      }
+    },
+    {
+      "dataset": "human_eval",
+      "repository": "https://github.com/openai/human-eval",
+      "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+      "source_path": "data/example_samples.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/data/example_samples.jsonl",
+      "split": "illustrative_examples",
+      "variant": "example_samples.jsonl",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/02_data__example_samples.jsonl",
+      "raw_sha256": "1dcf9fc120e380b8669fe69cf45da2e510e71cae507555db9634e7893c807627",
+      "raw_bytes": 419,
+      "examples": 6,
+      "split_counts": {
+        "illustrative_examples": 6
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "repository": "https://github.com/openai/grade-school-math",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "source_path": "grade_school_math/data/train.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/train.jsonl",
+      "split": "train",
+      "variant": "main",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/03_grade_school_math__data__train.jsonl",
+      "raw_sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+      "raw_bytes": 4166206,
+      "examples": 7473,
+      "split_counts": {
+        "train": 7473
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "repository": "https://github.com/openai/grade-school-math",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "source_path": "grade_school_math/data/test.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test.jsonl",
+      "split": "test",
+      "variant": "main",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/04_grade_school_math__data__test.jsonl",
+      "raw_sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "raw_bytes": 749738,
+      "examples": 1319,
+      "split_counts": {
+        "test": 1319
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "repository": "https://github.com/openai/grade-school-math",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "source_path": "grade_school_math/data/train_socratic.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/train_socratic.jsonl",
+      "split": "train",
+      "variant": "socratic",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/05_grade_school_math__data__train_socratic.jsonl",
+      "raw_sha256": "153d86551187cfd64ef7afb59bfd0ef75cea3ae9388e7ad31e43920b6dd77872",
+      "raw_bytes": 5401739,
+      "examples": 7473,
+      "split_counts": {
+        "train": 7473
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "repository": "https://github.com/openai/grade-school-math",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "source_path": "grade_school_math/data/test_socratic.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test_socratic.jsonl",
+      "split": "test",
+      "variant": "socratic",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/06_grade_school_math__data__test_socratic.jsonl",
+      "raw_sha256": "c96673362fa7a699f4836a9b6474a067448f95fe58064727501ee63ba4c3fdb6",
+      "raw_bytes": 972978,
+      "examples": 1319,
+      "split_counts": {
+        "test": 1319
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "repository": "https://github.com/openai/grade-school-math",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "source_path": "grade_school_math/data/example_model_solutions.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/example_model_solutions.jsonl",
+      "split": "test",
+      "variant": "generated_solutions",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/07_grade_school_math__data__example_model_solutions.jsonl",
+      "raw_sha256": "4bc62db838f8418365d51c627bd66294cbdca9fb7f01519cb13f0dce8c51580b",
+      "raw_bytes": 2563513,
+      "examples": 1319,
+      "split_counts": {
+        "test": 1319
+      }
+    },
+    {
+      "dataset": "mbpp",
+      "repository": "https://github.com/google-research/google-research",
+      "revision": "fe47f1858af22fc3d33c9d2e7166a715c20ad305",
+      "source_path": "mbpp/mbpp.jsonl",
+      "url": "https://raw.githubusercontent.com/google-research/google-research/fe47f1858af22fc3d33c9d2e7166a715c20ad305/mbpp/mbpp.jsonl",
+      "split": "task_id_defined",
+      "variant": "mbpp.jsonl",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/08_mbpp__mbpp.jsonl",
+      "raw_sha256": "ccf64ceae9c5403bf50a044cb6d505bfd2a2963ee58338ba268fd65beab92a9f",
+      "raw_bytes": 563743,
+      "examples": 974,
+      "split_counts": {
+        "prompt": 10,
+        "test": 500,
+        "validation": 90,
+        "train": 374
+      }
+    },
+    {
+      "dataset": "mbpp",
+      "repository": "https://github.com/google-research/google-research",
+      "revision": "fe47f1858af22fc3d33c9d2e7166a715c20ad305",
+      "source_path": "mbpp/sanitized-mbpp.json",
+      "url": "https://raw.githubusercontent.com/google-research/google-research/fe47f1858af22fc3d33c9d2e7166a715c20ad305/mbpp/sanitized-mbpp.json",
+      "split": "task_id_defined",
+      "variant": "sanitized-mbpp.json",
+      "expected_sha256": null,
+      "local_path": "evidence/download_authorization/benchmark_raw/09_mbpp__sanitized-mbpp.json",
+      "raw_sha256": "ca95deaa9a01ef0a6f439f88bcf0dd3db3563d22f22aad6cae04ebb9a8d8c8e9",
+      "raw_bytes": 255053,
+      "examples": 427,
+      "split_counts": {
+        "prompt": 7,
+        "test": 257,
+        "validation": 43,
+        "train": 120
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/qwedsacf/competition_math",
+      "revision": "e839825f9ec5c6cfa585c654a59610969ec13993",
+      "source_path": "data/train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+      "url": "https://huggingface.co/datasets/qwedsacf/competition_math/resolve/e839825f9ec5c6cfa585c654a59610969ec13993/data/train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+      "split": "train",
+      "variant": "publisher_linked_combined",
+      "expected_sha256": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a",
+      "metadata_bytes": 4848345,
+      "local_path": "evidence/download_authorization/benchmark_raw/10_data__train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+      "raw_sha256": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a",
+      "raw_bytes": 4848345,
+      "examples": 12500,
+      "split_counts": {
+        "combined_publisher_distribution_NOT_original_train": 12500
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "algebra/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/algebra/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "0e04a850dac9cfc758eac0c80afd2d0cc65e29ea72f916c8ac1045b12af937f5",
+      "metadata_bytes": 353114,
+      "local_path": "evidence/download_authorization/benchmark_raw/11_algebra__test-00000-of-00001.parquet",
+      "raw_sha256": "0e04a850dac9cfc758eac0c80afd2d0cc65e29ea72f916c8ac1045b12af937f5",
+      "raw_bytes": 353114,
+      "examples": 1187,
+      "split_counts": {
+        "test": 1187
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "algebra/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/algebra/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "73347f5b55869f21ff094361025dbd12d291e971aa4d72142eacee10438e449f",
+      "metadata_bytes": 505186,
+      "local_path": "evidence/download_authorization/benchmark_raw/12_algebra__train-00000-of-00001.parquet",
+      "raw_sha256": "73347f5b55869f21ff094361025dbd12d291e971aa4d72142eacee10438e449f",
+      "raw_bytes": 505186,
+      "examples": 1744,
+      "split_counts": {
+        "train": 1744
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "counting_and_probability/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/counting_and_probability/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "c324818949c75a6227c0328a8499d58023cbbf6757cfc1736f5ab24cc8d87966",
+      "metadata_bytes": 175032,
+      "local_path": "evidence/download_authorization/benchmark_raw/13_counting_and_probability__test-00000-of-00001.parquet",
+      "raw_sha256": "c324818949c75a6227c0328a8499d58023cbbf6757cfc1736f5ab24cc8d87966",
+      "raw_bytes": 175032,
+      "examples": 474,
+      "split_counts": {
+        "test": 474
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "counting_and_probability/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/counting_and_probability/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "d37ae017930df41678edee50dcde18c17fb06afaff9eb505c1b95f1002bfcb31",
+      "metadata_bytes": 329354,
+      "local_path": "evidence/download_authorization/benchmark_raw/14_counting_and_probability__train-00000-of-00001.parquet",
+      "raw_sha256": "d37ae017930df41678edee50dcde18c17fb06afaff9eb505c1b95f1002bfcb31",
+      "raw_bytes": 329354,
+      "examples": 771,
+      "split_counts": {
+        "train": 771
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "geometry/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/geometry/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "98720f3a8134ad9784fd8951195245264495df03ffc5c9485a9a54ff5ae2431a",
+      "metadata_bytes": 263835,
+      "local_path": "evidence/download_authorization/benchmark_raw/15_geometry__test-00000-of-00001.parquet",
+      "raw_sha256": "98720f3a8134ad9784fd8951195245264495df03ffc5c9485a9a54ff5ae2431a",
+      "raw_bytes": 263835,
+      "examples": 479,
+      "split_counts": {
+        "test": 479
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "geometry/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/geometry/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "9dbf5e5b55499e696e0ba72da9d85d4f0be3acbf7eaa6cb014b0fc78bb63784f",
+      "metadata_bytes": 549388,
+      "local_path": "evidence/download_authorization/benchmark_raw/16_geometry__train-00000-of-00001.parquet",
+      "raw_sha256": "9dbf5e5b55499e696e0ba72da9d85d4f0be3acbf7eaa6cb014b0fc78bb63784f",
+      "raw_bytes": 549388,
+      "examples": 870,
+      "split_counts": {
+        "train": 870
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "intermediate_algebra/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/intermediate_algebra/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "e859f72486c951c2017da880541ca729940eaa986b0364eb23e238983df9bfeb",
+      "metadata_bytes": 394797,
+      "local_path": "evidence/download_authorization/benchmark_raw/17_intermediate_algebra__test-00000-of-00001.parquet",
+      "raw_sha256": "e859f72486c951c2017da880541ca729940eaa986b0364eb23e238983df9bfeb",
+      "raw_bytes": 394797,
+      "examples": 903,
+      "split_counts": {
+        "test": 903
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "intermediate_algebra/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/intermediate_algebra/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "0c87f3798ebdfb915b1f9b6fc13c1a8d064c3cb91631ccbe85b83ed5d71150f6",
+      "metadata_bytes": 575154,
+      "local_path": "evidence/download_authorization/benchmark_raw/18_intermediate_algebra__train-00000-of-00001.parquet",
+      "raw_sha256": "0c87f3798ebdfb915b1f9b6fc13c1a8d064c3cb91631ccbe85b83ed5d71150f6",
+      "raw_bytes": 575154,
+      "examples": 1295,
+      "split_counts": {
+        "train": 1295
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "number_theory/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/number_theory/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "ba156c9c9fa2040836ba12135fd964e6e67d6bccd8c469ec4a3ad941f8f6fbe9",
+      "metadata_bytes": 182003,
+      "local_path": "evidence/download_authorization/benchmark_raw/19_number_theory__test-00000-of-00001.parquet",
+      "raw_sha256": "ba156c9c9fa2040836ba12135fd964e6e67d6bccd8c469ec4a3ad941f8f6fbe9",
+      "raw_bytes": 182003,
+      "examples": 540,
+      "split_counts": {
+        "test": 540
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "number_theory/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/number_theory/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "81c08649149b39811f2d1d7ddf5dfccf6c4c8044a2e169cfb24db09160c941f4",
+      "metadata_bytes": 308653,
+      "local_path": "evidence/download_authorization/benchmark_raw/20_number_theory__train-00000-of-00001.parquet",
+      "raw_sha256": "81c08649149b39811f2d1d7ddf5dfccf6c4c8044a2e169cfb24db09160c941f4",
+      "raw_bytes": 308653,
+      "examples": 869,
+      "split_counts": {
+        "train": 869
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "prealgebra/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/prealgebra/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "301e5d8ade5c7b5038032532e498bdc9dca799e7f1061a63f2e7d980803240cc",
+      "metadata_bytes": 267729,
+      "local_path": "evidence/download_authorization/benchmark_raw/21_prealgebra__test-00000-of-00001.parquet",
+      "raw_sha256": "301e5d8ade5c7b5038032532e498bdc9dca799e7f1061a63f2e7d980803240cc",
+      "raw_bytes": 267729,
+      "examples": 871,
+      "split_counts": {
+        "test": 871
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "prealgebra/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/prealgebra/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "765b526fb5c0b8385cb7be2c16bf4f6f28cf71f2bc15c826abfbb5fa7f8616cc",
+      "metadata_bytes": 383626,
+      "local_path": "evidence/download_authorization/benchmark_raw/22_prealgebra__train-00000-of-00001.parquet",
+      "raw_sha256": "765b526fb5c0b8385cb7be2c16bf4f6f28cf71f2bc15c826abfbb5fa7f8616cc",
+      "raw_bytes": 383626,
+      "examples": 1205,
+      "split_counts": {
+        "train": 1205
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "precalculus/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/precalculus/test-00000-of-00001.parquet",
+      "split": "test",
+      "variant": "split_preserving",
+      "expected_sha256": "da37474ba3761ae5727af3844a7ba963a735bd6a14c65e6137593669a4fe3b9c",
+      "metadata_bytes": 242241,
+      "local_path": "evidence/download_authorization/benchmark_raw/23_precalculus__test-00000-of-00001.parquet",
+      "raw_sha256": "da37474ba3761ae5727af3844a7ba963a735bd6a14c65e6137593669a4fe3b9c",
+      "raw_bytes": 242241,
+      "examples": 546,
+      "split_counts": {
+        "test": 546
+      }
+    },
+    {
+      "dataset": "math",
+      "repository": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "source_path": "precalculus/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/EleutherAI/hendrycks_math/resolve/21a5633873b6a120296cce3e2df9d5550074f4a3/precalculus/train-00000-of-00001.parquet",
+      "split": "train",
+      "variant": "split_preserving",
+      "expected_sha256": "28bb1ff95525c8d32521509bef91de76339659f5467a381e6e8deea204538f0e",
+      "metadata_bytes": 353745,
+      "local_path": "evidence/download_authorization/benchmark_raw/24_precalculus__train-00000-of-00001.parquet",
+      "raw_sha256": "28bb1ff95525c8d32521509bef91de76339659f5467a381e6e8deea204538f0e",
+      "raw_bytes": 353745,
+      "examples": 746,
+      "split_counts": {
+        "train": 746
+      }
+    }
+  ],
+  "total_records_including_variants_and_examples": 45475,
+  "math_exact_row_multiset_equal": true,
+  "math_original_split_counts": {
+    "test": 5000,
+    "train": 7500
+  },
+  "math_identity_digest": "9eee3ddacf875d894c5470d5343ba519ce9e9fe10464811e619bad80f54b5307",
+  "fingerprints": {
+    "path": "evidence/download_authorization/benchmark_fingerprints_v1.jsonl.gz",
+    "sha256": "1415778eac25407107bfbe0aae312d55573b79f87882688c91a48528fface90d",
+    "bytes": 59289417
+  },
+  "script_sha256": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+  "publisher_relationship": {
+    "canonical_repository": "https://github.com/hendrycks/math",
+    "canonical_commit": "985bdc1696e88e8643f081a0ff4719da39f2ae2a",
+    "canonical_readme_sha256": "ea2a34912f19c4e98dfb76a99578daa42b195d5b15a71c359147cf440c6eb018",
+    "publisher_linked_distribution": "https://huggingface.co/datasets/qwedsacf/competition_math",
+    "publisher_linked_revision": "e839825f9ec5c6cfa585c654a59610969ec13993",
+    "split_preserving_distribution": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+    "split_preserving_revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+    "verification": "Exact complete-row multiset equality (all four fields and duplicate multiplicities) over 12,500 records. Split labels copied unchanged from 14 pinned split-preserving files; 7,500 train and 5,000 test. Publisher combined file is not represented as original train. No random/reconstructed split.",
+    "limitation": "Canonical publisher repo contains loaders and a distribution link, not the split-preserving payload. Independent distribution provenance remains explicitly identified; equality proves content, not a new publisher-hosted artifact."
+  },
+  "reader_profile": {
+    "package": "duckdb",
+    "version": "1.4.4",
+    "python": "3.12.14",
+    "purpose": "Parquet evaluation fingerprint reader only; no model dependency change.",
+    "install_target": "evidence/download_authorization/reader_deps",
+    "wheel_url": "https://files.pythonhosted.org/packages/8b/0a/18b9167adf528cbe3867ef8a84a5f19f37bedccb606a8a9e59cfea1880c8/duckdb-1.4.4-cp312-cp312-win_amd64.whl",
+    "wheel_sha256_from_publisher_metadata": "d525de5f282b03aa8be6db86b1abffdceae5f1055113a03d5b50cd2fb8cf2ef8",
+    "wheel_size": 12267343,
+    "recreate_command": ".venv/Scripts/python.exe -m pip install --no-deps --target evidence/download_authorization/reader_deps duckdb==1.4.4"
+  },
+  "validation": {
+    "records_verified": 45475,
+    "normalized_hashes_independently_recomputed": true,
+    "all_other_record_fields_identical_to_first_build": true,
+    "original_split_labels_retained": true,
+    "raw_hashes_reverified": true,
+    "tests": "5 passed",
+    "ruff": "PASS",
+    "format": "35 files PASS",
+    "compile": "PASS",
+    "cpu_and_cuda_dependency_checks": "PASS"
+  }
+}

@@ -1,0 +1,407 @@
+{
+  "schema_version": "1",
+  "status": "READY FOR SMALL REAL-DATA ACQUISITION",
+  "assembled_utc": "2026-09-09T17:03:08.171278+00:00",
+  "evidence": {
+    "path": "reports/gpu_enablement_evidence.json",
+    "sha256": "05a9319f8fdbddf65db336818e0336df660d79d9a403092988ec0cc1f1fe42c5",
+    "experiments_rerun_for_closeout": false
+  },
+  "source": {
+    "commit": "0bc5a6c1c7e2bcaeccb6a0a3759c743a92078176",
+    "dirty": true,
+    "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4"
+  },
+  "approved_cpu_rollback": "b7eb74d1f9121e40e149d66c65d20e04113c31bb",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "nvidia_smi_vram_mib": 4096,
+    "cuda_api_total_bytes": 4294443008,
+    "driver": "596.21",
+    "compute_capability": [
+      8,
+      6
+    ],
+    "windows": "Windows-11-10.0.26200-SP0"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.6.0+cu118",
+    "torch_version_cuda": "11.8",
+    "cudnn_api": 90100,
+    "official_index": "https://download.pytorch.org/whl/cu118",
+    "wheel": {
+      "url": "https://download-r2.pytorch.org/whl/cu118/torch-2.6.0%2Bcu118-cp312-cp312-win_amd64.whl",
+      "archive_info": {
+        "hash": "sha256=6c040e4181c5dae73b965b61394ec431c93b2018165e2be8f15fc68d44444cb3",
+        "hashes": {
+          "sha256": "6c040e4181c5dae73b965b61394ec431c93b2018165e2be8f15fc68d44444cb3"
+        }
+      }
+    },
+    "lockfile": "requirements-cuda-lock.txt",
+    "lockfile_sha256": "a1428a6260c3c0fdfeb8c734a51aa0b0bf5926a34f9180ad0cd577e66f61ea0e",
+    "recreation_instructions": "README.md",
+    "profile_difference": "torch 2.6.0+cpu -> 2.6.0+cu118; other 16 locked packages unchanged; separate .venv-cuda; no toolkit, Triton or Mamba kernels"
+  },
+  "parameters": {
+    "cpu": 1929579,
+    "cuda": 1929579,
+    "byte_hierarchy": 201483,
+    "shared_mamba": 1728096,
+    "unique_parameter_tensors": 56,
+    "identical_names_shapes": true,
+    "no_cuda_only_parameters": true,
+    "no_weight_decay_metadata_preserved": true
+  },
+  "parity": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "relative_denominator_floor": 1e-12,
+    "tolerance_changed": false,
+    "summary": {
+      "initial_logits": {
+        "max_absolute": 1.2218952178955078e-06,
+        "max_relative": 0.0011233325532412825
+      },
+      "cpu_gpu_logits": {
+        "max_absolute": 2.2649765014648438e-06,
+        "max_relative": 0.054355919583023084
+      },
+      "gpu_full_step": {
+        "max_absolute": 2.115964889526367e-06,
+        "max_relative": 0.03689469638739431
+      },
+      "hidden": {
+        "max_absolute": 1.7061829566955566e-06,
+        "max_relative": 0.0075268179932436435
+      },
+      "layers/conv": {
+        "max_absolute": 1.9669532775878906e-06,
+        "max_relative": 0.02811550151975684
+      },
+      "layers/ssm": {
+        "max_absolute": 2.086162567138672e-07,
+        "max_relative": 0.42857142857142855
+      },
+      "shared_cpu_gpu": {
+        "max_absolute": 2.6226043701171875e-06,
+        "max_relative": 0.009195402298850575
+      },
+      "shared_full_step": {
+        "max_absolute": 2.0265579223632812e-06,
+        "max_relative": 0.022675736961451247
+      },
+      "shared_nonzero_state_continuation": {
+        "max_absolute": 1.9073486328125e-06,
+        "max_relative": 0.016241299303944315
+      },
+      "full_state_cpu_gpu/conv": {
+        "max_absolute": 1.0728836059570312e-06,
+        "max_relative": 0.0033149171270718232
+      },
+      "full_state_cpu_gpu/ssm": {
+        "max_absolute": 7.450580596923828e-08,
+        "max_relative": 0.0708963880696047
+      },
+      "full_state_continuation/conv": {
+        "max_absolute": 8.344650268554688e-07,
+        "max_relative": 0.005543237250554324
+      },
+      "full_state_continuation/ssm": {
+        "max_absolute": 1.1175870895385742e-07,
+        "max_relative": 0.08497936691422628
+      },
+      "full_state_step/conv": {
+        "max_absolute": 9.834766387939453e-07,
+        "max_relative": 0.0027347310847766638
+      },
+      "full_state_step/ssm": {
+        "max_absolute": 1.043081283569336e-07,
+        "max_relative": 0.03337032010392093
+      }
+    },
+    "relative_error_note": "Relative maxima can be large for values near zero. Every comparison passed the unchanged combined absolute/relative tolerance; maxima are reported independently, not asserted to occur at the same element."
+  },
+  "causality": {
+    "batch": 2,
+    "length": 137,
+    "cuts": [
+      0,
+      1,
+      7,
+      8,
+      9,
+      15,
+      16,
+      17,
+      63,
+      64,
+      65,
+      127,
+      128,
+      129
+    ],
+    "max_absolute_prefix_difference": 0.0,
+    "max_relative_prefix_difference": 0.0
+  },
+  "gradients": {
+    "status": "PASS",
+    "all_56_trainable_tensors_finite_positive_norm": true,
+    "minimum_tensor_norm": 3.4833105019060895e-05
+  },
+  "optimizer_update": "PASS",
+  "checkpoint_resume": {
+    "schema": "2",
+    "integrity_manifest_schema": "1",
+    "boundary": "completed optimizer updates only",
+    "cuda_rng": "all visible CUDA generator states, validated and restored; current profile requires exactly one CUDA device",
+    "cpu_python_rng": "restored alongside CUDA RNG",
+    "malformed_cuda_rng_rejected": true,
+    "atomic_publication": "unchanged fsync/readability/SHA verification and rename to unused directory",
+    "compatibility": "model/config/parameter structure/dataset/source/environment/optimizer/scheduler checks preserved; CPU schema-1 checkpoints require approved rollback source/environment",
+    "same_device_results": {
+      "updates": 6,
+      "split": 3,
+      "max_tensor_error": 0.0,
+      "rng_cursor_counters_scheduler_metrics_exact": true,
+      "generation_exact": true,
+      "generation": {
+        "policy": "greedy over raw-byte classes 0..255",
+        "length": 64,
+        "hex": "656467656465660a206162636465660a656467656465303a206162636465660a656467656465303a206162636465660a656467656465303a206162636465660a",
+        "escaped": "b'edgedef\\n abcdef\\nedgede0: abcdef\\nedgede0: abcdef\\nedgede0: abcdef\\n'",
+        "unrestricted_head_control_argmax_count": 0,
+        "shared_steps": 9,
+        "completed_patches": 8
+      },
+      "memory_after_restore": {
+        "allocated_bytes": 90285568,
+        "reserved_bytes": 98566144,
+        "peak_allocated_bytes": 90285568,
+        "peak_reserved_bytes": 98566144,
+        "free_device_bytes": 3336254260,
+        "total_device_bytes": 4294443008
+      },
+      "comparison_excludes": [
+        "elapsed time",
+        "run identity and creation time"
+      ]
+    },
+    "cross_device_bitwise_claim": false
+  },
+  "short_learning": {
+    "updates": 10,
+    "micro_steps": 20,
+    "examples_seen": 40,
+    "bytes_seen": 1280,
+    "initial_train_nll": 5.555967330932617,
+    "final_train_nll": 0.5132922530174255,
+    "reduction_fraction": 0.9076142420493202,
+    "held_out_nll": 3.287210464477539,
+    "elapsed_seconds_at_last_update": 6.791681000002427,
+    "timing_scope": "trainer elapsed through last update; includes initial validation",
+    "claim": "controlled synthetic learning mechanics only"
+  },
+  "generation": {
+    "policy": "greedy over raw-byte classes 0..255",
+    "length": 64,
+    "hex": "656467653430303a206162636465660a656467653430303a206162636465660a656467653430303a206162636465660a656467653430303a206162636465660a",
+    "escaped": "b'edge400: abcdef\\nedge400: abcdef\\nedge400: abcdef\\nedge400: abcdef\\n'",
+    "unrestricted_head_control_argmax_count": 0,
+    "shared_steps": 9,
+    "completed_patches": 8
+  },
+  "memory": {
+    "method": "torch.cuda.synchronize followed by memory_allocated, memory_reserved, max_memory_allocated, max_memory_reserved and mem_get_info",
+    "allocator_budget_bytes": 1073741824,
+    "required_free_headroom_bytes": 1073741824,
+    "initial_admission_rule": "free device memory >= allocator budget + headroom",
+    "baseline_lifecycle": {
+      "before_model": {
+        "allocated_bytes": 33554432,
+        "reserved_bytes": 33554432,
+        "peak_allocated_bytes": 33554432,
+        "peak_reserved_bytes": 33554432,
+        "free_device_bytes": 3411751732,
+        "total_device_bytes": 4294443008
+      },
+      "after_model_load": {
+        "allocated_bytes": 41280000,
+        "reserved_bytes": 58720256,
+        "peak_allocated_bytes": 41280000,
+        "peak_reserved_bytes": 58720256,
+        "free_device_bytes": 3386585908,
+        "total_device_bytes": 4294443008
+      },
+      "after_recurrent_state": {
+        "allocated_bytes": 42410496,
+        "reserved_bytes": 58720256,
+        "peak_allocated_bytes": 42410496,
+        "peak_reserved_bytes": 58720256,
+        "free_device_bytes": 3386585908,
+        "total_device_bytes": 4294443008
+      },
+      "after_forward": {
+        "allocated_bytes": 44061184,
+        "reserved_bytes": 62914560,
+        "peak_allocated_bytes": 46244864,
+        "peak_reserved_bytes": 62914560,
+        "free_device_bytes": 3382391604,
+        "total_device_bytes": 4294443008
+      },
+      "after_backward": {
+        "allocated_bytes": 82629632,
+        "reserved_bytes": 96468992,
+        "peak_allocated_bytes": 84708352,
+        "peak_reserved_bytes": 96468992,
+        "free_device_bytes": 3338351412,
+        "total_device_bytes": 4294443008
+      },
+      "after_optimizer_update": {
+        "allocated_bytes": 98080768,
+        "reserved_bytes": 123731968,
+        "peak_allocated_bytes": 101683200,
+        "peak_reserved_bytes": 123731968,
+        "free_device_bytes": 3311088436,
+        "total_device_bytes": 4294443008
+      }
+    },
+    "training_peak_allocated_bytes": 103754752,
+    "training_peak_reserved_bytes": 127926272,
+    "minimum_observed_training_free_bytes": 3306894132,
+    "same_device_resume_after_restore": {
+      "allocated_bytes": 90285568,
+      "reserved_bytes": 98566144,
+      "peak_allocated_bytes": 90285568,
+      "peak_reserved_bytes": 98566144,
+      "free_device_bytes": 3336254260,
+      "total_device_bytes": 4294443008
+    },
+    "trained_checkpoint_after_restore": {
+      "allocated_bytes": 90285568,
+      "reserved_bytes": 127926272,
+      "peak_allocated_bytes": 103754752,
+      "peak_reserved_bytes": 127926272,
+      "free_device_bytes": 3306894132,
+      "total_device_bytes": 4294443008
+    },
+    "interpretation": [
+      "Allocator bytes are not total process/device use or host RSS.",
+      "Recorded before-model allocations include library workspaces and prior live allocations; sequential probes are not isolated fresh processes. Absolute totals are reported without subtraction.",
+      "Peak counters reset at probe, short-learning and resume-restore boundaries documented in tests.",
+      "Free device memory is a synchronized driver observation, not a promise about later desktop/application use.",
+      "Training activations/autograd are included in observed allocator peaks but not separately attributed."
+    ],
+    "maximum_observed_peak_allocated_bytes": 399809024,
+    "maximum_observed_peak_reserved_bytes": 438304768,
+    "maximum_scope": "Maximum recorded across baseline, learning, restore and all requested fit probes; both maxima occurred in the 20M one-update preflight. Not an isolated 2M model-only measurement.",
+    "process_gpu_memory_status": "UNVERIFIED: WDDM nvidia-smi process GPU memory N/A; allocator totals are separate.",
+    "short_learning_process_rss_peak_observed_bytes": 898670592,
+    "short_learning_peak_working_set_bytes": 989241344
+  },
+  "fit_matrix": [
+    {
+      "target_parameters": 2000000,
+      "actual_parameters": 1929579,
+      "batch_size": 1,
+      "sequence_length": 32,
+      "precision": "fp32",
+      "forward_status": "PASS",
+      "backward_status": "PASS",
+      "optimizer_step_status": "PASS",
+      "peak_allocated_bytes": 124825600,
+      "peak_reserved_bytes": 132120576,
+      "minimum_observed_free_device_bytes": 3302699828,
+      "classification": "FITS_TRAINING_MECHANICS",
+      "scope": "one synthetic optimizer update; not full-training feasibility"
+    },
+    {
+      "target_parameters": 6000000,
+      "actual_parameters": 5899491,
+      "batch_size": 1,
+      "sequence_length": 32,
+      "precision": "fp32",
+      "forward_status": "PASS",
+      "backward_status": "PASS",
+      "optimizer_step_status": "PASS",
+      "peak_allocated_bytes": 171424256,
+      "peak_reserved_bytes": 180355072,
+      "minimum_observed_free_device_bytes": 3254465332,
+      "classification": "FITS_TRAINING_MECHANICS",
+      "scope": "one synthetic optimizer update; not full-training feasibility"
+    },
+    {
+      "target_parameters": 20000000,
+      "actual_parameters": 20114763,
+      "batch_size": 1,
+      "sequence_length": 32,
+      "precision": "fp32",
+      "forward_status": "PASS",
+      "backward_status": "PASS",
+      "optimizer_step_status": "PASS",
+      "peak_allocated_bytes": 399809024,
+      "peak_reserved_bytes": 438304768,
+      "minimum_observed_free_device_bytes": 2996515636,
+      "classification": "FITS_TRAINING_MECHANICS",
+      "scope": "one synthetic optimizer update; not full-training feasibility"
+    }
+  ],
+  "oom": {
+    "actual_oom_count": 0,
+    "requested_profiles_changed_after_failure": false,
+    "simulated_cpu_runnable_test": "PASS: CUDA OutOfMemoryError at model_load classified DOES_NOT_FIT; requested batch=2 and sequence=64 preserved; no hardware OOM was deliberately induced.",
+    "classification_scope": "OOM is within the declared allocator safety budget. Unavailable/preflight rejection is BLOCKED. Unexpected execution failures propagate."
+  },
+  "recommended_profile": {
+    "model_parameters": 1929579,
+    "device": "cuda:0",
+    "precision": "fp32",
+    "sequence_length": 32,
+    "batch_size": 2,
+    "accumulation_steps": 2,
+    "cpu_threads": 1,
+    "deterministic_algorithms": true,
+    "tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cublas_workspace_config": ":4096:8",
+    "allocator_budget_bytes": 1073741824,
+    "minimum_observed_free_bytes": 3306894132,
+    "classification": "FITS_SHORT_VALIDATION",
+    "scope": "bounded mechanics and subsequent small-data validation only; no long-run/context feasibility claim"
+  },
+  "validation": {
+    "cpu_profile_full_suite": {
+      "tests": "168",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "7",
+      "time": "166.135"
+    },
+    "cuda_suite": {
+      "tests": "7",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "55.178"
+    },
+    "total_unique_passed_across_profiles": 168,
+    "original_159_cpu_tests_preserved": true,
+    "ruff": "PASS",
+    "format": "PASS: 33 Python files",
+    "compileall": "PASS: src and tests",
+    "dependency_checks": "PASS: both profiles, 17 exact lock entries each",
+    "imports": "PASS: 20 modules in each profile"
+  },
+  "missing_required_gpu_evidence": [],
+  "limitations": [
+    "Optional NumPy bridge absent; visible warning; used operations pass.",
+    "Native Windows generic PyTorch Mamba only; no optimized upstream CUDA/Triton package parity.",
+    "Short synthetic fixtures demonstrate mechanics, not language quality.",
+    "No mixed precision, long-context CUDA training or sustained thermal/power/performance validation.",
+    "One-update 5.90M/20.11M fit is not authorization or proof of substantive larger-model training.",
+    "WDDM nvidia-smi process GPU memory is N/A; PyTorch allocator and driver free-memory APIs are the measured sources.",
+    "Schema-1 historical CPU training checkpoints require rollback source/environment; no silent migration."
+  ]
+}

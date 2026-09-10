@@ -1,0 +1,296 @@
+{
+  "schema_version": "1",
+  "created_utc": "2026-09-09T17:03:08.171278+00:00",
+  "purpose": "Training exclusion registry; proposed enforcement, no acquisition pipeline executed.",
+  "project_source_identity": {
+    "commit": "0bc5a6c1c7e2bcaeccb6a0a3759c743a92078176",
+    "dirty": true,
+    "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4"
+  },
+  "deny_project_path_prefixes": [
+    "src/",
+    "tests/",
+    "reports/",
+    "evidence/",
+    "docs/",
+    "scripts/"
+  ],
+  "project_tests_and_fixture_generators": [
+    {
+      "path": "src/unified_edge/training/data.py",
+      "sha256": "b198b86bbff16366559bbfbef4cd5bef86457fd181ee258b5f16d2a8a21abaa5",
+      "bytes": 8488
+    },
+    {
+      "path": "src/unified_edge/training/experiment.py",
+      "sha256": "20389d831363f846be1e77356407253eb759344695b7f3523031ce6bcd46f01f",
+      "bytes": 11629
+    },
+    {
+      "path": "src/unified_edge/training/gpu_probe.py",
+      "sha256": "9b0c8ab2be5681c2ac33d9c39bdda0806df61ca7cba53fdf1d6c2b5421c1e42a",
+      "bytes": 4391
+    },
+    {
+      "path": "tests/measure_mamba.py",
+      "sha256": "5bf3c7b7d22a767b7505e05f331df48af0cc2d26d53966adae08a80bb1831e86",
+      "bytes": 12597
+    },
+    {
+      "path": "tests/test_accounting.py",
+      "sha256": "3305a90bbfb05d7f5f2e5064653e5aaa7765dbf19daa7e47d29213967da372b9",
+      "bytes": 7852
+    },
+    {
+      "path": "tests/test_byte_hierarchy.py",
+      "sha256": "397aa4ae40bbe2c1e3135fcbcf13e1e3c7ded6ea4d0722e1744cdc3cf5dd69db",
+      "bytes": 17714
+    },
+    {
+      "path": "tests/test_cli.py",
+      "sha256": "cea15a9bd33a72b95be92c70dbf1bc2b051f6b21084c7b6647ca2f772e60782a",
+      "bytes": 1968
+    },
+    {
+      "path": "tests/test_config.py",
+      "sha256": "f38897b02bc5f4c015b6eec58c288be1a908891d0bf4d99161d30ce74ac7cbb0",
+      "bytes": 7265
+    },
+    {
+      "path": "tests/test_dense_model.py",
+      "sha256": "46c7ea227252069436b53c52a4d3795ff58a4e9f6615fa5403a5351166049fe9",
+      "bytes": 10059
+    },
+    {
+      "path": "tests/test_gpu_enablement.py",
+      "sha256": "ae8b812069a2fdb6a705c483edc0d2ac26138f35d48de3fc6485453580d9160a",
+      "bytes": 17028
+    },
+    {
+      "path": "tests/test_gpu_profile.py",
+      "sha256": "9199039a8e9fb37eaee66f75f9e8c77e9626109e79ea6511b43bca61145f5b04",
+      "bytes": 2011
+    },
+    {
+      "path": "tests/test_mamba.py",
+      "sha256": "c91afccee211570d3e5288c3119c86b0d7caac398b28a335db9b2292a6e2f657",
+      "bytes": 14727
+    },
+    {
+      "path": "tests/test_symbols.py",
+      "sha256": "7a1295b6289c1c8e43ec53119229255d6025576881f7dad1aae477edf59eb525",
+      "bytes": 3030
+    },
+    {
+      "path": "tests/test_training.py",
+      "sha256": "a3c99ddadf376552414d429abcc5686ab9df35ff1d3a98bf44981f667149d7b4",
+      "bytes": 19162
+    },
+    {
+      "path": "tests/test_training_overfit.py",
+      "sha256": "83a82e466158419aff4c206bdd3f71bfef9d78a8c381d7adda1f0a4874ce0ed1",
+      "bytes": 1187
+    },
+    {
+      "path": "tests/test_benchmark_fingerprints.py",
+      "sha256": "777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97",
+      "bytes": 2247
+    },
+    {
+      "path": "scripts/benchmark_fingerprints.py",
+      "sha256": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+      "bytes": 7523
+    }
+  ],
+  "local_fixture_payloads": [
+    {
+      "path": "evidence/gpu_enablement/run-aeb332fad48c/learning-data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/gpu_enablement/run-aeb332fad48c/learning-data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/gpu_enablement/run-aeb332fad48c/resume-data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/gpu_enablement/run-aeb332fad48c/resume-data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/initial_probe/data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/initial_probe/data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-35c8c2786ef4/data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-35c8c2786ef4/data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-4b6a426e2d89/data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-4b6a426e2d89/data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-8e3b3bc7ec7c/data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-8e3b3bc7ec7c/data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-ea28dc1fc615/data/train.raw",
+      "sha256": "966219c17a33b7a256a6f41c54fb06eb10efd3b28e1ec2530d7d4d8468101255",
+      "bytes": 1024,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    },
+    {
+      "path": "evidence/training_infrastructure/overfit-ea28dc1fc615/data/validation.raw",
+      "sha256": "2b73735f901920c3e407f6c91c2ef4e8e26b5000a864c4dc893d7d18cf513131",
+      "bytes": 256,
+      "role": "synthetic CPU/GPU mechanics; exclude all splits"
+    }
+  ],
+  "future_benchmarks": [
+    {
+      "repository": "https://github.com/openai/human-eval",
+      "branch": "master",
+      "path_prefix": "data/",
+      "role": "future-evaluation exclusion only",
+      "commit": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+      "availability": "METADATA_VERIFIED",
+      "content_hashes": "COMPLETE: see reports/benchmark_exclusion_coverage.json and its hashed per-example fingerprint sidecar"
+    },
+    {
+      "repository": "https://github.com/openai/grade-school-math",
+      "branch": "master",
+      "path_prefix": "grade_school_math/data/",
+      "role": "future-evaluation exclusion only",
+      "commit": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "availability": "METADATA_VERIFIED",
+      "content_hashes": "COMPLETE: see reports/benchmark_exclusion_coverage.json and its hashed per-example fingerprint sidecar"
+    },
+    {
+      "repository": "https://github.com/hendrycks/math",
+      "branch": "main",
+      "path_prefix": "",
+      "role": "future-evaluation exclusion only",
+      "commit": "985bdc1696e88e8643f081a0ff4719da39f2ae2a",
+      "availability": "METADATA_VERIFIED",
+      "content_hashes": "COMPLETE: see reports/benchmark_exclusion_coverage.json and its hashed per-example fingerprint sidecar"
+    },
+    {
+      "repository": "https://github.com/google-research/google-research",
+      "branch": "master",
+      "path_prefix": "mbpp/",
+      "role": "future-evaluation exclusion only",
+      "commit": "fe47f1858af22fc3d33c9d2e7166a715c20ad305",
+      "availability": "METADATA_VERIFIED",
+      "content_hashes": "COMPLETE: see reports/benchmark_exclusion_coverage.json and its hashed per-example fingerprint sidecar"
+    }
+  ],
+  "planned_downstream_holdout": {
+    "id": "edge400-real-byte-pilot-v1-heldout",
+    "status": "SOURCE_UNIT_IDENTITIES_RESERVED; final cleaned hashes follow authorized acquisition and global dedup",
+    "gutenberg": {
+      "validation_ebook_ids": [
+        1661
+      ],
+      "test_ebook_ids": [
+        768
+      ],
+      "validation_author": "Arthur Conan Doyle",
+      "test_author": "Emily Bronte",
+      "deny_other_splits_for_these_authors": true
+    },
+    "repositories": {
+      "manifest": "docs/source_file_allowlists_2m.json",
+      "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+      "identity": "Each path pinned to repository commit and Git blob SHA-1 with source-unit role. Final raw SHA-256 computed on authorized fetch."
+    },
+    "future_benchmarks": "Exactly the four already reserved; no additional benchmark secretly planned. Additional evaluation requires registry update before training admission."
+  },
+  "policy": [
+    "Never acquire this project, its tests, generated outputs or synthetic fixtures as real training data.",
+    "Reject exact whole-document fixture payload hashes and fixture-derived repeated spans; do not blacklist individual byte values or ubiquitous tiny literals.",
+    "Randomized test fixtures are identified by generator file hash and recorded test seeds; these generator hashes are not hashes of all possible generated outputs.",
+    "Benchmark repositories/paths are deny identities now. Content and near-duplicate fingerprint indexes require licensed reference access before substantive acquisition under the current human decision.",
+    "Cluster exact/near duplicates globally before split allocation; quarantine benchmark matches across every split.",
+    "Semantic and paraphrase contamination cannot be ruled out by hash matching. Registry alone is not an implemented filter."
+  ],
+  "approval_gate": {
+    "status": "SATISFIED_FOR_AUTHORIZATION",
+    "benchmark_content_fingerprints": "COMPLETE",
+    "downstream_source_unit_identities": "PINNED",
+    "training_payload_hashes": "PENDING_AUTHORIZED_ACQUISITION as explicitly approved; not a benchmark fingerprint gap"
+  },
+  "benchmark_fingerprints": {
+    "coverage_report": "reports/benchmark_exclusion_coverage.json",
+    "coverage_report_sha256": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "artifact": {
+      "path": "evidence/download_authorization/benchmark_fingerprints_v1.jsonl.gz",
+      "sha256": "1415778eac25407107bfbe0aae312d55573b79f87882688c91a48528fface90d",
+      "bytes": 59289417
+    },
+    "algorithm": {
+      "version": "edge-exclusion-v1",
+      "normalization": "Unicode NFKC, casefold, collapse Unicode whitespace, UTF-8",
+      "exact": "SHA-256 of normalized content, separately for every string field",
+      "near": "64 minimum distinct BLAKE2b-64 hashes of consecutive 5-token shingles",
+      "tokens": "Python Unicode regex: \\w+|[^\\w\\s]",
+      "shingle_encoding": "compact JSON array, ensure_ascii=False, UTF-8",
+      "personalization": "edge-excl-v1",
+      "short_fields": "fewer than 5 tokens: exact hash only",
+      "matching": "Candidate retrieval only; verify original content before exclusion. No semantic/paraphrase completeness claim.",
+      "payload_policy": "Normalization affects detection only, never training bytes.",
+      "normalized_example": "SHA-256 of sorted compact UTF-8 JSON mapping flattened string-field paths to normalized strings; numeric IDs separately preserved where supplied."
+    },
+    "status": "COMPLETE_FOR_ALL_RESERVED_BENCHMARK_FILES_AND_VARIANTS",
+    "admission_rule": "Require all raw files and fingerprint sidecar hashes to verify; missing/corrupt artifact blocks acquisition. Fingerprints are candidates for original-content review, not a semantic contamination guarantee."
+  },
+  "local_fingerprints": {
+    "path": "evidence/download_authorization/local_fixture_fingerprints.json",
+    "sha256": "66c02c7f7533f482d08bc297bbb5ba1912ba6070b4e63c53855914ca5e03a178"
+  },
+  "gutenberg_work_allowlist": {
+    "path": "docs/gutenberg_work_allowlist_2m.json",
+    "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b"
+  }
+}

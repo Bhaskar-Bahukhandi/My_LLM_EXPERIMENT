@@ -1,6 +1,6 @@
 # Unified Edge-400
 
-Current scope: configuration resolution, exact parameter accounting, the generic CPU FP32 dense byte/Mamba-2 model, and bounded deterministic CPU training infrastructure. A fixed tiny synthetic overfit experiment exercises learning and restart mechanics; it is not evidence of language-model quality. The original FINAL Bible and Roadmap remain unchanged.
+Current scope: configuration resolution, exact parameter accounting, the generic CPU/CUDA FP32 dense byte/Mamba-2 model, and bounded deterministic training infrastructure. A fixed tiny synthetic overfit experiment exercises learning and restart mechanics; it is not evidence of language-model quality. The original FINAL Bible and Roadmap remain unchanged.
 
 The closest inventory in the default 18-candidate search is **1,929,579 parameters**, 3.52105% below 2M. The nominal 2% gate is honestly rejected. Width/depth are 256/4; no dimensions were distorted to meet the target. The full instantiated model now matches this inventory exactly; the candidate remains an explicit smoke-stage exception to the unchanged tolerance.
 
@@ -71,7 +71,7 @@ with torch.inference_mode():
 
 The full differentiable call `model(targets)` accepts equal-length [B,T] symbol rows. Its independent dense SSD reference path uses quadratic storage in patch length; use bounded sequences/chunks. Incremental `predict`/`consume` manages completed patches internally. Reset and tagged export/restore cover both local and shared state. Use inference mode for streaming inference; exported state is detached and requires identical weights.
 
-See [Mamba readiness](reports/mamba_integration_readiness.md), [numerical evidence](reports/mamba_integration_evidence.json), and [state/math contract](docs/mamba_integration_contract.md). Upstream package-runtime parity remains unverified on this Windows CPU environment. Bounded training memory is now measured; no GPU code was added.
+See [Mamba readiness](reports/mamba_integration_readiness.md), [numerical evidence](reports/mamba_integration_evidence.json), and [state/math contract](docs/mamba_integration_contract.md). Upstream package-runtime parity remains unverified on this Windows CPU environment. Bounded CPU and CUDA training memory are now measured; optimized Mamba kernels remain unvalidated and uninstalled.
 
 
 ## Bounded CPU training
@@ -101,4 +101,25 @@ trainer.train_until(60)
 validation = trainer.validate()
 ```
 
-Resume requires identical model/training semantics, manifest hash, source identity and supported environment. It restores optimizer state (including lazy per-parameter update counts), scheduler, RNG and data cursor. A failed update requires restoration from the last complete checkpoint. GPU enablement, large data and substantive model training remain separate work.
+Resume requires identical model/training semantics, manifest hash, source identity and supported environment. It restores optimizer state (including lazy per-parameter update counts), scheduler, RNG and data cursor. A failed update requires restoration from the last complete checkpoint. The separately validated CUDA profile is described below. Real-data acquisition and substantive model training remain separate work.
+
+
+## Validated Windows CUDA profile
+
+Read [GPU readiness](reports/gpu_enablement_readiness.md), [measured evidence](reports/gpu_enablement_evidence.json), and the [execution contract](docs/gpu_execution_contract.md). The verified machine is RTX 2050 4 GB, driver 596.21, compute capability 8.6. `.venv` remains the CPU fallback; `.venv-cuda` uses official PyTorch 2.6.0+cu118 with CUDA runtime 11.8. No system Python, CUDA toolkit, WSL or optimized Mamba/Triton installation is needed.
+
+To recreate the CUDA environment only when `.venv-cuda` is absent, use the existing Python 3.12.14 CPU environment:
+
+```powershell
+.\.venv\Scripts\python.exe -m venv .venv-cuda
+.\.venv-cuda\Scripts\python.exe -m pip install -r requirements-cuda-lock.txt --extra-index-url https://download.pytorch.org/whl/cu118
+.\.venv-cuda\Scripts\python.exe -m pip install --no-build-isolation --no-deps -e .
+.\.venv-cuda\Scripts\python.exe -m pip check
+.\.venv-cuda\Scripts\python.exe -m pytest -q -s tests/test_gpu_enablement.py
+```
+
+The exact Windows cp312 wheel URL and SHA-256 are recorded in the GPU evidence. The CPU command `python -m pytest -q` still runs all CPU cases and explicitly skips the real-CUDA gates. The dedicated CUDA suite creates ignored evidence directories and includes only short synthetic learning and one-update feasibility probes; it downloads no corpus.
+
+Use `TrainingConfig(device="cuda:0", sequence_length=32, batch_size=2, accumulation_steps=2)` with the existing Trainer API and unchanged resolved model. The trainer sets deterministic FP32 execution (TF32 off), configures cuBLAS before CUDA initialization, and enforces a 1 GiB allocator budget plus an initial free-memory headroom gate. For direct model use, call `configure_device("cuda:0")` from `unified_edge.training.device` before creating CUDA tensors, enable `torch.use_deterministic_algorithms(True)`, then move model and inputs with `.to(device)` at the caller boundary. Model state inherits placement from weights.
+
+Training checkpoint schema 2 includes CUDA RNG state and requires the same execution profile. It does not silently migrate old schema-1 training checkpoints or promise cross-device bitwise resume; use CPU rollback commit `b7eb74d1f9121e40e149d66c65d20e04113c31bb` and `.venv` for historical CPU checkpoints. Model architecture/state schemas are unchanged. The recommended current profile is the tested 1.93M model at 32-byte windows; one-step larger-model fit does not authorize larger-model training or establish long-context capacity.

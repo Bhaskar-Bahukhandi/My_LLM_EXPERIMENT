@@ -29,7 +29,7 @@ def load_checkpoint(path: Path) -> dict:
         if hashlib.sha256(target.read_bytes()).hexdigest() != record["sha256"]:
             raise CheckpointError("checkpoint SHA-256 mismatch")
         state = torch.load(target, map_location="cpu", weights_only=True)
-        if not isinstance(state, dict) or state.get("schema") != "1":
+        if not isinstance(state, dict) or state.get("schema") != "2":
             raise CheckpointError("unsupported checkpoint schema")
         return state
     except (OSError, EOFError, RuntimeError, pickle.UnpicklingError, json.JSONDecodeError) as error:

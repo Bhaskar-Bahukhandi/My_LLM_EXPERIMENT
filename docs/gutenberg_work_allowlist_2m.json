@@ -1,0 +1,507 @@
+{
+  "schema_version": "1",
+  "as_of_utc": "2026-09-10T00:25:41.938402+00:00",
+  "jurisdiction": "India work-level screen as local operating assumption, plus Gutenberg US catalog status; no global clearance claim.",
+  "legal_reference": "https://www.indiacode.nic.in/bitstream/123456789/1367/1/a195714.pdf",
+  "legal_basis": "Section 22 published-during-lifetime term, 60 years from next calendar year; latest admitted author death 1930, safely before approved cutoff1965. All original works predate death; later reprint dates are not posthumous original works.",
+  "policy": {
+    "first_publication_no_later_than": 1930,
+    "last_author_death_no_later_than": 1965,
+    "original_english_only": true,
+    "translations_allowed": false,
+    "posthumous_works_allowed": false,
+    "supplements_allowed": false,
+    "permission_only_allowed": false
+  },
+  "works": [
+    {
+      "id": 1400,
+      "title": "Great Expectations",
+      "authors": [
+        {
+          "name": "Dickens, Charles",
+          "death": "1870"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/1400/1400-0.txt",
+          "bytes": 1038512,
+          "modified": "2024-12-17T12:54:55"
+        }
+      ],
+      "rdf_sha256": "b0715960f1051a69b8293b1f1f40e10dbdadd677c5257a32c480822639c09360",
+      "original_first_publication_year": 1860,
+      "first_collected_or_completed_book_year": 1861,
+      "publication_evidence_url": "https://dickens.ucsc.edu/resources/dickens-chronology/",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1870,
+      "india_lifetime_term_end_year_under_section22": 1930,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "train",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/1400/pg1400.rdf",
+      "metadata_sha256": "b0715960f1051a69b8293b1f1f40e10dbdadd677c5257a32c480822639c09360",
+      "header": {
+        "id": 1400,
+        "url": "https://www.gutenberg.org/files/1400/1400-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/1038512",
+        "last_modified": "Tue, 17 Dec 2024 17:54:55 GMT",
+        "header_sha256": "b35e26d8508574fedfa0c594518026fa973c19ef41c478c27513cbf1fd906ece",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg1400_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "1867 edition identified in header; retain Dickens novel only, omit illustrations.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 766,
+      "title": "David Copperfield",
+      "authors": [
+        {
+          "name": "Dickens, Charles",
+          "death": "1870"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/766/766-0.txt",
+          "bytes": 2013603,
+          "modified": "2025-07-29T11:55:14"
+        }
+      ],
+      "rdf_sha256": "d17bf06baeb77f2e488126bb5584c7a014c8066ab066e89f89fac35be006caa6",
+      "original_first_publication_year": 1849,
+      "first_collected_or_completed_book_year": 1850,
+      "publication_evidence_url": "https://dickens.ucsc.edu/resources/dickens-chronology/",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1870,
+      "india_lifetime_term_end_year_under_section22": 1930,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "train",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/766/pg766.rdf",
+      "metadata_sha256": "d17bf06baeb77f2e488126bb5584c7a014c8066ab066e89f89fac35be006caa6",
+      "header": {
+        "id": 766,
+        "url": "https://www.gutenberg.org/files/766/766-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/2013603",
+        "last_modified": "Tue, 29 Jul 2025 15:55:14 GMT",
+        "header_sha256": "0b0ff3d67c56470f217b467a471cf5fbffc1974f34f950b7c484d5c0860aadad",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg766_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 1023,
+      "title": "Bleak House",
+      "authors": [
+        {
+          "name": "Dickens, Charles",
+          "death": "1870"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/1023/1023-0.txt",
+          "bytes": 2025044,
+          "modified": "2026-03-11T07:43:28"
+        }
+      ],
+      "rdf_sha256": "1b69f979e89c688ef4f7f15de954518a97c62733b1e284e719fd56764b07da97",
+      "original_first_publication_year": 1852,
+      "first_collected_or_completed_book_year": 1853,
+      "publication_evidence_url": "https://dickens.ucsc.edu/resources/dickens-chronology/",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1870,
+      "india_lifetime_term_end_year_under_section22": 1930,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "train",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/1023/pg1023.rdf",
+      "metadata_sha256": "1b69f979e89c688ef4f7f15de954518a97c62733b1e284e719fd56764b07da97",
+      "header": {
+        "id": 1023,
+        "url": "https://www.gutenberg.org/files/1023/1023-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/2025044",
+        "last_modified": "Wed, 11 Mar 2026 11:43:28 GMT",
+        "header_sha256": "39ffafe1c12aacfff7d3182fe649a1a591e83c802be7980ac8c2ed64b1d695d9",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg1023_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 145,
+      "title": "Middlemarch",
+      "authors": [
+        {
+          "name": "Eliot, George",
+          "death": "1880"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/145/145-0.txt",
+          "bytes": 1812793,
+          "modified": "2026-04-12T13:51:31.577556"
+        }
+      ],
+      "rdf_sha256": "01a886541289ad42cfe3665884014e6b54bc46633ee5e8e5c4c52a83eb6ec919",
+      "original_first_publication_year": 1871,
+      "first_collected_or_completed_book_year": 1872,
+      "publication_evidence_url": "https://exhibits.library.illinois.edu/s/rbml/item/30704",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1880,
+      "india_lifetime_term_end_year_under_section22": 1940,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "train",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/145/pg145.rdf",
+      "metadata_sha256": "01a886541289ad42cfe3665884014e6b54bc46633ee5e8e5c4c52a83eb6ec919",
+      "header": {
+        "id": 145,
+        "url": "https://www.gutenberg.org/files/145/145-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/1812793",
+        "last_modified": "Sun, 12 Apr 2026 17:51:31 GMT",
+        "header_sha256": "d20eb71c6377107168cdc3ace04143d645666c12c178632be0a185dc302dd053",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg145_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "Header identifies H. M. Caldwell reprint; print date not stated. Pin digital file URL/catalog modified date/size; original Eliot text only.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 1342,
+      "title": "Pride and Prejudice",
+      "authors": [
+        {
+          "name": "Austen, Jane",
+          "death": "1817"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/1342/1342-0.txt",
+          "bytes": 738046,
+          "modified": "2026-09-01T19:50:13.609112"
+        }
+      ],
+      "rdf_sha256": "8f7694e9a8c879e98f905476333161ba786bf6d30eae7d905d8d4df5a3677452",
+      "original_first_publication_year": 1813,
+      "first_collected_or_completed_book_year": 1813,
+      "publication_evidence_url": "https://janeaustens.house/object_category/letters/",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1817,
+      "india_lifetime_term_end_year_under_section22": 1877,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "train",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/1342/pg1342.rdf",
+      "metadata_sha256": "8f7694e9a8c879e98f905476333161ba786bf6d30eae7d905d8d4df5a3677452",
+      "header": {
+        "id": 1342,
+        "url": "https://www.gutenberg.org/files/1342/1342-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/738046",
+        "last_modified": "Tue, 01 Sep 2026 23:50:13 GMT",
+        "header_sha256": "11959d9944b76a027a44298233cfcc1180f63f1317ed525b99659cf25d784523",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg1342_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "1894 George Allen edition includes George Saintsbury preface and Hugh Thomson illustrations: exclude all supplemental material; retain Austen novel chapters only.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 158,
+      "title": "Emma",
+      "authors": [
+        {
+          "name": "Austen, Jane",
+          "death": "1817"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/158/158-0.txt",
+          "bytes": 897582,
+          "modified": "2026-06-21T23:52:09.839797"
+        }
+      ],
+      "rdf_sha256": "a00bdb215f72f77eaea5a1b9ade5ec6ab748c9c0963783a5597c2bca7627dd28",
+      "original_first_publication_year": 1815,
+      "first_collected_or_completed_book_year": 1815,
+      "publication_evidence_url": "https://janeaustens.house/jane-austen/novels/emma/",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1817,
+      "india_lifetime_term_end_year_under_section22": 1877,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "train",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/158/pg158.rdf",
+      "metadata_sha256": "a00bdb215f72f77eaea5a1b9ade5ec6ab748c9c0963783a5597c2bca7627dd28",
+      "header": {
+        "id": 158,
+        "url": "https://www.gutenberg.org/files/158/158-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/897582",
+        "last_modified": "Mon, 22 Jun 2026 03:52:09 GMT",
+        "header_sha256": "6f5d2c94686266118d8d7287b2f41364bf0199e77c26163745e31f59b96c8abc",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg158_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 1260,
+      "title": "Jane Eyre: An Autobiography",
+      "authors": [
+        {
+          "name": "Brontë, Charlotte",
+          "death": "1855"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/1260/1260-0.txt",
+          "bytes": 1044063,
+          "modified": "2025-09-27T05:31:54"
+        }
+      ],
+      "rdf_sha256": "588a3461f0628e4e6ae279871a10b8e298f1e05d4115e2b80373331d6af982fc",
+      "original_first_publication_year": 1847,
+      "first_collected_or_completed_book_year": 1847,
+      "publication_evidence_url": "https://www.bronte.org.uk/visit/learning-visits/ks5",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1855,
+      "india_lifetime_term_end_year_under_section22": 1915,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "excluded",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/1260/pg1260.rdf",
+      "metadata_sha256": "588a3461f0628e4e6ae279871a10b8e298f1e05d4115e2b80373331d6af982fc",
+      "header": {
+        "id": 1260,
+        "url": "https://www.gutenberg.org/files/1260/1260-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/1044063",
+        "last_modified": "Sat, 27 Sep 2025 09:31:54 GMT",
+        "header_sha256": "da9a0bb294977256a829d74a54afc9083b26b2860fdf848c0e65d54580397d77",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg1260_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "REJECT_EDITION",
+      "edition_notes": "1897 Service & Paton edition: header explicitly reserves illustration copyright; conservatively exclude this ebook entirely.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 768,
+      "title": "Wuthering Heights",
+      "authors": [
+        {
+          "name": "Brontë, Emily",
+          "death": "1848"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/768/768-0.txt",
+          "bytes": 661813,
+          "modified": "2026-05-06T22:50:15.256113"
+        }
+      ],
+      "rdf_sha256": "db7d41c6a3d0bffdab153c30094858e1d28e0a5c6f8f6d793699b049b938a3b3",
+      "original_first_publication_year": 1847,
+      "first_collected_or_completed_book_year": 1847,
+      "publication_evidence_url": "https://editions.covecollective.org/content/bronte-sisters-and-1847-jane-eyre-charlotte-bronte",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1848,
+      "india_lifetime_term_end_year_under_section22": 1908,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "test",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/768/pg768.rdf",
+      "metadata_sha256": "db7d41c6a3d0bffdab153c30094858e1d28e0a5c6f8f6d793699b049b938a3b3",
+      "header": {
+        "id": 768,
+        "url": "https://www.gutenberg.org/files/768/768-0.txt",
+        "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+        "status": 206,
+        "content_range": "bytes 0-4095/661813",
+        "last_modified": "Thu, 07 May 2026 02:50:15 GMT",
+        "header_sha256": "933e48bfb0468f2a19365ffdf4b7b17195c53aefb946a071693cad26e14dbf80",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg768_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    },
+    {
+      "id": 1661,
+      "title": "The Adventures of Sherlock Holmes",
+      "authors": [
+        {
+          "name": "Doyle, Arthur Conan",
+          "death": "1930"
+        }
+      ],
+      "language": [
+        "en"
+      ],
+      "rights": "Public domain in the USA.",
+      "files": [
+        {
+          "url": "https://www.gutenberg.org/files/1661/1661-0.txt",
+          "bytes": 607504,
+          "modified": "2023-10-10T07:01:52"
+        }
+      ],
+      "rdf_sha256": "f62727d131fb976eca43c00abdb88f3af6a22352955228a3288d16fb5ea09983",
+      "original_first_publication_year": 1891,
+      "first_collected_or_completed_book_year": 1892,
+      "publication_evidence_url": "https://sherlockholmes.com/products/the-adventures-of-sherlock-holmes-arthur-conan-doyle-published-by-george-newnes-limited-1892",
+      "original_language": "English",
+      "translation": false,
+      "posthumous_original_work": false,
+      "joint_authored": false,
+      "last_surviving_original_author_death_year": 1930,
+      "india_lifetime_term_end_year_under_section22": 1990,
+      "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+      "reserved_split": "validation",
+      "catalog_url": "https://www.gutenberg.org/cache/epub/1661/pg1661.rdf",
+      "metadata_sha256": "f62727d131fb976eca43c00abdb88f3af6a22352955228a3288d16fb5ea09983",
+      "header": {
+        "id": 1661,
+        "url": "https://www.gutenberg.org/files/1661/1661-0.txt",
+        "status": 206,
+        "content_range": "bytes 0-4095/607504",
+        "header_sha256": "059082766e57360ef54af77f948685494d0fa698f5b7ceb973311388b1094062",
+        "header_bytes": 4096,
+        "path": "evidence/download_authorization/pg1661_header.txt"
+      },
+      "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+      "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+      "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+      "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+      "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+    }
+  ],
+  "accepted_candidates": 8,
+  "rejected_editions": 1,
+  "catalog_raw_bytes_accepted": 9794897,
+  "catalog_raw_train_candidate_bytes": 8525580,
+  "estimated_original_unique_retention_range": [
+    0.7,
+    0.9
+  ],
+  "estimated_train_unique_bytes_range": [
+    5967906,
+    7673022
+  ],
+  "target": {
+    "train": 5000000,
+    "validation": 250000,
+    "test": 250000
+  },
+  "admission_after_download": [
+    "Immediately compute SHA-256 of full original file before transformation. Verify recorded identity/header and report changed metadata for review.",
+    "Inspect full ebook notices and supplementary scope; reject any item-specific permission/restriction, regardless of prior catalog status.",
+    "Compute cleaned-payload SHA-256 immediately after approved source-specific extraction; store both hashes and license/provenance outside payload.",
+    "Deduplicate before final split/windows. Entire Doyle work and Emily Bronte work reserved for validation/test; unused bytes of heldout works never enter training."
+  ]
+}

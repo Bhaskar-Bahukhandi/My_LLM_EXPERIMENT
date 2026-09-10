@@ -1,0 +1,662 @@
+{
+  "schema_version": "1",
+  "created_utc": "2026-09-09T17:37:14.860663+00:00",
+  "status": "READY",
+  "scope": "Download authorization report only; no substantive training-source acquisition or model training performed.",
+  "approved_human_decisions": {
+    "train_bytes": 10000000,
+    "validation_bytes": 500000,
+    "test_bytes": 500000,
+    "domain_allocation": {
+      "general_text": {
+        "percent": 50,
+        "train_bytes": 5000000,
+        "validation_bytes": 250000,
+        "test_bytes": 250000
+      },
+      "code": {
+        "percent": 25,
+        "train_bytes": 2500000,
+        "validation_bytes": 125000,
+        "test_bytes": 125000
+      },
+      "documentation": {
+        "percent": 15,
+        "train_bytes": 1500000,
+        "validation_bytes": 75000,
+        "test_bytes": 75000
+      },
+      "structured_math": {
+        "percent": 10,
+        "train_bytes": 1000000,
+        "validation_bytes": 50000,
+        "test_bytes": 50000
+      }
+    },
+    "dedup_before_final_split_windows": true,
+    "split_level": "document/repository/source-unit; no overlapping random windows",
+    "unclear_licenses_allowed": false,
+    "benchmark_fingerprints_required_before_substantive_acquisition": true
+  },
+  "source_rows": [
+    {
+      "id": "gutenberg",
+      "name": "Project Gutenberg: selected English books",
+      "publisher": "Project Gutenberg Literary Archive Foundation / volunteers",
+      "authoritative_url": "https://www.gutenberg.org/",
+      "availability": "Official metadata/license pages verified 2026-09-09; no corpus/archive body downloaded.",
+      "license": "Original authored prose screened outside copyright term under approved conservative policy; retain Gutenberg license/provenance separately. No blanket license for supplements.",
+      "commercial_research_and_training_review": "US public-domain labels do not establish rights in India or other jurisdictions. Reject permission-only works unless separately cleared. Human review must approve jurisdiction, commercial use and removal/retention of Gutenberg marks and license; do not equate free access with unrestricted worldwide reuse.",
+      "attribution": "Retain complete raw license and ebook/author/title/source metadata. Any boilerplate removal must satisfy the particular ebook license and trademark conditions.",
+      "version_identity": {
+        "allowlist": "docs/gutenberg_work_allowlist_2m.json",
+        "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
+        "accepted_ids": [
+          1400,
+          766,
+          1023,
+          145,
+          1342,
+          158,
+          768,
+          1661
+        ],
+        "rejected_edition_ids": [
+          1260
+        ]
+      },
+      "language_domains": [
+        "English",
+        "natural-language prose"
+      ],
+      "format": "plain text",
+      "compression": "Prefer plain text; no full collection archive",
+      "dataset_size": {
+        "complete_collection_uncompressed_bytes": null,
+        "status": "UNKNOWN; repository Git storage is not corpus size. Archive byte sizes, when available, are separate."
+      },
+      "expected_download": {
+        "catalog_plain_file_bytes_all_accepted_candidates": 9794897,
+        "downloaded_full_books": 0,
+        "compressed_bytes": 0,
+        "status": "Catalog sizes, not a measured corpus download; whole-text SHA-256 PENDING_AUTHORIZED_ACQUISITION."
+      },
+      "estimated_extracted_bytes": [
+        9794897,
+        9794897
+      ],
+      "estimated_eligible_clean_bytes_before_quota": [
+        3000000,
+        5000000
+      ],
+      "estimated_retention": {
+        "original_text_unique_fraction_estimate": [
+          0.7,
+          0.9
+        ]
+      },
+      "quality": "Long-form edited prose; historical language and social bias, weak modern dialogue/technical coverage.",
+      "contamination": "Classics, school texts, translations and alternate editions often recur in evaluations. Deny registered benchmark works and cluster editions/translations by work.",
+      "pii_privacy": "Avoid modern personal records. Historical/fictional names are not indiscriminately stripped. Country-specific copyright review remains required.",
+      "security": "Plain text only; reject embedded active content and misleading formats.",
+      "selective_access": "Use sanctioned robot/harvest or an authorized mirror with requested wait/rate rules; no scraping the main human website. Select books individually.",
+      "pilot_rationale": "Small natural-language anchor, subject to rights clearance.",
+      "rag_classification": "BOTH WITH TRACKED PROVENANCE",
+      "authoritative_references": [
+        "https://www.gutenberg.org/policy/license.html",
+        "https://www.gutenberg.org/policy/robot_access.html",
+        "https://www.gutenberg.org/ebooks/201"
+      ],
+      "acquisition_status": "HUMAN_APPROVED_ALLOWLIST; not acquired",
+      "planned_unique_all_split_bytes_by_mixture": {
+        "A": 3630000,
+        "B": 2310000,
+        "C": 2970000
+      },
+      "quota_note": "Targets, not measured yield; whole-group selection may underfill. Source/domain subsets must be disjoint. Do not duplicate or substitute silently to fill quotas.",
+      "train_domain_bytes": {
+        "general_text": 5000000
+      },
+      "intended_clean_bytes": {
+        "train": 5000000,
+        "validation": 250000,
+        "test": 250000
+      },
+      "quota_status": "Exact approved post-cleaning target; report underfill rather than duplicate content or split heldout units.",
+      "deduplication_risks": "Repeated editions, translations, shared introductions and duplicated chapters.",
+      "selective_shard_range_capability": "Individual sanctioned plain-text book downloads possible; no arbitrary website scraping. No assumption of byte-range support; partial books would complicate licenses/grouping.",
+      "cleaning_policy": "Original chapters only; remove all front/back matter, prefaces, annotations, editorial additions, illustrations/captions and Gutenberg boilerplate with audited spans. Do not normalize retained bytes. Full original-file and cleaned-payload SHA-256 immediately after acquisition. Reject item-specific permission/restriction notices.",
+      "planned_use_clearly_permitted": "Original-English authored prose passes the approved conservative India/US catalog screening. No permission-only items, translations, posthumous originals or supplementary material admitted. Recheck complete notices on authorized acquisition.",
+      "recommendation": "APPROVE",
+      "recommendation_rationale": "Human-approved scoped source; mandatory content/license/provenance checks remain on actual retrieval, not a blanket license grant.",
+      "classification": "BOTH",
+      "classification_detail": "Prose candidate for training and possible future literary reference; currently blocked pending rights."
+    },
+    {
+      "id": "wikipedia",
+      "name": "English Wikipedia: selected stable article revisions",
+      "publisher": "Wikimedia contributors / Wikimedia Foundation",
+      "authoritative_url": "https://en.wikipedia.org/",
+      "availability": "Official metadata/license pages verified 2026-09-09; no corpus/archive body downloaded.",
+      "license": "CC BY-SA 4.0 default text reuse; GFDL alternative where applicable; imported material may differ",
+      "commercial_research_and_training_review": "Commercial reuse is permitted under applicable license conditions. Human review must approve attribution/share-alike handling, training/output implications and downstream redistribution policy. Exclude fair-use material and imported text whose additional terms cannot be resolved.",
+      "attribution": "Retain page ID, revision ID, article/history URL, applicable license and change record; preserve required imported-content notices. No images.",
+      "version_identity": "Freeze page IDs + revision IDs + timestamps + retrieved SHA-256. Article selection pending; do not bind to a moving latest revision.",
+      "language_domains": [
+        "English",
+        "encyclopedic natural-language text"
+      ],
+      "format": "Action API JSON with wikitext extraction",
+      "compression": "Small API responses; record compressed wire and decoded JSON sizes separately",
+      "dataset_size": {
+        "complete_collection_uncompressed_bytes": null,
+        "status": "UNKNOWN; repository Git storage is not corpus size. Archive byte sizes, when available, are separate."
+      },
+      "expected_download": {
+        "pilot_bytes": 0,
+        "status": "DEFERRED"
+      },
+      "estimated_extracted_bytes": [
+        0,
+        0
+      ],
+      "estimated_eligible_clean_bytes_before_quota": [
+        2000000,
+        4000000
+      ],
+      "estimated_retention": {
+        "status": "NOT APPLICABLE to this pilot"
+      },
+      "quality": "Broad factual prose, uneven article quality, templating and version-sensitive facts; use a curated article allowlist.",
+      "contamination": "Wikipedia-derived benchmarks and mirrored/revised articles can leak. Group page/redirect/revision families; exclude registered evaluation identities.",
+      "pii_privacy": "Exclude biographies of living people and personal contact/user/talk pages for this pilot.",
+      "security": "Treat markup and links as data; do not follow links, render active content or execute templates.",
+      "selective_access": "Official revision API supports selective retrieval; respect identification/rate limits/Retry-After, one connection. Full dumps are unnecessary; current dump service is moving from XML to MediaWiki Content File Exports.",
+      "pilot_rationale": "Diversity beyond historical books, conditional on license decision.",
+      "rag_classification": "BOTH WITH TRACKED PROVENANCE",
+      "authoritative_references": [
+        "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+        "https://www.mediawiki.org/wiki/API:Revisions",
+        "https://dumps.wikimedia.org/"
+      ],
+      "acquisition_status": "PROPOSED ONLY; not downloaded or legally cleared as a combined training corpus",
+      "planned_unique_all_split_bytes_by_mixture": {
+        "A": 2420000,
+        "B": 1540000,
+        "C": 1980000
+      },
+      "quota_note": "Targets, not measured yield; whole-group selection may underfill. Source/domain subsets must be disjoint. Do not duplicate or substitute silently to fill quotas.",
+      "train_domain_bytes": {},
+      "intended_clean_bytes": {
+        "train": 0,
+        "validation": 0,
+        "test": 0
+      },
+      "quota_status": "PROPOSED reserved bytes, not measured or admitted; blocked rows contribute zero currently eligible bytes.",
+      "deduplication_risks": "Revision/redirect families, mirrors, syndicated passages and repeated templates.",
+      "selective_shard_range_capability": "Revision API retrieves selected page IDs/revision IDs. No full dump/shard required; do not rely on arbitrary HTTP byte ranges.",
+      "cleaning_policy": "No acquisition or cleaning in this pilot; future CC BY-SA policy separately reviewed.",
+      "planned_use_clearly_permitted": "NOT APPLICABLE: no bytes authorized in this pilot.",
+      "recommendation": "DEFER",
+      "recommendation_rationale": "Human deferred Wikipedia entirely; any future training/RAG use requires a separately reviewed CC BY-SA attribution/share-alike policy.",
+      "classification": "RAG CANDIDATE",
+      "classification_detail": "Selected code/prose may train after gates; version-sensitive reference material is RAG CANDIDATE only. Unclear-rights content is REJECT and consumes no quota."
+    },
+    {
+      "id": "cpython",
+      "name": "CPython 3.12.10 source and selected documentation",
+      "publisher": "Python Software Foundation",
+      "authoritative_url": "https://github.com/python/cpython",
+      "availability": "Official metadata/license pages verified 2026-09-09; no corpus/archive body downloaded.",
+      "license": "PSF License Version 2 plus historical/per-file notices; documentation examples additionally offer 0BSD",
+      "commercial_research_and_training_review": "Permissive commercial/research reuse under stated notices; this is not a blanket clearance of bundled files. Review selected per-file licenses and combined-corpus distribution before acquisition.",
+      "attribution": "Retain PSF/historical notices and required change summary; third-party files require separate review. No endorsement.",
+      "version_identity": {
+        "tag": "v3.12.10",
+        "commit": "0cc81280367df838c4b199f8f0378837165071c2",
+        "license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "license_bytes": 13936
+      },
+      "language_domains": [
+        "English",
+        "Python/C source, headers, selected English RST tutorials"
+      ],
+      "format": "source text / RST; archive manifest inspected before extraction",
+      "compression": "xz",
+      "dataset_size": {
+        "complete_collection_uncompressed_bytes": null,
+        "status": "UNKNOWN; repository Git storage is not corpus size. Archive byte sizes, when available, are separate."
+      },
+      "expected_download": {
+        "compressed_wire_bytes": 20520960,
+        "uncompressed_wire_bytes": 0,
+        "status": "Official tar.xz; index reports exact compressed size. SHA-256 must be recorded and official signature/checksum provenance verified before parsing.",
+        "size_source": "https://www.python.org/ftp/python/3.12.10/",
+        "url": "https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tar.xz",
+        "sha256": null
+      },
+      "estimated_extracted_bytes": [
+        100000000,
+        140000000
+      ],
+      "estimated_eligible_clean_bytes_before_quota": [
+        20000000,
+        35000000
+      ],
+      "estimated_retention": {
+        "eligible_clean_fraction_of_extracted": [
+          0.15,
+          0.3
+        ],
+        "unique_fraction_of_clean": [
+          0.8,
+          0.95
+        ],
+        "status": "Estimates before quota; exclusions and actual duplicate rates not yet measured."
+      },
+      "quality": "High-quality real source and prose, but generated tables, tests and vendor code dominate some regions.",
+      "contamination": "Large overlap with public code completion examples; reject tests, benchmark suites and copied tutorial exercises.",
+      "pii_privacy": "Scan for credentials, private keys and personal contact details. Keep attribution separately; reject suspect documents, not just the matched substring.",
+      "security": "Source/archive only; never execute configure, setup, builds, tests or install scripts.",
+      "selective_access": "Pinned release archive is small enough for a later bounded download. Selective commit/path retrieval is possible; an approved acquisition method must be frozen before execution.",
+      "pilot_rationale": "Authentic compact programming and technical structure; no need to install these packages.",
+      "rag_classification": "BOTH WITH TRACKED PROVENANCE",
+      "authoritative_references": [
+        "https://raw.githubusercontent.com/python/cpython/0cc81280367df838c4b199f8f0378837165071c2/LICENSE",
+        "https://www.python.org/ftp/python/3.12.10/",
+        "https://github.com/python/cpython/tree/0cc81280367df838c4b199f8f0378837165071c2"
+      ],
+      "acquisition_status": "HUMAN_APPROVED_FILE_SCOPE; not acquired",
+      "planned_unique_all_split_bytes_by_mixture": {
+        "A": 2750000,
+        "B": 3960000,
+        "C": 2310000
+      },
+      "quota_note": "Targets, not measured yield; whole-group selection may underfill. Source/domain subsets must be disjoint. Do not duplicate or substitute silently to fill quotas.",
+      "train_domain_bytes": {
+        "code": 1500000,
+        "documentation": 1000000
+      },
+      "intended_clean_bytes": {
+        "train": 2500000,
+        "validation": 125000,
+        "test": 125000
+      },
+      "quota_status": "Exact approved post-cleaning target; report underfill rather than duplicate content or split heldout units.",
+      "deduplication_risks": "Cross-version copies, standard examples, headers/license boilerplate and shared vendor content.",
+      "selective_shard_range_capability": "Pinned files can be selected from official repository endpoints; proposed official tar.xz requires full 20,520,960-byte archive. Compressed range reads do not yield arbitrary members.",
+      "cleaning_policy": "Allowlisted first-party Python/C/headers and selected RST prose only. Exclude vendor/third-party trees, tests, benchmark cases, generated tables/build outputs, copied exercises, installers and unresolved file headers. Keep indentation, line endings and notices; do not import or build.",
+      "planned_use_clearly_permitted": "YES for verified files actually covered by the stated permissive license, with notices/conditions preserved; engineering eligibility assessment, not approval of every repository file or a guarantee about generated outputs.",
+      "recommendation": "APPROVE",
+      "recommendation_rationale": "Human-approved scoped source; mandatory content/license/provenance checks remain on actual retrieval, not a blanket license grant.",
+      "classification": "BOTH",
+      "classification_detail": "Selected code/prose may train after gates; version-sensitive reference material is RAG CANDIDATE only. Unclear-rights content is REJECT and consumes no quota.",
+      "file_allowlist": {
+        "path": "docs/source_file_allowlists_2m.json",
+        "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+        "source_key": "cpython"
+      }
+    },
+    {
+      "id": "numpy",
+      "name": "NumPy 2.2.4 source and selected documentation",
+      "publisher": "NumPy Developers",
+      "authoritative_url": "https://github.com/numpy/numpy",
+      "availability": "Official metadata/license pages verified 2026-09-09; no corpus/archive body downloaded.",
+      "license": "BSD 3-Clause; bundled/per-file notices may differ",
+      "commercial_research_and_training_review": "Permissive commercial/research reuse under stated notices; this is not a blanket clearance of bundled files. Review selected per-file licenses and combined-corpus distribution before acquisition.",
+      "attribution": "Retain copyright/license/disclaimer; no endorsement. Review vendored components separately and exclude them by default.",
+      "version_identity": {
+        "tag": "v2.2.4",
+        "commit": "3b377854e8b1a55f15bda6f1166fe9954828231b",
+        "license_sha256": "01fb016849aa427edb1bbbbd55f91c26ca6cadb32a5b20e7f000655dd05b0760",
+        "license_bytes": 1543
+      },
+      "language_domains": [
+        "English",
+        "Python/C/Cython numerical code and English RST"
+      ],
+      "format": "source text / RST; archive manifest inspected before extraction",
+      "compression": "gzip",
+      "dataset_size": {
+        "complete_collection_uncompressed_bytes": null,
+        "status": "UNKNOWN; repository Git storage is not corpus size. Archive byte sizes, when available, are separate."
+      },
+      "expected_download": {
+        "compressed_wire_bytes": 20270701,
+        "uncompressed_wire_bytes": 0,
+        "status": "Official PyPI sdist gzip; size and SHA-256 verified from metadata, body not fetched.",
+        "size_source": "https://pypi.org/pypi/numpy/2.2.4/json",
+        "filename": "numpy-2.2.4.tar.gz",
+        "size_bytes": 20270701,
+        "sha256": "9ba03692a45d3eef66559efe1d1096c4b9b75c0986b5dff5530c378fb8331d4f",
+        "url": "https://files.pythonhosted.org/packages/e1/78/31103410a57bc2c2b93a3597340a8119588571f6a4539067546cb9a0bfac/numpy-2.2.4.tar.gz"
+      },
+      "estimated_extracted_bytes": [
+        70000000,
+        120000000
+      ],
+      "estimated_eligible_clean_bytes_before_quota": [
+        5000000,
+        12000000
+      ],
+      "estimated_retention": {
+        "eligible_clean_fraction_of_extracted": [
+          0.05,
+          0.15
+        ],
+        "unique_fraction_of_clean": [
+          0.8,
+          0.95
+        ],
+        "status": "Estimates before quota; exclusions and actual duplicate rates not yet measured."
+      },
+      "quality": "Idiomatic numerical software; generated/vendor/build content needs strict exclusion.",
+      "contamination": "Code benchmarks and duplicated examples; exclude tests, benchmarks and replicated API examples.",
+      "pii_privacy": "Scan for credentials, private keys and personal contact details. Keep attribution separately; reject suspect documents, not just the matched substring.",
+      "security": "Do not run packaging hooks, Meson, code generators or package installation.",
+      "selective_access": "Pinned release archive is small enough for a later bounded download. Selective commit/path retrieval is possible; an approved acquisition method must be frozen before execution.",
+      "pilot_rationale": "Authentic compact programming and technical structure; no need to install these packages.",
+      "rag_classification": "BOTH WITH TRACKED PROVENANCE",
+      "authoritative_references": [
+        "https://raw.githubusercontent.com/numpy/numpy/3b377854e8b1a55f15bda6f1166fe9954828231b/LICENSE.txt",
+        "https://pypi.org/pypi/numpy/2.2.4/json",
+        "https://github.com/numpy/numpy/tree/3b377854e8b1a55f15bda6f1166fe9954828231b"
+      ],
+      "acquisition_status": "HUMAN_APPROVED_FILE_SCOPE; not acquired",
+      "planned_unique_all_split_bytes_by_mixture": {
+        "A": 1100000,
+        "B": 1760000,
+        "C": 935000
+      },
+      "quota_note": "Targets, not measured yield; whole-group selection may underfill. Source/domain subsets must be disjoint. Do not duplicate or substitute silently to fill quotas.",
+      "train_domain_bytes": {
+        "code": 750000,
+        "documentation": 250000
+      },
+      "intended_clean_bytes": {
+        "train": 1000000,
+        "validation": 50000,
+        "test": 50000
+      },
+      "quota_status": "Exact approved post-cleaning target; report underfill rather than duplicate content or split heldout units.",
+      "deduplication_risks": "Generated kernels, repeated docs/examples, code copied across numerical libraries.",
+      "selective_shard_range_capability": "Pinned files possible; proposed official gzip sdist requires full 20,270,701-byte archive. No selective compressed-member range claim.",
+      "cleaning_policy": "Allowlisted first-party Python/C/Cython and RST prose only. Exclude bundled dependencies, generated/minified outputs, tests, benchmarks, build/install hooks and repeated API tables. Keep numerical notation/indentation; no package installation.",
+      "planned_use_clearly_permitted": "YES for verified files actually covered by the stated permissive license, with notices/conditions preserved; engineering eligibility assessment, not approval of every repository file or a guarantee about generated outputs.",
+      "recommendation": "APPROVE",
+      "recommendation_rationale": "Human-approved scoped source; mandatory content/license/provenance checks remain on actual retrieval, not a blanket license grant.",
+      "classification": "BOTH",
+      "classification_detail": "Selected code/prose may train after gates; version-sensitive reference material is RAG CANDIDATE only. Unclear-rights content is REJECT and consumes no quota.",
+      "file_allowlist": {
+        "path": "docs/source_file_allowlists_2m.json",
+        "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+        "source_key": "numpy"
+      }
+    },
+    {
+      "id": "sympy",
+      "name": "SymPy 1.13.3 source and selected documentation",
+      "publisher": "SymPy Development Team",
+      "authoritative_url": "https://github.com/sympy/sympy",
+      "availability": "Official metadata/license pages verified 2026-09-09; no corpus/archive body downloaded.",
+      "license": "BSD 3-Clause main license plus listed third-party notices",
+      "commercial_research_and_training_review": "Permissive commercial/research reuse under stated notices; this is not a blanket clearance of bundled files. Review selected per-file licenses and combined-corpus distribution before acquisition.",
+      "attribution": "Retain copyright/license/disclaimer and applicable bundled notices; no endorsement. Per-file scope review required.",
+      "version_identity": {
+        "tag": "sympy-1.13.3",
+        "commit": "b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b",
+        "license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+        "license_bytes": 7885
+      },
+      "language_domains": [
+        "English",
+        "Python mathematical code, English RST and mathematical expressions"
+      ],
+      "format": "source text / RST; archive manifest inspected before extraction",
+      "compression": "gzip",
+      "dataset_size": {
+        "complete_collection_uncompressed_bytes": null,
+        "status": "UNKNOWN; repository Git storage is not corpus size. Archive byte sizes, when available, are separate."
+      },
+      "expected_download": {
+        "compressed_wire_bytes": 7533196,
+        "uncompressed_wire_bytes": 0,
+        "status": "Official PyPI sdist gzip; size and SHA-256 verified from metadata, body not fetched.",
+        "size_source": "https://pypi.org/pypi/sympy/1.13.3/json",
+        "filename": "sympy-1.13.3.tar.gz",
+        "size_bytes": 7533196,
+        "sha256": "b27fd2c6530e0ab39e275fc9b683895367e51d5da91baa8d3d64db2565fec4d9",
+        "url": "https://files.pythonhosted.org/packages/11/8a/5a7fd6284fa8caac23a26c9ddf9c30485a48169344b4bd3b0f02fef1890f/sympy-1.13.3.tar.gz"
+      },
+      "estimated_extracted_bytes": [
+        35000000,
+        60000000
+      ],
+      "estimated_eligible_clean_bytes_before_quota": [
+        8000000,
+        20000000
+      ],
+      "estimated_retention": {
+        "eligible_clean_fraction_of_extracted": [
+          0.2,
+          0.35
+        ],
+        "unique_fraction_of_clean": [
+          0.8,
+          0.95
+        ],
+        "status": "Estimates before quota; exclusions and actual duplicate rates not yet measured."
+      },
+      "quality": "Useful symbolic expression structure; avoid repetitive test answers, generated documentation and over-weighted formulas.",
+      "contamination": "Mathematical evaluation problems and answer strings may be embedded in tests/examples. Exclude tests/benchmarks and known problem identities.",
+      "pii_privacy": "Scan for credentials, private keys and personal contact details. Keep attribution separately; reject suspect documents, not just the matched substring.",
+      "security": "No symbolic evaluation, doctest execution, imports or install scripts.",
+      "selective_access": "Pinned release archive is small enough for a later bounded download. Selective commit/path retrieval is possible; an approved acquisition method must be frozen before execution.",
+      "pilot_rationale": "Authentic compact programming and technical structure; no need to install these packages.",
+      "rag_classification": "BOTH WITH TRACKED PROVENANCE",
+      "authoritative_references": [
+        "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/LICENSE",
+        "https://pypi.org/pypi/sympy/1.13.3/json",
+        "https://github.com/sympy/sympy/tree/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b"
+      ],
+      "acquisition_status": "HUMAN_APPROVED_FILE_SCOPE; not acquired",
+      "planned_unique_all_split_bytes_by_mixture": {
+        "A": 825000,
+        "B": 1155000,
+        "C": 1265000
+      },
+      "quota_note": "Targets, not measured yield; whole-group selection may underfill. Source/domain subsets must be disjoint. Do not duplicate or substitute silently to fill quotas.",
+      "train_domain_bytes": {
+        "code": 250000,
+        "documentation": 250000,
+        "structured_math": 500000
+      },
+      "intended_clean_bytes": {
+        "train": 1000000,
+        "validation": 50000,
+        "test": 50000
+      },
+      "quota_status": "Exact approved post-cleaning target; report underfill rather than duplicate content or split heldout units.",
+      "deduplication_risks": "Repeated algebra examples/answers, docstrings duplicated into manuals, copied algorithms.",
+      "selective_shard_range_capability": "Pinned files possible; proposed official gzip sdist requires full 7,533,196-byte archive. No selective compressed-member range claim.",
+      "cleaning_policy": "Allowlisted first-party Python and selected explanatory/math prose only; disjoint code/doc/math subsets. Exclude tests, exercise-answer/problem banks, copied external examples, vendored files, generated tables and unresolved headers. No symbolic evaluation or doctests.",
+      "planned_use_clearly_permitted": "YES for verified files actually covered by the stated permissive license, with notices/conditions preserved; engineering eligibility assessment, not approval of every repository file or a guarantee about generated outputs.",
+      "recommendation": "APPROVE",
+      "recommendation_rationale": "Human-approved scoped source; mandatory content/license/provenance checks remain on actual retrieval, not a blanket license grant.",
+      "classification": "BOTH",
+      "classification_detail": "Selected code/prose may train after gates; version-sensitive reference material is RAG CANDIDATE only. Unclear-rights content is REJECT and consumes no quota.",
+      "file_allowlist": {
+        "path": "docs/source_file_allowlists_2m.json",
+        "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+        "source_key": "sympy"
+      }
+    },
+    {
+      "id": "mathlib",
+      "name": "mathlib4 v4.19.0 selected Lean files",
+      "publisher": "Lean community",
+      "authoritative_url": "https://github.com/leanprover-community/mathlib4",
+      "availability": "Official metadata/license pages verified 2026-09-09; no corpus/archive body downloaded.",
+      "license": "Apache License 2.0 (January 2004); review per-file notices",
+      "commercial_research_and_training_review": "Permissive commercial/research use subject to license/NOTICE/change requirements and patent terms. Do not infer trademark endorsement.",
+      "attribution": "Keep LICENSE, applicable NOTICE, per-file attribution and modification records.",
+      "version_identity": {
+        "tag": "v4.19.0",
+        "commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+        "license_sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+        "license_bytes": 11357
+      },
+      "language_domains": [
+        "Lean",
+        "Unicode mathematical/structured text",
+        "English comments"
+      ],
+      "format": ".lean source text",
+      "compression": "Preferred selective plain files; full gzip archive not selected",
+      "dataset_size": {
+        "complete_collection_uncompressed_bytes": null,
+        "status": "UNKNOWN; repository Git storage is not corpus size. Archive byte sizes, when available, are separate."
+      },
+      "expected_download": {
+        "compressed_wire_bytes": 0,
+        "uncompressed_wire_bytes_estimate": [
+          2000000,
+          4000000
+        ],
+        "full_archive_compressed_bytes": null,
+        "full_archive_compressed_estimate": [
+          15000000,
+          35000000
+        ],
+        "status": "Selective transfer estimate; archive HEAD 200, Content-Length unavailable, ETag is not an archive checksum. No body fetched."
+      },
+      "estimated_extracted_bytes": [
+        2000000,
+        4000000
+      ],
+      "estimated_eligible_clean_bytes_before_quota": [
+        1500000,
+        3500000
+      ],
+      "estimated_retention": {
+        "clean_fraction_of_selected_raw": [
+          0.75,
+          0.95
+        ],
+        "unique_fraction_of_clean": [
+          0.8,
+          0.95
+        ],
+        "status": "Unmeasured; full repository extraction could be 80-200 MB, not needed for selective method."
+      },
+      "quality": "Precisely structured definitions/proofs; differs from natural-language reasoning and may consume byte capacity disproportionately.",
+      "contamination": "Formal-math benchmarks and mirrored proofs; exclude evaluation/problem collections and identify overlap with any chosen future proof benchmark before admission.",
+      "pii_privacy": "Scan author/contact metadata and secrets; retain license attribution separately.",
+      "security": "No Lean/lake toolchain, dependency fetching, compilation or proof execution.",
+      "selective_access": "Select namespace/file allowlist at pinned commit via official repository endpoints. Bound metadata traversal; never clone history. Full-archive fallback needs separate approval.",
+      "pilot_rationale": "Small controlled structured-text component; not evidence of reasoning ability.",
+      "rag_classification": "TRAINING SOURCE",
+      "authoritative_references": [
+        "https://raw.githubusercontent.com/leanprover-community/mathlib4/c44e0c8ee63ca166450922a373c7409c5d26b00b/LICENSE",
+        "https://github.com/leanprover-community/mathlib4/tree/c44e0c8ee63ca166450922a373c7409c5d26b00b"
+      ],
+      "acquisition_status": "HUMAN_APPROVED_FILE_SCOPE; not acquired",
+      "planned_unique_all_split_bytes_by_mixture": {
+        "A": 275000,
+        "B": 275000,
+        "C": 1540000
+      },
+      "quota_note": "Targets, not measured yield; whole-group selection may underfill. Source/domain subsets must be disjoint. Do not duplicate or substitute silently to fill quotas.",
+      "train_domain_bytes": {
+        "structured_math": 500000
+      },
+      "intended_clean_bytes": {
+        "train": 500000,
+        "validation": 25000,
+        "test": 25000
+      },
+      "quota_status": "Exact approved post-cleaning target; report underfill rather than duplicate content or split heldout units.",
+      "deduplication_risks": "Boilerplate proof patterns, renamed equivalent theorems and benchmark-mirrored proofs.",
+      "selective_shard_range_capability": "Select explicit .lean paths at pinned commit; no history clone or dependency fetch. Full archive/range fallback is not authorized.",
+      "cleaning_policy": "Allowlisted first-party Lean source at pinned commit, with resolved per-file notices. Exclude benchmark/problem collections, downloaded dependencies, build outputs and autogenerated repetition. Preserve Unicode symbols; no lake/Lean execution. Group namespaces/proof provenance before split.",
+      "planned_use_clearly_permitted": "YES for verified files actually covered by the stated permissive license, with notices/conditions preserved; engineering eligibility assessment, not approval of every repository file or a guarantee about generated outputs.",
+      "recommendation": "APPROVE",
+      "recommendation_rationale": "Human-approved scoped source; mandatory content/license/provenance checks remain on actual retrieval, not a blanket license grant.",
+      "classification": "TRAINING SOURCE",
+      "classification_detail": "Small structured-byte component; no proof-capability claim or RAG build.",
+      "file_allowlist": {
+        "path": "docs/source_file_allowlists_2m.json",
+        "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+        "source_key": "mathlib"
+      }
+    }
+  ],
+  "license_eligibility_enforcement": [
+    "Before substantive acquisition, create a pinned path allowlist using repository metadata and small license/header inspections only. Resolve each file against its nearest applicable LICENSE/COPYING/NOTICE, explicit SPDX/header, third-party provenance and repository inheritance; absence of a header alone is not proof of missing rights or proof of eligibility.",
+    "Each accepted file records source commit, path/blob identity, license identifier/version, license-text SHA-256, controlling notice paths and hashes, copyright/attribution, inherited-scope rationale, modification obligations and eligibility decision. Payload SHA-256 is added and verified on authorized retrieval.",
+    "Allow only reviewed PSF-2.0/historical CPython terms, BSD-3-Clause, Apache-2.0 and applicable 0BSD examples for these proposed code subsets. Any additional license requires explicit review, not automatic inheritance from the root license. Unlicensed, conflicting, noncommercial, no-derivatives, custom/unknown and unresolved mixed content is REJECT for this pilot.",
+    "Default-exclude third-party/vendor/submodule trees and copied examples unless separately reviewed. License detectors may flag candidates but cannot grant eligibility; unexpected headers on acquisition quarantine the file and stop its source for review.",
+    "Do not flatten the combined corpus under one aggregate permissive license. Retain per-document notices and full source provenance; preserve attribution and change notices when redistributing source/cleaned extracts. Exclude uncertain passages instead of removing their notices.",
+    "All inputs remain inert: no downloaded-code imports, builds, installation hooks, tests or proof execution. Secret/PII scans reject suspect documents; logs store hashes/reasons without secret values."
+  ],
+  "coverage": {
+    "registry": "docs/data_exclusion_registry.json",
+    "registry_sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "benchmark_report": "reports/benchmark_exclusion_coverage.json",
+    "benchmark_report_sha256": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "benchmark_files": 25,
+    "fingerprinted_records_including_variants": 45475,
+    "downstream_holdouts": "Pinned Gutenberg works and exact repository files/source units; final hashes after authorized acquisition/dedup",
+    "project_test_generator_tool_identities": 17,
+    "local_fixture_records": 14,
+    "unique_local_fixture_payloads": 2,
+    "global_gate": "SATISFIED_FOR_AUTHORIZATION"
+  },
+  "unresolved_licensing": [],
+  "storage": {
+    "projected_acquisition_preprocessing_bytes": 416000000,
+    "data_working_hard_cap_bytes": 800000000,
+    "checkpoint_run_allowance_separate_bytes": 200000000,
+    "projected_combined_bytes": 616000000,
+    "maximum_allowed_combined_bytes": 1000000000,
+    "corpus_transfer_cap_bytes": 80000000,
+    "components": {
+      "retained_compressed_archives": 60000000,
+      "retained_plain_sources_and_api_responses": 20000000,
+      "temporary_extraction_one_archive": 250000000,
+      "cleaned_before_dedup": 20000000,
+      "unique_train": 10000000,
+      "unique_validation": 500000,
+      "unique_test": 500000,
+      "manifests_indexes_notices": 5000000,
+      "preprocessing_scratch": 50000000
+    },
+    "status": "Data/projection logical bytes, not process memory. Includes current evaluation raw files, both fingerprint builds, metadata and isolated reader. New data/preprocessing hard cap800 MB plus separate run allowance200 MB =1 GB; existing CPU/CUDA environments and historical runs are not new acquisition storage.",
+    "observed_evaluation_infrastructure_logical_bytes": 182284509,
+    "projected_acquisition_preprocessing_plus_evaluation_bytes": 598284509,
+    "projected_combined_with_run_allowance_bytes": 798284509
+  },
+  "acquisition_order": [
+    "Verify registry, raw benchmark and fingerprint sidecar hashes and pinned source-unit allowlists.",
+    "After human download authorization, process CPython 3.12.10 eligible files.",
+    "Process NumPy 2.2.4 eligible files.",
+    "Process SymPy 1.13.3 eligible files.",
+    "Process selected mathlib4 v4.19.0 files; no whole-repository download.",
+    "Process Gutenberg train candidates in order 1400, 766, 1023, 145, 1342, 158 as needed; validation1661; test768. Never acquire rejected1260 or Wikipedia. Retain whole work/author separation.",
+    "Verify full-file hashes/notices; extract and hash only eligible payloads. Globally deduplicate/exclude benchmark matches before final source-unit split/window generation. Cross-role duplicate clusters are excluded.",
+    "Freeze training/validation/test manifests and report measured underfill/retention. Stop before any training."
+  ],
+  "blockers": [],
+  "validation": {
+    "scope": "Documentation, sums, local hashes and preservation of existing model/source evidence; no runtime tests necessary for these documentation-only changes.",
+    "corpus_downloads": 0
+  },
+  "rollback": "Existing source, architecture, CPU/CUDA environments, FINAL specifications and Git commits preserved; no commit or remote created.",
+  "operational_conditions": [
+    "No source outside the pinned allowlists. Unknown/copied/differently licensed material rejected, not authorized by repository root.",
+    "Gutenberg whole-text and cleaned-payload hashes PENDING_AUTHORIZED_ACQUISITION; required immediately after retrieval/extraction.",
+    "Incomplete notice or uncertain supplement boundary on actual retrieval means quarantine; no silent eligibility fallback.",
+    "Metadata changes, benchmark index hash failures, source-unit collisions or byte/disk cap violations stop acquisition."
+  ]
+}

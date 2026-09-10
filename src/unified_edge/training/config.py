@@ -1,4 +1,4 @@
-"""Strict CPU training configuration and canonical identities."""
+"""Strict FP32 training configuration and canonical identities."""
 
 import hashlib
 import json
@@ -29,8 +29,11 @@ class TrainingConfig:
     beta2: float = 0.999
     epsilon: float = 1e-8
     cpu_threads: int = 1
+    device: str = "cpu"
 
     def __post_init__(self):
+        if self.device not in ("cpu", "cuda:0"):
+            raise ValueError("training device must be cpu or cuda:0; FP32 only")
         if self.schema != "1":
             raise ValueError("unsupported training schema")
         for name in (
