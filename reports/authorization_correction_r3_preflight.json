@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "NOT READY",
+  "stage": "QUOTA_CLARIFICATION_REQUIRED",
+  "frozen_blocked_commit": "8c5cb375fced7cf1452f3007514a32cbc9678922",
+  "preserved_revision_2": {
+    "path": "reports/download_authorization_2m_r2.json",
+    "sha256": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67"
+  },
+  "preserved_capacity_contract": {
+    "path": "docs/authorization_capacity_2m_r2.json",
+    "sha256": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28"
+  },
+  "conflict": {
+    "accepted_sympy_each_holdout": {
+      "code": 12500,
+      "documentation": 12500,
+      "structured_math": 25000,
+      "total": 50000
+    },
+    "new_directive_math_quota_each_holdout": 50000,
+    "implied_sympy_total_if_other_cells_unchanged": 75000,
+    "implied_overall_each_holdout_bytes": 525000,
+    "approved_overall_each_holdout_bytes": 500000,
+    "accepted_minimum_raw_math_bytes_at_70_percent": 35715,
+    "new_directive_minimum_raw_math_bytes_at_70_percent": 71429
+  },
+  "clarification_requested": "Keep the accepted 25,000 mathematical bytes per holdout, or explicitly revise budgets before continuing? No answer inferred from elapsed time.",
+  "independent_work": {
+    "focused_tests": "24 passed in 0.34s",
+    "invariant_source_hash_unchanged": true,
+    "candidate_metadata": "Cached exact SymPy 1.13.3 tree identifies mathematical solving guides; no admission or new source-unit assignment made.",
+    "source_pin": "b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b"
+  },
+  "unchanged": [
+    "60-cell invariant",
+    "source/domain/split quotas",
+    "70% retained-yield assumption",
+    "revision-2 allowlists and failed evidence",
+    "model architecture",
+    "Python and CUDA environments"
+  ],
+  "not_run": [
+    "new candidate content/license review",
+    "new file admission",
+    "new mathematical holdout assignment",
+    "corpus acquisition",
+    "training"
+  ],
+  "next_step": "Resolve the contradictory quota before admitting new files or issuing a corrected authorization. Preserve both failed mathematical cells until a consistent request is confirmed."
+}

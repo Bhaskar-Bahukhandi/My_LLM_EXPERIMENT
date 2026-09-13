@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "authorization_revision": "3",
+  "status": "READY",
+  "frozen_blocked_commit": "8c5cb375fced7cf1452f3007514a32cbc9678922",
+  "previous_authorization": {
+    "path": "reports/download_authorization_2m_r2.json",
+    "sha256": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67"
+  },
+  "original_budget_authority": {
+    "path": "reports/download_authorization_2m.json",
+    "sha256": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c"
+  },
+  "preserved_quota_conflict": {
+    "path": "reports/authorization_correction_r3_preflight.json",
+    "sha256": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185"
+  },
+  "human_clarification": {
+    "path": "docs/authorization_r3_quota_clarification.json",
+    "sha256": "0a6747c8342f2847131c17fbf4a3288def0dd69bc2c67905e6d376a60c4ded6a"
+  },
+  "history": "v1 -> >=1,400,000-byte documentation deficit -> r2 58/60 -> r3 quota-conflict preflight -> human confirmation of 25,000 mathematical bytes per holdout -> r3 60/60. Earlier 50,000 mathematics instruction rejected as inconsistent with frozen source/domain budgets.",
+  "source_approval_table": {
+    "path": "reports/source_approval_table_2m_r3.json",
+    "sha256": "c3444d0ad2318155f80fa7dd78d008b65e2888ade1a12bc734c087c8b217305d"
+  },
+  "capacity_contract": {
+    "path": "docs/authorization_capacity_2m_r3.json",
+    "sha256": "57a7d7bd46d0181ee734cd228e423ce9b7152f7f3a8721a8c79aa0343e6606b8"
+  },
+  "capacity_evidence": {
+    "path": "reports/authorization_capacity_2m_r3.json",
+    "sha256": "0e799fe1b8d5c3b873bfade77ac0d8e675f0a002b8f221beb0012401313622ac"
+  },
+  "allowlist": {
+    "path": "docs/documentation_file_allowlist_2m_r3.json",
+    "sha256": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a"
+  },
+  "all_cells_passed": 60,
+  "all_cells_total": 60,
+  "final_sympy_mathematical_cells": [
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "validation",
+      "eligible_raw_candidate_bytes": 39387,
+      "estimated_retained_bytes": 27570,
+      "required_final_bytes": 25000,
+      "required_raw_headroom_bytes": 10715,
+      "minimum_raw_candidate_bytes": 35715,
+      "raw_surplus_after_headroom_bytes": 3672,
+      "estimated_final_surplus_bytes": 2570,
+      "independent_source_units": 2,
+      "pass": true,
+      "achieved_raw_headroom_bytes": 14387
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "test",
+      "eligible_raw_candidate_bytes": 44341,
+      "estimated_retained_bytes": 31038,
+      "required_final_bytes": 25000,
+      "required_raw_headroom_bytes": 10715,
+      "minimum_raw_candidate_bytes": 35715,
+      "raw_surplus_after_headroom_bytes": 8626,
+      "estimated_final_surplus_bytes": 6038,
+      "independent_source_units": 2,
+      "pass": true,
+      "achieved_raw_headroom_bytes": 19341
+    }
+  ],
+  "new_candidates": [
+    {
+      "source": "sympy",
+      "repository": "https://github.com/sympy/sympy",
+      "tag": "sympy-1.13.3",
+      "commit": "b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b",
+      "path": "doc/src/guides/solving/find-roots-polynomial.md",
+      "sha256": "9a252fa01e75b1f40d0ba28ae46e6e4f4d5ece5462858e00adc69513f47a49c1",
+      "git_blob_sha1": "6ec9af206bb3827cf7b68b59661b2bbbacf487c3",
+      "raw_bytes_from_tree": 21371,
+      "inspection_path": "evidence/authorization_r3/inspection/doc/src/guides/solving/find-roots-polynomial.md",
+      "inspection_url": "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/doc/src/guides/solving/find-roots-polynomial.md",
+      "domain": "structured_math",
+      "decision": "ADMIT",
+      "reserved_split": "validation",
+      "source_unit": "math-holdout/algebraic-integer-equations",
+      "mathematical_domain_justification": "Univariate polynomial roots, multiplicity, exact versus approximate roots, complex roots and limits of closed-form solutions.",
+      "controlling_license": "BSD-3-Clause; inherited SymPy root LICENSE, including its applicable notice obligations",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "license_evidence_url": "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/LICENSE",
+      "file_local_notices": [],
+      "file_local_notice_assessment": "No overriding copyright, license, copied-from or permission-only notice identified in the complete file.",
+      "third_party_assessment": "Links to Wikipedia/SciPy/reference pages do not import their content. No separately licensed copied prose identified. Full root LICENSE retained; listed bundled code exceptions are not these guide files.",
+      "generated_vs_authored": "Authored Markdown mathematical exposition with worked examples; not generated API output or implementation code. Embedded examples/plot directives are never executed or expanded.",
+      "eligible_byte_ranges": [
+        [
+          0,
+          21068
+        ]
+      ],
+      "known_excluded_ranges": [
+        {
+          "start": 21068,
+          "end": 21371,
+          "reason": "Nonmathematical Report a Bug footer; shared guide boilerplate"
+        }
+      ],
+      "estimated_eligible_bytes": 21068,
+      "expected_post_cleaning_bytes": 14747,
+      "capacity_status": "ESTIMATE using unchanged combined cleaning/dedup retention 7/10; per-cell aggregate rounding remains authoritative.",
+      "split_identity_policy": "Whole guide assigned once; ranges only remove ineligible boilerplate, never split a file between roles. New explicit units contain only these previously unassigned files. Existing src unit denotes its enumerated files, not ownership of every future file under doc/src.",
+      "duplicate_review": {
+        "path": "evidence/authorization_r3/duplicate_review.json",
+        "sha256": "e0322031b932b025e172900e2d6ba494a036125652ead281525a373e799d0f3f"
+      },
+      "acquisition_conditions": "Preserve original retained byte spans; no link/include/plot execution. Apply unchanged global exact/normalized/near-duplicate and benchmark exclusions before final split/window creation. Cross-role duplicate clusters must be excluded, not moved."
+    },
+    {
+      "source": "sympy",
+      "repository": "https://github.com/sympy/sympy",
+      "tag": "sympy-1.13.3",
+      "commit": "b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b",
+      "path": "doc/src/guides/solving/solve-diophantine-equation.md",
+      "sha256": "1d7b841aefd979f9fb654e91c00355d13baa620c7fb49c1e5607cd414bea8cc2",
+      "git_blob_sha1": "464bcb0074efe9b8b8fae8daa9056ca8615edf84",
+      "raw_bytes_from_tree": 10484,
+      "inspection_path": "evidence/authorization_r3/inspection/doc/src/guides/solving/solve-diophantine-equation.md",
+      "inspection_url": "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/doc/src/guides/solving/solve-diophantine-equation.md",
+      "domain": "structured_math",
+      "decision": "ADMIT",
+      "reserved_split": "validation",
+      "source_unit": "math-holdout/algebraic-integer-equations",
+      "mathematical_domain_justification": "Integer polynomial solutions, parameterized Pythagorean triples and solution verification.",
+      "controlling_license": "BSD-3-Clause; inherited SymPy root LICENSE, including its applicable notice obligations",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "license_evidence_url": "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/LICENSE",
+      "file_local_notices": [],
+      "file_local_notice_assessment": "No overriding copyright, license, copied-from or permission-only notice identified in the complete file.",
+      "third_party_assessment": "Links to Wikipedia/SciPy/reference pages do not import their content. No separately licensed copied prose identified. Full root LICENSE retained; listed bundled code exceptions are not these guide files.",
+      "generated_vs_authored": "Authored Markdown mathematical exposition with worked examples; not generated API output or implementation code. Embedded examples/plot directives are never executed or expanded.",
+      "eligible_byte_ranges": [
+        [
+          0,
+          10232
+        ]
+      ],
+      "known_excluded_ranges": [
+        {
+          "start": 10232,
+          "end": 10484,
+          "reason": "Nonmathematical Report a Bug footer; shared guide boilerplate"
+        }
+      ],
+      "estimated_eligible_bytes": 10232,
+      "expected_post_cleaning_bytes": 7162,
+      "capacity_status": "ESTIMATE using unchanged combined cleaning/dedup retention 7/10; per-cell aggregate rounding remains authoritative.",
+      "split_identity_policy": "Whole guide assigned once; ranges only remove ineligible boilerplate, never split a file between roles. New explicit units contain only these previously unassigned files. Existing src unit denotes its enumerated files, not ownership of every future file under doc/src.",
+      "duplicate_review": {
+        "path": "evidence/authorization_r3/duplicate_review.json",
+        "sha256": "e0322031b932b025e172900e2d6ba494a036125652ead281525a373e799d0f3f"
+      },
+      "acquisition_conditions": "Preserve original retained byte spans; no link/include/plot execution. Apply unchanged global exact/normalized/near-duplicate and benchmark exclusions before final split/window creation. Cross-role duplicate clusters must be excluded, not moved."
+    },
+    {
+      "source": "sympy",
+      "repository": "https://github.com/sympy/sympy",
+      "tag": "sympy-1.13.3",
+      "commit": "b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b",
+      "path": "doc/src/guides/solving/solve-ode.md",
+      "sha256": "61f83d28becd52d9d32fe8ec4f58ca805f27119a1fe3ce1e89a88bbb4a1bd3bb",
+      "git_blob_sha1": "907a06ffe8f8114be530d2c55737801343fa8ed5",
+      "raw_bytes_from_tree": 18727,
+      "inspection_path": "evidence/authorization_r3/inspection/doc/src/guides/solving/solve-ode.md",
+      "inspection_url": "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/doc/src/guides/solving/solve-ode.md",
+      "domain": "structured_math",
+      "decision": "ADMIT",
+      "reserved_split": "test",
+      "source_unit": "math-holdout/ordinary-differential-equations",
+      "mathematical_domain_justification": "ODE solutions, derivatives, initial/boundary conditions, arbitrary constants, implicit solutions and unevaluated integrals.",
+      "controlling_license": "BSD-3-Clause; inherited SymPy root LICENSE, including its applicable notice obligations",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "license_evidence_url": "https://raw.githubusercontent.com/sympy/sympy/b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b/LICENSE",
+      "file_local_notices": [],
+      "file_local_notice_assessment": "No overriding copyright, license, copied-from or permission-only notice identified in the complete file.",
+      "third_party_assessment": "Links to Wikipedia/SciPy/reference pages do not import their content. No separately licensed copied prose identified. Full root LICENSE retained; listed bundled code exceptions are not these guide files.",
+      "generated_vs_authored": "Authored Markdown mathematical exposition with worked examples; not generated API output or implementation code. Embedded examples/plot directives are never executed or expanded.",
+      "eligible_byte_ranges": [
+        [
+          0,
+          18480
+        ]
+      ],
+      "known_excluded_ranges": [
+        {
+          "start": 18480,
+          "end": 18727,
+          "reason": "Nonmathematical Report a Bug footer; shared guide boilerplate"
+        }
+      ],
+      "estimated_eligible_bytes": 18480,
+      "expected_post_cleaning_bytes": 12936,
+      "capacity_status": "ESTIMATE using unchanged combined cleaning/dedup retention 7/10; per-cell aggregate rounding remains authoritative.",
+      "split_identity_policy": "Whole guide assigned once; ranges only remove ineligible boilerplate, never split a file between roles. New explicit units contain only these previously unassigned files. Existing src unit denotes its enumerated files, not ownership of every future file under doc/src.",
+      "duplicate_review": {
+        "path": "evidence/authorization_r3/duplicate_review.json",
+        "sha256": "e0322031b932b025e172900e2d6ba494a036125652ead281525a373e799d0f3f"
+      },
+      "acquisition_conditions": "Preserve original retained byte spans; no link/include/plot execution. Apply unchanged global exact/normalized/near-duplicate and benchmark exclusions before final split/window creation. Cross-role duplicate clusters must be excluded, not moved."
+    }
+  ],
+  "invariant_unchanged": {
+    "path": "scripts/authorization_capacity.py",
+    "sha256": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+    "matches_r2": true
+  },
+  "frozen_policy": {
+    "status": "ESTIMATE",
+    "cleaning_retained_fraction": [
+      4,
+      5
+    ],
+    "dedup_retained_fraction": [
+      7,
+      8
+    ],
+    "combined_retained_fraction": [
+      7,
+      10
+    ],
+    "formula": "H = ceil(Q * 10 / 7) - Q; require C >= Q + H for every cell, including explicit zero cells. Also report floor(0.7*C) - Q.",
+    "rationale": "20% cleaning allowance followed by 12.5% dedup loss; requires at least 42.857% raw oversupply relative to final quota. Bounded planning assumption, not measured yield or admission guarantee."
+  },
+  "preserved_artifacts": {
+    "scripts/authorization_capacity.py": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+    "tests/test_authorization_capacity.py": "71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40",
+    "reports/real_corpus_2m_evidence.json": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
+    "reports/download_authorization_2m_r2.json": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67",
+    "reports/authorization_capacity_2m_r2.json": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27",
+    "reports/authorization_correction_r3_preflight.json": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185",
+    "reports/authorization_correction_r3_preflight.md": "9a7ea1accebf7a35d9f103819c216756f308890245ce7fef639d60adefbdff40",
+    "docs/documentation_file_allowlist_2m_r2.json": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630",
+    "docs/authorization_capacity_2m_r2.json": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28",
+    "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+    "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "docs/gutenberg_work_allowlist_2m.json": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b"
+  },
+  "split_review": {
+    "new_validation_unit": "math-holdout/algebraic-integer-equations",
+    "new_test_unit": "math-holdout/ordinary-differential-equations",
+    "new_units_disjoint": true,
+    "new_paths_and_units_absent_from_older_allowlists": true,
+    "existing_units_unchanged": true,
+    "total_mathematical_units_each_holdout": 2,
+    "note": "Existing geometry/combinatorics units remain; new groups contain whole separate guides. Shared parent directory is not a shared document assignment."
+  },
+  "duplicate_review": {
+    "evidence": {
+      "path": "evidence/authorization_r3/duplicate_review.json",
+      "sha256": "e0322031b932b025e172900e2d6ba494a036125652ead281525a373e799d0f3f"
+    },
+    "scope": "Three candidate guides, seven related existing training docs and three inspected r2 SymPy prose documents. No full-corpus normalized or near-duplicate clearance claimed.",
+    "normalized_equal_pairs": 0,
+    "maximum_exact_5gram_jaccard": 0.09067734887108521,
+    "maximum_shorter_5gram_containment": 0.25609756097560976,
+    "finding": "No identical or near-duplicate whole-document derivative identified in the bounded reviewed set. Common mathematical syntax and guide boilerplate remain visible. Shared Report a Bug footers are excluded from candidate capacity. This is not a full-corpus leakage certificate.",
+    "future_gate": "Apply unchanged exact/normalized/near-duplicate and benchmark exclusions globally before final splits/windows; exclude cross-role duplicate clusters rather than moving them."
+  },
+  "validation": {
+    "focused_tests": "30 passed in 0.85s: original 24 plus six r3 cases",
+    "pool_removal_tests": "Removing either new pool reproduces precisely its original failed cell",
+    "cli": "PASS, exit 0, unchanged script; all 60 results match persisted evidence",
+    "arithmetic": "PASS: quotas, source/domain totals, 7/10 policy and 35,715 minimum unchanged",
+    "provenance": "PASS: three complete-file SHA-256, byte counts and Git blob identities match frozen tree; root LICENSE blob/hash verified; retained ranges and excluded footers verified",
+    "history_integrity": "PASS: every starting hash unchanged, including r2 failure and r3 preflight reports",
+    "benchmarks": "PASS: 25 raw-file hashes, normalized-fingerprint sidecar hash and registered project fixture/generator identities unchanged",
+    "static": "Ruff PASS; formatting 38 files PASS; compileall PASS",
+    "dependencies": "CPU and CUDA pip check PASS; no environment changes",
+    "model_and_specs": "Model source canonical hash and both FINAL Git identities unchanged; rollback HEAD unchanged",
+    "not_rerun": "CPU learning/GPU/overfit experiments: no model or training changes"
+  },
+  "storage": {
+    "new_review_evidence_logical_bytes_at_measurement": 249917,
+    "prior_conservative_total_projection_bytes": 800830696,
+    "revised_conservative_total_projection_bytes": 801080613,
+    "combined_cap_bytes": 1000000000,
+    "data_preprocessing_cap_bytes": 800000000,
+    "separate_run_allowance_bytes": 200000000,
+    "status": "ESTIMATE, including preserved review evidence. No corpus-scale peak measured."
+  },
+  "limitations": [
+    "Expected retained capacity remains an estimate; actual cleaning/dedup yield is unmeasured.",
+    "Review does not certify global semantic or benchmark contamination absence.",
+    "Unseen source-file rights/security checks and original Gutenberg acquisition conditions remain mandatory."
+  ],
+  "substantive_corpus_acquisition": false,
+  "gutenberg_books_downloaded": false,
+  "training_started": false,
+  "next_step": "Stop for the separately authorized corpus-acquisition phase; do not acquire data in this correction pass.",
+  "final_status": "CORRECTED DOWNLOAD AUTHORIZATION STATUS: READY"
+}

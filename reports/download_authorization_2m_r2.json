@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "authorization_revision": "2",
+  "status": "NOT READY",
+  "frozen_blocked_commit": "8c5cb375fced7cf1452f3007514a32cbc9678922",
+  "previous_authorization": {
+    "path": "reports/download_authorization_2m.json",
+    "sha256": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c"
+  },
+  "preserved_failed_build": {
+    "path": "reports/real_corpus_2m_evidence.json",
+    "sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9"
+  },
+  "supersession_reason": "The >=1,400,000-byte documentation gap is resolved by additive file review. Full-cell headroom checks expose two further mathematical holdout deficits. Historical authorization READY is superseded, not erased.",
+  "source_approval_table": {
+    "path": "reports/source_approval_table_2m_r2.json",
+    "sha256": "0c24a96a1d67273713d5743553fb1c42406b27ab3c603c8ff6260d25980773cd"
+  },
+  "documentation_overlay": {
+    "path": "docs/documentation_file_allowlist_2m_r2.json",
+    "sha256": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630"
+  },
+  "capacity_contract": {
+    "path": "docs/authorization_capacity_2m_r2.json",
+    "sha256": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28"
+  },
+  "capacity_evidence": {
+    "path": "reports/authorization_capacity_2m_r2.json",
+    "sha256": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27"
+  },
+  "preserved_inputs": [
+    {
+      "path": "reports/download_authorization_2m.json",
+      "sha256": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c"
+    },
+    {
+      "path": "reports/source_approval_table_2m.json",
+      "sha256": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6"
+    },
+    {
+      "path": "docs/source_file_allowlists_2m.json",
+      "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad"
+    },
+    {
+      "path": "docs/gutenberg_work_allowlist_2m.json",
+      "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b"
+    },
+    {
+      "path": "docs/data_exclusion_registry.json",
+      "sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3"
+    },
+    {
+      "path": "reports/benchmark_exclusion_coverage.json",
+      "sha256": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d"
+    },
+    {
+      "path": "Unified_Edge400_Master_Bible_v3.0_FINAL.md",
+      "sha256": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75"
+    },
+    {
+      "path": "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md",
+      "sha256": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99"
+    }
+  ],
+  "old_documentation_raw_capacity": {
+    "train": 311995,
+    "validation": 0,
+    "test": 0
+  },
+  "corrected_documentation_capacity": {
+    "train": {
+      "eligible_raw_candidate_bytes": 2266962,
+      "estimated_retained_bytes": 1586872,
+      "required_final_bytes": 1500000,
+      "estimated_surplus_bytes": 86872
+    },
+    "validation": {
+      "eligible_raw_candidate_bytes": 170842,
+      "estimated_retained_bytes": 119588,
+      "required_final_bytes": 75000,
+      "estimated_surplus_bytes": 44588
+    },
+    "test": {
+      "eligible_raw_candidate_bytes": 164014,
+      "estimated_retained_bytes": 114809,
+      "required_final_bytes": 75000,
+      "estimated_surplus_bytes": 39809
+    }
+  },
+  "all_cells": {
+    "total": 60,
+    "passing": 58,
+    "failing": [
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "validation",
+        "eligible_raw_candidate_bytes": 8087,
+        "estimated_retained_bytes": 5660,
+        "required_final_bytes": 25000,
+        "required_raw_headroom_bytes": 10715,
+        "minimum_raw_candidate_bytes": 35715,
+        "raw_surplus_after_headroom_bytes": -27628,
+        "estimated_final_surplus_bytes": -19340,
+        "independent_source_units": 1,
+        "pass": false
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "test",
+        "eligible_raw_candidate_bytes": 25861,
+        "estimated_retained_bytes": 18102,
+        "required_final_bytes": 25000,
+        "required_raw_headroom_bytes": 10715,
+        "minimum_raw_candidate_bytes": 35715,
+        "raw_surplus_after_headroom_bytes": -9854,
+        "estimated_final_surplus_bytes": -6898,
+        "independent_source_units": 1,
+        "pass": false
+      }
+    ]
+  },
+  "inspection": {
+    "files": 58,
+    "raw_file_bytes": 2336362,
+    "admitted_files": 56,
+    "rejected_files": [
+      "doc/source/user/basics.indexing.rst",
+      "doc/source/user/basics.ufuncs.rst"
+    ],
+    "purpose": "Bounded authorization/license inspection, ignored evidence only; not corpus assembly or model input. No Gutenberg book or release archive acquired."
+  },
+  "storage": {
+    "review_evidence_logical_bytes": 2546187,
+    "previous_total_projection_bytes": 798284509,
+    "revised_conservative_total_projection_bytes": 800830696,
+    "total_cap_bytes": 1000000000,
+    "data_preprocessing_cap_bytes": 800000000,
+    "separate_run_allowance_bytes": 200000000,
+    "status": "ESTIMATE; add all review evidence without reclaiming anything. Actual preprocessing peak unmeasured."
+  },
+  "headroom_policy": {
+    "status": "ESTIMATE",
+    "cleaning_retained_fraction": [
+      4,
+      5
+    ],
+    "dedup_retained_fraction": [
+      7,
+      8
+    ],
+    "combined_retained_fraction": [
+      7,
+      10
+    ],
+    "formula": "H = ceil(Q * 10 / 7) - Q; require C >= Q + H for every cell, including explicit zero cells. Also report floor(0.7*C) - Q.",
+    "rationale": "20% cleaning allowance followed by 12.5% dedup loss; requires at least 42.857% raw oversupply relative to final quota. Bounded planning assumption, not measured yield or admission guarantee."
+  },
+  "model_source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+  "validation": {
+    "focused_tests": "24 passed in 0.47s after final invariant tightening",
+    "ordinary_regression": "182 passed; 8 overfit/CUDA deselected; existing optional NumPy warning; 168.09s. Run before two additional invariant tests and final checker tightening; final affected suite has 24 passes.",
+    "static": "Ruff PASS; 37 files formatted; compileall PASS; both pip checks PASS",
+    "pinned_document_hashes": "58/58 SHA-256, byte counts and Git blob identities PASS",
+    "frozen_inputs": "Git clean-filter identities match rollback; raw artifact SHA-256 matches previous blocker report (core.autocrlf=true)",
+    "unchanged_model_and_final_specs": "PASS",
+    "capacity": "FAIL: 58/60; all documentation cells PASS",
+    "benchmark_preservation": "25 raw files, 59,289,417-byte fingerprint sidecar and existing project fixture/generator identities verified unchanged"
+  },
+  "remaining_issues": [
+    "SymPy structured_math validation raw capacity 8,087 < 35,715 needed with margin.",
+    "SymPy structured_math test raw capacity 25,861 < 35,715 needed with margin.",
+    "Two NumPy Guide to NumPy adaptations rejected pending separate rights evidence.",
+    "NumPy license page relative include target absent at pin (HTTP 404); inherited root BSD license is explicitly recorded, not fabricated generated output.",
+    "Actual cleaning/dedup yield and post-acquisition admission checks remain unmeasured."
+  ],
+  "next_step": "Review an explicit additional pinned mathematical-document/holdout scope revision for both failed cells. Do not relabel code or documentation, lower margin/budgets, change source versions or begin acquisition.",
+  "substantive_corpus_acquisition": false,
+  "training_started": false,
+  "final_status": "CORRECTED DOWNLOAD AUTHORIZATION STATUS: NOT READY",
+  "implementation": {
+    "scripts/authorization_capacity.py": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+    "tests/test_authorization_capacity.py": "71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40"
+  }
+}

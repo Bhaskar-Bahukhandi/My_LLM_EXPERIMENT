@@ -1,0 +1,528 @@
+{
+  "schema_version": 1,
+  "authorization_revision": "3",
+  "previous_authorization": {
+    "path": "reports/download_authorization_2m.json",
+    "sha256": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c"
+  },
+  "base_allowlist": {
+    "path": "docs/source_file_allowlists_2m.json",
+    "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad"
+  },
+  "documentation_overlay": {
+    "path": "docs/documentation_file_allowlist_2m_r3.json",
+    "sha256": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a"
+  },
+  "gutenberg_allowlist": {
+    "path": "docs/gutenberg_work_allowlist_2m.json",
+    "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b"
+  },
+  "preserved_evidence": [
+    {
+      "path": "reports/source_approval_table_2m.json",
+      "sha256": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6"
+    },
+    {
+      "path": "docs/data_exclusion_registry.json",
+      "sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3"
+    },
+    {
+      "path": "reports/benchmark_exclusion_coverage.json",
+      "sha256": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d"
+    },
+    {
+      "path": "reports/real_corpus_2m_evidence.json",
+      "sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9"
+    },
+    {
+      "path": "reports/download_authorization_2m_r2.json",
+      "sha256": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67"
+    },
+    {
+      "path": "reports/authorization_capacity_2m_r2.json",
+      "sha256": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27"
+    },
+    {
+      "path": "reports/authorization_correction_r3_preflight.json",
+      "sha256": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185"
+    },
+    {
+      "path": "docs/authorization_r3_quota_clarification.json",
+      "sha256": "0a6747c8342f2847131c17fbf4a3288def0dd69bc2c67905e6d376a60c4ded6a"
+    }
+  ],
+  "approved_gutenberg_ids": [
+    1400,
+    766,
+    1023,
+    145,
+    1342,
+    158,
+    768,
+    1661
+  ],
+  "axes": {
+    "source": [
+      "gutenberg",
+      "cpython",
+      "numpy",
+      "sympy",
+      "mathlib"
+    ],
+    "domain": [
+      "general_text",
+      "code",
+      "documentation",
+      "structured_math"
+    ],
+    "split": [
+      "train",
+      "validation",
+      "test"
+    ]
+  },
+  "source_totals": {
+    "gutenberg": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "cpython": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "numpy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "sympy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "mathlib": {
+      "train": 500000,
+      "validation": 25000,
+      "test": 25000
+    }
+  },
+  "domain_totals": {
+    "general_text": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "code": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "documentation": {
+      "train": 1500000,
+      "validation": 75000,
+      "test": 75000
+    },
+    "structured_math": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    }
+  },
+  "quotas": [
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 5000000
+    },
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 250000
+    },
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 250000
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 1500000
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 75000
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 75000
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 1000000
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 50000
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 50000
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 750000
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 37500
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 37500
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 250000
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 12500
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 12500
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 500000
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 25000
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 500000
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 25000
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000
+    }
+  ],
+  "retention": [
+    7,
+    10
+  ],
+  "headroom_policy": {
+    "status": "ESTIMATE",
+    "cleaning_retained_fraction": [
+      4,
+      5
+    ],
+    "dedup_retained_fraction": [
+      7,
+      8
+    ],
+    "combined_retained_fraction": [
+      7,
+      10
+    ],
+    "formula": "H = ceil(Q * 10 / 7) - Q; require C >= Q + H for every cell, including explicit zero cells. Also report floor(0.7*C) - Q.",
+    "rationale": "20% cleaning allowance followed by 12.5% dedup loss; requires at least 42.857% raw oversupply relative to final quota. Bounded planning assumption, not measured yield or admission guarantee."
+  },
+  "quota_refinement": "First explicit complete source/domain/split matrix: preserve approved train source/domain allocations; validation and test use the same within-source proportions (one twentieth of train). No overall source or domain target changed.",
+  "eligibility_limit": "Existing first-party source metadata stays conditionally eligible pending actual file notice checks; documentation additions were inspected by hash. Capacity PASS is necessary, never sufficient for corpus admission.",
+  "supersedes": {
+    "path": "docs/authorization_capacity_2m_r2.json",
+    "sha256": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28"
+  },
+  "preserved_non_json_evidence": [
+    {
+      "path": "reports/authorization_correction_r3_preflight.md",
+      "sha256": "9a7ea1accebf7a35d9f103819c216756f308890245ce7fef639d60adefbdff40"
+    }
+  ]
+}

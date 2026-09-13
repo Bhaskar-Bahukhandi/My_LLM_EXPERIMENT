@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "revision": "2",
+  "status": "NOT READY",
+  "base": {
+    "path": "reports/source_approval_table_2m.json",
+    "sha256": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6"
+  },
+  "inheritance": "All original source pins, source-row license/attribution/security conditions and budgets retained. Only file scope and readiness change as explicitly recorded here.",
+  "source_totals": {
+    "gutenberg": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "cpython": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "numpy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "sympy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "mathlib": {
+      "train": 500000,
+      "validation": 25000,
+      "test": 25000
+    }
+  },
+  "domain_totals": {
+    "general_text": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "code": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "documentation": {
+      "train": 1500000,
+      "validation": 75000,
+      "test": 75000
+    },
+    "structured_math": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    }
+  },
+  "complete_cell_allocation": {
+    "path": "docs/authorization_capacity_2m_r2.json",
+    "sha256": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28"
+  },
+  "base_allowlist": {
+    "path": "docs/source_file_allowlists_2m.json",
+    "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad"
+  },
+  "documentation_overlay": {
+    "path": "docs/documentation_file_allowlist_2m_r2.json",
+    "sha256": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630"
+  },
+  "file_scope": "Union of immutable base files and ADMIT overlay entries; no acquisition while any cell fails.",
+  "source_review": {
+    "gutenberg": {
+      "added_documentation_files": 0,
+      "finding": "Gutenberg decisions unchanged; no book text acquired."
+    },
+    "cpython": {
+      "added_documentation_files": 35,
+      "finding": "Pinned Doc/license.rst expressly covers software and documentation under PSF v2, documentation code additionally 0BSD; not a subtree exclusion. Incorporated material still excluded."
+    },
+    "numpy": {
+      "added_documentation_files": 18,
+      "finding": "Pinned root BSD-3-Clause and doc/source/license.rst license page identify repository licensing, not a blanket documentation exclusion. That page has a relative include whose doc/LICENSE.txt target is absent at this pin (HTTP 404); no build executed or inferred target silently substituted. Root LICENSE.txt is recorded explicitly as inherited coverage. Two attributed Guide to NumPy adaptations rejected."
+    },
+    "sympy": {
+      "added_documentation_files": 3,
+      "finding": "Pinned root BSD-3-Clause inherited for inspected first-party authored explanations; no contrary file notice found."
+    },
+    "mathlib": {
+      "added_documentation_files": 0,
+      "finding": "Pinned tree inspected; no standalone eligible documentation/prose subset proposed. Lean implementation/theorem files remain structured_math; none relabeled documentation."
+    }
+  },
+  "acquisition_order": "Original order retained but UNEXECUTED; authorization remains blocked."
+}

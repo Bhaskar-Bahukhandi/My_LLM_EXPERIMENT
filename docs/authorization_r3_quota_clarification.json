@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "authorization_revision": "3",
+  "supersedes_erroneous_instruction": {
+    "path": "reports/authorization_correction_r3_preflight.json",
+    "sha256": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185"
+  },
+  "human_decision": "The earlier 50,000 mathematical-byte instruction was erroneous. Each SymPy holdout stays 50,000 total: 12,500 code, 12,500 documentation, 25,000 structured mathematics. Optional candidate target 50,000 is not a quota or replacement margin.",
+  "frozen_quotas": {
+    "validation": 25000,
+    "test": 25000
+  },
+  "retention": [
+    7,
+    10
+  ],
+  "minimum_eligible_raw_per_cell": 35715,
+  "required_raw_headroom_per_cell": 10715,
+  "budget_changes": false
+}

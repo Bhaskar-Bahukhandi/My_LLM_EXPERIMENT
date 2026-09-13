@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "revision": "3",
+  "status": "READY",
+  "supersedes": {
+    "path": "reports/source_approval_table_2m_r2.json",
+    "sha256": "0c24a96a1d67273713d5743553fb1c42406b27ab3c603c8ff6260d25980773cd"
+  },
+  "original_source_approval": {
+    "path": "reports/source_approval_table_2m.json",
+    "sha256": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6"
+  },
+  "inheritance": "All original source names/pins, licensing and attribution, domain quotas, cleaning/security and acquisition conditions retained. R2 documentation entries unchanged; three previously unassigned mathematical guides added only to the two failed holdout cells.",
+  "source_totals": {
+    "gutenberg": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "cpython": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "numpy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "sympy": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    },
+    "mathlib": {
+      "train": 500000,
+      "validation": 25000,
+      "test": 25000
+    }
+  },
+  "domain_totals": {
+    "general_text": {
+      "train": 5000000,
+      "validation": 250000,
+      "test": 250000
+    },
+    "code": {
+      "train": 2500000,
+      "validation": 125000,
+      "test": 125000
+    },
+    "documentation": {
+      "train": 1500000,
+      "validation": 75000,
+      "test": 75000
+    },
+    "structured_math": {
+      "train": 1000000,
+      "validation": 50000,
+      "test": 50000
+    }
+  },
+  "capacity_contract": {
+    "path": "docs/authorization_capacity_2m_r3.json",
+    "sha256": "57a7d7bd46d0181ee734cd228e423ce9b7152f7f3a8721a8c79aa0343e6606b8"
+  },
+  "base_allowlist": {
+    "path": "docs/source_file_allowlists_2m.json",
+    "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad"
+  },
+  "documentation_overlay": {
+    "path": "docs/documentation_file_allowlist_2m_r3.json",
+    "sha256": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a"
+  },
+  "file_scope": "Base allowlist plus ADMIT entries of materialized r3 overlay. R3 overlay already contains r2; do not add r2 a second time.",
+  "new_mathematical_paths": [
+    "doc/src/guides/solving/find-roots-polynomial.md",
+    "doc/src/guides/solving/solve-diophantine-equation.md",
+    "doc/src/guides/solving/solve-ode.md"
+  ],
+  "conditions": "Candidate authorization only. Global deduplication, contamination exclusion, actual file verification and measured retained yield precede final corpus admission. No acquisition during this pass."
+}

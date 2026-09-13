@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "authorization": {
+    "path": "reports/download_authorization_2m_r3.json",
+    "sha256": "6986095d875d1f009d69f48c385979beadca8eadb7178ce350c3755b57f69068"
+  },
+  "capacity_cells": 60,
+  "capacity_passed": 60,
+  "sympy_math_quotas": {
+    "validation": 25000,
+    "test": 25000
+  },
+  "retention": [
+    7,
+    10
+  ],
+  "totals": {
+    "train": 10000000,
+    "validation": 500000,
+    "test": 500000
+  },
+  "source_decisions": "Current terminal r3 source table READY; rejected NumPy files and deferred Wikipedia are excluded, not pending selected sources.",
+  "artifact_integrity": "PASS",
+  "benchmark_integrity": "PASS",
+  "substantive_acquisition_started": false
+}
