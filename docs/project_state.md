@@ -1,5 +1,14 @@
 # Project state
 
+## Current full-2M production Stage A: IN PROGRESS
+
+- Human-authorized final-run schedule starts fresh from the accepted seed-17 checksum, not diagnostic weights. Production identity `edge-2m-one-pass-v1`; artifacts `data/full-training-2m-v1/` are explicitly ignored.
+- Actual frozen WindowDataset: **312,666 windows**, four windows/update. Full TrainingConfig total_steps **78,167**; last full update crosses into epoch 1 by two windows (64 bytes). Stage A stops at **5,000**, retaining the same full scheduler for later review-authorized continuation.
+- Unchanged CUDA FP32 / RTX 2050 / PyTorch 2.6.0+cu118 profile; batch 2, accumulation 2, length 32, AdamW .003, decay .01, clip 1, minimum LR ratio .1. Five-update warmup explicitly preserved from the validated diagnostic.
+- Full validation and fixed empty/The/def/import/class/x-prefix greedy probes at 0/250/1000/2500/5000. TEST remains sealed except hash checks. Diagnostic reports/checkpoints preserved by hash.
+- Runner `scripts/full_training_stage_a.py`; immutable `binding.json` and current `progress.json` in the production directory. Update-0 full validation has started after initialization/input gates passed; do not restart it while the process is alive.
+- Nineteen targeted schedule/probe/training/profile tests passed before launch. Final status and continuation recommendation remain pending. No step beyond 5,000 is authorized in this tranche.
+
 ## Current real-data diagnostic: READY FOR FULL 2M TRAINING REVIEW
 
 - Fixed diagnostic completed: 250 logical updates, 500 microsteps, 1,000 windows, 31,977 target bytes; two separately accounted replay updates add 256 physical bytes. No full epoch or full training.
