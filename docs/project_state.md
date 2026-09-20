@@ -1,6 +1,18 @@
 # Project state
 
-## Current real-data diagnostic: IN PROGRESS
+## Current real-data diagnostic: READY FOR FULL 2M TRAINING REVIEW
+
+- Fixed diagnostic completed: 250 logical updates, 500 microsteps, 1,000 windows, 31,977 target bytes; two separately accounted replay updates add 256 physical bytes. No full epoch or full training.
+- Full validation over the same 500,000 bytes at updates 0/5/125/250: **5.6641971744 / 4.1410332130 / 2.8788662083 / 2.7588319022 NLL**. Final improves 51.2935% from initial and 0.1200343 NLL from midpoint. First/final 20-update train means: 3.9264588 / 2.7871590.
+- All 56 tensors received finite nonzero gradients. Exact CUDA real-data resume and independent final checkpoint/model/optimizer/scheduler/cursor/RNG checks PASS; wrong corpus rejected. Peak allocated/reserved 108,640,768 / 127,926,272 bytes; minimum sampled free VRAM 3,306,894,132 bytes. Update throughput 222.057 target bytes/s excluding validation.
+- Both saved step-250 checkpoints generate identical 64-space greedy output. This is degenerate qualitative output, not useful language capability; review it before approving full training. Final parameter checksum `db6c7bd5f2e823e5a9d7d0a1610bec6989632270e2d885355906d2709c62da88`.
+- Frozen raw/canonical manifest and all three split hashes/counts verified unchanged. TEST remained sealed except integrity reads. Model/config/optimizer semantics and CUDA environment unchanged.
+- Recovery history preserved: initial pre-update process disappeared; checksum-identical initialization recovered. Later commits `f770e29` and `2bacf40` advanced HEAD, triggering the final old-HEAD assertion after validation/restoration were saved. Protected source/config/locks verified unchanged; recovery-only finalizer reused all four validation points and both final checkpoints without training or validation replay.
+- Reports: `reports/real_training_diagnostic_2m.md` and `.json`; finalizer: `scripts/finish_real_training_diagnostic.py`; immutable reconciliation: `data/real-diagnostic-2m-v1/final_reconciliation.json`. Historical RUNNING progress is preserved and superseded by this reconciliation.
+- Final checks: 19 CPU training/checkpoint/profile/corpus tests and two selected CUDA placement/parameter/resume tests PASS; Ruff/format/compile and both dependency checks PASS. Optional unused NumPy bridge warning remains.
+- STOP for human full-2M training review. No test evaluation, full training, RSI, architecture change or 20M scaling authorized or started.
+
+## Historical real-data diagnostic midpoint: IN PROGRESS
 
 - Authorized fixed 250-update CUDA FP32 diagnostic, seed 17, batch 2, accumulation 2, 32-byte windows; unchanged accepted model/trainer and frozen corpus. Test remains sealed except hash verification.
 - Input hashes and identical recovered initialization verified. Prior pre-update process disappeared without completed validation or updates; its evidence is preserved in `data/real-diagnostic-2m-v1/pre_update_recovery.json`.
