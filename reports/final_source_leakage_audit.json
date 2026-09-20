@@ -1,0 +1,32 @@
+{
+  "scope": "Complete assigned source documents before byte selection",
+  "pool_sha256": "020e23f78a9df57591d72478abc1d69bcd4f006ce47989525ce72a5f520af1f3",
+  "pairs": [
+    {
+      "left": "train",
+      "right": "validation",
+      "raw_exact": 0,
+      "normalized_exact": 0,
+      "near": 0,
+      "affected_bytes": 0
+    },
+    {
+      "left": "train",
+      "right": "test",
+      "raw_exact": 0,
+      "normalized_exact": 0,
+      "near": 0,
+      "affected_bytes": 0
+    },
+    {
+      "left": "validation",
+      "right": "test",
+      "raw_exact": 0,
+      "normalized_exact": 0,
+      "near": 0,
+      "affected_bytes": 0
+    }
+  ],
+  "unresolved": 0,
+  "limitation": "Bottom64 retrieval does not certify semantic/paraphrase completeness."
+}

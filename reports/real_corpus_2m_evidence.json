@@ -1,295 +1,2655 @@
 {
-  "schema_version": 1,
-  "created_utc": "2026-09-10T01:36:21.988963+00:00",
+  "schema_version": 2,
   "status": "NOT READY",
-  "stage": "PRE_ACQUISITION_BLOCKED",
-  "starting_authorization_commit": "8c5cb375fced7cf1452f3007514a32cbc9678922",
-  "prior_head": "0bc5a6c1c7e2bcaeccb6a0a3759c743a92078176",
-  "rollback": {
-    "working_tree_clean_after_commit": true,
-    "earlier_commits_preserved": true,
-    "remote_added": false,
-    "scope": "Reviewed GPU integration and source authorization/exclusion inputs; commit is a rollback snapshot, not a passing capacity gate."
+  "blocking_gate": "post_contamination_capacity",
+  "rollback_commit": "720af6e63ee8759654b287848173bbd3e74867c4",
+  "historical_authorization": {
+    "root": "data/pilot-2m-r1/provenance/authorization",
+    "snapshot_sha256": "8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d",
+    "files_verified": 57,
+    "note": "Historical estimates and blocked reports remain immutable here and in Git. Current report supersedes their operational status, not their evidence."
   },
-  "frozen_inputs": {
-    "reports/download_authorization_2m.json": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c",
-    "reports/source_approval_table_2m.json": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6",
-    "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
-    "docs/gutenberg_work_allowlist_2m.json": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
-    "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
-    "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d"
+  "model_source_identity": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+  "architecture_environment_training_changes": false,
+  "scan": {
+    "documents": 3438,
+    "source_units": 231,
+    "bytes": 57415744,
+    "first_hits": 75,
+    "raw_exact_first_hits": 75,
+    "normalized_only_first_hits": 0,
+    "near_first_hits": 0,
+    "methods": {
+      "SHORT_EXACT_DOCUMENT_OR_LINE": 75
+    },
+    "excluded_units": 46,
+    "excluded_records": 898,
+    "excluded_bytes": 17354845,
+    "unresolved_admitted_hits": 0,
+    "count_semantics": "First verified match per document; raw exact hits also match normalized content. Not exhaustive passage-level counts. All matched units excluded, including common short support-content matches; no thresholds changed.",
+    "limitations": "Frozen textual fingerprints and bounded paragraph/window retrieval; no semantic completeness claim."
   },
-  "pre_acquisition_check": {
-    "status": "BLOCKED_AUTHORIZATION_CONFLICT",
-    "hash_integrity": "PASS",
-    "allocation_arithmetic": "PASS",
-    "source_allowlist_capacity": "FAIL",
-    "conflicts": [
+  "project_fixtures": {
+    "registry_sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "checker_sha256": "e1360509b818fd9b874fe4dd8b2d2fa4143a27a099b720d1cf7e764d3e1e8e57",
+    "registered_generator_files_verified": 17,
+    "registered_payload_files_verified": 14,
+    "unique_payloads": 2,
+    "documents_scanned": 3438,
+    "documents_requiring_full_match": 0,
+    "hits": [],
+    "excluded_source_units": [],
+    "project_path_exclusion": "All candidates require frozen external source authorization; no project source/test/evidence path can be admitted.",
+    "cells": [
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "train",
+        "required_bytes": 5000000,
+        "available_bytes": 7570403,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "validation",
+        "required_bytes": 250000,
+        "available_bytes": 587150,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "test",
+        "required_bytes": 250000,
+        "available_bytes": 661673,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "code",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "code",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "code",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "documentation",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "documentation",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "documentation",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "structured_math",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "structured_math",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "gutenberg",
+        "domain": "structured_math",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
       {
         "source": "cpython",
+        "domain": "general_text",
         "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "general_text",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "general_text",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "train",
+        "required_bytes": 1500000,
+        "available_bytes": 6864655,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "validation",
+        "required_bytes": 75000,
+        "available_bytes": 177217,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "test",
+        "required_bytes": 75000,
+        "available_bytes": 163435,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
         "domain": "documentation",
-        "required_clean_bytes": 1000000,
-        "maximum_allowlisted_raw_bytes": 0,
-        "deficit_at_least": 1000000
+        "split": "train",
+        "required_bytes": 1000000,
+        "available_bytes": 1474384,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "validation",
+        "required_bytes": 50000,
+        "available_bytes": 94237,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "test",
+        "required_bytes": 50000,
+        "available_bytes": 97382,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "structured_math",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "structured_math",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "cpython",
+        "domain": "structured_math",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
       },
       {
         "source": "numpy",
+        "domain": "general_text",
         "split": "train",
-        "domain": "documentation",
-        "required_clean_bytes": 250000,
-        "maximum_allowlisted_raw_bytes": 0,
-        "deficit_at_least": 250000
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
       },
       {
-        "source": "all_approved_sources",
+        "source": "numpy",
+        "domain": "general_text",
         "split": "validation",
-        "domain": "documentation",
-        "required_clean_bytes": 75000,
-        "maximum_allowlisted_raw_bytes": 0,
-        "deficit_at_least": 75000
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
       },
       {
-        "source": "all_approved_sources",
+        "source": "numpy",
+        "domain": "general_text",
         "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "train",
+        "required_bytes": 750000,
+        "available_bytes": 1867286,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "validation",
+        "required_bytes": 37500,
+        "available_bytes": 78403,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "test",
+        "required_bytes": 37500,
+        "available_bytes": 437449,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
         "domain": "documentation",
-        "required_clean_bytes": 75000,
-        "maximum_allowlisted_raw_bytes": 0,
-        "deficit_at_least": 75000
+        "split": "train",
+        "required_bytes": 250000,
+        "available_bytes": 402302,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "validation",
+        "required_bytes": 12500,
+        "available_bytes": 25717,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "test",
+        "required_bytes": 12500,
+        "available_bytes": 27399,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "structured_math",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "structured_math",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "numpy",
+        "domain": "structured_math",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "general_text",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "general_text",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "general_text",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "train",
+        "required_bytes": 250000,
+        "available_bytes": 14239880,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "validation",
+        "required_bytes": 12500,
+        "available_bytes": 339738,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "test",
+        "required_bytes": 12500,
+        "available_bytes": 677810,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "train",
+        "required_bytes": 250000,
+        "available_bytes": 378411,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "validation",
+        "required_bytes": 12500,
+        "available_bytes": 50712,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "test",
+        "required_bytes": 12500,
+        "available_bytes": 39052,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "train",
+        "required_bytes": 500000,
+        "available_bytes": 904618,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "validation",
+        "required_bytes": 25000,
+        "available_bytes": 38361,
+        "deficit": 0
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "test",
+        "required_bytes": 25000,
+        "available_bytes": 43308,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "general_text",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "general_text",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "general_text",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "code",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "code",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "code",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "documentation",
+        "split": "train",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "documentation",
+        "split": "validation",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "documentation",
+        "split": "test",
+        "required_bytes": 0,
+        "available_bytes": 0,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "train",
+        "required_bytes": 500000,
+        "available_bytes": 10176005,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "validation",
+        "required_bytes": 25000,
+        "available_bytes": 3517813,
+        "deficit": 0
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "test",
+        "required_bytes": 25000,
+        "available_bytes": 6480944,
+        "deficit": 0
       }
     ],
-    "substantive_acquisition_started": false,
-    "model_source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
-    "policy": "STOP before downloading; no source expansion or domain reclassification authorized."
+    "filter_snapshot_sha256": "7f4a00770a3ad22c84a62489d15a18ef625292a083665183753fa44a21d4036f",
+    "implementation_sha256": {
+      "corpus_global.py": "6c4163db72abaaf2178f5dedf2ba231762595696ed57bdfe12e3270ff06a9d1c",
+      "corpus_duplicates.py": "5aa90764c0d0f8782f3458917558bedac1fb5338cda6eb4c5cd50fd043041dcb",
+      "corpus_contamination.py": "5f02b6779a7bb550d5acf2ad18cc7eac01180b5fd0546942d85c1f6593c5e967",
+      "corpus_benchmark_index.py": "ffc5c5a7788673d6ebe1d80744b44cb4bd43406b8ccc4b2a68c529436bfda49d",
+      "benchmark_fingerprints.py": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5"
+    }
   },
-  "source_pins": {
-    "gutenberg": {
-      "allowlist": "docs/gutenberg_work_allowlist_2m.json",
-      "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
-      "accepted_ids": [
-        1400,
-        766,
-        1023,
-        145,
-        1342,
-        158,
-        768,
-        1661
+  "passing_cells": 53,
+  "total_cells": 60,
+  "failures": [
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 75000,
+      "available_bytes": 0,
+      "deficit": 75000
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 1000000,
+      "available_bytes": 840136,
+      "deficit": 159864
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 50000,
+      "available_bytes": 0,
+      "deficit": 50000
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 750000,
+      "available_bytes": 117370,
+      "deficit": 632630
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 0,
+      "deficit": 12500
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 0,
+      "deficit": 12500
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000,
+      "available_bytes": 18480,
+      "deficit": 6520
+    }
+  ],
+  "cells": [
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 5000000,
+      "available_bytes": 7570403,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 7570403
+    },
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 250000,
+      "available_bytes": 587150,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 587150
+    },
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 250000,
+      "available_bytes": 661673,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 661673
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 1500000,
+      "available_bytes": 3749834,
+      "deficit": 0,
+      "excluded_bytes": 3114821,
+      "excluded_records": 231,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 3749834
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 75000,
+      "available_bytes": 177217,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 177217
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 75000,
+      "available_bytes": 0,
+      "deficit": 75000,
+      "excluded_bytes": 163435,
+      "excluded_records": 5,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 1000000,
+      "available_bytes": 840136,
+      "deficit": 159864,
+      "excluded_bytes": 634248,
+      "excluded_records": 11,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 840136
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 50000,
+      "available_bytes": 94237,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 94237
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 50000,
+      "available_bytes": 0,
+      "deficit": 50000,
+      "excluded_bytes": 97382,
+      "excluded_records": 2,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 750000,
+      "available_bytes": 117370,
+      "deficit": 632630,
+      "excluded_bytes": 1749916,
+      "excluded_records": 59,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 117370
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 37500,
+      "available_bytes": 78403,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 78403
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 37500,
+      "available_bytes": 437449,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 437449
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000,
+      "available_bytes": 402302,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 402302
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 25717,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 25717
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 27399,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 27399
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 250000,
+      "available_bytes": 3694274,
+      "deficit": 0,
+      "excluded_bytes": 10545606,
+      "excluded_records": 540,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 3694274
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 0,
+      "deficit": 12500,
+      "excluded_bytes": 339738,
+      "excluded_records": 10,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 0,
+      "deficit": 12500,
+      "excluded_bytes": 677810,
+      "excluded_records": 24,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000,
+      "available_bytes": 378411,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 378411
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 50712,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 50712
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 39052,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 39052
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 500000,
+      "available_bytes": 904618,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 904618
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 25000,
+      "available_bytes": 31300,
+      "deficit": 0,
+      "excluded_bytes": 7061,
+      "excluded_records": 3,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 31300
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000,
+      "available_bytes": 18480,
+      "deficit": 6520,
+      "excluded_bytes": 24828,
+      "excluded_records": 13,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 18480
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 500000,
+      "available_bytes": 10176005,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 10176005
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 25000,
+      "available_bytes": 3517813,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 3517813
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000,
+      "available_bytes": 6480944,
+      "deficit": 0,
+      "excluded_bytes": 0,
+      "excluded_records": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 6480944
+    }
+  ],
+  "global_stages": {
+    "post_cleaning": [
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "test",
+        "bytes": 163435,
+        "records": 5
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "train",
+        "bytes": 6865116,
+        "records": 459
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 177217,
+        "records": 6
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 97382,
+        "records": 2
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 1474384,
+        "records": 29
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 94237,
+        "records": 3
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "test",
+        "bytes": 661673,
+        "records": 1
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "train",
+        "bytes": 7570403,
+        "records": 5
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "validation",
+        "bytes": 587150,
+        "records": 1
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 6480944,
+        "records": 526
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 10186476,
+        "records": 1097
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 3517813,
+        "records": 265
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 437449,
+        "records": 10
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 1867286,
+        "records": 62
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 78403,
+        "records": 4
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 27399,
+        "records": 1
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 402302,
+        "records": 16
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 25717,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 677810,
+        "records": 24
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 14239880,
+        "records": 729
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 339738,
+        "records": 10
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 39052,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 378411,
+        "records": 25
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 50712,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 43308,
+        "records": 14
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 904618,
+        "records": 141
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 38361,
+        "records": 5
+      }
+    ],
+    "post_exact": [
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "test",
+        "bytes": 163435,
+        "records": 5
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "train",
+        "bytes": 6865116,
+        "records": 459
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 177217,
+        "records": 6
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 97382,
+        "records": 2
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 1474384,
+        "records": 29
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 94237,
+        "records": 3
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "test",
+        "bytes": 661673,
+        "records": 1
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "train",
+        "bytes": 7570403,
+        "records": 5
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "validation",
+        "bytes": 587150,
+        "records": 1
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 6480944,
+        "records": 526
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 10186476,
+        "records": 1097
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 3517813,
+        "records": 265
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 437449,
+        "records": 10
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 1867286,
+        "records": 62
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 78403,
+        "records": 4
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 27399,
+        "records": 1
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 402302,
+        "records": 16
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 25717,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 677810,
+        "records": 24
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 14239880,
+        "records": 729
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 339738,
+        "records": 10
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 39052,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 378411,
+        "records": 25
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 50712,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 43308,
+        "records": 14
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 904618,
+        "records": 141
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 38361,
+        "records": 5
+      }
+    ],
+    "post_near": [
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "test",
+        "bytes": 163435,
+        "records": 5
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "train",
+        "bytes": 6864655,
+        "records": 457
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 177217,
+        "records": 6
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 97382,
+        "records": 2
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 1474384,
+        "records": 29
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 94237,
+        "records": 3
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "test",
+        "bytes": 661673,
+        "records": 1
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "train",
+        "bytes": 7570403,
+        "records": 5
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "validation",
+        "bytes": 587150,
+        "records": 1
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 6480944,
+        "records": 526
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 10176005,
+        "records": 1094
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 3517813,
+        "records": 265
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 437449,
+        "records": 10
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 1867286,
+        "records": 62
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 78403,
+        "records": 4
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 27399,
+        "records": 1
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 402302,
+        "records": 16
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 25717,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 677810,
+        "records": 24
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 14239880,
+        "records": 729
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 339738,
+        "records": 10
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 39052,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 378411,
+        "records": 25
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 50712,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 43308,
+        "records": 14
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 904618,
+        "records": 141
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 38361,
+        "records": 5
+      }
+    ],
+    "post_benchmark": [
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "train",
+        "bytes": 3749834,
+        "records": 226
+      },
+      {
+        "source": "cpython",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 177217,
+        "records": 6
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 840136,
+        "records": 18
+      },
+      {
+        "source": "cpython",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 94237,
+        "records": 3
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "test",
+        "bytes": 661673,
+        "records": 1
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "train",
+        "bytes": 7570403,
+        "records": 5
+      },
+      {
+        "source": "gutenberg",
+        "domain": "general_text",
+        "split": "validation",
+        "bytes": 587150,
+        "records": 1
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 6480944,
+        "records": 526
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 10176005,
+        "records": 1094
+      },
+      {
+        "source": "mathlib",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 3517813,
+        "records": 265
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "test",
+        "bytes": 437449,
+        "records": 10
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 117370,
+        "records": 3
+      },
+      {
+        "source": "numpy",
+        "domain": "code",
+        "split": "validation",
+        "bytes": 78403,
+        "records": 4
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 27399,
+        "records": 1
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 402302,
+        "records": 16
+      },
+      {
+        "source": "numpy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 25717,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "code",
+        "split": "train",
+        "bytes": 3694274,
+        "records": 189
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "test",
+        "bytes": 39052,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "train",
+        "bytes": 378411,
+        "records": 25
+      },
+      {
+        "source": "sympy",
+        "domain": "documentation",
+        "split": "validation",
+        "bytes": 50712,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "test",
+        "bytes": 18480,
+        "records": 1
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "train",
+        "bytes": 904618,
+        "records": 141
+      },
+      {
+        "source": "sympy",
+        "domain": "structured_math",
+        "split": "validation",
+        "bytes": 31300,
+        "records": 2
+      }
+    ]
+  },
+  "source_filtering": {
+    "cpython": {
+      "policy": "pilot-clean-v1.3",
+      "totals": {
+        "raw_files": 700,
+        "raw_bytes": 12474065,
+        "license_eligible_files": 689,
+        "license_eligible_bytes": 12063007,
+        "cleaned_files": 504,
+        "cleaned_bytes": 8871771
+      },
+      "removed_bytes_exclusive_categories": {
+        "GENERATED_FILE_HEADER": 1710066,
+        "INSUFFICIENT_SUBSTANTIVE_CONTENT": 2066,
+        "ATTRIBUTION_CONTACT_TO_PROVENANCE": 1217,
+        "UNAPPROVED_FILE_LICENSE": 62651,
+        "NON_EXAMPLE_CONTACT_REVIEW_REQUIRED": 1477596,
+        "UNEXPANDED_DIRECTIVE": 181,
+        "COPIED_MATERIAL_REQUIRES_SEPARATE_RIGHTS": 348407,
+        "REVIEWED_CONTACT_REDACTION": 110
+      },
+      "measured_early_retention": 0.7112173136824284,
+      "cells": [
+        {
+          "source": "cpython",
+          "domain": "general_text",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "general_text",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "general_text",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "code",
+          "split": "train",
+          "required_bytes": 1500000,
+          "measured_early_clean_bytes": 6865116,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "code",
+          "split": "validation",
+          "required_bytes": 75000,
+          "measured_early_clean_bytes": 177217,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "code",
+          "split": "test",
+          "required_bytes": 75000,
+          "measured_early_clean_bytes": 163435,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "documentation",
+          "split": "train",
+          "required_bytes": 1000000,
+          "measured_early_clean_bytes": 1474384,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "documentation",
+          "split": "validation",
+          "required_bytes": 50000,
+          "measured_early_clean_bytes": 94237,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "documentation",
+          "split": "test",
+          "required_bytes": 50000,
+          "measured_early_clean_bytes": 97382,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "structured_math",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "structured_math",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "cpython",
+          "domain": "structured_math",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        }
       ],
-      "rejected_edition_ids": [
-        1260
-      ]
-    },
-    "cpython": {
-      "tag": "v3.12.10",
-      "commit": "0cc81280367df838c4b199f8f0378837165071c2",
-      "license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
-      "license_bytes": 13936
+      "limitations": "Early cleaning only. Deduplication, benchmark exclusion and final corpus are not certified. Per-unit capacity is reported; quotas apply to frozen source/domain/split pools.",
+      "full_provenance_report": {
+        "path": "reports/cpython_filtering_v1_3.json",
+        "sha256": "7676c80cc280bd73f89cee2f1ff61f00dd6d11a95fec186a604b41bb4e051a83"
+      }
     },
     "numpy": {
-      "tag": "v2.2.4",
-      "commit": "3b377854e8b1a55f15bda6f1166fe9954828231b",
-      "license_sha256": "01fb016849aa427edb1bbbbd55f91c26ca6cadb32a5b20e7f000655dd05b0760",
-      "license_bytes": 1543
+      "policy": "pilot-clean-v1.3",
+      "totals": {
+        "raw_files": 102,
+        "raw_bytes": 2937163,
+        "license_eligible_files": 102,
+        "license_eligible_bytes": 2937163,
+        "cleaned_files": 94,
+        "cleaned_bytes": 2838556
+      },
+      "removed_bytes_exclusive_categories": {
+        "INSUFFICIENT_SUBSTANTIVE_CONTENT": 441,
+        "UNEXPANDED_DIRECTIVE": 1153,
+        "NON_EXAMPLE_CONTACT_REVIEW_REQUIRED": 96991,
+        "ATTRIBUTION_CONTACT_TO_PROVENANCE": 22
+      },
+      "measured_early_retention": 0.9664278080583202,
+      "cells": [
+        {
+          "source": "numpy",
+          "domain": "general_text",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "general_text",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "general_text",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "code",
+          "split": "train",
+          "required_bytes": 750000,
+          "measured_early_clean_bytes": 1867286,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "code",
+          "split": "validation",
+          "required_bytes": 37500,
+          "measured_early_clean_bytes": 78403,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "code",
+          "split": "test",
+          "required_bytes": 37500,
+          "measured_early_clean_bytes": 437449,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "documentation",
+          "split": "train",
+          "required_bytes": 250000,
+          "measured_early_clean_bytes": 402302,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "documentation",
+          "split": "validation",
+          "required_bytes": 12500,
+          "measured_early_clean_bytes": 25717,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "documentation",
+          "split": "test",
+          "required_bytes": 12500,
+          "measured_early_clean_bytes": 27399,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "structured_math",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "structured_math",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "numpy",
+          "domain": "structured_math",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        }
+      ],
+      "limitations": "Early cleaning only. Deduplication, benchmark exclusion and final corpus are not certified. Per-unit capacity is reported; quotas apply to frozen source/domain/split pools.",
+      "full_provenance_report": {
+        "path": "reports/numpy_filtering_v1_3.json",
+        "sha256": "881549c01fe9ce6e2c00b3c36d53283b0bc514c48195f78951811269e483b129"
+      }
     },
     "sympy": {
-      "tag": "sympy-1.13.3",
-      "commit": "b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b",
-      "license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
-      "license_bytes": 7885
+      "policy": "pilot-clean-v1.3",
+      "totals": {
+        "raw_files": 1065,
+        "raw_bytes": 16903014,
+        "license_eligible_files": 1062,
+        "license_eligible_bytes": 16855129,
+        "cleaned_files": 950,
+        "cleaned_bytes": 16711890
+      },
+      "removed_bytes_exclusive_categories": {
+        "INSUFFICIENT_SUBSTANTIVE_CONTENT": 13210,
+        "UNEXPANDED_DIRECTIVE": 33175,
+        "COPIED_MATERIAL_REQUIRES_SEPARATE_RIGHTS": 47885,
+        "AUTHORED_INELIGIBLE_FOOTER": 802,
+        "EXCESSIVE_LINE_LENGTH": 96035,
+        "ATTRIBUTION_CONTACT_TO_PROVENANCE": 17
+      },
+      "measured_early_retention": 0.9886929041175734,
+      "cells": [
+        {
+          "source": "sympy",
+          "domain": "general_text",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "general_text",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "general_text",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "code",
+          "split": "train",
+          "required_bytes": 250000,
+          "measured_early_clean_bytes": 14239880,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "code",
+          "split": "validation",
+          "required_bytes": 12500,
+          "measured_early_clean_bytes": 339738,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "code",
+          "split": "test",
+          "required_bytes": 12500,
+          "measured_early_clean_bytes": 677810,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "documentation",
+          "split": "train",
+          "required_bytes": 250000,
+          "measured_early_clean_bytes": 378411,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "documentation",
+          "split": "validation",
+          "required_bytes": 12500,
+          "measured_early_clean_bytes": 50712,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "documentation",
+          "split": "test",
+          "required_bytes": 12500,
+          "measured_early_clean_bytes": 39052,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "structured_math",
+          "split": "train",
+          "required_bytes": 500000,
+          "measured_early_clean_bytes": 904618,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "structured_math",
+          "split": "validation",
+          "required_bytes": 25000,
+          "measured_early_clean_bytes": 38361,
+          "deficit": 0
+        },
+        {
+          "source": "sympy",
+          "domain": "structured_math",
+          "split": "test",
+          "required_bytes": 25000,
+          "measured_early_clean_bytes": 43308,
+          "deficit": 0
+        }
+      ],
+      "limitations": "Early cleaning only. Deduplication, benchmark exclusion and final corpus are not certified. Per-unit capacity is reported; quotas apply to frozen source/domain/split pools.",
+      "full_provenance_report": {
+        "path": "reports/sympy_filtering_v1_3.json",
+        "sha256": "6151d2b4cd580251429ea231657ebaae5c827d2702ca7471ebc834540854bdce"
+      }
     },
     "mathlib": {
-      "tag": "v4.19.0",
-      "commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
-      "license_sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
-      "license_bytes": 11357
+      "policy": "pilot-clean-v1.3",
+      "totals": {
+        "raw_files": 1890,
+        "raw_bytes": 20191453,
+        "license_eligible_files": 1890,
+        "license_eligible_bytes": 20191453,
+        "cleaned_files": 1888,
+        "cleaned_bytes": 20185233
+      },
+      "removed_bytes_exclusive_categories": {
+        "INSUFFICIENT_SUBSTANTIVE_CONTENT": 96,
+        "NON_EXAMPLE_CONTACT_REVIEW_REQUIRED": 6124
+      },
+      "measured_early_retention": 0.9996919488656908,
+      "cells": [
+        {
+          "source": "mathlib",
+          "domain": "general_text",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "general_text",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "general_text",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "code",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "code",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "code",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "documentation",
+          "split": "train",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "documentation",
+          "split": "validation",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "documentation",
+          "split": "test",
+          "required_bytes": 0,
+          "measured_early_clean_bytes": 0,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "structured_math",
+          "split": "train",
+          "required_bytes": 500000,
+          "measured_early_clean_bytes": 10186476,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "structured_math",
+          "split": "validation",
+          "required_bytes": 25000,
+          "measured_early_clean_bytes": 3517813,
+          "deficit": 0
+        },
+        {
+          "source": "mathlib",
+          "domain": "structured_math",
+          "split": "test",
+          "required_bytes": 25000,
+          "measured_early_clean_bytes": 6480944,
+          "deficit": 0
+        }
+      ],
+      "limitations": "Early cleaning only. Deduplication, benchmark exclusion and final corpus are not certified. Per-unit capacity is reported; quotas apply to frozen source/domain/split pools.",
+      "full_provenance_report": {
+        "path": "reports/mathlib_filtering_v1_3.json",
+        "sha256": "28cb309215c16c25aef956306cc2822342e561abdde40cde6b830e20d845bf96"
+      }
     }
   },
-  "target_source_bytes": {
-    "gutenberg": {
-      "train": 5000000,
-      "validation": 250000,
-      "test": 250000
-    },
-    "cpython": {
-      "train": 2500000,
-      "validation": 125000,
-      "test": 125000
-    },
-    "numpy": {
-      "train": 1000000,
-      "validation": 50000,
-      "test": 50000
-    },
-    "sympy": {
-      "train": 1000000,
-      "validation": 50000,
-      "test": 50000
-    },
-    "mathlib": {
-      "train": 500000,
-      "validation": 25000,
-      "test": 25000
+  "gutenberg": {
+    "capacity": [
+      {
+        "split": "train",
+        "required_bytes": 5000000,
+        "eligible_bytes": 7570403,
+        "deficit": 0
+      },
+      {
+        "split": "validation",
+        "required_bytes": 250000,
+        "eligible_bytes": 587150,
+        "deficit": 0
+      },
+      {
+        "split": "test",
+        "required_bytes": 250000,
+        "eligible_bytes": 661673,
+        "deficit": 0
+      }
+    ],
+    "status": "PASS",
+    "unused_approved_not_acquired": [
+      158
+    ],
+    "rejected_not_acquired": [
+      1260
+    ],
+    "historical_allowlist": "Frozen authorization retains its original pending hashes; the VERIFIED raw/cleaned identities in this acquisition evidence supersede that historical state for acquired works only.",
+    "full_work_hash_and_cleaning_report": {
+      "path": "reports/gutenberg_filtering_v1.json",
+      "sha256": "78b0a35d278779ca8273bb91e1abb490f63b0f41107cf5a11ec927da17d6a282"
     }
   },
-  "target_domain_bytes": {
-    "general_text": {
-      "percent": 50,
-      "train_bytes": 5000000,
-      "validation_bytes": 250000,
-      "test_bytes": 250000
-    },
-    "code": {
-      "percent": 25,
-      "train_bytes": 2500000,
-      "validation_bytes": 125000,
-      "test_bytes": 125000
-    },
-    "documentation": {
-      "percent": 15,
-      "train_bytes": 1500000,
-      "validation_bytes": 75000,
-      "test_bytes": 75000
-    },
-    "structured_math": {
-      "percent": 10,
-      "train_bytes": 1000000,
-      "validation_bytes": 50000,
-      "test_bytes": 50000
-    }
+  "evidence_files": {
+    "data/pilot-2m-r1/processed/global-v1/dedup.json": "3abf1eea0a8f0ab85c60cacbe1e3ecc5ebd93f2d8093685b582cd1240047bd2a",
+    "data/pilot-2m-r1/processed/global-v1/contamination.json": "70d4bfc48ae54149490e7b90e7bc6d81efc2ca132e8df0543546dbdfddd55ba5",
+    "data/pilot-2m-r1/processed/global-v1/project_fixtures.json": "c3ca1f565b88cd4153ca47639b16e323ad88f18317e52260854cc04d7c992938"
   },
-  "selected_source_bytes": {
-    "gutenberg": {
+  "final_corpus": {
+    "status": "BLOCKED_NOT_CREATED",
+    "target_bytes": {
+      "train": 10000000,
+      "validation": 500000,
+      "test": 500000
+    },
+    "selected_bytes": {
       "train": 0,
       "validation": 0,
       "test": 0
     },
-    "cpython": {
-      "train": 0,
-      "validation": 0,
-      "test": 0
-    },
-    "numpy": {
-      "train": 0,
-      "validation": 0,
-      "test": 0
-    },
-    "sympy": {
-      "train": 0,
-      "validation": 0,
-      "test": 0
-    },
-    "mathlib": {
-      "train": 0,
-      "validation": 0,
-      "test": 0
-    }
-  },
-  "selected_total_bytes": {
-    "train": 0,
-    "validation": 0,
-    "test": 0
-  },
-  "wikipedia_selected_bytes": 0,
-  "acquisition": {
-    "status": "NOT_STARTED",
-    "new_substantive_download_bytes": 0,
-    "raw_file_hashes": null,
-    "cleaned_payload_hashes": null,
-    "whole_gutenberg_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
-    "source_unit_counts": null
-  },
-  "license_results": {
-    "frozen_screening_preserved": true,
-    "downloaded_file_notice_verification": "NOT_RUN",
-    "issue": "Frozen CPython and NumPy allowlists exclude all documentation. License-looking files Doc/license.rst and doc/source/license.rst were treated as nested-scope exclusions; contextual scope review is required before any expansion."
-  },
-  "processing": {
-    "safe_extraction": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "cleaning": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "security_filtering": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "quality_filtering": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "exact_deduplication": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "near_deduplication": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "benchmark_contamination_scan": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "split_assignment": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "cross_split_leakage_scan": {
-      "status": "NOT_RUN",
-      "counts": null
-    },
-    "loader_dry_run": {
-      "status": "NOT_RUN",
-      "counts": null
-    }
-  },
-  "retention": {
-    "status": "NOT_MEASURED",
-    "note": "Previously recorded retention estimates remain estimates."
-  },
-  "corpus_manifest": {
-    "status": "NOT_CREATED",
-    "path": null,
-    "sha256": null,
     "corpus_sha256": null,
-    "reason": "No admitted corpus exists; an empty success manifest would misrepresent the blocked build."
-  },
-  "benchmark_evidence": {
-    "existing_coverage": "reports/benchmark_exclusion_coverage.json",
-    "raw_files_verified": 25,
-    "note": "Existing evaluation infrastructure only; fingerprint availability is not a completed scan of training sources."
+    "manifest_sha256": null,
+    "independent_final_leakage_audit": "NOT RUN: prerequisite failed",
+    "loader_dry_run": "NOT RUN: no frozen corpus"
   },
   "disk": {
-    "existing_authorization_evidence_logical_bytes": 182287216,
-    "new_training_source_bytes": 0,
-    "maximum_data_preprocessing_bytes": 800000000,
-    "separate_run_allowance_bytes": 200000000,
-    "note": "Logical file sizes, not allocated disk blocks; no acquisition projection was exercised."
+    "logical_bytes_measured": 320468815,
+    "scope": "pilot data plus download_authorization, authorization_r2 and authorization_r3 evidence; excludes unrelated environments/old model checkpoints",
+    "data_cap": 800000000,
+    "separate_reserve": 200000000,
+    "not_process_rss": true
   },
   "validation": {
-    "fingerprint_tests": "5 passed in 0.06s",
+    "focused_tests": "51 passed in 0.76s after final report update (previous run: 1.02s)",
+    "historical_test_context": "Unchanged authorization capacity/r3/benchmark tests replayed under frozen authorization snapshot, preserving hash-bound historical report inputs. Current-root historical tests would reject the intentionally updated report hash; not a current corpus readiness test.",
     "ruff": "PASS",
-    "format": "PASS: 35 files",
-    "whitespace": "PASS",
-    "frozen_hash_integrity": "PASS",
-    "allocation_arithmetic": "PASS",
-    "allowlist_capacity": "FAIL",
-    "raw_benchmark_and_fixture_integrity": "PASS",
-    "final_specification_integrity": "PASS",
-    "full_cpu_gpu_regression": "NOT_RERUN: no runtime implementation changes"
+    "format": "54 files PASS",
+    "compile": "PASS",
+    "cpu_dependency_check": "PASS",
+    "cuda_dependency_check": "PASS",
+    "training_tests": "NOT RUN: no backward/optimizer authorized",
+    "final_gate": "53/60; expected blocking result",
+    "historical_filter_receipts": "2202 SHA-256 values verified unchanged",
+    "review": "Diff/whitespace and scoped TODO/FIXME/placeholder/silent-exception search reviewed; duplicate embedded per-unit reports replaced with hash-bound references."
   },
-  "model_source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
-  "deviations": [
-    "Stopped before acquisition under the explicit artifact-disagreement gate. No source expansion, reclassification or quota substitution performed."
+  "next_step": "Human review of the seven capacity deficits and frozen short-content/source-unit exclusion effects; no automatic pool expansion, borrowing or matching-policy change.",
+  "files_changed": [
+    "docs/project_state.md",
+    "reports/real_corpus_2m_build.md",
+    "reports/real_corpus_2m_evidence.json"
   ],
-  "required_resolution": [
-    "Review the license scope of CPython Doc/license.rst and NumPy doc/source/license.rst in context; this is not automatic permission to include neighboring files.",
-    "Propose explicit eligible documentation files and disjoint validation/test source units, preserving per-file licensing and provenance.",
-    "Recheck source/domain/split capacity before requesting approval of amended allowlists."
-  ],
-  "training_started": false,
-  "final_decision": "REAL CORPUS BUILD STATUS: NOT READY"
+  "files_added": [
+    "docs/corpus_processing_policy_2m_v1.json",
+    "docs/corpus_processing_policy_2m_v1_1.json",
+    "docs/corpus_processing_policy_2m_v1_2.json",
+    "docs/corpus_processing_policy_2m_v1_3.json",
+    "reports/cpython_filtering_v1_2.json",
+    "reports/cpython_filtering_v1_3.json",
+    "reports/cpython_filtering_v1_3.md",
+    "reports/gutenberg_filtering_v1.json",
+    "reports/mathlib_filtering_v1_3.json",
+    "reports/numpy_filtering_v1_3.json",
+    "reports/sympy_filtering_v1_3.json",
+    "scripts/corpus_acquisition.py",
+    "scripts/corpus_benchmark_index.py",
+    "scripts/corpus_contamination.py",
+    "scripts/corpus_duplicates.py",
+    "scripts/corpus_filter_report.py",
+    "scripts/corpus_filtering.py",
+    "scripts/corpus_fixture_audit.py",
+    "scripts/corpus_global.py",
+    "scripts/gutenberg_acquisition.py",
+    "scripts/gutenberg_cleaning.py",
+    "tests/test_corpus_acquisition.py",
+    "tests/test_corpus_contamination.py",
+    "tests/test_corpus_duplicates.py",
+    "tests/test_corpus_filtering.py",
+    "tests/test_gutenberg_acquisition.py",
+    "tests/test_gutenberg_cleaning.py"
+  ]
 }

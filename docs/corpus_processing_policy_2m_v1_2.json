@@ -1,0 +1,11 @@
+{
+  "version": "pilot-clean-v1.2",
+  "supersedes_policy_hash": "1af0861c3dec595d385d58424f63bec8948d5ad9806342fc240fc47bec284a96",
+  "corrections": [
+    "Generated declarations must begin header comments; explicit codec-generator declaration retained. Descriptive generation prose is retained.",
+    "Author names and copyright attribution remain. Only non-example address spans are removed from author/contact metadata, retaining exact raw bytes and original offsets in provenance. Unreviewed non-example contacts elsewhere reject for review.",
+    "Public reference URLs and reserved example-domain addresses remain. Scheme URLs with embedded username/password reject; exact prior hash-bound illustrative line reviews remain enforced."
+  ],
+  "unchanged": "Frozen quotas, source units, licenses, 7/10 planning retention, acquisition bounds, substantive quality, deduplication and benchmark gates.",
+  "preservation": "Prior early and early-v1_1 results immutable; this pass uses early-v1_2."
+}

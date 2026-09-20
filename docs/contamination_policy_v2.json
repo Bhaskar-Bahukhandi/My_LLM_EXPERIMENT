@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "policy_id": "edge-contamination-v2-support-import-exhaustive",
+  "human_decision": "Approve support-only parsed imports as non-actionable unless another protected match excludes the source unit. All 49 complete-answer v1 hits remain actionable. Length/frequency exceptions rejected. Targeted expansion only after actual v2 deficits.",
+  "human_directive_sha256": "7c5c3bb43215bda352537aa5396762899c47cff897050c520b26264f6154fb48",
+  "preserved_v1_sha256": {
+    "reports/real_corpus_2m_build.md": "3c4c27bc54c90eb58a24b7a04cf5f314e8c194c5df3e9161f3a76192d77d3672",
+    "reports/real_corpus_2m_evidence.json": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+    "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "data/pilot-2m-r1/provenance/final_filter_snapshot.json": "7f4a00770a3ad22c84a62489d15a18ef625292a083665183753fa44a21d4036f",
+    "data/pilot-2m-r1/processed/global-v1/dedup.json": "3abf1eea0a8f0ab85c60cacbe1e3ecc5ebd93f2d8093685b582cd1240047bd2a",
+    "data/pilot-2m-r1/processed/global-v1/contamination.json": "70d4bfc48ae54149490e7b90e7bc6d81efc2ca132e8df0543546dbdfddd55ba5",
+    "scripts/corpus_contamination.py": "5f02b6779a7bb550d5acf2ad18cc7eac01180b5fd0546942d85c1f6593c5e967",
+    "scripts/corpus_benchmark_index.py": "ffc5c5a7788673d6ebe1d80744b44cb4bd43406b8ccc4b2a68c529436bfda49d",
+    "scripts/corpus_global.py": "6c4163db72abaaf2178f5dedf2ba231762595696ed57bdfe12e3270ff06a9d1c",
+    "scripts/corpus_duplicates.py": "5aa90764c0d0f8782f3458917558bedac1fb5338cda6eb4c5cd50fd043041dcb",
+    "scripts/benchmark_fingerprints.py": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+    "reports/contamination_review_v1.json": "cf915d2abf16e041c38dcc5f7a34f465ead658fcc5cd358c8c7ef9010fb93030",
+    "reports/contamination_review_v1.md": "9bf3e00a02b11d842f1196ecfc8fd5446077fdd8979d355bb7800a08b99f6a59",
+    "tests/test_corpus_contamination.py": "20e22a8859e9e893210b159a7169feda490a8eca819dea79531183d716e83fca"
+  },
+  "implementation_sha256": {
+    "scripts/corpus_contamination_v2.py": "17faa63afc035d5687bf9de33ee7acf005acbd3528c08f7a07d85660e5c0c153",
+    "scripts/corpus_scan_v2.py": "33fba0541b6fb8593511d819049f125b3ae2eda78e46e7b51c15807f2303aa67",
+    "scripts/corpus_matcher_v2_proposal.py": "86d2ec09b98860a9357b62366fe37cce68016177dbe42a0bbf2b5e4e8176aeee"
+  },
+  "field_classification": {
+    "metadata": [
+      "task_id",
+      "entry_point",
+      "source_file",
+      "level",
+      "type"
+    ],
+    "support_import": [
+      "test_imports"
+    ],
+    "problem": [
+      "problem",
+      "question",
+      "prompt",
+      "text"
+    ],
+    "code_solution": [
+      "code",
+      "canonical_solution",
+      "completion"
+    ],
+    "answer": [
+      "answer",
+      "solution"
+    ],
+    "generated_solution": "Nested /solution field",
+    "unknown": "other_protected_content; no exception"
+  },
+  "exception": "Only support_import with exactly one AST Import or ImportFrom. Other associations with identical normalized content remain protected. Units remain excluded if any actionable match exists anywhere in the unit.",
+  "normalization": "Unchanged Unicode NFKC, casefold, collapse whitespace, UTF-8; detection only",
+  "near_policy": "Unchanged bottom64 five-token retrieval, exact Jaccard >=0.85, paragraph and 128/256/512-token windows at half-window strides",
+  "exact_policy": "Unchanged full-field normalized substring for >=32 characters; exact normalized line/document for shorter fields. No new length exception.",
+  "exhaustiveness": "All distinct content identities per document; all benchmark associations. Exact dominates redundant near evidence for same identity. Scan every document including otherwise excluded units.",
+  "candidate_pool": "Original frozen 3438 post-dedup candidates; no new content before actual capacity result",
+  "v1_reproduction": "Hash-preserved original implementations and immutable completed evidence; old tests unchanged"
+}

@@ -1,5 +1,44 @@
 # Project state
 
+## Current final corpus boundary: READY FOR REAL-DATA TRAINING REVIEW
+
+- Human-approved file-mode v2 admits cached regular 100755 source blobs as inert bytes; every other gate remains unchanged. Eleven reviewed SymPy files passed filtering, global deduplication, exhaustive contamination v2 and project-fixture exclusions, with no new download or execution.
+- Actual capacity **60/60 PASS**. SymPy code validation/test retain 20,392 / 21,592 bytes across 3 / 5 independent units; quotas stay 12,500 each, minimum raw 17,858 and required headroom 5,358.
+- Independent full-document split leakage audit: zero unresolved exact/normalized/near matches for all three pairs. Frozen selection is exactly **10,000,000 / 500,000 / 500,000 bytes** across 370 documents. All 60 quotas, selected ranges, raw/clean/provenance and split hashes independently verified.
+- Manifest `data/pilot-2m-r1/final-corpus-v1/manifest.json`: raw SHA-256 `38bbb7266544129b8c1bd14d2e744f233208d55c403135244963024fad6ed86b`; canonical `f5f375b0c7b446a39000f5a3fb693dbe111d9621b6818a52a3eea339b8a29ecc`. Split hashes and measured accounting: `reports/real_corpus_final_evidence.json`; readable report: `reports/real_corpus_final_build.md`.
+- Deterministic byte loader dry-run passed for all three splits at 32 and 128 bytes. 69 data/authorization tests passed; Ruff/format/compile and both dependency checks passed. Optional unused NumPy bridge warning remains. Historical tests replay unchanged against their frozen authorization snapshot.
+- Historical policies, rejection receipts, 53/60 and 58/60 NOT READY reports remain hash-verified. Rollback `720af6e63ee8759654b287848173bbd3e74867c4` and model source unchanged; no new commit or environment change.
+- STOP before training. No backward, optimizer, model weight or CUDA change. Next requires human real-data training review. Near-duplicate evidence does not certify semantic/paraphrase completeness.
+
+## Historical corpus-v2 boundary: NOT READY / 58-of-60
+
+- Actual exhaustive v2 scan complete: 3,438 documents, 81 document/content matches, 55 actionable, 26 support imports; all 49 protected v1 answer hits retained. Initial actual capacity 56/60, with CPython documentation deficit 159,864 (not the earlier projected 94,124).
+- Nineteen targeted files acquired (292,332 raw bytes). Eight mode-eligible documents passed full filtering/global dedup/v2/project-fixture gates, retaining 250,276 bytes. Eleven mode-100755 SymPy examples (41,984 bytes) rejected under frozen mode-100644-only policy. Late mode checking was an acquisition error; the new whole-batch guard prevents recurrence.
+- Final actual capacity **58/60**. Remaining SymPy code validation/test deficits: 12,500 bytes each. Optimistic remaining mode-eligible metadata capacity 26,336 raw bytes is below required 35,716. No implicit mode exception or further unproductive acquisition.
+- Reports: `reports/real_corpus_v2_build.md`, `reports/real_corpus_v2_evidence.json`, versioned exhaustive/expansion reports, and `docs/targeted_acquisition_controls_v2.md`. Prior v1 NOT READY evidence remains byte-identical.
+- 62 affected tests pass; static/format/compile/dependencies/hash checks pass. Rollback `720af6e63ee8759654b287848173bbd3e74867c4` unchanged.
+- STOP before final assignment/leakage/selection/hashes/manifest/loader. No training, architecture or environment change. Next requires explicit control-policy review or independently eligible scope within existing pins; no automatic restoration of rejected files.
+
+## Current contamination diagnostic: HUMAN REVIEW REQUIRED
+
+- Frozen corpus NOT READY / 53-of-60 evidence remains byte-identical, including all 75 first hits and 46 excluded units. No new acquisition or completed global scan rerun.
+- Review v1: 26 generic support-import hits (B), 49 ambiguous complete-answer hits (C), no distinctive copying established from the first-hit ledger (A: 0). Complete answers remain protected; no unit restored.
+- Narrow, unadopted role-plus-AST support exception projects at most 56/60. Remaining deficits: CPython train documentation 94,124; SymPy code validation/test 12,500 each; SymPy test mathematics 6,520. Unrecorded secondary matches may reduce this upper bound.
+- 57 relevant tests pass; static/format/compile and both dependency checks pass. Reports: `reports/contamination_review_v1.md`, `.json` and `_validation.json`; proposal: `docs/contamination_matcher_v2_proposal.md`. Frozen production matcher untouched.
+- Stop for human policy/ambiguity review. No allowlist expansion, corpus freeze, loader, architecture/environment change or training.
+
+## Current real-corpus boundary: NOT READY
+
+- All approved acquisition/filtering and global dedup stages completed; reused hash-verified evidence without repeating downloads. Public benchmark scan completed: 3,438 documents / 231 source units / 57,415,744 bytes. 75 first-hit short exact matches exclude 46 source units in full. Project fixtures: zero hits.
+- Post-contamination capacity is **53/60 PASS**. Seven exact deficits are recorded in `reports/real_corpus_2m_build.md` and `.json` evidence. Frozen quotas, 7/10 planning headroom, content matcher and source-unit roles remain unchanged.
+- STOP before final assignment/leakage audit/selection/manifest/loader. Selected bytes 0/0/0; required 10M/0.5M/0.5M unchanged. No real training, backward, optimizer, architecture or CUDA change.
+- 51 relevant tests, static/format/compile and both dependency checks PASS. Historical tests replay unchanged in the frozen authorization snapshot because they bind the historical report hash. Source identity, authorization snapshot, stage hashes and candidate payloads verified.
+- Rollback `720af6e63ee8759654b287848173bbd3e74867c4` and all earlier evidence remain preserved. Next step is human review of deficits and conservative short-content/source-unit exclusions; no automatic repair is authorized.
+
+## Historical acquisition-start ledger
+
+- CURRENT ACQUISITION START: corrected authorization committed as `720af6e63ee8759654b287848173bbd3e74867c4`; working tree was clean after commit. Pre-acquisition gate and 30 focused tests pass. Immutable authorization inputs copied under `data/pilot-2m-r1/provenance/authorization` so current build reports can be updated without replacing frozen evidence. No substantive source download yet.
+
 - CURRENT BOUNDARY: **CORRECTED DOWNLOAD AUTHORIZATION STATUS: READY**. Final r3: `reports/download_authorization_2m_r3.md` / `.json`. The unchanged 60-cell invariant returns **60/60 PASS**, CLI exit 0.
 - QUOTA CLARIFICATION: each SymPy holdout stays 50,000 total: 12,500 code, 12,500 documentation, **25,000 mathematical**. The earlier 50,000 mathematical instruction was erroneous and is explicitly superseded by `docs/authorization_r3_quota_clarification.json`. All source/domain totals and 7/10 retention policy are unchanged.
 - REPAIR: exact SymPy 1.13.3 commit `b4ce69ad5d40e4e545614b6c76ca9b0be0b98f0b`; polynomial-roots and Diophantine guides form a new validation unit, ODE guide a separate new test unit. No new path/unit existed in older allowlists. Root/file licensing, raw SHA-256/Git identities, mathematical authorship and eligible byte ranges recorded in `docs/documentation_file_allowlist_2m_r3.json`. R2 entries remain unchanged.

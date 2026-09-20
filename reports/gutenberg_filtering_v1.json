@@ -1,0 +1,1467 @@
+{
+  "schema_version": 1,
+  "source": "gutenberg",
+  "works": [
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 1023,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "train",
+      "source_unit": "gutenberg/work/1023",
+      "raw_sha256": "0313655355bf9f900c6dde9211d4cc2d48a8a71ea95477da4a3e88ffd45e7496",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "0e3da5f16029a363dad10db025cabf48776ce59f506e20b80c16973805b537d3",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 2025044,
+      "cleaned_bytes": 2017875,
+      "removed_ranges": [
+        [
+          0,
+          7120,
+          "FRONT_MATTER_PREFACE_TRANSCRIBER_NOTE_AND_WRAPPER"
+        ],
+        [
+          2024995,
+          2025044,
+          "END_WRAPPER"
+        ]
+      ],
+      "review_sha256": "d3b65107732539e03962afaa235f7d88e88b5fafe4cc821436f8f22c2539adae",
+      "artifact_receipt": "provenance/gutenberg/pg1023.json",
+      "payload_path": "processed/payloads/0e3da5f16029a363dad10db025cabf48776ce59f506e20b80c16973805b537d3",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "Bleak House",
+      "raw_url": "https://www.gutenberg.org/files/1023/1023-0.txt",
+      "authorization": {
+        "id": 1023,
+        "title": "Bleak House",
+        "authors": [
+          {
+            "name": "Dickens, Charles",
+            "death": "1870"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/1023/1023-0.txt",
+            "bytes": 2025044,
+            "modified": "2026-03-11T07:43:28"
+          }
+        ],
+        "rdf_sha256": "1b69f979e89c688ef4f7f15de954518a97c62733b1e284e719fd56764b07da97",
+        "original_first_publication_year": 1852,
+        "first_collected_or_completed_book_year": 1853,
+        "publication_evidence_url": "https://dickens.ucsc.edu/resources/dickens-chronology/",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1870,
+        "india_lifetime_term_end_year_under_section22": 1930,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "train",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/1023/pg1023.rdf",
+        "metadata_sha256": "1b69f979e89c688ef4f7f15de954518a97c62733b1e284e719fd56764b07da97",
+        "header": {
+          "id": 1023,
+          "url": "https://www.gutenberg.org/files/1023/1023-0.txt",
+          "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+          "status": 206,
+          "content_range": "bytes 0-4095/2025044",
+          "last_modified": "Wed, 11 Mar 2026 11:43:28 GMT",
+          "header_sha256": "39ffafe1c12aacfff7d3182fe649a1a591e83c802be7980ac8c2ed64b1d695d9",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg1023_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    },
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 1342,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "train",
+      "source_unit": "gutenberg/work/1342",
+      "raw_sha256": "81300b79e8a8d65ac530a97578417d06137e3bbc90622a10a65e5036183d2500",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "ed4d41c001208c4e7942591363506b292ccb5d0627db003ea4f46cbd72d6546c",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 738046,
+      "cleaned_bytes": 696918,
+      "removed_ranges": [
+        [
+          0,
+          34763,
+          "FRONT_MATTER_EDITORIAL_PREFACE_ILLUSTRATION_LIST"
+        ],
+        [
+          35573,
+          35662,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          39471,
+          39547,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          39552,
+          39643,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          39662,
+          39676,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          44125,
+          44164,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          44169,
+          44219,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          44239,
+          44253,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          46332,
+          46419,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          50138,
+          50214,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          54079,
+          54093,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          54112,
+          54126,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          60119,
+          60170,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          60188,
+          60202,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          63049,
+          63137,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          65706,
+          65720,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          65725,
+          65739,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          65758,
+          65772,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          72229,
+          72312,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          79114,
+          79201,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          79221,
+          79235,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          84693,
+          84729,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          90754,
+          90797,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          90802,
+          90843,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          90864,
+          90878,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          102171,
+          102265,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          102284,
+          102298,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          112276,
+          112290,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          112308,
+          112322,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          123478,
+          123569,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          125185,
+          125268,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          125287,
+          125301,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          134431,
+          134445,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          134465,
+          134479,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          138424,
+          138438,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          138458,
+          138472,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          148104,
+          148118,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          148137,
+          148151,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          152904,
+          152979,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          154754,
+          154768,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          154787,
+          154801,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          164635,
+          164649,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          164669,
+          164683,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          167099,
+          167188,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          184138,
+          184207,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          184228,
+          184242,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          191591,
+          191605,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          191627,
+          191641,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          199127,
+          199232,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          221302,
+          221374,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          221394,
+          221408,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          232194,
+          232208,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          232227,
+          232241,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          237758,
+          237818,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          241638,
+          241652,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          241672,
+          241686,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          243831,
+          243911,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          253209,
+          253223,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          253244,
+          253258,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          256066,
+          256157,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          263449,
+          263553,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          263575,
+          263589,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          271205,
+          271269,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          273045,
+          273059,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          273080,
+          273094,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          284100,
+          284114,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          284134,
+          284148,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          287435,
+          287534,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          292948,
+          293002,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          293023,
+          293037,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          306141,
+          306183,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          306205,
+          306219,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          313541,
+          313581,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          313604,
+          313618,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          320079,
+          320173,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          322025,
+          322145,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          322166,
+          322180,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          336053,
+          336067,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          336087,
+          336101,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          338967,
+          339026,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          340975,
+          341065,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          343348,
+          343381,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          343402,
+          343416,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          352323,
+          352337,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          352359,
+          352373,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          357686,
+          357770,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          361038,
+          361073,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          361096,
+          361110,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          371703,
+          371717,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          371739,
+          371753,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          383884,
+          383930,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          383951,
+          383965,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          401006,
+          401020,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          401042,
+          401056,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          405201,
+          405294,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          412993,
+          413038,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          413061,
+          413075,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          415543,
+          415609,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          421002,
+          421056,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          421080,
+          421094,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          425322,
+          425385,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          427173,
+          427230,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          427252,
+          427266,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          436185,
+          436199,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          436218,
+          436232,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          444071,
+          444142,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          445683,
+          445785,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          445805,
+          445819,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          453468,
+          453545,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          459097,
+          459143,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          459164,
+          459178,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          469864,
+          469920,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          469942,
+          469956,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          497784,
+          497798,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          497819,
+          497833,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          502204,
+          502301,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          511335,
+          511384,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          511404,
+          511418,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          521596,
+          521610,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          521631,
+          521645,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          529926,
+          529984,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          538777,
+          538849,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          538871,
+          538885,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          561665,
+          561696,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          561719,
+          561733,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          567736,
+          567834,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          574695,
+          574709,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          574730,
+          574744,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          577199,
+          577301,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          587579,
+          587662,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          587680,
+          587694,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          600252,
+          600338,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          600357,
+          600371,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          611768,
+          611821,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          611841,
+          611855,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          629337,
+          629380,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          629401,
+          629415,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          645786,
+          645842,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          645862,
+          645876,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          653357,
+          653414,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          654914,
+          654982,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          655001,
+          655015,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          668216,
+          668230,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          668250,
+          668264,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          672271,
+          672351,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          684021,
+          684070,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          684091,
+          684105,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          693620,
+          693703,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          693725,
+          693739,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          707623,
+          707714,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          707734,
+          707748,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          721537,
+          721621,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          721640,
+          721654,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          730514,
+          730528,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          730548,
+          730562,
+          "COMPLETE_ILLUSTRATION_AND_CAPTION_BLOCK"
+        ],
+        [
+          737751,
+          738046,
+          "TERMINAL_ILLUSTRATION_PRINTER_MATTER_AND_WRAPPER"
+        ]
+      ],
+      "review_sha256": "02eea41b44b046a802b1a2859dd0e29e90974ac542a24d3682aa79e32f25f4fa",
+      "artifact_receipt": "provenance/gutenberg/pg1342.json",
+      "payload_path": "processed/payloads/ed4d41c001208c4e7942591363506b292ccb5d0627db003ea4f46cbd72d6546c",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "Pride and Prejudice",
+      "raw_url": "https://www.gutenberg.org/files/1342/1342-0.txt",
+      "authorization": {
+        "id": 1342,
+        "title": "Pride and Prejudice",
+        "authors": [
+          {
+            "name": "Austen, Jane",
+            "death": "1817"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/1342/1342-0.txt",
+            "bytes": 738046,
+            "modified": "2026-09-01T19:50:13.609112"
+          }
+        ],
+        "rdf_sha256": "8f7694e9a8c879e98f905476333161ba786bf6d30eae7d905d8d4df5a3677452",
+        "original_first_publication_year": 1813,
+        "first_collected_or_completed_book_year": 1813,
+        "publication_evidence_url": "https://janeaustens.house/object_category/letters/",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1817,
+        "india_lifetime_term_end_year_under_section22": 1877,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "train",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/1342/pg1342.rdf",
+        "metadata_sha256": "8f7694e9a8c879e98f905476333161ba786bf6d30eae7d905d8d4df5a3677452",
+        "header": {
+          "id": 1342,
+          "url": "https://www.gutenberg.org/files/1342/1342-0.txt",
+          "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+          "status": 206,
+          "content_range": "bytes 0-4095/738046",
+          "last_modified": "Tue, 01 Sep 2026 23:50:13 GMT",
+          "header_sha256": "11959d9944b76a027a44298233cfcc1180f63f1317ed525b99659cf25d784523",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg1342_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "1894 George Allen edition includes George Saintsbury preface and Hugh Thomson illustrations: exclude all supplemental material; retain Austen novel chapters only.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    },
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 1400,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "train",
+      "source_unit": "gutenberg/work/1400",
+      "raw_sha256": "48dd8f292e68ff2856675a60b48bcd80b1ebe6ed58ac3e6f91a2bb2400f1e345",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "4ca700850c4f8a38e8b00c9ee675fcd60d51b88aeec8ab312e2916d81da37d9c",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 1038512,
+      "cleaned_bytes": 1037142,
+      "removed_ranges": [
+        [
+          0,
+          1097,
+          "FRONT_MATTER_AND_WRAPPER"
+        ],
+        [
+          4926,
+          4942,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          93317,
+          93333,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          116856,
+          116872,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          244234,
+          244250,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          389195,
+          389211,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          474388,
+          474404,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          519448,
+          519464,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          526608,
+          526624,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          610530,
+          610546,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          651838,
+          651854,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          750638,
+          750654,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          779699,
+          779715,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          899369,
+          899385,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          906268,
+          906284,
+          "ILLUSTRATION_MARKER"
+        ],
+        [
+          1038463,
+          1038512,
+          "END_WRAPPER"
+        ]
+      ],
+      "review_sha256": "bf4f0356012d11791a24ba7e2d7a0862a55f49e08e7dc030c0a34736c3e08329",
+      "artifact_receipt": "provenance/gutenberg/pg1400.json",
+      "payload_path": "processed/payloads/4ca700850c4f8a38e8b00c9ee675fcd60d51b88aeec8ab312e2916d81da37d9c",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "Great Expectations",
+      "raw_url": "https://www.gutenberg.org/files/1400/1400-0.txt",
+      "authorization": {
+        "id": 1400,
+        "title": "Great Expectations",
+        "authors": [
+          {
+            "name": "Dickens, Charles",
+            "death": "1870"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/1400/1400-0.txt",
+            "bytes": 1038512,
+            "modified": "2024-12-17T12:54:55"
+          }
+        ],
+        "rdf_sha256": "b0715960f1051a69b8293b1f1f40e10dbdadd677c5257a32c480822639c09360",
+        "original_first_publication_year": 1860,
+        "first_collected_or_completed_book_year": 1861,
+        "publication_evidence_url": "https://dickens.ucsc.edu/resources/dickens-chronology/",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1870,
+        "india_lifetime_term_end_year_under_section22": 1930,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "train",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/1400/pg1400.rdf",
+        "metadata_sha256": "b0715960f1051a69b8293b1f1f40e10dbdadd677c5257a32c480822639c09360",
+        "header": {
+          "id": 1400,
+          "url": "https://www.gutenberg.org/files/1400/1400-0.txt",
+          "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+          "status": 206,
+          "content_range": "bytes 0-4095/1038512",
+          "last_modified": "Tue, 17 Dec 2024 17:54:55 GMT",
+          "header_sha256": "b35e26d8508574fedfa0c594518026fa973c19ef41c478c27513cbf1fd906ece",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg1400_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "1867 edition identified in header; retain Dickens novel only, omit illustrations.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    },
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 145,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "train",
+      "source_unit": "gutenberg/work/145",
+      "raw_sha256": "23640c07fcad3eecf144073fab9f2452beb4735271becb179fdd2ac9f61eca75",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "df30e851e4fe184b4901fb7ab77ae6e993e1f95460635a22907d14e266a503ee",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 1812793,
+      "cleaned_bytes": 1810960,
+      "removed_ranges": [
+        [
+          0,
+          1776,
+          "FRONT_MATTER_AND_WRAPPER"
+        ],
+        [
+          1812736,
+          1812793,
+          "TERMINAL_MARKER_AND_END_WRAPPER"
+        ]
+      ],
+      "review_sha256": "d39fa8312a2e433a9525998dffdbad087700b83de9f2213bdaf67a189c1fa44e",
+      "artifact_receipt": "provenance/gutenberg/pg145.json",
+      "payload_path": "processed/payloads/df30e851e4fe184b4901fb7ab77ae6e993e1f95460635a22907d14e266a503ee",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "Middlemarch",
+      "raw_url": "https://www.gutenberg.org/files/145/145-0.txt",
+      "authorization": {
+        "id": 145,
+        "title": "Middlemarch",
+        "authors": [
+          {
+            "name": "Eliot, George",
+            "death": "1880"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/145/145-0.txt",
+            "bytes": 1812793,
+            "modified": "2026-04-12T13:51:31.577556"
+          }
+        ],
+        "rdf_sha256": "01a886541289ad42cfe3665884014e6b54bc46633ee5e8e5c4c52a83eb6ec919",
+        "original_first_publication_year": 1871,
+        "first_collected_or_completed_book_year": 1872,
+        "publication_evidence_url": "https://exhibits.library.illinois.edu/s/rbml/item/30704",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1880,
+        "india_lifetime_term_end_year_under_section22": 1940,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "train",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/145/pg145.rdf",
+        "metadata_sha256": "01a886541289ad42cfe3665884014e6b54bc46633ee5e8e5c4c52a83eb6ec919",
+        "header": {
+          "id": 145,
+          "url": "https://www.gutenberg.org/files/145/145-0.txt",
+          "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+          "status": 206,
+          "content_range": "bytes 0-4095/1812793",
+          "last_modified": "Sun, 12 Apr 2026 17:51:31 GMT",
+          "header_sha256": "d20eb71c6377107168cdc3ace04143d645666c12c178632be0a185dc302dd053",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg145_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "Header identifies H. M. Caldwell reprint; print date not stated. Pin digital file URL/catalog modified date/size; original Eliot text only.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    },
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 1661,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "validation",
+      "source_unit": "gutenberg/work/1661",
+      "raw_sha256": "b9c105a5c0cf9fcb37c7d0211658851ed56074519c9455d15e20f04c0c5a3174",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "6eb5bc5ac764b7c24beebb68aca3fc1c1eb518ca73dbde06eed300699bc8898e",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 607504,
+      "cleaned_bytes": 587150,
+      "removed_ranges": [
+        [
+          0,
+          1505,
+          "GUTENBERG_HEADER_TITLE_CONTENTS"
+        ],
+        [
+          588655,
+          607504,
+          "GUTENBERG_LICENSE_AND_BACK_MATTER"
+        ]
+      ],
+      "review_sha256": "58fa7897a40f88154ca32f2ed543f222080589af5a79f1226519260ac9e9ea37",
+      "artifact_receipt": "provenance/gutenberg/pg1661.json",
+      "payload_path": "processed/payloads/6eb5bc5ac764b7c24beebb68aca3fc1c1eb518ca73dbde06eed300699bc8898e",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "The Adventures of Sherlock Holmes",
+      "raw_url": "https://www.gutenberg.org/files/1661/1661-0.txt",
+      "authorization": {
+        "id": 1661,
+        "title": "The Adventures of Sherlock Holmes",
+        "authors": [
+          {
+            "name": "Doyle, Arthur Conan",
+            "death": "1930"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/1661/1661-0.txt",
+            "bytes": 607504,
+            "modified": "2023-10-10T07:01:52"
+          }
+        ],
+        "rdf_sha256": "f62727d131fb976eca43c00abdb88f3af6a22352955228a3288d16fb5ea09983",
+        "original_first_publication_year": 1891,
+        "first_collected_or_completed_book_year": 1892,
+        "publication_evidence_url": "https://sherlockholmes.com/products/the-adventures-of-sherlock-holmes-arthur-conan-doyle-published-by-george-newnes-limited-1892",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1930,
+        "india_lifetime_term_end_year_under_section22": 1990,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "validation",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/1661/pg1661.rdf",
+        "metadata_sha256": "f62727d131fb976eca43c00abdb88f3af6a22352955228a3288d16fb5ea09983",
+        "header": {
+          "id": 1661,
+          "url": "https://www.gutenberg.org/files/1661/1661-0.txt",
+          "status": 206,
+          "content_range": "bytes 0-4095/607504",
+          "header_sha256": "059082766e57360ef54af77f948685494d0fa698f5b7ceb973311388b1094062",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg1661_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    },
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 766,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "train",
+      "source_unit": "gutenberg/work/766",
+      "raw_sha256": "cb0364984b922f4d72a3935a8eec0a77c37411b1d072123017787080ee88531d",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "c892459a27e8d2129bcfa65483fb9649f6dbfff4d3a11386fa9fe8758a4e99a2",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 2013603,
+      "cleaned_bytes": 2007508,
+      "removed_ranges": [
+        [
+          0,
+          6047,
+          "FRONT_MATTER_PREFACES_AND_WRAPPER"
+        ],
+        [
+          2013555,
+          2013603,
+          "END_WRAPPER"
+        ]
+      ],
+      "review_sha256": "38ba30bf3f977839441c2429589ad8815319cd037e32f83547eae39371ca18ad",
+      "artifact_receipt": "provenance/gutenberg/pg766.json",
+      "payload_path": "processed/payloads/c892459a27e8d2129bcfa65483fb9649f6dbfff4d3a11386fa9fe8758a4e99a2",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "David Copperfield",
+      "raw_url": "https://www.gutenberg.org/files/766/766-0.txt",
+      "authorization": {
+        "id": 766,
+        "title": "David Copperfield",
+        "authors": [
+          {
+            "name": "Dickens, Charles",
+            "death": "1870"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/766/766-0.txt",
+            "bytes": 2013603,
+            "modified": "2025-07-29T11:55:14"
+          }
+        ],
+        "rdf_sha256": "d17bf06baeb77f2e488126bb5584c7a014c8066ab066e89f89fac35be006caa6",
+        "original_first_publication_year": 1849,
+        "first_collected_or_completed_book_year": 1850,
+        "publication_evidence_url": "https://dickens.ucsc.edu/resources/dickens-chronology/",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1870,
+        "india_lifetime_term_end_year_under_section22": 1930,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "train",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/766/pg766.rdf",
+        "metadata_sha256": "d17bf06baeb77f2e488126bb5584c7a014c8066ab066e89f89fac35be006caa6",
+        "header": {
+          "id": 766,
+          "url": "https://www.gutenberg.org/files/766/766-0.txt",
+          "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+          "status": 206,
+          "content_range": "bytes 0-4095/2013603",
+          "last_modified": "Tue, 29 Jul 2025 15:55:14 GMT",
+          "header_sha256": "0b0ff3d67c56470f217b467a471cf5fbffc1974f34f950b7c484d5c0860aadad",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg766_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    },
+    {
+      "schema_version": 1,
+      "policy": "gutenberg-original-v1",
+      "ebook_id": 768,
+      "source": "gutenberg",
+      "domain": "general_text",
+      "reserved_split": "test",
+      "source_unit": "gutenberg/work/768",
+      "raw_sha256": "90aeac022568e77f012b8cd2c9f1049d1c12326d427979d62a37256e70459888",
+      "whole_text_hash_status": "VERIFIED",
+      "cleaned_sha256": "5685e5d9d4350e22493fc95341a2fd0e182bcada427638f4fcbe42e87fe607f9",
+      "cleaned_hash_status": "VERIFIED",
+      "raw_bytes": 661813,
+      "cleaned_bytes": 661673,
+      "removed_ranges": [
+        [
+          0,
+          93,
+          "TITLE_AND_GUTENBERG_WRAPPER"
+        ],
+        [
+          661766,
+          661813,
+          "END_WRAPPER"
+        ]
+      ],
+      "review_sha256": "bd226e50ebc77fadac1e647c787674928e528a8bbe322275c665bdb63217990b",
+      "artifact_receipt": "provenance/gutenberg/pg768.json",
+      "payload_path": "processed/payloads/5685e5d9d4350e22493fc95341a2fd0e182bcada427638f4fcbe42e87fe607f9",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "title": "Wuthering Heights",
+      "raw_url": "https://www.gutenberg.org/files/768/768-0.txt",
+      "authorization": {
+        "id": 768,
+        "title": "Wuthering Heights",
+        "authors": [
+          {
+            "name": "Bront\u00eb, Emily",
+            "death": "1848"
+          }
+        ],
+        "language": [
+          "en"
+        ],
+        "rights": "Public domain in the USA.",
+        "files": [
+          {
+            "url": "https://www.gutenberg.org/files/768/768-0.txt",
+            "bytes": 661813,
+            "modified": "2026-05-06T22:50:15.256113"
+          }
+        ],
+        "rdf_sha256": "db7d41c6a3d0bffdab153c30094858e1d28e0a5c6f8f6d793699b049b938a3b3",
+        "original_first_publication_year": 1847,
+        "first_collected_or_completed_book_year": 1847,
+        "publication_evidence_url": "https://editions.covecollective.org/content/bronte-sisters-and-1847-jane-eyre-charlotte-bronte",
+        "original_language": "English",
+        "translation": false,
+        "posthumous_original_work": false,
+        "joint_authored": false,
+        "last_surviving_original_author_death_year": 1848,
+        "india_lifetime_term_end_year_under_section22": 1908,
+        "jurisdiction_screen": "PASS for original authored text under approved conservative screen; no worldwide or supplementary-material clearance claimed.",
+        "reserved_split": "test",
+        "catalog_url": "https://www.gutenberg.org/cache/epub/768/pg768.rdf",
+        "metadata_sha256": "db7d41c6a3d0bffdab153c30094858e1d28e0a5c6f8f6d793699b049b938a3b3",
+        "header": {
+          "id": 768,
+          "url": "https://www.gutenberg.org/files/768/768-0.txt",
+          "method": "Exact plain-file URL from supported RDF catalog; header-only Range request, not human-page scraping.",
+          "status": 206,
+          "content_range": "bytes 0-4095/661813",
+          "last_modified": "Thu, 07 May 2026 02:50:15 GMT",
+          "header_sha256": "933e48bfb0468f2a19365ffdf4b7b17195c53aefb946a071693cad26e14dbf80",
+          "header_bytes": 4096,
+          "path": "evidence/download_authorization/pg768_header.txt"
+        },
+        "whole_text_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "cleaned_payload_sha256": "PENDING_AUTHORIZED_ACQUISITION",
+        "acquisition_method": "Exact catalog-discovered plain text URL; supported catalog/robot mechanism, one connection, >=2 seconds between requests; no human-page scraping.",
+        "decision": "APPROVE_ORIGINAL_TEXT_ONLY",
+        "edition_notes": "Digital edition pinned by exact file URL, catalog modified date/size and bounded header hash.",
+        "payload_policy": "Only original work prose; drop title/front/back matter, editorial introductions, annotations, images/captions, illustration markers and supplementary matter. No normalization of retained prose bytes. At acquisition reject permission-only or otherwise restricted ebook notices; quarantine unresolved spans instead of guessing boundaries."
+      }
+    }
+  ],
+  "capacity": [
+    {
+      "split": "train",
+      "required_bytes": 5000000,
+      "eligible_bytes": 7570403,
+      "deficit": 0
+    },
+    {
+      "split": "validation",
+      "required_bytes": 250000,
+      "eligible_bytes": 587150,
+      "deficit": 0
+    },
+    {
+      "split": "test",
+      "required_bytes": 250000,
+      "eligible_bytes": 661673,
+      "deficit": 0
+    }
+  ],
+  "status": "PASS",
+  "unused_approved_not_acquired": [
+    158
+  ],
+  "rejected_not_acquired": [
+    1260
+  ],
+  "historical_allowlist": "Frozen authorization retains its original pending hashes; the VERIFIED raw/cleaned identities in this acquisition evidence supersede that historical state for acquired works only."
+}

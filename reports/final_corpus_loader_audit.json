@@ -1,0 +1,58 @@
+{
+  "manifest": {
+    "raw_sha256": "38bbb7266544129b8c1bd14d2e744f233208d55c403135244963024fad6ed86b",
+    "canonical_sha256": "f5f375b0c7b446a39000f5a3fb693dbe111d9621b6818a52a3eea339b8a29ecc"
+  },
+  "checks": [
+    {
+      "split": "train",
+      "length": 32,
+      "windows": 312666,
+      "bytes_round_tripped": 10000000,
+      "order_sha256": "fe70f4c9d4b1cc75a5379730b94e02e57cd52a76fb0e912094d08aedfcdf2699",
+      "targets": "raw bytes 0..255"
+    },
+    {
+      "split": "validation",
+      "length": 32,
+      "windows": 15631,
+      "bytes_round_tripped": 500000,
+      "order_sha256": "e108059c7a937f3375bf192041c7e5d8ac61cd46876ba420c8d942e6f72b8122",
+      "targets": "raw bytes 0..255"
+    },
+    {
+      "split": "test",
+      "length": 32,
+      "windows": 15635,
+      "bytes_round_tripped": 500000,
+      "order_sha256": "0d6339de6504d2618fab4715d2ff683600a4c9e089e42194721a8bf245155c95",
+      "targets": "raw bytes 0..255"
+    },
+    {
+      "split": "train",
+      "length": 128,
+      "windows": 78294,
+      "bytes_round_tripped": 10000000,
+      "order_sha256": "a1d0c25098b5737a5263bf07cc6d8ff15a0209b2f69cdefaf5adf52236bf89a1",
+      "targets": "raw bytes 0..255"
+    },
+    {
+      "split": "validation",
+      "length": 128,
+      "windows": 3914,
+      "bytes_round_tripped": 500000,
+      "order_sha256": "a2ac55bedc363ca305649a8879e1821b2cc24a6699ac6ad44dafc2996be481d3",
+      "targets": "raw bytes 0..255"
+    },
+    {
+      "split": "test",
+      "length": 128,
+      "windows": 3915,
+      "bytes_round_tripped": 500000,
+      "order_sha256": "4fe6ad1fe4c25628755abb4306f4722ecab72519da1fb330ad04bfe1af921940",
+      "targets": "raw bytes 0..255"
+    }
+  ],
+  "native_loader_scope": "DatasetManifest/WindowDataset for train and validation; test-only view uses existing file_bytes, Window, BatchStream and batching. Test never relabeled as validation.",
+  "model_or_optimizer_created": false
+}

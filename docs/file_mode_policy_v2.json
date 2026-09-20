@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "id": "regular-source-file-mode-v2",
+  "supersedes": "100644-only admission control; prior artifacts remain immutable",
+  "human_directive_sha256": "d18fd3afd7ff07c97fb0ac7cfb6aae0b46e7b7b319184790dc47e59649230e19",
+  "modes": {
+    "100644": "normal regular file; all existing gates",
+    "100755": "normal regular source-code blob only; all existing gates and inert byte handling",
+    "120000": "REJECT symlink",
+    "160000": "REJECT gitlink/submodule",
+    "unknown": "REJECT"
+  },
+  "no_execution": "No import, shebang, embedded command, build, setup, test or dependency installation; reading/parsing only",
+  "unchanged": "Pins, licences, generated/vendor exclusions, privacy/security/quality, 7/10 headroom, quotas, units, exhaustive contamination v2 and duplicate rules",
+  "preserved_sha256": {
+    "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+    "docs/targeted_file_review_v2_r1.json": "03e40a7acd610323a70875bd3e13f80388afe08fc4d07aadbb663047b5e3c601",
+    "docs/targeted_candidates_v2_r1.json": "2698868f790860ae268d5fc443356a09a1d43734fdc556c72f7abe940769ec4a",
+    "reports/real_corpus_v2_build.md": "f975faf1fa5dbedf03fac4e28e4370fe7f82972a89567c811fbef3b084ea0c4b",
+    "reports/real_corpus_v2_evidence.json": "7bfd9e9e388c8cf7cfe363a6efa46c994a56fa52ac3d75f9e66756f5f285bf4b",
+    "reports/real_corpus_v2_validation.json": "2ef9027b17cbe851b9f3b6951c0f51dbf656335c3ced1873f82eb22ccbe9c47f",
+    "reports/corpus_expansion_v2_r1.json": "6867dd6a7344908a4ef756d6384ea4c87ad85c3a626a1d0305eb8ad7e44b59de",
+    "scripts/corpus_targeted_acquisition.py": "87e3354a15e588d80afb35c2ed8f9b6c6525b3bacbc32c9f21726cd3044a1de3",
+    "tests/test_targeted_acquisition.py": "0add1d5f44d1370e8606c427bf4ef4c3739401f59e05d8886b66a41bba9b0ec7"
+  },
+  "implementation_sha256": {
+    "scripts/corpus_mode_v2.py": "92df508896cfc521b7ff663d07557ca9fd554e910376ef23dab059341a3a241e",
+    "scripts/corpus_complete_mode_v2.py": "5a42cd474756a1570fb7d5815b95819bba92e34196507b484032fbbd09980f53"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "version": "pilot-clean-v1",
+  "frozen_before_filtering": true,
+  "payload": "Retain original bytes except recorded removed spans; no Unicode normalization or tokenization of payload.",
+  "licensing": "Frozen first-party path membership plus pinned raw identity. Record explicit SPDX overrides only for PSF-2.0/Python-2.0/0BSD/BSD-2-Clause/BSD-3-Clause/MIT/Apache-2.0. Reject incompatible/unknown SPDX or copied/adapted attribution that requires unresolved independent rights. Preserve complete raw file and repository license provenance.",
+  "format": "Selected source extensions only; reject NUL or non-UTF-8 rather than transcode. Apply reviewed eligible ranges; exclude metadata/include directives without expansion. Gutenberg source-specific wrapper/supplement handling is separate.",
+  "security": "Reject credential/private-key patterns. Strip attribution-only lines containing contact addresses into provenance; reject remaining non-example email addresses. No external links, directives, code or plots executed.",
+  "quality": "Reject generated-file headers, files below 160 retained bytes or below 10 word tokens, and lines above 4,000 bytes (minified/generated artifact guard).",
+  "dedup": "Exact raw and normalized full-document groups before near grouping. Same-role duplicates keep deterministic first identity; clusters across reserved roles excluded entirely.",
+  "near_dedup_version": "pilot-near-v1",
+  "near_dedup": "Existing edge-exclusion-v1 normalized 5-token shingle/BLAKE2b bottom64 candidates; verify exact shingle Jaccard >= 0.85 before grouping. This is a content duplicate threshold, not a change to the 7/10 capacity planning policy.",
+  "contamination": "Reserved benchmark normalized full-field substring matching for substantive strings of >=32 characters; shorter strings only exact document/line matches. Use paragraph/window near signatures and verify matches; reject matching source units. All benchmark source identities and raw hashes remain bound to registry.",
+  "selection": "Deterministic source/domain/split order. Never share a source unit across splits. Record bounded byte selection separately from full cleaned-file identity; no synthetic padding, duplicated content or substitute sources.",
+  "retention": "Measure each stage without changing filters to meet quotas."
+}

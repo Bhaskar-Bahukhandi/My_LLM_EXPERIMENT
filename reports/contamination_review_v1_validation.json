@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "report_sha256": "cf915d2abf16e041c38dcc5f7a34f465ead658fcc5cd358c8c7ef9010fb93030",
+  "preserved_blocked_state_verified": {
+    "reports/real_corpus_2m_build.md": "3c4c27bc54c90eb58a24b7a04cf5f314e8c194c5df3e9161f3a76192d77d3672",
+    "reports/real_corpus_2m_evidence.json": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+    "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "data/pilot-2m-r1/provenance/final_filter_snapshot.json": "7f4a00770a3ad22c84a62489d15a18ef625292a083665183753fa44a21d4036f",
+    "data/pilot-2m-r1/processed/global-v1/dedup.json": "3abf1eea0a8f0ab85c60cacbe1e3ecc5ebd93f2d8093685b582cd1240047bd2a",
+    "data/pilot-2m-r1/processed/global-v1/contamination.json": "70d4bfc48ae54149490e7b90e7bc6d81efc2ca132e8df0543546dbdfddd55ba5"
+  },
+  "executed_script_sha256": "ab62b648cc60d1b3524d65cf84a4895d743b6cf32e2c45a53f62b37267f19f2a",
+  "current_script_sha256": "a4424386c14e1745aa90f65928126e65e5902d0ed81704ed135e80b10e75f904",
+  "script_ast_equivalence": true,
+  "tests": {
+    "passed": 57,
+    "seconds": 1.14,
+    "proposal_cases": 6,
+    "command": "pytest tests/test_contamination_review_v1.py tests/test_corpus_acquisition.py tests/test_corpus_filtering.py tests/test_corpus_duplicates.py tests/test_corpus_contamination.py tests/test_gutenberg_acquisition.py tests/test_gutenberg_cleaning.py data/pilot-2m-r1/provenance/authorization/tests -q"
+  },
+  "static": "PASS",
+  "format_files": 57,
+  "compile": "PASS",
+  "cpu_pip_check": "PASS",
+  "cuda_pip_check": "PASS",
+  "diff_whitespace": "PASS",
+  "review_search": "No matches; rg exit 1 denotes empty results, not a failed static check",
+  "not_run": [
+    "full v2 scan",
+    "acquisition",
+    "cleaning",
+    "dedup",
+    "final corpus admission",
+    "loader",
+    "training"
+  ],
+  "status": "HUMAN REVIEW REQUIRED"
+}

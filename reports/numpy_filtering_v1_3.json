@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "policy": "pilot-clean-v1.3",
+  "source": "numpy",
+  "totals": {
+    "raw_files": 102,
+    "raw_bytes": 2937163,
+    "license_eligible_files": 102,
+    "license_eligible_bytes": 2937163,
+    "cleaned_files": 94,
+    "cleaned_bytes": 2838556
+  },
+  "exclusions_files": {
+    "INSUFFICIENT_SUBSTANTIVE_CONTENT": 6,
+    "NON_EXAMPLE_CONTACT_REVIEW_REQUIRED": 2
+  },
+  "removed_bytes_exclusive_categories": {
+    "INSUFFICIENT_SUBSTANTIVE_CONTENT": 441,
+    "UNEXPANDED_DIRECTIVE": 1153,
+    "NON_EXAMPLE_CONTACT_REVIEW_REQUIRED": 96991,
+    "ATTRIBUTION_CONTACT_TO_PROVENANCE": 22
+  },
+  "measured_early_retention": 0.9664278080583202,
+  "cells": [
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "measured_early_clean_bytes": 0,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "measured_early_clean_bytes": 0,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "measured_early_clean_bytes": 0,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 750000,
+      "measured_early_clean_bytes": 1867286,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 37500,
+      "measured_early_clean_bytes": 78403,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 37500,
+      "measured_early_clean_bytes": 437449,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000,
+      "measured_early_clean_bytes": 402302,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500,
+      "measured_early_clean_bytes": 25717,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500,
+      "measured_early_clean_bytes": 27399,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "measured_early_clean_bytes": 0,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "measured_early_clean_bytes": 0,
+      "deficit": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "measured_early_clean_bytes": 0,
+      "deficit": 0
+    }
+  ],
+  "source_unit_capacity": [
+    {
+      "domain": "code",
+      "split": "test",
+      "source_unit": "polynomial",
+      "cleaned_bytes": 437449
+    },
+    {
+      "domain": "code",
+      "split": "train",
+      "source_unit": "_core",
+      "cleaned_bytes": 931602
+    },
+    {
+      "domain": "code",
+      "split": "train",
+      "source_unit": "lib",
+      "cleaned_bytes": 818314
+    },
+    {
+      "domain": "code",
+      "split": "train",
+      "source_unit": "linalg",
+      "cleaned_bytes": 117370
+    },
+    {
+      "domain": "code",
+      "split": "validation",
+      "source_unit": "fft",
+      "cleaned_bytes": 78403
+    },
+    {
+      "domain": "documentation",
+      "split": "test",
+      "source_unit": "documentation/array-classes",
+      "cleaned_bytes": 27399
+    },
+    {
+      "domain": "documentation",
+      "split": "train",
+      "source_unit": "documentation/user-guide",
+      "cleaned_bytes": 402302
+    },
+    {
+      "domain": "documentation",
+      "split": "validation",
+      "source_unit": "documentation/array-iteration",
+      "cleaned_bytes": 25717
+    }
+  ],
+  "holdout_transformations": [
+    {
+      "path": "numpy/fft/_pocketfft.py",
+      "source_unit": "fft",
+      "split": "validation",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "43a2798a75f5d283c1b57fa56e53e5604c6ecf2728bc6afe2c5313ed061ef697",
+      "cleaned_bytes": 62692
+    },
+    {
+      "path": "doc/source/reference/arrays.classes.rst",
+      "source_unit": "documentation/array-classes",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "af8c7379fa0f7b2229cfcb739c6ed84c6bdbb1f243a339bf9eb5faf476c0537e",
+      "cleaned_bytes": 27399
+    },
+    {
+      "path": "numpy/polynomial/hermite_e.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "71ed0f3a549ba904eabe47172c89fbbfb1aab6611ac5cdc9d7199a683f1511fc",
+      "cleaned_bytes": 52208
+    },
+    {
+      "path": "numpy/polynomial/polyutils.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "805e3f0622e463cc92165cdac0f571af665c9e8a2cdd23119f6769b01d323f87",
+      "cleaned_bytes": 22530
+    },
+    {
+      "path": "numpy/polynomial/__init__.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "5cd2bb656b011020a81e7259d0da8a885d44ad9aaf771b33135349e87736573d",
+      "cleaned_bytes": 6760
+    },
+    {
+      "path": "numpy/polynomial/polynomial.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "96da368d845c495337fcfb8a9b7adb6d8907a7878c6ce557dd548eeab1e606b7",
+      "cleaned_bytes": 52202
+    },
+    {
+      "path": "doc/source/reference/arrays.nditer.rst",
+      "source_unit": "documentation/array-iteration",
+      "split": "validation",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [
+        [
+          25717,
+          25755,
+          "UNEXPANDED_DIRECTIVE"
+        ]
+      ],
+      "raw_sha256": "cf3c5ed5432fc75bad98f3e76de8275e7d1ec78d0120521bbbb227c0075631b1",
+      "cleaned_bytes": 25717
+    },
+    {
+      "path": "numpy/polynomial/_polybase.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "361abe8757ca4bf01114f77a051ab26b58113a6a80d0a5f5fde18e37903262cc",
+      "cleaned_bytes": 39451
+    },
+    {
+      "path": "numpy/fft/_helper.py",
+      "source_unit": "fft",
+      "split": "validation",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "62fa61fb9824b1dd0779b2d25eae1429f5583b04a2a8d21ae131e9bf4680d871",
+      "cleaned_bytes": 6775
+    },
+    {
+      "path": "numpy/fft/__init__.py",
+      "source_unit": "fft",
+      "split": "validation",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "716f28251a2b1e51b5d2686784007538e920e07a46d8d1981c38289c5348d38b",
+      "cleaned_bytes": 8326
+    },
+    {
+      "path": "numpy/lib/_polynomial_impl.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "eab0f90b2e264839360acb807493aada17be3d26be662aac760cb2400179ab1d",
+      "cleaned_bytes": 44294
+    },
+    {
+      "path": "numpy/polynomial/hermite.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "a756d7d7c2fe7d4c1616d9aed09e059da84107d7162c2b1458b91722d43bcc1d",
+      "cleaned_bytes": 54466
+    },
+    {
+      "path": "numpy/polynomial/chebyshev.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "53c3e5d2bf65dc057deb121299a0e36fe6ef6c2553eb5ae6ef35a24f92fcff08",
+      "cleaned_bytes": 62165
+    },
+    {
+      "path": "numpy/polynomial/legendre.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "c685c1a15193a129650ec5875379c140948140b84964184ca40fdb7a66170c74",
+      "cleaned_bytes": 50994
+    },
+    {
+      "path": "numpy/fft/helper.py",
+      "source_unit": "fft",
+      "split": "validation",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "b2daf4349d6fa4b3650bfdef31fba54eef43f7f713871286db391a1ae6793536",
+      "cleaned_bytes": 610
+    },
+    {
+      "path": "numpy/polynomial/laguerre.py",
+      "source_unit": "polynomial",
+      "split": "test",
+      "decision": "ELIGIBLE_FOR_DEDUP",
+      "reason": null,
+      "removed_ranges": [],
+      "raw_sha256": "7737910cfb3596f272573e9778bbbfca73c31784841468e92212dd9883247fde",
+      "cleaned_bytes": 52379
+    }
+  ],
+  "record_hashes": {
+    "00c03063dd936d7d8a447b002950a36695e8ad316e661873380eafa4d2816e11.json": "4695aa73e0ee07effb2e383ccd6a0a590495483f408d2afbb5a2b69f6d90860c",
+    "01f9cc30e619cf5d6649fb5bb164e9d6bd9baa6dfb27680c3315c31e99b7ce97.json": "1167ea58dd73a353d7a9a8b88e3c86834860fd27d8a51dd2445b7fecf54601a5",
+    "078f3baf0443b123e856fc9402b17f640136d65b8dec671c3578f90196e92a88.json": "3ccfdfdf2672982636189e2dba62971cbb444717227837148ff5a39c17b47f9a",
+    "0878fe17ccdb35971760be2ab56a612f40d44d781c31432bf1ac6729e9eb8891.json": "e1b485a4fa23c6f0200b8367f5be31a6a004c8b1c45707fad232559354ca6bcb",
+    "0e7b5b667773c3df72fc3c83ec9e653f94232fcd101bd9873cf81445074aceb0.json": "460d114dc21d5d0bca4f065c13b55bc943f5df4bb7ba5db42654e0984a005c3c",
+    "0f534d1f52d04e654abbeb33ce45224d797db49edd4deba2206b37133943c7e3.json": "83517c019ce0060e4f16bf975564134256d370c26b5c900ca538127b281c7d10",
+    "11a94e427d6c39251af4234ce2cb0880fb6f0edc67cf9357f5c85c5ac9e9e777.json": "93df3e556a01856b76b8d7c3c9cff2e50fc199f944028598e05432a62ad55aba",
+    "16fa938391ec19646889ba75f0d2237735aad7d3b48dcd69f1c9df0549fd749c.json": "1eab4e78f331085e81b624977c79f90acb722d30e35e478df73311a314858d34",
+    "1afe2512c30e0bd4cb3d303178c9b0d74a7927ba86dfa05d61cbb0d996c3bed6.json": "ac045639cd54c633e66f268e135a891ac4b046e5ca09cd03612f5c8dcb5e7f9a",
+    "1b333ebf4a421ec938139afa4f579ce682fb2f806e59a3beac62d0eea60f253d.json": "c082e2b2ad2444e825ebeb143d4778b8bbdd06606c277e8f24c25643b9c8e1ca",
+    "1c4c900dbf44005550b54a6064f96e3072c5f0aa78a0ba52af982ea78c835657.json": "f8d494eaeb12d36d065605aa94ca0705058a1ebb48ec3a0e280fcce11cbfacdf",
+    "1d59fb90c5021a642804d54653122f1952330dd5727675a6a5290225d67e7786.json": "aafc304699fcfd24f33ac4bf53046d7fec1bbc1e6235d02ee441207918670670",
+    "1e03ce2ea73381daaa783f5cc9ae7bbe471db7be80cd1de151d3f468ad79a954.json": "2524b2c22c79b921b42708e8e396e0c660150b81a9b1270d07b403fdaacb1fe7",
+    "1e3c92a41b33586c038c29156cc2d56c197ba427663967ccceeaf627a0a77065.json": "7b029687fd94d4c778fc31603ae7a7b288f9dbfd624f118d0db10ddc0cd4974a",
+    "1f6719a24b07273216d4bcf2a2a0363cba4fd31365d377afa2e8e777d032c15a.json": "38a31c9477d21d1e7c0608d076ff7c095753daf2483b0572531981d5ad490f2d",
+    "254be9cb812126fe17236cc0e90593b77ec3ff54ad493af7104fcfb8de5836c8.json": "57cac87fed6048da0f489d228f95ad98bc7be31de19d845da72d947cd13f2bdc",
+    "277ba0e01a9083c92ba80e948c0b958c588c39755af1cac094afa71073d490c4.json": "84e78762dc8cb58bda4acb25a352bb33581519d325bace68271ec23e26368699",
+    "27c8ed301f49b5fdb765b0810e1ed73d7457bdc009f71de69d2ac88fde0ab1c9.json": "b5c818e07b69f064b12db18c5e00c183417e64bc959fb3e86c0a09eadb79df7b",
+    "2aca4cf462ecb4ded7bea2a03f5e28fb1c11ebb3e272bb6f26d5cdab737052f7.json": "ee5d3d33ed9838957792d90ec1ab2d2253ff139870591fd08db036552235ec4a",
+    "33968b6e8acadeaac162e52ce132395af75712779b23ad0e3cb1600fb36edcc6.json": "8d4e31d288711ce6d41c8c9896f54f5fc62261106ea13672b6a09dee83e0229f",
+    "34347e79b42da25e5a0db23e4b19a03da5e028e0a84cee4a97b90c3a9ee1a618.json": "53b7483a84b2551727a75c27fb7091411210f688abb55986432898d11e078bc3",
+    "34fb5094affcd922d9e129d8495b1c403a13b5f7c4ebb31faac74a4ffef19868.json": "82dbc5dcc6e0d5092cfcf330d16162bef254263efd47b582f569d4600d3fe630",
+    "3536169b2c144416e9ed996c499b780934cd171fbc7c8b1ef739466ee5e6d6e5.json": "6cf2195b2188e53389dc6a914c88ddffbd4fd00d99fd64a61cceff678f345908",
+    "386f2f2fdf3276f2783a07261152323789b4c8ba1ce01067a6842ef536373074.json": "74fc5ea66ccb927d37b47e46e53e45dd59bd27199cc38de3bfb5b909f33aefdf",
+    "39051321cdc892300427a78142f8b449f703d74f8edfd2e7e7e1cc9e2f16a957.json": "d374cd0e1a93ada69ef847531822cb4a9876922a4d37c7ea988d36e4bd053196",
+    "3a3ee0aa2b9839a718e2378603dec54a8ecf1162594c3bb4d2150467698f9419.json": "3661d25a25bae02cbdc6dfa8fdff6f4283ca7e167b4715cbe1b09d4a064b8d7d",
+    "44ac2c77766b12ccaae0dfa3ad5684586b263b6c72adfb39c756852fb5638618.json": "7d964e96f1e75debf7aea0859003db2b5b30cd3cdae5b0234c7e187b7a28085e",
+    "4528ec55389c59ffc04d074ac279d87cd46a7f7bc8e80c438b2dfa2e84bd7cca.json": "5a894f24d0016da209a6abc6c4ed9da84629a66a450dcae0a5d0dbcce655d727",
+    "48f98598492b20d22f11630f0667441b940ad3045bd6835f89434f3c6755f90c.json": "5abe34e32363adcb3117fdcffd39eb2d8512cb00de0d36f43d92cffee6c0ae2f",
+    "4ee3005b37d1c5215f7a69b92c11d2d69556719ac61679c18c484f24b2bf9953.json": "d21c331296c1b8b5c01890d49776e7fb6ffc64cbd9365a89488c78c23885bbdd",
+    "4f18bcc87a42e62aa2e0f67e11b1060f0decd7d65e3e12be48e594d2a53894b3.json": "a0ae9334d4a2bc159ef6bef2f335e2c31e85ddba01ea7d16a29ae27dc6f06206",
+    "5142663f99f26fbe621ef4b13e29a8638bdaf04538b7975118bbe12970d9b3b4.json": "fa939a44a5c8a5ad2da17c2e6d5e3a366527c036b8952bbd8bf5c0fbf80dced0",
+    "53204a5fa7c1f4f6a76f6e55ff542d33fe8e8917479a29edcaae32633c76afd1.json": "78e6c1babe89e9b55ff969d8689d3b12751fb9264da9e6488e2c13d5623a202d",
+    "537e09def5f61d787d971bc2dedec1d8922cabea517619841b41697b85caf6de.json": "317704ba8804d1cf0f4096c01fc731c9882e9be709c65d6614a76d12f99923c3",
+    "5393a48ae5c2b2ae2cc5baabb5ed7f7fc5468c936e98d08140cca01b7599cb36.json": "49ec882751b563e44c236ffdf7d51b691e9de0a5260aa82f3cf7a6e236227870",
+    "547344ba4d4c1c7acf1d2edd7e4391b7fb5229d6b7b4888963eaae2827c3d40d.json": "2f5bc18411eac188ae0e0b8205e07a4aca5bb37ec3e1ac031d7697fab804f789",
+    "5623f0152d1cbf8bfcc093b632070a956e9ee22ef7b4c0832eaa857b08d633a0.json": "0cbdc3b850c617f598355081886416aa79a8a37ba3cd0b2b709ca86b76a7e2f3",
+    "580fb7ac0017710521a693ca7ba9ad803fbec7173e3fabd31c4a553f9e72ca14.json": "5090d64e9fdf1b00f54ede43c151e9e6fd3e9c683f8e66f2f36d3448c92321f7",
+    "59af150bb57e9fb7019478cb939ad6b00a9b9684a91cd4ef35d71b0b389596bb.json": "a8c8f63e96c3b07ad9fad294d397dba47365bcb233d18827b34019a8537c602e",
+    "5aba1ba8eed216cbd0d5792aa9a6380cf6ef0a7394421a757e459d4ef516c3c1.json": "4991db571b5bf680985cf82d9a34cc1411aa24387af26652ff5b33367b4786cd",
+    "5b03c52227d2d9ee3eb6dc84720345efa9e8d0a7e97b0e8929e6ef9f8a6a3e9f.json": "a16130624a8c753160b4bcf75143488b09ed06130628aee22b4ba44c23134c27",
+    "5c94b73e7d31d7c48151a1da59192536e6d5af1ca2e5f507088ba4c6bb52fc35.json": "f36bd2c368c387712591d01bc704a244e182235a28728191bb3bb5a67a4ac8be",
+    "5e8e43e999755a32ef1c7f339ef4d27281b53bb63e18ba83343f2eb6cf56c09c.json": "eaa773383059548a8cbb6a6fcc473c5d846ebb7c48439b21de4097ad0ca32eec",
+    "5fb92cc80657b79d2ec60b983c42afa825ca55127b215d71c3ba066cf74ee8de.json": "8887348ab63bd31d6eb55fd414ae498905ff211154e8c4b2809ee7c9bfaae703",
+    "615253cd0b65710842ab80846674f0a62aea1550504607456d6b84a7781c7669.json": "246d1ecbc4c3de8203f3e56df66e617e17b7d084e64be38d868bf0023855ac86",
+    "65492397dda4aa4fcd9f453cc14a412081e4ee5f677848e86933b0576c4eed4e.json": "0d976c33865219884072e48333e7aadd4424383619b3a920d708f6922e11756a",
+    "6907314258032adb64448471afc472d71f9fec8fcb3953c4957c622922fcf33c.json": "20d78fce26418634fb211a64ba42d8f0a36be700c68c36b469cd139f9c4c7774",
+    "6a05f6e68b58e7797f8c717b1b1493332db742cebc2607ea7bb10099c6ea9c6f.json": "6d76099ff5ce7b104e08da597c26a17b374915daac85fecef0fda26768690817",
+    "6e323b8f4c17e58eed9a6f54d6a8af136087990d8627bafcfafa30a3ae44887d.json": "8329eade1e0ddb58eeeb15142137aadd69ad26c3daa5f01ffb4e6654a42d2ade",
+    "7005d52c6a395fa19e7723f1351aeee1aa4feb711f541929d3c08bff40ec5b68.json": "0afe98ce2a52501ba0eaa8ad8092db154ee4d6ad0c4e9ebad0de896fe03a3a88",
+    "77012f124920f467450a560621dff1c944aa44c02f3f3e2aca127223cc36f429.json": "ce4d05e2d4e003834cff79de7591c4036d9a013b97ebfc4722204ee424755f7a",
+    "781fefe00e685fc9300a9a4929728b5389695704437c6ef20c143e6fa5ef088a.json": "4913b474e8e7b5b8509fc0826082a058107c1b1e01b2ed9dd2659ebfe7d65ce8",
+    "78c30bd6a62a3f120cfb015a1dd4beb1533463e1401847b67c413f4a13b1b52a.json": "4e5bdda8f2b6bc8235299fd63517b343a96617c88aac449c2344d407298428a8",
+    "7be51f4e5134c2a578bb83d6a11553505a2672b617f59ae83fa307c9103f6a6f.json": "7cfef42ea3e1b4916b4688e37dc8ed5760cb7748401ce17de5cb73912b189cdd",
+    "8144f319117dfa96af3ad5e2afa59549f74ec539885c90fe7b83e19345493975.json": "1811d2ccf0f8f47c5c7447e4d528e7196eb330ec1914c122c164acdc3efe3867",
+    "84057a2d7665d1d4fb8325527f45733dc21ab8a0a12d2249d3a28fae63ff8599.json": "39ca8f0e99f9c7124262c7ceb07f56f9d0350209c531d24fe3a1bdd882a372db",
+    "85df20417a5f46e187b72190edbd2296c2df0f5aadcf76b465a999f03f630bb2.json": "d60ef726a91ff7a1c5f2591e3ca72604de16df9faff4a30585b5c049bcdbd570",
+    "866c62ea2d56a3f705e7a5c419e79da6b6a6671d247196a471acb086a0d6a667.json": "5726834e0585e985b22ea74cd8899b99a71b5cef274dd0e2b36fa19097aa524b",
+    "92d30371aad82cf13a79f6ff2bfb51bc9bbf2cf7df14d15ef45d124e9324baa3.json": "91704fbfb3ebe53fed6a700c453e4a80ab7f9b7adc949338bdc0042fec2026e2",
+    "92db19e03e804f90379937f643e22c169bec1f806ed231fcac6f1eb52673a441.json": "11bb7fbdf79b99e59959e048cb52097f4b44d755ababa29d5864809b8e1f0007",
+    "972cf4b04135925834a791ad9172b49098238f24dde0a0fbba5ac9800b3be880.json": "d7f22f2c36a37a2af41422994f1193785ddba5084fcaec573b5810aec620d0a5",
+    "9b1a2721ba3e5266078edf043f541bfecb4d9a941a59702026400306b7a4a28b.json": "3f926cd8598238ab6b91649228c0aaa43d7c44407a0b36462749e1927560d308",
+    "9e71664b21edab42c9aca93780c13cc90bfa18effa243c1589b763d14b7975f9.json": "75e7dc5fed4ddea97e53b0dc73711939fe59816c136cb93f67b3edf0ca1a49a7",
+    "9fa7c8273c57493270326989737199cb88a6beea1cef161b41d79bcf71e1661c.json": "d24437b2f847f519236136ef8a1bb2180e2db446d0266616de660943f531b2cb",
+    "9ffe92c8718473efac75257b180b86d40adaf29de2e8a90952efa7a392714c8c.json": "0877404af7da66288a23cc7aa314a10e94cf992e62c5eafd5d60dbafc0626564",
+    "a04184ba9eb050d7b56e631194fbd75bf323055f95704979f4971370e599701f.json": "1e1ea8670d6e944a0345b95023f0d01923086d18929979cc7001ba15a074ce88",
+    "a1677e2b308b4cbd1a46312a295337f433500dbeb1ff891350829799801b1ba6.json": "d9e44d4d1ce2f7b1c532ca3c892c76641500bfbe6b1f58e483ce7416bc255ab2",
+    "a2d6d35f71ebd1ce54d0808df785540b1d9ae9affe3d288b5c7b57bf8e82ba1b.json": "48f7de86aa31563d581ca2efcbfefe087e613b637d113f561faeaae963d0c3db",
+    "a3bb9829901a291689e21aa5cda8622e0b995fd87735dd36deaa5189f4c7d65f.json": "b2c3f7246747f084b56cc645818dd76671f3a5fd095c4445d70fc46669f3fbe1",
+    "a5aa16fdab19a25c2c3c370e09bf02278a3d3118f5596724bffd91ec51419f65.json": "6c18aab0ae328af90d23aa734718f312735c3feafe95bbb39864402f83ac44f3",
+    "a924a8310a46dea522ed3f2829b92625313b2f125cf912490c9e99152e894104.json": "c6c992ff02c214b024419dca91fdd8d1cd84c40354253c41c3da199d33f52268",
+    "ab70162f417f1ef65876af0f63a5e2081cf1be98f11db21f3183982a16c11e14.json": "69828df04d43b5a6b2ac65fa1b54e06f8b6fbadd88434e990b1f1c2775af0edf",
+    "b071377c821f99bd083d76375ee59ab123081d650b1621a3bf733d998a32f856.json": "41cc9e288f2ffdd5321e25f9ac2d91b55090e601764e764ee295cff28e3714ba",
+    "b111029d6822b7039f978f992b1a8e94a2240317147ce6447e98d3fbe651e349.json": "070621d5601714709f9894b0afdb9c0e241053767d6ae61436f30edf950aa21f",
+    "b399262832cc04e58aee26b90ac48b685737c9026c7d691f213a0f1306853469.json": "fce7a724ed7d5a028ec0eb1b121c2fda2eca54a6c95262fee7a7e7545c964b40",
+    "b4b0c25990952344facc2648bca021d899b6268298a30aeccefec480f8bb3507.json": "fddf61233129d95c5d349345549a9d312463b616e43c52fc5122ed2c8ae2a8c4",
+    "b505969fd5d05ed88d8a7f0a6db17ebb2b9566f3c79fe12a8b9ba9b1a2f2e8d1.json": "b349be883cff6be20e230e485d24fcd77c9b3897b4826eca3de036de005aa34e",
+    "b5e1cc12c37dce6907fbb27683467a6e620ad4cc5a95ddc24663f67d3e427899.json": "84be09cccf1f2ca4b6b65ba8900b2087a1e210625a01d1bd5cef5214e031d3ed",
+    "b735c01079e17b8726faff0273f2ecb11e32f9f51658d65ede75c4bf2894116a.json": "8634760194f1059bad40dea26a4868d3166dbe69b7af2d4017fa3b535b51c60d",
+    "bf56f860dcc64ff8a1ba37a23158caabf2d34f42fa164037db6a728ac32d5d8d.json": "37162142560de2243cbcb777cc10fa41d219181c68ec5e0e0aa0fb43569f99ca",
+    "bfb98f2ebd1cdb6f8742450f4c30737aaef2228b880e17abf1c087c6ad3e1f72.json": "1136996bb10ca975a22febcb696d8dd59477ade23d1244d8a4a619c6bae8c35c",
+    "bfd6bdf525288be58271a9ce35a1c3d9220249c6ae440418bdb32c22fefd762f.json": "39d2bda879837fcdc9f4a8c5af28fa8249b4b1f0508c7a723d6baafa1fd84c43",
+    "c0529312f9bb1d582c4916e589b021156daf508da1a5242a70e34a99d751f3a1.json": "17690e50f6a9b85bab02a2fc7b65ccc43c9e24971c7e0fb93299e86a0e66b93e",
+    "c1b8ddd8b8a719701e5bcef9cd70da9478b735f7674924773a935ffcffd93f8b.json": "6f4e15884268b33b81db2bc95471a07be6a8c103a923653344ffba19c3d7f32b",
+    "c6347503b0f34a17e10fa1ae363daf55cd87952169060f906ff5520dedc3c0ea.json": "db6a6945944cf43024d456890fdc413f893097b91b998f3014a2909689cd2d8b",
+    "c8bcd6ba3760b817fa44b2118fa26a0297e0b119ca15d71b8c2f5cbc3e5650b1.json": "77f877fd2a94da80ffe4f42c3d6b21b4b8fc12b35fc7ea9963ea0794088279ca",
+    "c97bfc5ae3570c822a2af7468cbb3610b147e655475642f1cb16f59e773eef06.json": "e26503ece22aa36d6ea4cc84c8cd24cbe58047ec6a7dbb6aa4d935a9d0bb5ce1",
+    "cb8f5cbc1af4189d7e3d3c14963ff0f8c1bdfe0518c2825028e600cac13b91f0.json": "b6f05e9029c79890393e84e10dbb18329277caf9478468dae51b012a69168093",
+    "ccaee90e07a1877af93c4f2ad8d41f4602debe4acb203a20a14c9590b64bbbbc.json": "de1023369243eee68d642888f66ea89cb87264422924f228db236cd29154275e",
+    "cf3c2e5e044b9d8a13eb93c3661ee3580e487e3510b25e6fb5177766b35f83a8.json": "d136a8721a8259ade7333f0e38e4b0053914127bf397e813251584f95b3768cf",
+    "d11cf86fe6eafd8748d9d7c4cc147e8662bf842939c6978d69935b0706d6c5db.json": "0ab6058e64c5880fa876c7a6f9be0fc444634e2d62518d938aa0490e4a0eb731",
+    "d5aba366811f79fb5b2df5d169149711bfa4eb7f0014e16f051e7245b49f389f.json": "c2a92e75e9ba6c0a3c1e6bf9405d9dcb55919f36203279953122a49d1687a8a4",
+    "d8871b64e69b037665fd7553bb645b65ca4ab0e291b6f64fc4de97a12c2c7516.json": "630589ec0451dfa8b94ebdd59da6b6493cd95ea6355dc388f8e8a755b11d39e0",
+    "dab99a6c19b718145e132118428f4929eb27acf32e8a8d7570d57325c180e52b.json": "ed1646ea3b5bd7e034d9ea4e65f66413cc231ead825245a3bfe44206ccf469e3",
+    "db83f06d8e1111729ee34524eb7390e24e3d46d25a5a6783459ac4f69bf20edf.json": "f6f19e73f02b1a6c37f410e65513ba8b892063077ec7a8710b417bbc43217c3a",
+    "e7902afe4bae13f852f6f9f3ebc44704d56668577a71a1ee2061c2a862f92ff1.json": "bccf1106e6a6aeadfef83bd5f4b54d532dbd1090c6a4ccf2f526dacf17aea018",
+    "e9e227f78d3dd56deaa9c878ceabae993f4b07e9157f002bdc70cfef726ef096.json": "95165e943fac16b62ca19da4f7831e1dd7a8783c682b306d76a61a52a0a79c96",
+    "ee2e347611aeac68fb341707d5d6a90d2870b14494b071685fb0f21529408cc3.json": "6b95731aca9814baecb3e0b177263f80c94f9f5ac940e796d373f8c0ffa35cd6",
+    "f62ae46232e805312be16c5cc3ff8b0e3fc606dbd929b8bc62459a1031584080.json": "764ecc2e418e29f3c586a8a0ff93bb3ad0dddb2976b870c6e65d36b8ac2d4cb7",
+    "fc277b05b9f41b3bbd2c7f181926f5713c6154d88941899272238f958fa59f78.json": "016df23873a6ce2bc813c4e86505467e4eaf1b0b4f5571269ac715f7d2b01111",
+    "fd20d28361f3b0b20a751ac0812d3da0d541e0422db3493ec57b1e6fd73bd9aa.json": "5b5a6785f33b6f8d7f6503379a250a88e738edabda545e99fe832b21a27775ce",
+    "ffa7ee9ca604f61fc5dc5d1c81ba6c19548562fa9b7645e5a5a897c3dd86f672.json": "c522f6f597bc7a2d7cff65ed97d9c7ddfa30faa3e4e18c006a15f2ed36df9cef"
+  },
+  "capacity_status": "PASS",
+  "limitations": "Early cleaning only. Deduplication, benchmark exclusion and final corpus are not certified. Per-unit capacity is reported; quotas apply to frozen source/domain/split pools."
+}

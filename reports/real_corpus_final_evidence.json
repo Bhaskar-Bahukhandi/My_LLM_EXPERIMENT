@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "status": "READY FOR REAL-DATA TRAINING REVIEW",
+  "rollback_commit": "720af6e63ee8759654b287848173bbd3e74867c4",
+  "model_source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+  "manifest": {
+    "raw_sha256": "38bbb7266544129b8c1bd14d2e744f233208d55c403135244963024fad6ed86b",
+    "canonical_sha256": "f5f375b0c7b446a39000f5a3fb693dbe111d9621b6818a52a3eea339b8a29ecc"
+  },
+  "manifest_path": "data/pilot-2m-r1/final-corpus-v1/manifest.json",
+  "training_manifest_sha256": "64e15487f29c38bbef77156680741e571ffbc0ea7e3cee2dcc20dad350c8ae44",
+  "split_bytes": {
+    "train": 10000000,
+    "validation": 500000,
+    "test": 500000
+  },
+  "split_sha256": {
+    "train": "5204262762bf2c54173d0c60e1cfb82d0d851c5a73f868de32d490d44557c120",
+    "validation": "70f52e5d362f4425182b0ad058163e56ac8987971f1db61dde1a224ea59a8614",
+    "test": "a3f7bc2b3fa3853a6784aff9e7da78bcf2e3fc535dc15d0ba6cfa1a00f44173f"
+  },
+  "split_hash_definition": "SHA-256 of selected document bytes concatenated in this manifest's order, without separators",
+  "selected_documents": 370,
+  "selected_source_units": 96,
+  "cells": [
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 5000000,
+      "available_bytes": 7570403,
+      "deficit": 0,
+      "selected_bytes": 5000000,
+      "unused_eligible_bytes": 2570403
+    },
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 250000,
+      "available_bytes": 587150,
+      "deficit": 0,
+      "selected_bytes": 250000,
+      "unused_eligible_bytes": 337150
+    },
+    {
+      "source": "gutenberg",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 250000,
+      "available_bytes": 661673,
+      "deficit": 0,
+      "selected_bytes": 250000,
+      "unused_eligible_bytes": 411673
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "gutenberg",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 1500000,
+      "available_bytes": 4333623,
+      "deficit": 0,
+      "selected_bytes": 1500000,
+      "unused_eligible_bytes": 2833623
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 75000,
+      "available_bytes": 177217,
+      "deficit": 0,
+      "selected_bytes": 75000,
+      "unused_eligible_bytes": 102217
+    },
+    {
+      "source": "cpython",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 75000,
+      "available_bytes": 163435,
+      "deficit": 0,
+      "selected_bytes": 75000,
+      "unused_eligible_bytes": 88435
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 1000000,
+      "available_bytes": 1079137,
+      "deficit": 0,
+      "selected_bytes": 1000000,
+      "unused_eligible_bytes": 79137
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 50000,
+      "available_bytes": 94237,
+      "deficit": 0,
+      "selected_bytes": 50000,
+      "unused_eligible_bytes": 44237
+    },
+    {
+      "source": "cpython",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 50000,
+      "available_bytes": 97382,
+      "deficit": 0,
+      "selected_bytes": 50000,
+      "unused_eligible_bytes": 47382
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "cpython",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 750000,
+      "available_bytes": 935684,
+      "deficit": 0,
+      "selected_bytes": 750000,
+      "unused_eligible_bytes": 185684
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 37500,
+      "available_bytes": 78403,
+      "deficit": 0,
+      "selected_bytes": 37500,
+      "unused_eligible_bytes": 40903
+    },
+    {
+      "source": "numpy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 37500,
+      "available_bytes": 437449,
+      "deficit": 0,
+      "selected_bytes": 37500,
+      "unused_eligible_bytes": 399949
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000,
+      "available_bytes": 402302,
+      "deficit": 0,
+      "selected_bytes": 250000,
+      "unused_eligible_bytes": 152302
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 25717,
+      "deficit": 0,
+      "selected_bytes": 12500,
+      "unused_eligible_bytes": 13217
+    },
+    {
+      "source": "numpy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 27399,
+      "deficit": 0,
+      "selected_bytes": 12500,
+      "unused_eligible_bytes": 14899
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "numpy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 250000,
+      "available_bytes": 4601543,
+      "deficit": 0,
+      "selected_bytes": 250000,
+      "unused_eligible_bytes": 4351543
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 20392,
+      "deficit": 0,
+      "selected_bytes": 12500,
+      "unused_eligible_bytes": 7892
+    },
+    {
+      "source": "sympy",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 21592,
+      "deficit": 0,
+      "selected_bytes": 12500,
+      "unused_eligible_bytes": 9092
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 250000,
+      "available_bytes": 378411,
+      "deficit": 0,
+      "selected_bytes": 250000,
+      "unused_eligible_bytes": 128411
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 12500,
+      "available_bytes": 50712,
+      "deficit": 0,
+      "selected_bytes": 12500,
+      "unused_eligible_bytes": 38212
+    },
+    {
+      "source": "sympy",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 12500,
+      "available_bytes": 39052,
+      "deficit": 0,
+      "selected_bytes": 12500,
+      "unused_eligible_bytes": 26552
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 500000,
+      "available_bytes": 904618,
+      "deficit": 0,
+      "selected_bytes": 500000,
+      "unused_eligible_bytes": 404618
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 25000,
+      "available_bytes": 31300,
+      "deficit": 0,
+      "selected_bytes": 25000,
+      "unused_eligible_bytes": 6300
+    },
+    {
+      "source": "sympy",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000,
+      "available_bytes": 29755,
+      "deficit": 0,
+      "selected_bytes": 25000,
+      "unused_eligible_bytes": 4755
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "general_text",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "code",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "train",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "validation",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "documentation",
+      "split": "test",
+      "required_bytes": 0,
+      "available_bytes": 0,
+      "deficit": 0,
+      "selected_bytes": 0,
+      "unused_eligible_bytes": 0
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "train",
+      "required_bytes": 500000,
+      "available_bytes": 10176005,
+      "deficit": 0,
+      "selected_bytes": 500000,
+      "unused_eligible_bytes": 9676005
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "validation",
+      "required_bytes": 25000,
+      "available_bytes": 3517813,
+      "deficit": 0,
+      "selected_bytes": 25000,
+      "unused_eligible_bytes": 3492813
+    },
+    {
+      "source": "mathlib",
+      "domain": "structured_math",
+      "split": "test",
+      "required_bytes": 25000,
+      "available_bytes": 6480944,
+      "deficit": 0,
+      "selected_bytes": 25000,
+      "unused_eligible_bytes": 6455944
+    }
+  ],
+  "actual_feasibility": "60 / 60 PASS",
+  "sympy_code_holdouts": [
+    {
+      "split": "validation",
+      "quota": 12500,
+      "minimum_raw": 17858,
+      "raw_bytes": 20392,
+      "measured_post_filter_dedup_contamination_bytes": 20392,
+      "required_headroom": 5358,
+      "achieved_headroom": 7892,
+      "source_units": [
+        "sympy:examples/autowrap",
+        "sympy:examples/fem",
+        "sympy:examples/gibbs"
+      ]
+    },
+    {
+      "split": "test",
+      "quota": 12500,
+      "minimum_raw": 17858,
+      "raw_bytes": 21592,
+      "measured_post_filter_dedup_contamination_bytes": 21592,
+      "required_headroom": 5358,
+      "achieved_headroom": 9092,
+      "source_units": [
+        "sympy:examples/coupled-cluster",
+        "sympy:examples/curvilinear",
+        "sympy:examples/infinite-box",
+        "sympy:examples/quantum-circuits",
+        "sympy:examples/relativity"
+      ]
+    }
+  ],
+  "measured_stage_accounting": {
+    "before_dedup": {
+      "bytes": 57718936,
+      "documents": 3462
+    },
+    "post_dedup": {
+      "bytes": 57708004,
+      "documents": 3457
+    },
+    "post_contamination": {
+      "bytes": 42923348,
+      "documents": 2698
+    }
+  },
+  "unused_eligible_bytes": 31923348,
+  "stage_reports": {
+    "docs/file_mode_policy_v2.json": "932c5f20cb17dc2c295f5abcb918d0fe3d336d535224087b8a1a4c5f5c347779",
+    "docs/mode_v2_file_reviews.json": "6954db360bedfe986d58489f159f88fcc00e4b6da5b6ce1cdb15994d71932beb",
+    "reports/corpus_mode_v2_pool.json": "020e23f78a9df57591d72478abc1d69bcd4f006ce47989525ce72a5f520af1f3",
+    "reports/final_source_leakage_audit.json": "76a46de688c86250678e5a0e5b9973d0ee377ae252cd84f591a8b7f247431d90",
+    "reports/final_corpus_loader_audit.json": "2f41b33fc4080287ae8bcaf014806eb5d701f3f942e86b130b74496989d71447",
+    "scripts/corpus_freeze.py": "e80bcd017bd856cd6e1798d1e9eb8f15515c1a1f8a4097fc05cc80f9616a9c6e",
+    "tests/test_corpus_freeze.py": "fb3c97ba16f9d04a94f74adb9f4a2688c04ce3bab86487f446f4069210cf5562",
+    "tests/test_mode_policy_v2.py": "33f184cb66b1a41aae97817fddfdac63cfa7e4ec88de21f436c9da13e3c8eb3b",
+    "reports/cpython_filtering_v1_3.json": "7676c80cc280bd73f89cee2f1ff61f00dd6d11a95fec186a604b41bb4e051a83",
+    "reports/numpy_filtering_v1_3.json": "881549c01fe9ce6e2c00b3c36d53283b0bc514c48195f78951811269e483b129",
+    "reports/sympy_filtering_v1_3.json": "6151d2b4cd580251429ea231657ebaae5c827d2702ca7471ebc834540854bdce",
+    "reports/mathlib_filtering_v1_3.json": "28cb309215c16c25aef956306cc2822342e561abdde40cde6b830e20d845bf96",
+    "reports/gutenberg_filtering_v1.json": "78b0a35d278779ca8273bb91e1abb490f63b0f41107cf5a11ec927da17d6a282"
+  },
+  "preserved_sha256": {
+    "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+    "docs/targeted_file_review_v2_r1.json": "03e40a7acd610323a70875bd3e13f80388afe08fc4d07aadbb663047b5e3c601",
+    "docs/targeted_candidates_v2_r1.json": "2698868f790860ae268d5fc443356a09a1d43734fdc556c72f7abe940769ec4a",
+    "reports/real_corpus_v2_build.md": "f975faf1fa5dbedf03fac4e28e4370fe7f82972a89567c811fbef3b084ea0c4b",
+    "reports/real_corpus_v2_evidence.json": "7bfd9e9e388c8cf7cfe363a6efa46c994a56fa52ac3d75f9e66756f5f285bf4b",
+    "reports/real_corpus_v2_validation.json": "2ef9027b17cbe851b9f3b6951c0f51dbf656335c3ced1873f82eb22ccbe9c47f",
+    "reports/corpus_expansion_v2_r1.json": "6867dd6a7344908a4ef756d6384ea4c87ad85c3a626a1d0305eb8ad7e44b59de",
+    "scripts/corpus_targeted_acquisition.py": "87e3354a15e588d80afb35c2ed8f9b6c6525b3bacbc32c9f21726cd3044a1de3",
+    "tests/test_targeted_acquisition.py": "0add1d5f44d1370e8606c427bf4ef4c3739401f59e05d8886b66a41bba9b0ec7",
+    "scripts/corpus_mode_v2.py": "92df508896cfc521b7ff663d07557ca9fd554e910376ef23dab059341a3a241e",
+    "scripts/corpus_complete_mode_v2.py": "5a42cd474756a1570fb7d5815b95819bba92e34196507b484032fbbd09980f53",
+    "reports/real_corpus_2m_build.md": "3c4c27bc54c90eb58a24b7a04cf5f314e8c194c5df3e9161f3a76192d77d3672",
+    "reports/real_corpus_2m_evidence.json": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+    "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "data/pilot-2m-r1/provenance/final_filter_snapshot.json": "7f4a00770a3ad22c84a62489d15a18ef625292a083665183753fa44a21d4036f",
+    "data/pilot-2m-r1/processed/global-v1/dedup.json": "3abf1eea0a8f0ab85c60cacbe1e3ecc5ebd93f2d8093685b582cd1240047bd2a",
+    "data/pilot-2m-r1/processed/global-v1/contamination.json": "70d4bfc48ae54149490e7b90e7bc6d81efc2ca132e8df0543546dbdfddd55ba5",
+    "scripts/corpus_contamination.py": "5f02b6779a7bb550d5acf2ad18cc7eac01180b5fd0546942d85c1f6593c5e967",
+    "scripts/corpus_benchmark_index.py": "ffc5c5a7788673d6ebe1d80744b44cb4bd43406b8ccc4b2a68c529436bfda49d",
+    "scripts/corpus_global.py": "6c4163db72abaaf2178f5dedf2ba231762595696ed57bdfe12e3270ff06a9d1c",
+    "scripts/corpus_duplicates.py": "5aa90764c0d0f8782f3458917558bedac1fb5338cda6eb4c5cd50fd043041dcb",
+    "scripts/benchmark_fingerprints.py": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+    "reports/contamination_review_v1.json": "cf915d2abf16e041c38dcc5f7a34f465ead658fcc5cd358c8c7ef9010fb93030",
+    "reports/contamination_review_v1.md": "9bf3e00a02b11d842f1196ecfc8fd5446077fdd8979d355bb7800a08b99f6a59",
+    "tests/test_corpus_contamination.py": "20e22a8859e9e893210b159a7169feda490a8eca819dea79531183d716e83fca"
+  },
+  "disk_bytes": 339883666,
+  "data_cap": 800000000,
+  "separate_run_reserve": 200000000,
+  "new_download_bytes_this_mode_correction": 0,
+  "training_executed": false,
+  "limitations": [
+    "Near-duplicate bottom64 retrieval does not certify semantic/paraphrase completeness.",
+    "Independent normalized/near audit covers complete assigned documents before selection; final selected payloads also checked for byte-identical cross-split duplication.",
+    "Exact byte quotas may cut the last document mid-UTF8 sequence; byte payload is not re-encoded.",
+    "Native training manifest excludes test; test dry-run uses the same byte/window/batching primitives in a test-only view.",
+    "Optional NumPy bridge unavailable in CPU environment; unused by the tested loader.",
+    "No model backward, optimizer, training or GPU validation run in this data-only pass."
+  ]
+}

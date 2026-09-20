@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "documents": 8,
+  "bytes": 250276,
+  "registry_sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+  "hits": [],
+  "method": "Existing fixture matcher, all 14 registered aliases; normalization detection-only"
+}

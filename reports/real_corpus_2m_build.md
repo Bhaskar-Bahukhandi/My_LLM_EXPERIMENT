@@ -1,51 +1,41 @@
-# First real-corpus build: blocked before acquisition
+# Real corpus build: blocked after benchmark exclusion
 
-The frozen source allocations and file allowlists disagree. The directive explicitly requires stopping before downloading in this case. No substantive source content was acquired, no corpus was built, and no training ran.
+The completed scan leaves **53 / 60 PASS**. No final corpus or manifest was created. The required totals remain 10,000,000 / 500,000 / 500,000 bytes; selected totals are **0 / 0 / 0**. No training, backward, optimizer, model or environment change occurred.
 
-Reviewed inputs are preserved in commit `8c5cb375fced7cf1452f3007514a32cbc9678922`. The working tree was clean immediately after this commit. It includes the previously reviewed GPU integration and authorization/exclusion artifacts, without rewriting earlier commits or adding a remote. The historical READY authorization report remains frozen; this capacity finding supersedes its readiness conclusion.
+## Exact blocking cells
 
-## Blocking evidence
+| Source | Domain | Split | Required | Available | Deficit |
+|---|---|---|---:|---:|---:|
+| cpython | code | test | 75,000 | 0 | 75,000 |
+| cpython | documentation | train | 1,000,000 | 840,136 | 159,864 |
+| cpython | documentation | test | 50,000 | 0 | 50,000 |
+| numpy | code | train | 750,000 | 117,370 | 632,630 |
+| sympy | code | validation | 12,500 | 0 | 12,500 |
+| sympy | code | test | 12,500 | 0 | 12,500 |
+| sympy | structured_math | test | 25,000 | 18,480 | 6,520 |
 
-| Source / split | Documentation target | Maximum allowlisted raw documentation bytes | Minimum deficit |
-|---|---:|---:|---:|
-| CPython train | 1,000,000 | 0 | 1,000,000 |
-| NumPy train | 250,000 | 0 | 250,000 |
-| All sources validation | 75,000 | 0 | 75,000 |
-| All sources test | 75,000 | 0 | 75,000 |
+## Measured exclusion result
 
-The previous checks verified hashes and allocation sums but missed this cross-artifact capacity conflict. All 665 CPython and 84 NumPy approved files are classified as code. SymPy has only 311,995 raw documentation bytes in its training candidates and none in validation/test. Cleaning cannot create the missing authorized documentation. This exceeds a minor intact-document rounding adjustment.
+Scanned 3,438 documents in 231 source units / 57,415,744 bytes. There were 75 first-hit raw exact short-content matches (also normalized matches), zero normalized-only first hits and zero near first hits. These are first-hit-per-document counts, not an exhaustive inventory. Excluding all 46 affected units removes 898 records / 17,354,845 bytes. All affected source/domain/split counts and all 60 cells are recorded in the JSON report.
 
-The earlier metadata filter treated `Doc/license.rst` and `doc/source/license.rst` as nested license scope boundaries and excluded the surrounding CPython and NumPy documentation. Their actual scope needs contextual review. Removing that exclusion indiscriminately would not establish per-file eligibility. No allowlist or source classification was changed during this pass.
+Some matches are common short benchmark support content, including import statements. Under the frozen matcher they remain content, and whole-unit exclusions remain in force. No thresholds or field eligibility were changed to recover capacity. There are zero unresolved admitted hits because every matched unit is excluded; this does not claim semantic contamination completeness. The matcher uses frozen normalization and bounded paragraph/window near-duplicate retrieval.
 
-## Frozen sources and budgets
+The independent registered-project-fixture scan verified 17 generator/source identities and 14 fixture aliases (two unique payloads), scanned all 3,438 candidates, and found zero hits. Global dedup previously removed five same-role near-duplicate documents / 10,932 bytes, with no exact or cross-role clusters. That prior result does not substitute for the blocked final independent leakage audit.
 
-Exact commits, license-evidence hashes, approved Gutenberg editions, and frozen artifact SHA-256 values are retained in `real_corpus_2m_evidence.json` and the linked authorization artifacts at the rollback commit. Gutenberg IDs 1400, 766, 1023, 145, 1342, 158, 768 and 1661 remain candidates; edition 1260 remains rejected. Wikipedia remains deferred with zero bytes.
+## Evidence and boundaries
 
-| Source | Target train | Target validation | Target test | Selected bytes, all splits |
-|---|---:|---:|---:|---:|
-| Gutenberg | 5,000,000 | 250,000 | 250,000 | 0 |
-| CPython | 2,500,000 | 125,000 | 125,000 | 0 |
-| NumPy | 1,000,000 | 50,000 | 50,000 | 0 |
-| SymPy | 1,000,000 | 50,000 | 50,000 | 0 |
-| mathlib4 | 500,000 | 25,000 | 25,000 | 0 |
-| Total | 10,000,000 | 500,000 | 500,000 | 0 |
+All five source groups completed acquisition/filtering. Detailed raw, license-eligible, cleaning-category and per-unit evidence is summarized and hash-linked in the machine-readable report. Cleaning estimates remain historical; actual post-cleaning capacity is measured without a second retention haircut. Seven selected Gutenberg works have raw and cleaned hashes; reserve ebook 158 remains unused, rejected 1260 remains excluded, Wikipedia contributes zero.
 
-Domain targets remain 50% general text, 25% code, 15% documentation and 10% structured mathematics. No alternative mixture or acquisition order was executed.
+Measured logical acquisition/preprocessing footprint: **320,468,815 bytes**, below the 800,000,000-byte data cap plus separate 200,000,000 reserve. This is disk accounting, not process memory.
 
-## Validation and unexecuted work
+Final split assignment, independent final leakage audit, quota selection, corpus hashes, manifest hash and loader dry run are **NOT RUN / NOT CREATED** because the prerequisite gate failed. No placeholder dataset manifest was written. Frozen reserved roles, budgets, policies and source pins are unchanged.
 
-Five fingerprint tests passed (0.06 s); Ruff, formatting (35 files), whitespace, frozen-input hashes, allocation arithmetic, 25 benchmark raw-file hashes, fingerprint sidecar and local fixture identities passed. Model source and both FINAL specification hashes remain unchanged. Full CPU/GPU regression was not rerun because no runtime code changed. The new capacity gate failed as detailed above.
+## Validation, preservation and review
 
-Downloaded-file licensing, safe extraction, cleaning, security/quality filtering, exact/near deduplication, benchmark scanning, split assignment, cross-split leakage checks and loader dry-run are **NOT_RUN**. Retention is **NOT_MEASURED**. There are no raw/cleaned corpus hashes, selected source-unit counts or corpus hash. A final dataset manifest is **NOT_CREATED** because no admitted corpus exists. Existing benchmark fingerprints are evaluation infrastructure, not evidence that an unbuilt corpus passes contamination checks.
+51 relevant tests passed. Ruff, formatting (54 files), compile, both dependency checks and whitespace checks passed. Historical authorization tests execute unchanged against their frozen input snapshot because their contracts bind the old report hash. They establish preservation, not post-acquisition sufficiency. Model source identity and every authorization snapshot file were verified; current global-stage implementation hashes and candidate payload hashes were rechecked. All 2,202 historical filtering receipt hashes remain unchanged. The final affected test replay passed again (51 tests, 0.76s). No model/training test was run in this data-only pass.
 
-Gutenberg whole-text hashes remain `PENDING_AUTHORIZED_ACQUISITION`; raw and cleaned payload hashes are mandatory immediately following a future authorized download. Existing metadata/header provenance remains intact.
+Rollback `720af6e63ee8759654b287848173bbd3e74867c4` and earlier commits remain untouched. Historical authorization reports are preserved under `data/pilot-2m-r1/provenance/authorization` and in Git; failed/intermediate filtering remains preserved. The exact changed/added file list is in the JSON report. Changed files comprise corpus-only scripts/tests/policies/filter reports, this report, its JSON evidence and the project ledger. No production model source changed.
 
-Existing authorization evidence occupies 182,287,216 logical bytes. Newly acquired training data occupies zero bytes. The 800,000,000-byte data/preprocessing cap plus separate 200,000,000-byte run allowance remains unchanged; actual acquisition/preprocessing peak disk use is unmeasured.
-
-## Rollback, risks and next step
-
-Changes in this pass are this report, its JSON evidence and `docs/project_state.md`; the ignored pre-acquisition audit records the capacity check. The coherent rollback commit above preserves the previously reviewed state. No model, environment, recurrence, FINAL specification, approved source scope or exclusion identity changed.
-
-The next step is a narrow documentation-license scope review and an explicitly amended file/holdout allowlist with adequate source/domain/split capacity, followed by human approval of that scope change. Building now would require unauthorized substitutions or a materially different domain mixture. The current corpus is not ready for training review.
+The final review found no reason to loosen exclusions. Remaining risk is conservative loss of large source-unit pools from common short content; any remedy requires separately reviewed candidate/policy decisions. Next step: review the seven explicit deficits, with no automatic acquisition or replacement.
 
 REAL CORPUS BUILD STATUS: NOT READY

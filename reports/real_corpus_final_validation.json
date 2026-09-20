@@ -1,0 +1,16 @@
+{
+  "evidence_sha256": "68eed41234f7296ead6712391532d0ebe0712f5a96b0c0ada6d7cfaf4b3a7dd9",
+  "tests": "69 passed, 1 optional NumPy warning in 3.10s",
+  "historical_test_scope": "Unchanged tests replayed in immutable provenance/authorization snapshot because their contracts bind historical report hashes.",
+  "static": "Ruff PASS; 68 files formatted; compileall PASS; CPU and CUDA pip check PASS",
+  "integrity": "PASS: selected bytes, all 60 quotas, raw/clean/provenance/manifest/split hashes, historical policy/reports, unchanged src and HEAD",
+  "selected_documents": 370,
+  "final_diff_review": {
+    "result": "PASS",
+    "scope": "Reviewed mode admission, cached-source processing, freeze selection, provenance, loader and focused tests; tracked whitespace check clean. No placeholders, source execution, model edits or new training systems introduced.",
+    "reports_sha256": {
+      "reports\\real_corpus_final_build.md": "c177dc898db05f00f5bcf89fe1252ef3fb109ff9c2005dbb0d06e67ba6198f11",
+      "docs\\project_state.md": "881e287ed034ff3eb51ed1828fd2df71755a6fc924fdfd8abd022a8d67ac85ce"
+    }
+  }
+}

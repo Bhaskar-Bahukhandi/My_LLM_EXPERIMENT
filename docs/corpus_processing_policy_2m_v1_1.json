@@ -1,0 +1,11 @@
+{
+  "version": "pilot-clean-v1.1",
+  "supersedes_policy_hash": "de3ac12b617ceef25f3c33be64db573ebd1a6a0d50c42ceb38ee3e73b864bc57",
+  "unchanged": "All substantive licensing, privacy, quality, deduplication and selection rules; no quota or retained-yield-margin change.",
+  "corrections": [
+    "Generated-file detector must match an actual header declaration, not descriptive prose.",
+    "Complete multiline author metadata is removed to provenance.",
+    "Exact hash-bound reviewed illustrative contact/userinfo lines are removed, not whitelisted. All remaining non-example contacts still reject the document."
+  ],
+  "preservation": "Original early-filter receipts retained unchanged under processed/early; corrected run uses processed/early-v1_1."
+}

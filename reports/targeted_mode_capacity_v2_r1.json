@@ -1,0 +1,3719 @@
+{
+  "schema_version": 1,
+  "tree_sha256": "963e5ece7adb48a0ae948722e7fee76fe151fe40407c06526231487eb80680ae",
+  "inventory": [
+    {
+      "path": "bin/generate_module_list.py",
+      "bytes": 1634,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "bin/generate_test_list.py",
+      "bytes": 1675,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "bin/get_sympy.py",
+      "bytes": 414,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "bin/sympy_time.py",
+      "bytes": 1278,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "bin/sympy_time_cache.py",
+      "bytes": 3191,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "bin/test_import.py",
+      "bytes": 175,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "conftest.py",
+      "bytes": 2880,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "doc/api/conf.py",
+      "bytes": 4142,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "doc/ext/convert-svg-to-pdf.py",
+      "bytes": 3709,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "doc/ext/docscrape.py",
+      "bytes": 16829,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "doc/ext/docscrape_sphinx.py",
+      "bytes": 9419,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "doc/ext/numpydoc.py",
+      "bytes": 6270,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "doc/src/_pygments/styles.py",
+      "bytes": 3562,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "doc/src/conf.py",
+      "bytes": 17974,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "doc/src/guides/physics/generate_plots.py",
+      "bytes": 1302,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "examples/intermediate/sample.py",
+      "bytes": 3514,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "isympy.py",
+      "bytes": 11207,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "release/helpers.py",
+      "bytes": 234,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "sympy/algebras/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/algebras/tests/test_quaternion.py",
+      "bytes": 16445,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/ask_generated.py",
+      "bytes": 23558,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "sympy/assumptions/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_assumptions_2.py",
+      "bytes": 1070,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_context.py",
+      "bytes": 1153,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_matrices.py",
+      "bytes": 12258,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_query.py",
+      "bytes": 98387,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_refine.py",
+      "bytes": 8834,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_rel_queries.py",
+      "bytes": 6676,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_satask.py",
+      "bytes": 15741,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_sathandlers.py",
+      "bytes": 1842,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/assumptions/tests/test_wrapper.py",
+      "bytes": 1159,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/benchmarks/bench_discrete_log.py",
+      "bytes": 2473,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/benchmarks/bench_meijerint.py",
+      "bytes": 11610,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/benchmarks/bench_symbench.py",
+      "bytes": 2997,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/calculus/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/calculus/tests/test_accumulationbounds.py",
+      "bytes": 11195,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/calculus/tests/test_euler.py",
+      "bytes": 2683,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/calculus/tests/test_finite_diff.py",
+      "bytes": 7760,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/calculus/tests/test_singularities.py",
+      "bytes": 5272,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/calculus/tests/test_util.py",
+      "bytes": 18557,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/categories/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/categories/tests/test_baseclasses.py",
+      "bytes": 5767,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/categories/tests/test_drawing.py",
+      "bytes": 27848,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_abstract_nodes.py",
+      "bytes": 451,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_algorithms.py",
+      "bytes": 6831,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_applications.py",
+      "bytes": 2189,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_approximations.py",
+      "bytes": 2035,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_ast.py",
+      "bytes": 21688,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_cfunctions.py",
+      "bytes": 4613,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_cnodes.py",
+      "bytes": 3039,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_cxxnodes.py",
+      "bytes": 366,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_fnodes.py",
+      "bytes": 6643,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_matrix_nodes.py",
+      "bytes": 1896,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_numpy_nodes.py",
+      "bytes": 1658,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_pynodes.py",
+      "bytes": 432,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_pyutils.py",
+      "bytes": 299,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_rewriting.py",
+      "bytes": 15852,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/codegen/tests/test_scipy_nodes.py",
+      "bytes": 1495,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_coset_table.py",
+      "bytes": 28474,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_fp_groups.py",
+      "bytes": 10203,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_free_groups.py",
+      "bytes": 6275,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_galois.py",
+      "bytes": 2763,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_generators.py",
+      "bytes": 3567,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_graycode.py",
+      "bytes": 2800,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_group_constructs.py",
+      "bytes": 450,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_group_numbers.py",
+      "bytes": 4149,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_homomorphisms.py",
+      "bytes": 3745,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_named_groups.py",
+      "bytes": 1931,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_partitions.py",
+      "bytes": 4097,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_pc_groups.py",
+      "bytes": 2728,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_perm_groups.py",
+      "bytes": 41196,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_permutations.py",
+      "bytes": 20189,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_polyhedron.py",
+      "bytes": 4180,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_prufer.py",
+      "bytes": 2649,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_rewriting.py",
+      "bytes": 1787,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_schur_number.py",
+      "bytes": 1727,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_subsets.py",
+      "bytes": 2635,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_tensor_can.py",
+      "bytes": 24676,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_testutil.py",
+      "bytes": 1729,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/combinatorics/tests/test_util.py",
+      "bytes": 4499,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/concrete/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/concrete/tests/test_delta.py",
+      "bytes": 23869,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/concrete/tests/test_gosper.py",
+      "bytes": 7987,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/concrete/tests/test_guess.py",
+      "bytes": 3370,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/concrete/tests/test_products.py",
+      "bytes": 14521,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/concrete/tests/test_sums_products.py",
+      "bytes": 64452,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/conftest.py",
+      "bytes": 2775,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/assumptions_generated.py",
+      "bytes": 42817,
+      "classification": "generated source or documentation build integration"
+    },
+    {
+      "path": "sympy/core/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/benchmarks/bench_arit.py",
+      "bytes": 412,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/benchmarks/bench_assumptions.py",
+      "bytes": 177,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/benchmarks/bench_basic.py",
+      "bytes": 210,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/benchmarks/bench_expand.py",
+      "bytes": 427,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/benchmarks/bench_numbers.py",
+      "bytes": 1135,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/benchmarks/bench_sympify.py",
+      "bytes": 138,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_args.py",
+      "bytes": 182401,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_arit.py",
+      "bytes": 78079,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_assumptions.py",
+      "bytes": 41573,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_basic.py",
+      "bytes": 9846,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_cache.py",
+      "bytes": 2001,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_compatibility.py",
+      "bytes": 240,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_complex.py",
+      "bytes": 21906,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_constructor_postprocessor.py",
+      "bytes": 2441,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_containers.py",
+      "bytes": 7432,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_count_ops.py",
+      "bytes": 5665,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_diff.py",
+      "bytes": 5421,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_equal.py",
+      "bytes": 1678,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_eval.py",
+      "bytes": 2366,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_evalf.py",
+      "bytes": 28360,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_expand.py",
+      "bytes": 13886,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_expr.py",
+      "bytes": 77579,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_exprtools.py",
+      "bytes": 19021,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_facts.py",
+      "bytes": 11579,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_function.py",
+      "bytes": 51420,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_kind.py",
+      "bytes": 2048,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_logic.py",
+      "bytes": 5634,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_match.py",
+      "bytes": 22716,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_multidimensional.py",
+      "bytes": 848,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_noncommutative.py",
+      "bytes": 4436,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_numbers.py",
+      "bytes": 77165,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_operations.py",
+      "bytes": 2859,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_parameters.py",
+      "bytes": 3560,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_power.py",
+      "bytes": 24844,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_priority.py",
+      "bytes": 3190,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_random.py",
+      "bytes": 1233,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_relational.py",
+      "bytes": 43524,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_rules.py",
+      "bytes": 349,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_singleton.py",
+      "bytes": 3036,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_sorting.py",
+      "bytes": 902,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_subs.py",
+      "bytes": 30106,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_symbol.py",
+      "bytes": 13043,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_sympify.py",
+      "bytes": 27989,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_traversal.py",
+      "bytes": 4311,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_truediv.py",
+      "bytes": 854,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/core/tests/test_var.py",
+      "bytes": 1594,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/crypto/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/crypto/tests/test_crypto.py",
+      "bytes": 19758,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/diffgeom/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/diffgeom/tests/test_class_structure.py",
+      "bytes": 1048,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/diffgeom/tests/test_diffgeom.py",
+      "bytes": 14145,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/diffgeom/tests/test_function_diffgeom_book.py",
+      "bytes": 5254,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/diffgeom/tests/test_hyperbolic_space.py",
+      "bytes": 2598,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/discrete/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/discrete/tests/test_convolutions.py",
+      "bytes": 17856,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/discrete/tests/test_recurrences.py",
+      "bytes": 3019,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/discrete/tests/test_transforms.py",
+      "bytes": 5546,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/__init__.py",
+      "bytes": 578,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "sympy/external/gmpy.py",
+      "bytes": 9743,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "sympy/external/importtools.py",
+      "bytes": 7671,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "sympy/external/ntheory.py",
+      "bytes": 17025,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "sympy/external/pythonmpq.py",
+      "bytes": 11243,
+      "classification": "potential only; rights, quality and independent units not yet established"
+    },
+    {
+      "path": "sympy/external/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_autowrap.py",
+      "bytes": 9755,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_codegen.py",
+      "bytes": 12676,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_gmpy.py",
+      "bytes": 397,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_importtools.py",
+      "bytes": 1394,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_ntheory.py",
+      "bytes": 8881,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_numpy.py",
+      "bytes": 10291,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_pythonmpq.py",
+      "bytes": 5797,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/external/tests/test_scipy.py",
+      "bytes": 1172,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/combinatorial/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/combinatorial/tests/test_comb_factorials.py",
+      "bytes": 26310,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/combinatorial/tests/test_comb_numbers.py",
+      "bytes": 47188,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/benchmarks/bench_exp.py",
+      "bytes": 185,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_complexes.py",
+      "bytes": 33878,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_exponential.py",
+      "bytes": 29687,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_hyperbolic.py",
+      "bytes": 56383,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_integers.py",
+      "bytes": 22315,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_interface.py",
+      "bytes": 2054,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_miscellaneous.py",
+      "bytes": 17148,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_piecewise.py",
+      "bytes": 62640,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/elementary/tests/test_trigonometric.py",
+      "bytes": 89959,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/benchmarks/bench_special.py",
+      "bytes": 164,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_bessel.py",
+      "bytes": 34382,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_beta_functions.py",
+      "bytes": 3786,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_bsplines.py",
+      "bytes": 7145,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_delta_functions.py",
+      "bytes": 7138,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_elliptic_integrals.py",
+      "bytes": 6991,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_error_functions.py",
+      "bytes": 32411,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_gamma_functions.py",
+      "bytes": 29910,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_hyper.py",
+      "bytes": 16694,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_mathieu.py",
+      "bytes": 1282,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_singularity_functions.py",
+      "bytes": 6249,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_spec_polynomials.py",
+      "bytes": 19561,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_spherical_harmonics.py",
+      "bytes": 3850,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_tensor_functions.py",
+      "bytes": 5546,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/functions/special/tests/test_zeta_functions.py",
+      "bytes": 10474,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_curve.py",
+      "bytes": 4479,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_ellipse.py",
+      "bytes": 26509,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_entity.py",
+      "bytes": 3897,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_geometrysets.py",
+      "bytes": 1911,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_line.py",
+      "bytes": 38054,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_parabola.py",
+      "bytes": 6150,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_plane.py",
+      "bytes": 12525,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_point.py",
+      "bytes": 16410,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_polygon.py",
+      "bytes": 27601,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/geometry/tests/test_util.py",
+      "bytes": 7044,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/holonomic/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/holonomic/tests/test_holonomic.py",
+      "bytes": 35333,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/holonomic/tests/test_recurrence.py",
+      "bytes": 1342,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/benchmarks/bench_integrate.py",
+      "bytes": 396,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/benchmarks/bench_trigintegrate.py",
+      "bytes": 305,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_deltafunctions.py",
+      "bytes": 3709,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_failing_integrals.py",
+      "bytes": 7438,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_heurisch.py",
+      "bytes": 14401,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_integrals.py",
+      "bytes": 79599,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_intpoly.py",
+      "bytes": 37445,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_laplace.py",
+      "bytes": 37834,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_lineintegrals.py",
+      "bytes": 450,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_manual.py",
+      "bytes": 34551,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_meijerint.py",
+      "bytes": 32594,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_prde.py",
+      "bytes": 16360,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_quadrature.py",
+      "bytes": 19919,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_rationaltools.py",
+      "bytes": 5669,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_rde.py",
+      "bytes": 9571,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_risch.py",
+      "bytes": 38630,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_singularityfunctions.py",
+      "bytes": 1266,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_transforms.py",
+      "bytes": 27077,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/integrals/tests/test_trigonometry.py",
+      "bytes": 3869,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/interactive/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/interactive/tests/test_interactive.py",
+      "bytes": 485,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/interactive/tests/test_ipython.py",
+      "bytes": 11799,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_cartan_matrix.py",
+      "bytes": 303,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_cartan_type.py",
+      "bytes": 339,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_dynkin_diagram.py",
+      "bytes": 260,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_root_system.py",
+      "bytes": 927,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_A.py",
+      "bytes": 657,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_B.py",
+      "bytes": 642,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_C.py",
+      "bytes": 927,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_D.py",
+      "bytes": 764,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_E.py",
+      "bytes": 775,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_F.py",
+      "bytes": 1378,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_type_G.py",
+      "bytes": 548,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/liealgebras/tests/test_weyl_group.py",
+      "bytes": 1501,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/logic/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/logic/tests/test_boolalg.py",
+      "bytes": 49058,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/logic/tests/test_dimacs.py",
+      "bytes": 3886,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/logic/tests/test_inference.py",
+      "bytes": 15318,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/logic/tests/test_lra_theory.py",
+      "bytes": 16834,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/benchmarks/bench_matrix.py",
+      "bytes": 306,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_adjoint.py",
+      "bytes": 1065,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_applyfunc.py",
+      "bytes": 3522,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_blockmatrix.py",
+      "bytes": 16541,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_companion.py",
+      "bytes": 1657,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_derivatives.py",
+      "bytes": 15991,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_determinant.py",
+      "bytes": 2067,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_diagonal.py",
+      "bytes": 4516,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_dotproduct.py",
+      "bytes": 1171,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_factorizations.py",
+      "bytes": 786,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_fourier.py",
+      "bytes": 1638,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_funcmatrix.py",
+      "bytes": 2230,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_hadamard.py",
+      "bytes": 4614,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_indexing.py",
+      "bytes": 12038,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_inverse.py",
+      "bytes": 2320,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_kronecker.py",
+      "bytes": 5366,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_matadd.py",
+      "bytes": 1866,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_matexpr.py",
+      "bytes": 18441,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_matmul.py",
+      "bytes": 5967,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_matpow.py",
+      "bytes": 7308,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_permutation.py",
+      "bytes": 5607,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_sets.py",
+      "bytes": 1408,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_slice.py",
+      "bytes": 2027,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_special.py",
+      "bytes": 6496,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_trace.py",
+      "bytes": 3383,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/expressions/tests/test_transpose.py",
+      "bytes": 1987,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_commonmatrix.py",
+      "bytes": 40772,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_decompositions.py",
+      "bytes": 14419,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_determinant.py",
+      "bytes": 9560,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_domains.py",
+      "bytes": 3276,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_eigen.py",
+      "bytes": 22722,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_graph.py",
+      "bytes": 3213,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_immutable.py",
+      "bytes": 4616,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_interactions.py",
+      "bytes": 2070,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_matrices.py",
+      "bytes": 160577,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_matrixbase.py",
+      "bytes": 168730,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_normalforms.py",
+      "bytes": 3009,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_reductions.py",
+      "bytes": 13385,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_repmatrix.py",
+      "bytes": 1781,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_solvers.py",
+      "bytes": 21731,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_sparse.py",
+      "bytes": 23281,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_sparsetools.py",
+      "bytes": 4877,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/matrices/tests/test_subspaces.py",
+      "bytes": 3465,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/multipledispatch/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/multipledispatch/tests/test_conflict.py",
+      "bytes": 1786,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/multipledispatch/tests/test_core.py",
+      "bytes": 4048,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/multipledispatch/tests/test_dispatcher.py",
+      "bytes": 6228,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_bbp_pi.py",
+      "bytes": 9486,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_continued_fraction.py",
+      "bytes": 3583,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_digits.py",
+      "bytes": 1968,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_ecm.py",
+      "bytes": 2290,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_egyptian_fraction.py",
+      "bytes": 2378,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_elliptic_curve.py",
+      "bytes": 624,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_factor_.py",
+      "bytes": 23494,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_generate.py",
+      "bytes": 9868,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_hypothesis.py",
+      "bytes": 728,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_modular.py",
+      "bytes": 1425,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_multinomial.py",
+      "bytes": 2344,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_partitions.py",
+      "bytes": 1033,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_primetest.py",
+      "bytes": 9348,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_qs.py",
+      "bytes": 4481,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/ntheory/tests/test_residue.py",
+      "bytes": 16566,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/latex/__init__.py",
+      "bytes": 2288,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/_antlr/__init__.py",
+      "bytes": 384,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/_antlr/latexlexer.py",
+      "bytes": 30502,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/_antlr/latexparser.py",
+      "bytes": 123655,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/_build_latex_antlr.py",
+      "bytes": 2777,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/_parse_latex_antlr.py",
+      "bytes": 20712,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/errors.py",
+      "bytes": 45,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/lark/__init__.py",
+      "bytes": 120,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/lark/latex_parser.py",
+      "bytes": 4457,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/latex/lark/transformer.py",
+      "bytes": 19801,
+      "classification": "frozen nested alternate-license scope"
+    },
+    {
+      "path": "sympy/parsing/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_ast_parser.py",
+      "bytes": 803,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_autolev.py",
+      "bytes": 6647,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_c_parser.py",
+      "bytes": 155354,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_custom_latex.py",
+      "bytes": 2036,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_fortran_parser.py",
+      "bytes": 11828,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_implicit_multiplication_application.py",
+      "bytes": 7448,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_latex.py",
+      "bytes": 11765,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_latex_deps.py",
+      "bytes": 426,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_latex_lark.py",
+      "bytes": 21452,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_mathematica.py",
+      "bytes": 13395,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_maxima.py",
+      "bytes": 1987,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_sym_expr.py",
+      "bytes": 5668,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/parsing/tests/test_sympy_parser.py",
+      "bytes": 12253,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/biomechanics/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/biomechanics/tests/test_activation.py",
+      "bytes": 13395,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/biomechanics/tests/test_curve.py",
+      "bytes": 77795,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/biomechanics/tests/test_mixin.py",
+      "bytes": 1322,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/biomechanics/tests/test_musculotendon.py",
+      "bytes": 32906,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/continuum_mechanics/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/continuum_mechanics/tests/test_beam.py",
+      "bytes": 27489,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/continuum_mechanics/tests/test_cable.py",
+      "bytes": 3831,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/continuum_mechanics/tests/test_truss.py",
+      "bytes": 3269,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/control/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/control/tests/test_control_plots.py",
+      "bytes": 15662,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/control/tests/test_lti.py",
+      "bytes": 81282,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/hep/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/hep/tests/test_gamma_matrices.py",
+      "bytes": 14722,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_actuator.py",
+      "bytes": 30206,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_body.py",
+      "bytes": 12067,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_functions.py",
+      "bytes": 10447,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_inertia.py",
+      "bytes": 2726,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_joint.py",
+      "bytes": 57922,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_jointsmethod.py",
+      "bytes": 10226,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_kane.py",
+      "bytes": 21545,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_kane2.py",
+      "bytes": 19256,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_kane3.py",
+      "bytes": 14959,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_kane4.py",
+      "bytes": 4709,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_kane5.py",
+      "bytes": 5693,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_lagrange.py",
+      "bytes": 10119,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_lagrange2.py",
+      "bytes": 1400,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_linearize.py",
+      "bytes": 13273,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_loads.py",
+      "bytes": 2698,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_method.py",
+      "bytes": 154,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_models.py",
+      "bytes": 5078,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_particle.py",
+      "bytes": 2682,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_pathway.py",
+      "bytes": 24944,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_rigidbody.py",
+      "bytes": 6188,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_system.py",
+      "bytes": 8700,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_system_class.py",
+      "bytes": 38219,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/mechanics/tests/test_wrapping_geometry.py",
+      "bytes": 10502,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/optics/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/optics/tests/test_gaussopt.py",
+      "bytes": 4222,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/optics/tests/test_medium.py",
+      "bytes": 2194,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/optics/tests/test_polarization.py",
+      "bytes": 2605,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/optics/tests/test_utils.py",
+      "bytes": 8553,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/optics/tests/test_waves.py",
+      "bytes": 3397,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_anticommutator.py",
+      "bytes": 1304,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_boson.py",
+      "bytes": 1676,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_cartesian.py",
+      "bytes": 4112,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_cg.py",
+      "bytes": 9159,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_circuitplot.py",
+      "bytes": 2096,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_circuitutils.py",
+      "bytes": 13187,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_commutator.py",
+      "bytes": 2727,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_constants.py",
+      "bytes": 338,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_dagger.py",
+      "bytes": 2544,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_density.py",
+      "bytes": 9718,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_fermion.py",
+      "bytes": 1636,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_gate.py",
+      "bytes": 12496,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_grover.py",
+      "bytes": 3640,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_hilbert.py",
+      "bytes": 2643,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_identitysearch.py",
+      "bytes": 17745,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_innerproduct.py",
+      "bytes": 1483,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_matrixutils.py",
+      "bytes": 4116,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_operator.py",
+      "bytes": 8164,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_operatorordering.py",
+      "bytes": 2003,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_operatorset.py",
+      "bytes": 2628,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_pauli.py",
+      "bytes": 4940,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_piab.py",
+      "bytes": 1086,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_printing.py",
+      "bytes": 30294,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_qapply.py",
+      "bytes": 6022,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_qasm.py",
+      "bytes": 2976,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_qexpr.py",
+      "bytes": 1517,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_qft.py",
+      "bytes": 1931,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_qubit.py",
+      "bytes": 8957,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_represent.py",
+      "bytes": 5177,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_sho1d.py",
+      "bytes": 4684,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_shor.py",
+      "bytes": 666,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_spin.py",
+      "bytes": 344807,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_state.py",
+      "bytes": 6741,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_tensorproduct.py",
+      "bytes": 5143,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/quantum/tests/test_trace.py",
+      "bytes": 3057,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_clebsch_gordan.py",
+      "bytes": 9223,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_hydrogen.py",
+      "bytes": 4987,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_paulialgebra.py",
+      "bytes": 1477,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_physics_matrices.py",
+      "bytes": 2948,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_pring.py",
+      "bytes": 1261,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_qho_1d.py",
+      "bytes": 1775,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_secondquant.py",
+      "bytes": 48450,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/tests/test_sho.py",
+      "bytes": 693,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_dimensions.py",
+      "bytes": 6122,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_dimensionsystem.py",
+      "bytes": 2717,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_prefixes.py",
+      "bytes": 2238,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_quantities.py",
+      "bytes": 19758,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_unit_system_cgs_gauss.py",
+      "bytes": 3173,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_unitsystem.py",
+      "bytes": 3254,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/units/tests/test_util.py",
+      "bytes": 9355,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_dyadic.py",
+      "bytes": 4265,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_fieldfunctions.py",
+      "bytes": 5825,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_frame.py",
+      "bytes": 29683,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_functions.py",
+      "bytes": 21127,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_output.py",
+      "bytes": 2612,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_point.py",
+      "bytes": 12373,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_printing.py",
+      "bytes": 10967,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/physics/vector/tests/test_vector.py",
+      "bytes": 10259,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/intervalmath/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/intervalmath/tests/test_interval_functions.py",
+      "bytes": 9862,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/intervalmath/tests/test_interval_membership.py",
+      "bytes": 4216,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/intervalmath/tests/test_intervalmath.py",
+      "bytes": 9034,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/pygletplot/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/pygletplot/tests/test_plotting.py",
+      "bytes": 2720,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/test_experimental_lambdify.py",
+      "bytes": 3127,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/test_plot.py",
+      "bytes": 48097,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/test_plot_implicit.py",
+      "bytes": 5799,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/test_series.py",
+      "bytes": 65637,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/test_textplot.py",
+      "bytes": 12761,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/plotting/tests/test_utils.py",
+      "bytes": 3602,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/agca/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/agca/tests/test_extensions.py",
+      "bytes": 6455,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/agca/tests/test_homomorphisms.py",
+      "bytes": 4224,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/agca/tests/test_ideals.py",
+      "bytes": 3788,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/agca/tests/test_modules.py",
+      "bytes": 13552,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/benchmarks/bench_galoispolys.py",
+      "bytes": 1502,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/benchmarks/bench_groebnertools.py",
+      "bytes": 803,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/benchmarks/bench_solvers.py",
+      "bytes": 446778,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/domains/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/domains/tests/test_domains.py",
+      "bytes": 50365,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/domains/tests/test_polynomialring.py",
+      "bytes": 2895,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/domains/tests/test_quotientring.py",
+      "bytes": 1459,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_ddm.py",
+      "bytes": 16699,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_dense.py",
+      "bytes": 9516,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_domainmatrix.py",
+      "bytes": 48953,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_domainscalar.py",
+      "bytes": 3740,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_eigen.py",
+      "bytes": 3200,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_inverse.py",
+      "bytes": 5247,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_linsolve.py",
+      "bytes": 3373,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_lll.py",
+      "bytes": 6624,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_normalforms.py",
+      "bytes": 3036,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_nullspace.py",
+      "bytes": 5418,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_rref.py",
+      "bytes": 25982,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_sdm.py",
+      "bytes": 13415,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/matrices/tests/test_xxm.py",
+      "bytes": 25551,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_basis.py",
+      "bytes": 4580,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_galoisgroups.py",
+      "bytes": 5036,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_minpoly.py",
+      "bytes": 22590,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_modules.py",
+      "bytes": 22926,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_numbers.py",
+      "bytes": 5988,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_primes.py",
+      "bytes": 9779,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_subfield.py",
+      "bytes": 12215,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/numberfields/tests/test_utilities.py",
+      "bytes": 3661,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_appellseqs.py",
+      "bytes": 3820,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_constructor.py",
+      "bytes": 6378,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_densearith.py",
+      "bytes": 40469,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_densebasic.py",
+      "bytes": 21590,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_densetools.py",
+      "bytes": 26345,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_dispersion.py",
+      "bytes": 3183,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_distributedmodules.py",
+      "bytes": 7639,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_euclidtools.py",
+      "bytes": 19482,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_factortools.py",
+      "bytes": 24903,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_fields.py",
+      "bytes": 10245,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_galoistools.py",
+      "bytes": 28532,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_groebnertools.py",
+      "bytes": 18584,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_heuristicgcd.py",
+      "bytes": 4297,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_hypothesis.py",
+      "bytes": 1109,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_injections.py",
+      "bytes": 1286,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_modulargcd.py",
+      "bytes": 9042,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_monomials.py",
+      "bytes": 11083,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_multivariate_resultants.py",
+      "bytes": 9501,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_orderings.py",
+      "bytes": 4254,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_orthopolys.py",
+      "bytes": 6560,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_partfrac.py",
+      "bytes": 7838,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polyclasses.py",
+      "bytes": 14474,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polyfuncs.py",
+      "bytes": 4520,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polymatrix.py",
+      "bytes": 7353,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polyoptions.py",
+      "bytes": 12416,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polyroots.py",
+      "bytes": 26803,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polytools.py",
+      "bytes": 131713,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_polyutils.py",
+      "bytes": 11547,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_pythonrational.py",
+      "bytes": 4143,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_rationaltools.py",
+      "bytes": 2397,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_ring_series.py",
+      "bytes": 24662,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_rings.py",
+      "bytes": 48478,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_rootisolation.py",
+      "bytes": 32724,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_rootoftools.py",
+      "bytes": 21916,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_solvers.py",
+      "bytes": 13655,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_specialpolys.py",
+      "bytes": 5031,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_sqfreetools.py",
+      "bytes": 4886,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/polys/tests/test_subresultants_qq_zz.py",
+      "bytes": 13138,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/pretty/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/pretty/tests/test_pretty.py",
+      "bytes": 187716,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_aesaracode.py",
+      "bytes": 21023,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_c.py",
+      "bytes": 31045,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_codeprinter.py",
+      "bytes": 1464,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_conventions.py",
+      "bytes": 5257,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_cupy.py",
+      "bytes": 1882,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_cxx.py",
+      "bytes": 3183,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_dot.py",
+      "bytes": 4648,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_fortran.py",
+      "bytes": 35456,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_glsl.py",
+      "bytes": 28421,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_gtk.py",
+      "bytes": 500,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_jax.py",
+      "bytes": 11062,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_jscode.py",
+      "bytes": 11369,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_julia.py",
+      "bytes": 13832,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_lambdarepr.py",
+      "bytes": 6947,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_latex.py",
+      "bytes": 136938,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_llvmjit.py",
+      "bytes": 5344,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_maple.py",
+      "bytes": 13078,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_mathematica.py",
+      "bytes": 10954,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_mathml.py",
+      "bytes": 96056,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_numpy.py",
+      "bytes": 10907,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_octave.py",
+      "bytes": 18553,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_precedence.py",
+      "bytes": 2787,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_preview.py",
+      "bytes": 988,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_pycode.py",
+      "bytes": 16070,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_python.py",
+      "bytes": 8128,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_rcode.py",
+      "bytes": 13781,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_repr.py",
+      "bytes": 12980,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_rust.py",
+      "bytes": 11512,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_smtlib.py",
+      "bytes": 22526,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_str.py",
+      "bytes": 43129,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_tableform.py",
+      "bytes": 5692,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_tensorflow.py",
+      "bytes": 15578,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_theanocode.py",
+      "bytes": 21394,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/printing/tests/test_tree.py",
+      "bytes": 6080,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sandbox/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sandbox/tests/test_indexed_integrals.py",
+      "bytes": 1179,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/benchmarks/bench_limit.py",
+      "bytes": 173,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/benchmarks/bench_order.py",
+      "bytes": 207,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_approximants.py",
+      "bytes": 1012,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_aseries.py",
+      "bytes": 2371,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_demidovich.py",
+      "bytes": 4947,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_formal.py",
+      "bytes": 22495,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_fourier.py",
+      "bytes": 5891,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_gruntz.py",
+      "bytes": 16215,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_kauers.py",
+      "bytes": 1102,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_limits.py",
+      "bytes": 47711,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_limitseq.py",
+      "bytes": 5691,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_lseries.py",
+      "bytes": 1875,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_nseries.py",
+      "bytes": 18284,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_order.py",
+      "bytes": 16500,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_residues.py",
+      "bytes": 3178,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_sequences.py",
+      "bytes": 11161,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/series/tests/test_series.py",
+      "bytes": 16458,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_conditionset.py",
+      "bytes": 11370,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_contains.py",
+      "bytes": 1561,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_fancysets.py",
+      "bytes": 51938,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_ordinals.py",
+      "bytes": 2637,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_powerset.py",
+      "bytes": 4805,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_setexpr.py",
+      "bytes": 14797,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/sets/tests/test_sets.py",
+      "bytes": 68544,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_combsimp.py",
+      "bytes": 2958,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_cse.py",
+      "bytes": 25513,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_epathtools.py",
+      "bytes": 3525,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_fu.py",
+      "bytes": 19410,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_function.py",
+      "bytes": 2199,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_gammasimp.py",
+      "bytes": 5320,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_hyperexpand.py",
+      "bytes": 41043,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_powsimp.py",
+      "bytes": 14313,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_radsimp.py",
+      "bytes": 18789,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_ratsimp.py",
+      "bytes": 2198,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_rewrite.py",
+      "bytes": 1127,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_simplify.py",
+      "bytes": 41735,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_sqrtdenest.py",
+      "bytes": 7470,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/simplify/tests/test_trigsimp.py",
+      "bytes": 19949,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/benchmarks/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/benchmarks/bench_solvers.py",
+      "bytes": 288,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/diophantine/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/diophantine/tests/test_diophantine.py",
+      "bytes": 42691,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/test_lie_group.py",
+      "bytes": 5319,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/test_ode.py",
+      "bytes": 48508,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/test_riccati.py",
+      "bytes": 29348,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/test_single.py",
+      "bytes": 100199,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/test_subscheck.py",
+      "bytes": 12468,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/ode/tests/test_systems.py",
+      "bytes": 129087,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_constantsimp.py",
+      "bytes": 8707,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_decompogen.py",
+      "bytes": 2943,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_inequalities.py",
+      "bytes": 21025,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_numeric.py",
+      "bytes": 4734,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_pde.py",
+      "bytes": 9257,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_polysys.py",
+      "bytes": 6873,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_recurr.py",
+      "bytes": 11418,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_simplex.py",
+      "bytes": 9037,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_solvers.py",
+      "bytes": 106794,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/solvers/tests/test_solveset.py",
+      "bytes": 148480,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/sampling/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/sampling/tests/test_sample_continuous_rv.py",
+      "bytes": 5708,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/sampling/tests/test_sample_discrete_rv.py",
+      "bytes": 3396,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/sampling/tests/test_sample_finite_rv.py",
+      "bytes": 3061,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_compound_rv.py",
+      "bytes": 6263,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_continuous_rv.py",
+      "bytes": 56140,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_discrete_rv.py",
+      "bytes": 10676,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_error_prop.py",
+      "bytes": 1933,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_finite_rv.py",
+      "bytes": 20413,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_joint_rv.py",
+      "bytes": 18653,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_matrix_distributions.py",
+      "bytes": 8857,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_mix.py",
+      "bytes": 3991,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_random_matrix.py",
+      "bytes": 5842,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_rv.py",
+      "bytes": 12959,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_stochastic_process.py",
+      "bytes": 39323,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_symbolic_multivariate.py",
+      "bytes": 5580,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/stats/tests/test_symbolic_probability.py",
+      "bytes": 9398,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/branch/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/branch/tests/test_core.py",
+      "bytes": 2246,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/branch/tests/test_tools.py",
+      "bytes": 942,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/branch/tests/test_traverse.py",
+      "bytes": 1322,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/tests/test_core.py",
+      "bytes": 2152,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/tests/test_rl.py",
+      "bytes": 1949,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/tests/test_tools.py",
+      "bytes": 875,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/tests/test_traverse.py",
+      "bytes": 2082,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/strategies/tests/test_tree.py",
+      "bytes": 2400,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_array_expressions.py",
+      "bytes": 31262,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_arrayexpr_derivatives.py",
+      "bytes": 2470,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_as_explicit.py",
+      "bytes": 2568,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_convert_array_to_indexed.py",
+      "bytes": 2500,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_convert_array_to_matrix.py",
+      "bytes": 29311,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_convert_indexed_to_array.py",
+      "bytes": 8615,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_convert_matrix_to_array.py",
+      "bytes": 4595,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/expressions/tests/test_deprecated_conv_modules.py",
+      "bytes": 1216,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_array_comprehension.py",
+      "bytes": 4529,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_array_derivatives.py",
+      "bytes": 1601,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_arrayop.py",
+      "bytes": 25844,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_immutable_ndim_array.py",
+      "bytes": 15823,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_mutable_ndim_array.py",
+      "bytes": 13070,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_ndim_array.py",
+      "bytes": 2232,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/array/tests/test_ndim_array_conversions.py",
+      "bytes": 648,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_functions.py",
+      "bytes": 1552,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_index_methods.py",
+      "bytes": 7112,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_indexed.py",
+      "bytes": 16376,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_printing.py",
+      "bytes": 424,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_tensor.py",
+      "bytes": 75921,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_tensor_element.py",
+      "bytes": 908,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/tensor/tests/test_tensor_operators.py",
+      "bytes": 17945,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/__init__.py",
+      "bytes": 169,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/matrices.py",
+      "bytes": 216,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/pytest.py",
+      "bytes": 13480,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/quality_unicode.py",
+      "bytes": 3482,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/randtest.py",
+      "bytes": 562,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/runtests.py",
+      "bytes": 89945,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/runtests_pytest.py",
+      "bytes": 18327,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tests/test_code_quality.py",
+      "bytes": 19222,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tests/test_deprecated.py",
+      "bytes": 183,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tests/test_module_imports.py",
+      "bytes": 1459,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tests/test_pytest.py",
+      "bytes": 6778,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tests/test_runtests_pytest.py",
+      "bytes": 6338,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/testing/tmpfiles.py",
+      "bytes": 1042,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/unify/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/unify/tests/test_rewrite.py",
+      "bytes": 2002,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/unify/tests/test_sympy.py",
+      "bytes": 5922,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/unify/tests/test_unify.py",
+      "bytes": 3029,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/_compilation/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/_compilation/tests/test_compilation.py",
+      "bytes": 3078,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_autowrap.py",
+      "bytes": 14888,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_codegen.py",
+      "bytes": 56130,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_codegen_julia.py",
+      "bytes": 18543,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_codegen_octave.py",
+      "bytes": 17833,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_codegen_rust.py",
+      "bytes": 12323,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_decorator.py",
+      "bytes": 3705,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_deprecated.py",
+      "bytes": 489,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_enumerative.py",
+      "bytes": 6089,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_exceptions.py",
+      "bytes": 716,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_iterables.py",
+      "bytes": 35288,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_lambdify.py",
+      "bytes": 61429,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_matchpy_connector.py",
+      "bytes": 4850,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_mathml.py",
+      "bytes": 836,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_misc.py",
+      "bytes": 4726,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_pickling.py",
+      "bytes": 23527,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_source.py",
+      "bytes": 289,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_timeutils.py",
+      "bytes": 337,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_wester.py",
+      "bytes": 94866,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/utilities/tests/test_xxe.py",
+      "bytes": 66,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/__init__.py",
+      "bytes": 0,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_coordsysrect.py",
+      "bytes": 19595,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_dyadic.py",
+      "bytes": 4949,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_field_functions.py",
+      "bytes": 14094,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_functions.py",
+      "bytes": 8050,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_implicitregion.py",
+      "bytes": 4028,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_integrals.py",
+      "bytes": 5093,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_operators.py",
+      "bytes": 1613,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_parametricregion.py",
+      "bytes": 4009,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_printing.py",
+      "bytes": 7708,
+      "classification": "test/benchmark infrastructure"
+    },
+    {
+      "path": "sympy/vector/tests/test_vector.py",
+      "bytes": 7861,
+      "classification": "test/benchmark infrastructure"
+    }
+  ],
+  "optimistic_remaining_raw_bytes": 72596,
+  "minimum_combined_raw_for_two_12500_holdouts": 35716,
+  "limitations": "Metadata upper bound after existing exclusion scopes; includes unreviewed small files and tools optimistically. Not an admission allowlist. No new files downloaded for this inventory."
+}

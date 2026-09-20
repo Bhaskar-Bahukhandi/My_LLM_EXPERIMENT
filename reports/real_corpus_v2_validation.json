@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "evidence_sha256": "7bfd9e9e388c8cf7cfe363a6efa46c994a56fa52ac3d75f9e66756f5f285bf4b",
+  "preserved_v1": "PASS",
+  "linked_stage_hashes": "PASS",
+  "all_60_cell_arithmetic": "PASS, 58 passing and two explicit deficits",
+  "actual_19_file_batch_mode_preflight": "EXPECTED REJECTION before any acquire callback",
+  "acquire_callbacks": 0,
+  "tests": "62 passed in 1.04s",
+  "static_format_compile_dependencies": "PASS",
+  "model_source_identity": "UNCHANGED",
+  "final_corpus_gates": "NOT RUN: mandatory capacity gate failed"
+}

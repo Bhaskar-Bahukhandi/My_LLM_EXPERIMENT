@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "2698868f790860ae268d5fc443356a09a1d43734fdc556c72f7abe940769ec4a",
+  "mode_policy": "Preserve explicit Mode 100644 only rule in docs/source_file_allowlists_2m.json. Executable mode is a policy exclusion, not a finding that reading source bytes executes them.",
+  "files": {
+    "cpython/Doc/howto/unicode.rst": {
+      "raw_sha256": "c5cf5081618e2b06a519d2ede00fb52a53922c5a8d636c4be337810fed2bd17c",
+      "raw_bytes": 31886,
+      "git_blob_sha1": "254fe7293553535e1a963a7bb2825d39fc462067",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [
+        {
+          "line": 682,
+          "text": "string in a generated command line or storing it in a database.  If you're doing",
+          "raw_byte_range": [
+            28540,
+            28621
+          ]
+        }
+      ],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "documentation/howto/unicode",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "cpython/Doc/howto/enum.rst": {
+      "raw_sha256": "49dbb17f4b81fb0cce5e46063e0fe38a7bd7e7d01d3f8b601d87ee88ab65acc7",
+      "raw_bytes": 45647,
+      "git_blob_sha1": "3743e68192f7a8c9b6ce200166c7fb364bfd38f5",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [
+        {
+          "line": 566,
+          "text": "new class derived from :class:`Enum` is returned.  In other words, the above",
+          "raw_byte_range": [
+            16864,
+            16941
+          ]
+        }
+      ],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "enum",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "cpython/Doc/howto/isolating-extensions.rst": {
+      "raw_sha256": "0367b682e79b7ce898591855687fb35b691ceca13574d6dc2c9867d3e34fb097",
+      "raw_bytes": 22390,
+      "git_blob_sha1": "a636e06bda834410e5d0c3e07f1c0b466cda830c",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [
+        {
+          "line": 25,
+          "text": "This guide is written for maintainers of :ref:`C-API <c-api-index>` extensions",
+          "raw_byte_range": [
+            723,
+            802
+          ]
+        },
+        {
+          "line": 59,
+          "text": "authors tend to not keep multiple interpreters in mind when developing,",
+          "raw_byte_range": [
+            2246,
+            2318
+          ]
+        }
+      ],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "documentation/howto/isolating-extensions",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "cpython/Doc/howto/gdb_helpers.rst": {
+      "raw_sha256": "aff3210b873e4f32bb40c8859abcfd3b214ec23f802d2eef834835014c4c5ee7",
+      "raw_bytes": 23649,
+      "git_blob_sha1": "98ce813ca4ab024fb83319ceaed628c74ab8c568",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "documentation/howto/gdb_helpers",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "cpython/Doc/howto/sockets.rst": {
+      "raw_sha256": "e9f69766062b95b2f0d842e9a8f46d7c18bb867de6c422576e3e21d6cce8b4a9",
+      "raw_bytes": 18795,
+      "git_blob_sha1": "0bbf97da39768d085a1d7d7e242d767e271345ac",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [
+        {
+          "line": 7,
+          "text": ":Author: Gordon McMillan",
+          "raw_byte_range": [
+            105,
+            130
+          ]
+        }
+      ],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "socket",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "cpython/Doc/howto/descriptor.rst": {
+      "raw_sha256": "8f51d874af5ee43e33c0f41c1b0846fb170e8ab639227d5dd630ae68a4f0d4da",
+      "raw_bytes": 55878,
+      "git_blob_sha1": "ac73fcb3b019661fc22e5efd04100db17720029d",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [
+        {
+          "line": 7,
+          "text": ":Author: Raymond Hettinger",
+          "raw_byte_range": [
+            74,
+            101
+          ]
+        },
+        {
+          "line": 1506,
+          "text": "    # Verify that update_wrapper() correctly copied attributes",
+          "raw_byte_range": [
+            46166,
+            46229
+          ]
+        }
+      ],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "documentation/howto/descriptor",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required.",
+      "security_review": {
+        "raw_sha256": "8f51d874af5ee43e33c0f41c1b0846fb170e8ab639227d5dd630ae68a4f0d4da",
+        "redact_ranges": [
+          [
+            101,
+            135
+          ]
+        ],
+        "reason": "Obfuscated attribution contact moved to provenance; author identity retained. Existing reviewed-contact mechanism unchanged."
+      }
+    },
+    "cpython/Doc/tutorial/controlflow.rst": {
+      "raw_sha256": "1e589edc233e3654a8a64073e1cce668304453c1d64e163955df8e08dec73f66",
+      "raw_bytes": 40828,
+      "git_blob_sha1": "8261bbdbfb7a018dfbf08462aacc3bd709603313",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "file_notices": [
+        {
+          "line": 108,
+          "text": "The given end point is never part of the generated sequence; ``range(10)`` generates",
+          "raw_byte_range": [
+            3054,
+            3139
+          ]
+        },
+        {
+          "line": 1065,
+          "text": ".. sectionauthor:: Zachary Ware <zachary.ware@gmail.com>",
+          "raw_byte_range": [
+            37186,
+            37243
+          ]
+        },
+        {
+          "line": 1099,
+          "text": ".. sectionauthor:: Georg Brandl <georg@python.org>",
+          "raw_byte_range": [
+            38561,
+            38612
+          ]
+        }
+      ],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "documentation/tutorial/controlflow",
+      "split": "train",
+      "domain": "documentation",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/autowrap_integrators.py": {
+      "raw_sha256": "f9ceb7c70f0c5d88d3796045f318f9816379853007ac965281339676b7b6ca3a",
+      "raw_bytes": 8893,
+      "git_blob_sha1": "3fbfdf7aae12f050c0a1f9142fce945f28dfa86d",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/autowrap",
+      "split": "validation",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/autowrap_ufuncify.py": {
+      "raw_sha256": "7862e4205f47f4af8ffed257e33eb0d0b39c7a3ce809ff00ee83b9a341ccce2a",
+      "raw_bytes": 2388,
+      "git_blob_sha1": "4c62e4d003bd52663f285f67f320b31687a5f82a",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/autowrap",
+      "split": "validation",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/fem.py": {
+      "raw_sha256": "11ea83913d7b97476fadf1cedc82fd0936e9173c82b11ed51863c082b4c8e97e",
+      "raw_bytes": 5567,
+      "git_blob_sha1": "732a2c4a801364957133457d9787882b4e3d5baf",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/fem",
+      "split": "validation",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/gibbs_phenomenon.py": {
+      "raw_sha256": "4f108481d41a1067664c96ec14bf05b577c4386077e2ac0ad2f59e8c2467ba04",
+      "raw_bytes": 3544,
+      "git_blob_sha1": "2eb7767cc8ff69e84dd7c9f463bab55f1b24ab3e",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/gibbs",
+      "split": "validation",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/dense_coding_example.py": {
+      "raw_sha256": "204cf579b7b0160b8cfd0fd2ae0d7c2fd0daf66cc46c69e5961066b17035a45e",
+      "raw_bytes": 1501,
+      "git_blob_sha1": "9d3d42ea9cc9df77758b929d8536279a8ae9d52d",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/quantum-circuits",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/grover_example.py": {
+      "raw_sha256": "dc7bcd99538cfa47c299800b48bdd5062cab0346fdf00db405ecaf19d63de9fb",
+      "raw_bytes": 2081,
+      "git_blob_sha1": "5d52c28408e334270390f006054ee713ebaac2ea",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/quantum-circuits",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/qft.py": {
+      "raw_sha256": "727107daba56101b73f2c8947c82ee04f91304028897e906129db7399776a5ca",
+      "raw_bytes": 3401,
+      "git_blob_sha1": "135e19a95eff23755f077e977c4b3bc3431a68c9",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/quantum-circuits",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/relativity.py": {
+      "raw_sha256": "ebf2f93738de552d503086dd72142a129e7dc86ee0718b30610eec463f208482",
+      "raw_bytes": 4312,
+      "git_blob_sha1": "56a9eafd449d5c9c37e01e92e6ea26332b60f173",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/relativity",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/intermediate/coupled_cluster.py": {
+      "raw_sha256": "b3fb7692b30dc02d5b47fe162fcbb1d13530800884a238060cd93a577b69d6a6",
+      "raw_bytes": 3689,
+      "git_blob_sha1": "dcf388070c864a23e5da224a3aafce207877d63c",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/coupled-cluster",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/intermediate/infinite_1d_box.py": {
+      "raw_sha256": "ff8010c43e90e2d4393a74c4e55f7cc86dcf230eca1a238fad903bb53f7bec61",
+      "raw_bytes": 2914,
+      "git_blob_sha1": "646b26ce38313d1966fd26085a1f1333c2b05ec6",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/infinite-box",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/examples/advanced/curvilinear_coordinates.py": {
+      "raw_sha256": "42c79fe58aae48fb2a1f00636c32d92d33dfc2e1169ef70778daf3db96237339",
+      "raw_bytes": 3694,
+      "git_blob_sha1": "0d4f9c8374bd73fd083998fa3ef6dbd538e8263c",
+      "mode": "100755",
+      "decision": "REJECT_FILE_MODE",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Not admitted: mode fails frozen control gate; permissive root license cannot override this gate.",
+      "authored_generated_assessment": "Authored examples, not executed; mode exclusion applies regardless.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "examples/curvilinear",
+      "split": "test",
+      "domain": "code",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    },
+    "sympy/doc/src/guides/solving/solve-matrix-equation.md": {
+      "raw_sha256": "2d9a4275b79e36aa0adbcacf9576fda62ec6faad9cc8abd50ed557fefa4d5111",
+      "raw_bytes": 11275,
+      "git_blob_sha1": "03317ba1d49182e6b365892f7390019c08294e3d",
+      "mode": "100644",
+      "decision": "ADMIT_TO_FILTERING",
+      "root_license_sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+      "file_notices": [],
+      "license_control_assessment": "Exact first-party document, outside listed alternate-license scopes; no conflicting local license/copy attribution found. Root and historical notices retained in provenance.",
+      "authored_generated_assessment": "Authored HOWTO/tutorial/guide; generated/derived/copy terms inspected refer to language/runtime behavior, not file generation or outside authorship.",
+      "third_party_assessment": "No imported third-party textual material identified; external references are pointers, not downloaded content. No include expansion.",
+      "source_unit": "mathematical-guide/matrix-equation",
+      "split": "test",
+      "domain": "structured_math",
+      "independence_assessment": "New document path; same-role existing enum/socket units preserved. Other HOWTO/tutorial documents are separately authored documents. Matrix guide is distinct from reserved roots/Diophantine/ODE guides; global duplicate gates still required."
+    }
+  }
+}
