@@ -1,5 +1,13 @@
 # Project state
 
+## Current real-data diagnostic: IN PROGRESS
+
+- Authorized fixed 250-update CUDA FP32 diagnostic, seed 17, batch 2, accumulation 2, 32-byte windows; unchanged accepted model/trainer and frozen corpus. Test remains sealed except hash verification.
+- Input hashes and identical recovered initialization verified. Prior pre-update process disappeared without completed validation or updates; its evidence is preserved in `data/real-diagnostic-2m-v1/pre_update_recovery.json`.
+- Initial full-validation NLL 5.6641971743927; update-5 full-validation NLL 4.1410332130298615. Real-data smoke and exact serialized checkpoint/RNG/optimizer/cursor/semantic-metric comparison passed; all 56 tensors received finite nonzero gradients.
+- Update 125 checkpoint exists under `data/real-diagnostic-2m-v1/resumed/checkpoints/step_000125`; midpoint full validation is currently running. Do not restart completed updates. Runner: `scripts/real_training_diagnostic.py`; immutable input binding and live progress reside under `data/real-diagnostic-2m-v1`.
+- No full pretraining authorization; final diagnostic status remains pending.
+
 ## Current final corpus boundary: READY FOR REAL-DATA TRAINING REVIEW
 
 - Human-approved file-mode v2 admits cached regular 100755 source blobs as inert bytes; every other gate remains unchanged. Eleven reviewed SymPy files passed filtering, global deduplication, exhaustive contamination v2 and project-fixture exclusions, with no new download or execution.
