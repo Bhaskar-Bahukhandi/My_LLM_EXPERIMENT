@@ -1,0 +1,51 @@
+{
+  "result": {
+    "status": "INTERRUPTED TRAJECTORY RECOVERY: EXACT PASS",
+    "durable": {
+      "path": "attempt-001/checkpoints/step_000252",
+      "step": 252,
+      "micro_step": 504,
+      "windows": 1008,
+      "bytes": 32233,
+      "scheduler_step": 252,
+      "cursor_epoch": 0,
+      "cursor_offset": 1008,
+      "cursor_order_sha256": "a9c86cffd06240b52dd5d65d57fe402c3beadf7d1b9b1b9ba7b5dd927dd24777",
+      "parameter_sha256": "fdbb04dc285d4931a079d5180d0ac3b9139ff4466760654360445966b70d08a4"
+    },
+    "last_original_completed_step": 432,
+    "original_progress_step": 431,
+    "original_temporary_step": 432,
+    "replay_first": 253,
+    "replay_last": 432,
+    "physical_replay_updates": 180,
+    "physical_replay_bytes": 22980,
+    "logical_updates_added": 0,
+    "semantic_max_error": 0.0,
+    "cursor_ordering": "every replay update checked against frozen BatchStream permutation",
+    "recovery_checkpoint": "attempt-002/checkpoints/step_000432",
+    "recovered_parameter_sha256": "ffb28893fc1dbee1cfd43b794fa7c14d8eee4db2749ed0292a425b231e0167e3",
+    "locking_process": "UNKNOWN; WinError 5 was observed, not attributed to a specific process",
+    "hash_verified_candidate_paths": [
+      "attempt-000/checkpoints/step_000250",
+      "attempt-000/checkpoints/step_000252",
+      "attempt-001/checkpoints/step_000252"
+    ]
+  },
+  "amendment": {
+    "version": 1,
+    "production_id": "edge-2m-one-pass-v1",
+    "binding_sha256": "3e73bbae47f291e3fa7e3e1faffb01332349f2a6601c9e2ac448e1e5c32da986",
+    "original_runner_sha256": "bb466cd50b72a805d119765c4593372643057efd3780c6cf00a9d38a47d6b1b4",
+    "corrected_runner_sha256": "295b7f39661a9a04d9698e1fe2ad3e190257961697e5b9b4b954f64b128ab974",
+    "publisher_sha256": "bb608e024def29d8beeb96dbe25ec9cb3c20d861f8c82dd54ad05300ca729c7f",
+    "recovery_script_sha256": "eb5ad18cf17b5b4d295c941fc4eff63bc7c34fcce52b35c770a8de940f6c66f9",
+    "reason": "Windows progress publication robustness only; model/training semantics unchanged",
+    "cadence": "observation every update; progress every 100 plus checkpoint/evaluation/status",
+    "publication": "unique temporary JSON; flush/fsync; six bounded attempts, backoff 0.05,0.1,0.2,0.4,0.8 seconds; prior valid progress survives exhaustion",
+    "interrupted_inventory_sha256": "9e5a7ed4e072608fcc73076805c4bc1791e0d242a5e23a43c51ad18a735463a9"
+  },
+  "inventory_sha256": "9e5a7ed4e072608fcc73076805c4bc1791e0d242a5e23a43c51ad18a735463a9",
+  "regression_tests": "3 focused tests PASS (10.91s), including real CPU replay and corpus/config incompatibility rejection",
+  "semantics": "No model, optimizer, training config, schedule, data order or CUDA profile change"
+}

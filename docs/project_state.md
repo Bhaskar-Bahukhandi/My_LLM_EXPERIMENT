@@ -2,6 +2,10 @@
 
 ## Current full-2M production Stage A: IN PROGRESS
 
+- WINDOWS INTERRUPTION RECOVERED: original progress publication failed with WinError 5 after update 432; durable checkpoint 252, progress.json 431, valid progress.tmp/journal 432. Original artifacts/hash inventory and runner preserved under `data/full-training-2m-v1/recovery-v1`.
+- EXACT RECOVERY: updates 253..432 replayed (180 physical updates, zero new logical updates), all semantic metrics and frozen cursor ordering exact. Recovery checkpoint `attempt-002/checkpoints/step_000432`; report `reports/full_training_2m_stage_a_recovery.json`. Existing 0/250 validation/generation and full-schedule resume proof reused.
+- Bookkeeping amendment only: unique fsynced temp JSON, six bounded sharing-error attempts, progress cadence 100 updates plus every checkpoint/evaluation/status transition. Per-update observation journal unchanged. Immutable binding not rewritten; amendment binds original/corrected runner hashes. Three focused regression tests passed. Resume the same production run from 433; stop remains 5000.
+
 - Human-authorized final-run schedule starts fresh from the accepted seed-17 checksum, not diagnostic weights. Production identity `edge-2m-one-pass-v1`; artifacts `data/full-training-2m-v1/` are explicitly ignored.
 - Actual frozen WindowDataset: **312,666 windows**, four windows/update. Full TrainingConfig total_steps **78,167**; last full update crosses into epoch 1 by two windows (64 bytes). Stage A stops at **5,000**, retaining the same full scheduler for later review-authorized continuation.
 - Unchanged CUDA FP32 / RTX 2050 / PyTorch 2.6.0+cu118 profile; batch 2, accumulation 2, length 32, AdamW .003, decay .01, clip 1, minimum LR ratio .1. Five-update warmup explicitly preserved from the validated diagnostic.

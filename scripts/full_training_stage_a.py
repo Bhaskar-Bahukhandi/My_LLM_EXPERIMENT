@@ -14,6 +14,7 @@ from benchmark_fingerprints import canonical
 from corpus_acquisition import PILOT, ROOT, digest, read, write_new
 from corpus_freeze import verify_manifest
 from real_training_diagnostic import tensor_hash
+from training_progress import publish_progress
 
 from unified_edge.resolve import ResolvedConfig
 from unified_edge.training.checkpoint import load_checkpoint
@@ -144,6 +145,9 @@ def run(resume):
     assert driver == frozen["driver"]
     if resume:
         binding = read(RUN / "binding.json")
+        amendment = read(RUN / "recovery-v1/amendment.json")
+        assert digest(Path(__file__).read_bytes()) == amendment["corrected_runner_sha256"]
+        assert digest((RUN / "binding.json").read_bytes()) == amendment["binding_sha256"]
         progress = read(RUN / "progress.json")
         assert binding["training_config"] == config.to_dict()
         assert binding["schedule"] == schedule
@@ -198,9 +202,7 @@ def run(resume):
         }
 
     def publish():
-        path = RUN / "progress.tmp"
-        path.write_text(json.dumps(progress, indent=2, allow_nan=False), encoding="utf-8")
-        path.replace(RUN / "progress.json")
+        publish_progress(RUN / "progress.json", progress)
 
     def save():
         path = trainer.save()
@@ -253,8 +255,8 @@ def run(resume):
         with (trainer.run_dir / "observations.jsonl").open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(row, allow_nan=False) + "\n")
         progress["step"] = trainer.global_step
-        publish()
         if trainer.global_step % 100 == 0:
+            publish()
             print("Update", trainer.global_step, row["moving_mean_100_nll"], flush=True)
 
     def prove_resume():
