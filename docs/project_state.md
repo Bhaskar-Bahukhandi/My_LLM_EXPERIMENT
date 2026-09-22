@@ -1,17 +1,15 @@
 # Project state
 
-## Current full-2M production Stage A: IN PROGRESS
+## Current full-2M production Stage A: READY FOR CONTINUATION REVIEW
 
-- WINDOWS INTERRUPTION RECOVERED: original progress publication failed with WinError 5 after update 432; durable checkpoint 252, progress.json 431, valid progress.tmp/journal 432. Original artifacts/hash inventory and runner preserved under `data/full-training-2m-v1/recovery-v1`.
-- EXACT RECOVERY: updates 253..432 replayed (180 physical updates, zero new logical updates), all semantic metrics and frozen cursor ordering exact. Recovery checkpoint `attempt-002/checkpoints/step_000432`; report `reports/full_training_2m_stage_a_recovery.json`. Existing 0/250 validation/generation and full-schedule resume proof reused.
-- Bookkeeping amendment only: unique fsynced temp JSON, six bounded sharing-error attempts, progress cadence 100 updates plus every checkpoint/evaluation/status transition. Per-update observation journal unchanged. Immutable binding not rewritten; amendment binds original/corrected runner hashes. Three focused regression tests passed. Resume the same production run from 433; stop remains 5000.
-
-- Human-authorized final-run schedule starts fresh from the accepted seed-17 checksum, not diagnostic weights. Production identity `edge-2m-one-pass-v1`; artifacts `data/full-training-2m-v1/` are explicitly ignored.
-- Actual frozen WindowDataset: **312,666 windows**, four windows/update. Full TrainingConfig total_steps **78,167**; last full update crosses into epoch 1 by two windows (64 bytes). Stage A stops at **5,000**, retaining the same full scheduler for later review-authorized continuation.
-- Unchanged CUDA FP32 / RTX 2050 / PyTorch 2.6.0+cu118 profile; batch 2, accumulation 2, length 32, AdamW .003, decay .01, clip 1, minimum LR ratio .1. Five-update warmup explicitly preserved from the validated diagnostic.
-- Full validation and fixed empty/The/def/import/class/x-prefix greedy probes at 0/250/1000/2500/5000. TEST remains sealed except hash checks. Diagnostic reports/checkpoints preserved by hash.
-- Runner `scripts/full_training_stage_a.py`; immutable `binding.json` and current `progress.json` in the production directory. Update-0 full validation has started after initialization/input gates passed; do not restart it while the process is alive.
-- Nineteen targeted schedule/probe/training/profile tests passed before launch. Final status and continuation recommendation remain pending. No step beyond 5,000 is authorized in this tranche.
+- Completed and stopped at **5,000 logical updates / 10,000 microsteps / 20,000 windows / 639,613 target bytes**. Full schedule remains 78,167, seed 17, CUDA FP32, length 32, batch 2, accumulation 2, AdamW .003, warmup 5. No additional production update during finalization.
+- Full 500,000-byte validation at 0/250/1000/2500/5000: **5.6641971744 / 2.7356225964 / 2.5240430368 / 2.4254003321 / 2.3624953916**. Every interval improves. Trailing 100-update train mean 2.3284301907. Greedy empty/BOS remains 64 spaces; conditioned probes produce short fragments then spaces. This is qualitative degeneracy despite healthy validation, not meaningful language capability.
+- Final checkpoint `data/full-training-2m-v1/attempt-003/checkpoints/step_005000`; exact model/optimizer/scheduler/counters/cursor/Python+CPU+CUDA RNG restoration and all six generation probes PASS. Parameter SHA-256 `4b8416333d4faf32b86d20eabd2addf6bb6fb39c52783a3427597657db71584d`.
+- Recovery correction already committed at **5879c142a295e8beac38e0839eec91eb9dbfd5ab**. Original WinError 5 after logical 432, durable 252; updates 253..432 replayed exactly once (180 updates / 22,980 bytes). Two-update resume proof adds 256 bytes. Total physical replay overhead 182 updates / 728 windows / 23,236 bytes, excluded from logical count. Original snapshots, runner identities, amendment and recovery report preserved.
+- All 5,000 logical journal rows and ten checkpoints independently verified; corpus/model/config/diagnostic hashes unchanged. TEST sealed except hash checks. 22 focused CPU and two selected CUDA tests PASS; Ruff/format/compile and both dependency checks PASS. Optional unused NumPy bridge warning persists.
+- Peak CUDA allocated/reserved 108,640,768 / 127,926,272 bytes; minimum sampled free VRAM 3,306,894,132. Peak observed process working set 1,034,629,120 bytes. Logical-update throughput 173.757238 target bytes/s, excluding validation/replay/downtime; separate autograd bytes unmeasured.
+- Reports: `reports/full_training_2m_stage_a.md` and `.json`; read-only artifact finalizer `scripts/finish_full_training_stage_a.py`. Existing production/recovery code, `src/`, corpus, schedule and environments unchanged. Generated training artifacts remain ignored.
+- **32-byte windows expose approximately four completed payload patches; no long-context retention or 4K/32K/1M context claim.** STOP for human choice between completing the existing 32-byte one-pass schedule and a separately reviewed longer-window curriculum. No automatic continuation beyond 5,000, TEST evaluation, RSI or later scale.
 
 ## Current real-data diagnostic: READY FOR FULL 2M TRAINING REVIEW
 
