@@ -1,5 +1,13 @@
 # Project state
 
+## Future-capabilities specification: READY FOR HUMAN REVIEW
+
+- Published specification commit `dabe922ecd09762ccbbbe3e11b484ca8c4177024` already exists and is preserved. Addendum v1.0, AC-006/007/008 and the machine-readable contract remain unchanged.
+- FINAL Bible/Roadmap remain byte-identical to their frozen SHA-256 identities. All three focused specification tests, explicit JSON parse, local-link/fence checks and Ruff/format checks pass. Test changes are formatting-only, with identical AST. Review reports: `reports/future_capabilities_addendum_review.md` and `.json`.
+- All new features remain PROPOSED / NOT IMPLEMENTED / NOT ENABLED. DOCUMENTATION != IMPLEMENTATION. No model/training/data/checkpoint/environment change occurred. No context-certification benchmark or distribution-probability study ran.
+- Current 2M Stage-A evidence is unchanged and authoritative. No RSI, effort implementation, 2M continuation or 20M work is authorized by documentation alone; the next model/training action requires separate human authorization.
+
+
 ## Current full-2M production Stage A: READY FOR CONTINUATION REVIEW
 
 - Completed and stopped at **5,000 logical updates / 10,000 microsteps / 20,000 windows / 639,613 target bytes**. Full schedule remains 78,167, seed 17, CUDA FP32, length 32, batch 2, accumulation 2, AdamW .003, warmup 5. No additional production update during finalization.

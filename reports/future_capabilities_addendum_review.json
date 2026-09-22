@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "status": "READY_FOR_HUMAN_REVIEW",
+  "review_date": "2026-09-22",
+  "previous_head": "dabe922ecd09762ccbbbe3e11b484ca8c4177024",
+  "specification_commit": "dabe922ecd09762ccbbbe3e11b484ca8c4177024",
+  "specification_commit_subject": "Changes",
+  "published_history_policy": "Preserved; new closeout commit only; no amend/rebase/squash/force push",
+  "files_created_in_specification_commit": [
+    "Unified_Edge400_Future_Capabilities_Addendum_v1.0.md",
+    "docs/architecture_changes/AC-006_Verified_RSI_Framework.md",
+    "docs/architecture_changes/AC-007_Adaptive_Reasoning_Effort.md",
+    "docs/architecture_changes/AC-008_Context_and_Distribution_Promotion_Gates.md",
+    "docs/future_capabilities_contract_v1.json",
+    "tests/test_future_capabilities_spec.py"
+  ],
+  "closeout_files": [
+    "reports/future_capabilities_addendum_review.md",
+    "reports/future_capabilities_addendum_review.json",
+    "docs/project_state.md",
+    "tests/test_future_capabilities_spec.py"
+  ],
+  "already_present_in_final_specs": [
+    {
+      "features": [
+        "byte-native architecture",
+        "patch hierarchy"
+      ],
+      "references": "Bible sections 6-8, 17-18, 136; Roadmap W05-W08, sections 10, 13"
+    },
+    {
+      "features": [
+        "Mamba",
+        "MoE planning"
+      ],
+      "references": "Bible sections 9, 11-13, 44, 76, 127-128; Roadmap W09-W10, W17-W20, sections 12, 15; AC-003 remains deferred"
+    },
+    {
+      "features": [
+        "RAG",
+        "provenance"
+      ],
+      "references": "Bible sections 20-21, 40, 92, 104; Roadmap W29-W32, section 19"
+    },
+    {
+      "features": [
+        "tools",
+        "sandbox",
+        "verifier",
+        "bounded repair"
+      ],
+      "references": "Bible sections 22-30, 54, 88-89, 103-105; Roadmap W33-W36, section 20"
+    },
+    {
+      "features": [
+        "specialization profiles",
+        "quantization"
+      ],
+      "references": "Bible sections 164, 45-48; Roadmap W38-W39, W41-W42, section 21"
+    },
+    {
+      "features": [
+        "optional latent recurrent reasoning",
+        "K=1/2/4/8 research"
+      ],
+      "references": "Bible section 165; Roadmap W45-W46, section 27"
+    },
+    {
+      "features": [
+        "promotion/rollback concepts"
+      ],
+      "references": "Bible sections 97, 120, 143, 146, 157, 169; Roadmap section 8, sections 28-29"
+    }
+  ],
+  "newly_formalized": [
+    {
+      "features": [
+        "verified RSI lineage",
+        "PROPOSE != PROMOTE",
+        "RSI-0..RSI-4 maturity model",
+        "immutable parent/child generations"
+      ],
+      "why": "Make successor identity, authority, bounded succession and recoverable parent preservation explicit. Scale does not guarantee maturity."
+    },
+    {
+      "features": [
+        "independent promotion evaluator",
+        "candidate-hidden evaluation",
+        "anti-gaming contract"
+      ],
+      "why": "Separate candidate optimization from trusted measurement and promotion; evaluator gaming remains a central unresolved risk."
+    },
+    {
+      "features": [
+        "multi-fidelity RSI experimentation"
+      ],
+      "why": "Screen ideas cheaply while requiring actual target-scale replication before promotion."
+    },
+    {
+      "features": [
+        "Auto/Low/Medium/High/Ultra effort contract"
+      ],
+      "why": "Compose finite host compute envelopes per generation without permanent label-to-K mapping or private reasoning disclosure."
+    },
+    {
+      "features": [
+        "contradiction-aware correction"
+      ],
+      "why": "Require provenance-bearing evidence, bounded revision and explicit unresolved termination; distinguish correction from training/modification/RSI."
+    },
+    {
+      "features": [
+        "mechanical/trained/effective context certification"
+      ],
+      "why": "Prevent streaming capacity or aggregate corpus size from being presented as demonstrated retention; preserve the 32-byte Stage-A limitation."
+    },
+    {
+      "features": [
+        "distribution-collapse diagnostics",
+        "expanded multi-metric promotion gate"
+      ],
+      "why": "Lower NLL and whitespace argmax do not establish useful generation or probability collapse; examine probabilities and hard regression/security gates separately."
+    }
+  ],
+  "manual_content_audit": {
+    "A_verified_rsi": {
+      "result": "PASS",
+      "evidence": "AC-006 lifecycle, 15 invariants, maturity table and anti-gaming sections; addendum sections 9-13, 18-21"
+    },
+    "B_multi_fidelity": {
+      "result": "PASS",
+      "evidence": "AC-006 multi-fidelity section; addendum sections 2, 14: accepted six-scale ladder, proxy caveat, mandatory target-scale replication"
+    },
+    "C_adaptive_effort": {
+      "result": "PASS",
+      "evidence": "AC-007 resolved policy, budget table and bounded Auto; addendum sections 5-7"
+    },
+    "D_contradiction_correction": {
+      "result": "PASS",
+      "evidence": "AC-007 correction flow and distinct correction/training/modification/RSI definitions; addendum section 8"
+    },
+    "E_context": {
+      "result": "PASS",
+      "evidence": "AC-008 three context concepts and fields; 32/8=4 payload patches; no effective 4K/32K/1M claim; addendum section 16"
+    },
+    "F_distribution": {
+      "result": "PASS",
+      "evidence": "AC-008 conditional byte probabilities, entropy/top-1/top-2/margin/space/concentration/diversity/runs; separate original symbol/control mass; no collapse inference from argmax"
+    },
+    "G_base_path": {
+      "result": "PASS",
+      "evidence": "AC-007 base/off section and addendum section 3; independent disablement and declared compatibility contract"
+    },
+    "H_host_boundary": {
+      "result": "PASS",
+      "evidence": "Addendum section 4 and AC-006 external authority; host owns controllers, sandbox and promotion; no neural promotion privilege"
+    }
+  },
+  "corrected_defects": [
+    "Test-file formatting only: two E501 overlong hash literal lines fixed with parentheses; Ruff expanded the authority set. AST identical; no specification defect found or wording changed."
+  ],
+  "validation": [
+    {
+      "command": ".venv/Scripts/python.exe -m ruff format tests/test_future_capabilities_spec.py",
+      "result": "Formatting completed; hash literals then wrapped to fix E501; final format check passes"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m ruff check tests/test_future_capabilities_spec.py",
+      "result": "PASS after two E501 line-length corrections"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/test_future_capabilities_spec.py -q -p no:cacheprovider",
+      "result": "3 passed in 0.23s"
+    },
+    {
+      "command": "json.loads(Path(\"docs/future_capabilities_contract_v1.json\").read_text(encoding=\"utf-8\"))",
+      "result": "PASS; explicit standalone parse"
+    },
+    {
+      "command": "AST comparison of test file with dabe922e; hash-object comparison of five spec artifacts and both Stage-A reports",
+      "result": "PASS; test behavior unchanged; published specification and Stage-A content unchanged"
+    },
+    {
+      "command": "Focused tests: local Markdown link resolution and balanced code fences",
+      "result": "PASS for addendum and all three AC documents"
+    }
+  ],
+  "final_specification_hashes": {
+    "Unified_Edge400_Master_Bible_v3.0_FINAL.md": {
+      "pre_sha256": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
+      "post_sha256": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
+      "exact_match": true
+    },
+    "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md": {
+      "pre_sha256": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99",
+      "post_sha256": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99",
+      "exact_match": true
+    }
+  },
+  "preserved_artifacts": {
+    "Unified_Edge400_Future_Capabilities_Addendum_v1.0.md": {
+      "local_sha256": "ad0f6ef8092ef48fcf7b3e91a0214fa73b02fafbad1215d8f3717545a951ef87",
+      "unchanged_from_specification_commit": true
+    },
+    "docs/architecture_changes/AC-006_Verified_RSI_Framework.md": {
+      "local_sha256": "fcecafa32af6495a699ac59a4d6f77e70af57470d3bc9ef215e058340e219885",
+      "unchanged_from_specification_commit": true
+    },
+    "docs/architecture_changes/AC-007_Adaptive_Reasoning_Effort.md": {
+      "local_sha256": "4f5d472eb402b149b515bfe3710317337a7cb3b653774fe2bb0616aa77bfb2d7",
+      "unchanged_from_specification_commit": true
+    },
+    "docs/architecture_changes/AC-008_Context_and_Distribution_Promotion_Gates.md": {
+      "local_sha256": "4b37b71915133012e3172cd5c266d1a353a2ae0b494fac6a7ec468c53d6f121b",
+      "unchanged_from_specification_commit": true
+    },
+    "docs/future_capabilities_contract_v1.json": {
+      "local_sha256": "32957c6142e01eab7ed6385ab46af2e7731da1d859d53e6ace89af7be246cd55",
+      "unchanged_from_specification_commit": true
+    },
+    "reports/full_training_2m_stage_a.md": {
+      "local_sha256": "06299d471fce4bd0af2af554ca62dfb00cbe79d6bb549d47fc42987463c96ec6",
+      "unchanged_from_specification_commit": true
+    },
+    "reports/full_training_2m_stage_a.json": {
+      "local_sha256": "078b4b36c2432e7da9ad19f8df27d2461a614b28ec7c5bef6c1dab6607899fe8",
+      "unchanged_from_specification_commit": true
+    }
+  },
+  "implementation_status": {
+    "principle": "DOCUMENTATION != IMPLEMENTATION",
+    "feature_states": {
+      "verified_rsi": "PROPOSED_NOT_IMPLEMENTED_NOT_ENABLED",
+      "adaptive_reasoning_effort": "PROPOSED_NOT_IMPLEMENTED_NOT_ENABLED",
+      "contradiction_aware_correction": "PROPOSED_NOT_IMPLEMENTED_NOT_ENABLED",
+      "context_certification": "PROPOSED_NOT_IMPLEMENTED_NOT_ENABLED",
+      "distribution_promotion_gates": "PROPOSED_NOT_IMPLEMENTED_NOT_ENABLED"
+    },
+    "rsi_implementation": "NOT_IMPLEMENTED",
+    "effort_controller": "NOT_IMPLEMENTED",
+    "context_certification_benchmark": "NOT_RUN",
+    "distribution_probability_study": "NOT_RUN",
+    "model_code_changed": false,
+    "model_weights_changed": false,
+    "training_occurred": false,
+    "checkpoint_changed": false,
+    "data_changed": false,
+    "environment_changed": false,
+    "work_20m_started": false
+  },
+  "prohibitions": [
+    "overwrite_parent",
+    "modify_evaluator",
+    "access_or_modify_hidden_evaluation_data",
+    "modify_promotion_thresholds",
+    "increase_resource_allowance",
+    "self_promote",
+    "write_production_code",
+    "modify_host_permissions",
+    "increase_own_maturity_level",
+    "unbounded_repair_or_rsi",
+    "mandatory_private_chain_of_thought",
+    "automatic_activation_by_documentation"
+  ],
+  "unresolved_questions": [
+    "Does proxy-scale improvement transfer to target scales?",
+    "Can this model meaningfully propose architectural improvements?",
+    "How much evaluator information can be exposed without harmful overfitting?",
+    "How can evaluator gaming and cumulative hidden-set leakage be detected?",
+    "How should Auto select effort budgets and handle unreliable confidence signals?",
+    "Does latent recurrent depth earn its latency/memory cost?",
+    "What is useful effective context for a recurrent model across different tasks?",
+    "How should capability-versus-efficiency tradeoffs be resolved?",
+    "At what scale, if any, does model-generated research become useful?",
+    "Can bounded RSI remain stable over repeated generations?",
+    "Does Mamba-2 remain the best trunk at future scales?"
+  ],
+  "rollback": "Published dabe922e and Stage-A 3a719dfb history retained; no model artifact modified; finalization is documentation/test formatting only.",
+  "next_step": "Human review of the proposals; any implementation, benchmark, model or training action requires separate authorization.",
+  "limits": "Document integrity and manual contract review only. No runtime isolation, RSI efficacy, effort benefit, context retention or probability distribution behavior is validated by these tests."
+}

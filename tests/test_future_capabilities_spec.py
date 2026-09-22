@@ -8,10 +8,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "docs/future_capabilities_contract_v1.json"
 FINAL_HASHES = {
-    "Unified_Edge400_Master_Bible_v3.0_FINAL.md":
-        "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
-    "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md":
-        "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99",
+    "Unified_Edge400_Master_Bible_v3.0_FINAL.md": (
+        "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75"
+    ),
+    "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md": (
+        "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99"
+    ),
 }
 
 
@@ -35,9 +37,14 @@ def test_contract_enumerations_and_no_activation():
     assert contract["resource_bounded_requirement"]["mandatory"] is True
     assert contract["resource_bounded_requirement"]["nested_budget_reset_permitted"] is False
     assert {
-        "overwrite_parent", "modify_evaluator", "access_or_modify_hidden_evaluation_data",
-        "modify_promotion_thresholds", "increase_resource_allowance", "self_promote",
-        "write_production_code", "modify_host_permissions",
+        "overwrite_parent",
+        "modify_evaluator",
+        "access_or_modify_hidden_evaluation_data",
+        "modify_promotion_thresholds",
+        "increase_resource_allowance",
+        "self_promote",
+        "write_production_code",
+        "modify_host_permissions",
     } <= set(contract["prohibited_candidate_authorities"])
 
 
