@@ -8,6 +8,52 @@ from collections import Counter
 from context_distribution_study import ROOT, STUDY, Store, read, sha, verify_inventory
 from context_study_metrics import LENGTHS, distribution_summary, paired_summary, require
 
+from unified_edge.training.config import canonical_hash
+
+VALIDATION_FILES = (
+    "scripts/context_distribution_study.py",
+    "scripts/context_study_metrics.py",
+    "scripts/context_study_positions.py",
+    "scripts/resume_context_distribution_study.py",
+    "scripts/finish_context_distribution_study.py",
+    "tests/test_context_distribution_study.py",
+)
+
+
+def validation_closeout(path=None):
+    path = path or STUDY / "validation-closeout" / "commands.json"
+    envelope = read(path)
+    value = envelope["value"]
+    require(envelope["sha256"] == canonical_hash(value), "validation evidence hash mismatch")
+    require(value["schema"] == "study-validation-1", "validation evidence schema mismatch")
+    require(value["final_integrity"]["status"] == "PASS", "final integrity gate failed")
+    expected = {
+        "pytest",
+        "ruff",
+        "format",
+        "compileall",
+        "cpu_dependencies",
+        "cuda_dependencies",
+        "diff",
+    }
+    require(
+        {row["name"] for row in value["commands"]} == expected, "missing final validation command"
+    )
+    require(len(value["commands"]) == len(expected), "duplicate validation commands")
+    require(all(row["returncode"] == 0 for row in value["commands"]), "final validation failed")
+    require(set(value["files_sha256"]) == set(VALIDATION_FILES), "incomplete tested-file inventory")
+    for relative, digest in value["files_sha256"].items():
+        require(sha(ROOT / relative) == digest, "validation evidence is stale: " + relative)
+    require(
+        value["measurement_integrity"]
+        == {
+            "main": sha(STUDY / "integrity_final.json"),
+            "positions": sha(STUDY / "position-distributions" / "integrity_final.json"),
+        },
+        "validation predates final measurements",
+    )
+    return dict(value, evidence_sha256=sha(path))
+
 
 def probability_summary(rows):
     summary = distribution_summary(rows)
@@ -49,7 +95,7 @@ def whitespace_summary(rows):
 def build(recommendation, rationale):
     binding = read(STUDY / "binding.json")
     store = Store(STUDY, binding)
-    require(store.get("integrity_final") is not None, "study not complete")
+    require((store.get("integrity_final") or {}).get("status") == "PASS", "study not complete")
     verify_inventory(binding["parent_before"])
     segmented = {str(n): store.get(f"segmented_{n}") for n in LENGTHS}
     require(all(segmented.values()), "missing segmented measurement")
@@ -90,7 +136,10 @@ def build(recommendation, rationale):
     position_root = STUDY / "position-distributions"
     position_binding = read(position_root / "binding.json")
     position_store = Store(position_root, position_binding)
-    require(position_store.get("integrity_final") is not None, "position survey incomplete")
+    require(
+        (position_store.get("integrity_final") or {}).get("status") == "PASS",
+        "position survey incomplete",
+    )
     position_rows = [
         position_store.get(f"context_{i:04d}") for i in range(len(position_binding["selections"]))
     ]
@@ -135,24 +184,40 @@ def build(recommendation, rationale):
     }
     result = {
         "schema": "context-distribution-review-1",
-        "validation": {
-            "focused_command": ".venv/Scripts/python.exe -m pytest "
-            "tests/test_context_distribution_study.py tests/test_training.py "
-            "tests/test_dense_model.py tests/test_future_capabilities_spec.py "
-            "-q -p no:cacheprovider",
-            "focused_result": "40 passed in 106.96s; optional unused NumPy bridge warning",
-            "supplemental_test_result": "11 passed in 3.46s; includes position sampling",
-            "ruff_check": "PASS on all five new Python files",
-            "ruff_format_check": "PASS on all five new Python files",
-            "compileall": "PASS on all five new Python files",
-            "cpu_pip_check": "No broken requirements found",
-            "cuda_pip_check": "No broken requirements found",
-        },
+        "validation": validation_closeout(),
         "probability_precision": (
             "FP32 logits; FP64 probability diagnostics; original FP32 objective. "
             "Space top2 means rank exactly 2."
         ),
         "status": "READY_FOR_HUMAN_DECISION",
+        "context_scope": {
+            "trained_window_bytes": 32,
+            "mechanically_measured_lengths": list(LENGTHS),
+            "maximum_scored_conditioning_bytes": 256,
+            "effective_context_certification": "UNVERIFIED",
+            "retention_benchmarks": "NOT_RUN",
+        },
+        "interpretation": {
+            "A_aggregate_reset_sensitivity": "Segmented NLL range is below2e-8; effectively "
+            "indistinguishable under the fixed protocol. This alone says nothing universal "
+            "about useful history.",
+            "B_matched_history_benefit": "All512 paired NLL deltas are exactly0 at64/128/256; "
+            "95% paired bootstrap intervals are[0,0], including every domain. "
+            "The current checkpoint obtains no measurable extra-history benefit for these "
+            "boundary targets. Identical boundary posteriors flag history insensitivity; "
+            "the internal cause is not identified by this study.",
+            "C_late_position_behavior": "No late bucket degrades against its own first bucket; "
+            "differences remain below0.8%. Buckets contain different targets, so lower "
+            "late NLL is not evidence of causal context use.",
+            "D_distribution_quality": "Boundary contexts have broad argmax-space dominance. "
+            "Greedy whitespace primarily has moderate space concentration: probabilities "
+            "and entropy cycle every8-byte patch instead of tending to a point mass. "
+            "Position-stratified results are descriptive and reported separately.",
+            "E_compute_cost": "All four forward/backward probes pass with56 finite gradient "
+            "tensors and zero updates. Longest probe peaks below100MB allocated. "
+            "The first32-byte cold probe is slower than64; single-shot timings are not "
+            "an asymptotic fit or a sustained training-speed estimate.",
+        },
         "binding": binding,
         "study_binding_sha256": sha(STUDY / "binding.json"),
         "measurement_hashes": {
@@ -230,6 +295,14 @@ def build(recommendation, rationale):
             ),
         },
         "plan_b": {
+            "candidate_curriculum_for_review": "64 then128 bytes, with256 considered only after "
+            "separate phase review; no immediate curriculum change is supported by current "
+            "matched-target quality evidence.",
+            "compute_basis": "All lengths mechanically pass; measured batch2 forward/backward "
+            f"totals at64/128/256 are {mechanics['64']['total_seconds']:.3f}/"
+            f"{mechanics['128']['total_seconds']:.3f}/{mechanics['256']['total_seconds']:.3f}s, "
+            "without optimizer update. "
+            "These single cold probes are not sustained production estimates.",
             "status": "DESIGN_REVIEW_ONLY_NOT_IMPLEMENTED",
             "review_items": [
                 (
@@ -259,6 +332,9 @@ def build(recommendation, rationale):
             ],
         },
         "limitations": [
+            "Segmented seconds sum measured block wall durations and exclude publication/setup "
+            "and interruption downtime; throughput uses those measured durations, not total "
+            "end-to-end elapsed time.",
             "32-byte timing overlaps focused CPU regression work and includes instrumentation; "
             "do not compare it as pure backend latency with historical validation. "
             "Disposable mechanics run after the other work.",
@@ -293,6 +369,11 @@ def build(recommendation, rationale):
             ),
         ],
         "anomalies": [
+            "Original process ended after 304 anchors. All 117 segment blocks, four summaries "
+            "and 304 anchors verified and reused. Published tooling commit advanced HEAD only; "
+            "a checksummed recovery reconciliation preserves the original producer/binding.",
+            "Removed prewritten finalizer test claims; actual final command outputs, durations "
+            "and tested-file hashes are required from validation-closeout/commands.json.",
             "Before distribution measurement, review identified exact-L matched targets are patch "
             "boundaries. Added separately bound position-stratified survey reusing frozen anchors; "
             "no main measurement/protocol rewritten or restarted.",
@@ -306,6 +387,7 @@ def build(recommendation, rationale):
                 "environment modifications."
             ),
         ],
+        "recovery_reconciliation": read(STUDY / "recovery-v1/reconciliation.json"),
         "stage_a_report_identity": binding["parent_before"][
             "reports/full_training_2m_stage_a.json"
         ],
@@ -375,6 +457,12 @@ def markdown(r):
                 f"{m['peak_allocated_bytes'] / 2**20:.2f}/{m['peak_reserved_bytes'] / 2**20:.2f} |"
             )
         )
+    lines += [
+        "",
+        "Published tooling/resume commit: "
+        f"`{r['recovery_reconciliation']['resume_source']['commit']}`. "
+        "Original launch binding remains immutable; producer hashes match.",
+    ]
     memories = [v["memory"] for v in r["segmented"].values()]
     free_mib = min(v["minimum_sampled_free_bytes"] for v in memories) / 2**20
     lines += ["", f"Minimum sampled free VRAM: {free_mib:.2f} MiB."]
@@ -582,6 +670,7 @@ def markdown(r):
         ),
         "",
     ]
+    lines += [r["plan_b"]["candidate_curriculum_for_review"], r["plan_b"]["compute_basis"], ""]
     lines += ["- " + s for s in r["plan_b"]["review_items"]]
     lines += ["", "## Recovery, limitations and validation", ""]
     lines += ["- " + s for s in r["anomalies"] + r["limitations"]]
@@ -594,7 +683,7 @@ def markdown(r):
         "- " + r["optional_sampling"],
         "- " + r["optional_stream"],
         "",
-        "Detailed validation closeout is recorded in the JSON validation field.",
+        "Final validation results below come from the checksummed command artifact.",
         "",
         (
             "No production training, model architecture, weights, checkpoint, "
@@ -605,6 +694,24 @@ def markdown(r):
         "2M CONTEXT-DISTRIBUTION STUDY STATUS: READY FOR HUMAN DECISION",
         "",
     ]
+    interpretation_lines = ["## Five separate interpretation questions", ""]
+    for name, answer in r["interpretation"].items():
+        interpretation_lines += [f"**{name.replace('_', ' ')}:** {answer}", ""]
+    lines[-2:-2] = interpretation_lines
+    validation_lines = [
+        "## Actual final checks",
+        "",
+        "| Command | Exit code | Wall seconds |",
+        "|---|---:|---:|",
+    ]
+    test_summary = ""
+    for row in r["validation"]["commands"]:
+        validation_lines.append(f"| {row['name']} | {row['returncode']} | {row['seconds']:.3f} |")
+        if row["name"] == "pytest":
+            summary = [line for line in row["stdout"].splitlines() if " passed" in line]
+            test_summary = "Pytest: " + " ".join(summary)
+    validation_lines += ["", test_summary, ""]
+    lines[-2:-2] = validation_lines + [""]
     return "\n".join(lines)
 
 

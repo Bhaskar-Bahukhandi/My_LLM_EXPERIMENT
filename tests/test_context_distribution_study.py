@@ -245,3 +245,65 @@ def test_position_survey_strata_are_deterministic_and_bounded():
         assert 0 <= row["position"] < row["length"]
         assert row["anchor"]["offset"] - row["position"] >= 0
         assert row["anchor"]["offset"] % row["length"] == row["position"]
+
+
+def test_resume_commit_metadata_does_not_accept_changed_model_source():
+    from resume_context_distribution_study import bound_source
+
+    original = {"commit": "parent", "source_sha256": "same"}
+    current = {"commit": "published", "source_sha256": "same", "dirty": True}
+    assert bound_source(current, original) == dict(current, commit="parent")
+    with pytest.raises(ValueError, match="model source changed"):
+        bound_source(dict(current, source_sha256="different"), original)
+
+
+def test_finalizer_requires_actual_complete_and_current_validation_evidence(tmp_path, monkeypatch):
+    import json
+
+    import finish_context_distribution_study as finalizer
+
+    from unified_edge.training.config import canonical_hash
+
+    monkeypatch.setattr(finalizer, "ROOT", tmp_path)
+    monkeypatch.setattr(finalizer, "STUDY", tmp_path / "study")
+    for name in finalizer.VALIDATION_FILES:
+        p = tmp_path / name
+        p.parent.mkdir(exist_ok=True)
+        p.write_text("tested content")
+    for name in ("integrity_final.json", "position-distributions/integrity_final.json"):
+        p = tmp_path / "study" / name
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("completed measurements")
+    value = {
+        "schema": "study-validation-1",
+        "final_integrity": {"status": "PASS"},
+        "commands": [
+            {"name": n, "returncode": 0}
+            for n in (
+                "pytest",
+                "ruff",
+                "format",
+                "compileall",
+                "cpu_dependencies",
+                "cuda_dependencies",
+                "diff",
+            )
+        ],
+        "files_sha256": {n: finalizer.sha(tmp_path / n) for n in finalizer.VALIDATION_FILES},
+        "measurement_integrity": {
+            "main": finalizer.sha(tmp_path / "study/integrity_final.json"),
+            "positions": finalizer.sha(
+                tmp_path / "study/position-distributions/integrity_final.json"
+            ),
+        },
+    }
+    path = tmp_path / "validation.json"
+    path.write_text(json.dumps({"value": value, "sha256": canonical_hash(value)}))
+    assert finalizer.validation_closeout(path)["commands"] == value["commands"]
+    (tmp_path / finalizer.VALIDATION_FILES[0]).write_text("changed since tests")
+    with pytest.raises(ValueError, match="stale"):
+        finalizer.validation_closeout(path)
+    value["commands"] = value["commands"][:-1]
+    path.write_text(json.dumps({"value": value, "sha256": canonical_hash(value)}))
+    with pytest.raises(ValueError, match="missing final validation"):
+        finalizer.validation_closeout(path)
