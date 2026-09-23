@@ -270,13 +270,21 @@ def test_finalizer_requires_actual_complete_and_current_validation_evidence(tmp_
         p = tmp_path / name
         p.parent.mkdir(exist_ok=True)
         p.write_text("tested content")
-    for name in ("integrity_final.json", "position-distributions/integrity_final.json"):
+    for name in (
+        "integrity_final.json",
+        "position-distributions/integrity_final.json",
+        "phase-matched/integrity_final.json",
+        "phase-matched/architecture_sanity.json",
+    ):
         p = tmp_path / "study" / name
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text("completed measurements")
     value = {
         "schema": "study-validation-1",
-        "final_integrity": {"status": "PASS"},
+        "final_integrity": {
+            "status": "PASS",
+            "measurement_set_sha256": finalizer.measurement_sets(),
+        },
         "commands": [
             {"name": n, "returncode": 0}
             for n in (
@@ -292,6 +300,10 @@ def test_finalizer_requires_actual_complete_and_current_validation_evidence(tmp_
         "files_sha256": {n: finalizer.sha(tmp_path / n) for n in finalizer.VALIDATION_FILES},
         "measurement_integrity": {
             "main": finalizer.sha(tmp_path / "study/integrity_final.json"),
+            "phases": finalizer.sha(tmp_path / "study/phase-matched/integrity_final.json"),
+            "architecture_sanity": finalizer.sha(
+                tmp_path / "study/phase-matched/architecture_sanity.json"
+            ),
             "positions": finalizer.sha(
                 tmp_path / "study/position-distributions/integrity_final.json"
             ),
@@ -300,6 +312,11 @@ def test_finalizer_requires_actual_complete_and_current_validation_evidence(tmp_
     path = tmp_path / "validation.json"
     path.write_text(json.dumps({"value": value, "sha256": canonical_hash(value)}))
     assert finalizer.validation_closeout(path)["commands"] == value["commands"]
+    changed_measurement = tmp_path / "study/phase-matched/batch_00_phase_0.json"
+    changed_measurement.write_text("new measurement after validation")
+    with pytest.raises(ValueError, match="measurement set is stale"):
+        finalizer.validation_closeout(path)
+    changed_measurement.unlink()
     (tmp_path / finalizer.VALIDATION_FILES[0]).write_text("changed since tests")
     with pytest.raises(ValueError, match="stale"):
         finalizer.validation_closeout(path)

@@ -6,6 +6,8 @@ import statistics
 from collections import Counter
 
 from context_distribution_study import ROOT, STUDY, Store, read, sha, verify_inventory
+from context_phase_summary import markdown as phase_markdown
+from context_phase_summary import summarize as phase_summary
 from context_study_metrics import LENGTHS, distribution_summary, paired_summary, require
 
 from unified_edge.training.config import canonical_hash
@@ -17,7 +19,27 @@ VALIDATION_FILES = (
     "scripts/resume_context_distribution_study.py",
     "scripts/finish_context_distribution_study.py",
     "tests/test_context_distribution_study.py",
+    "scripts/context_study_phases.py",
+    "scripts/context_phase_summary.py",
+    "scripts/validate_context_study.py",
+    "tests/test_context_study_phases.py",
+    "tests/test_training.py",
+    "tests/test_dense_model.py",
+    "tests/test_future_capabilities_spec.py",
 )
+
+
+def measurement_sets():
+    return {
+        name or "main": canonical_hash(
+            {
+                p.name: sha(p)
+                for p in sorted((STUDY / name).glob("*.json"))
+                if p.name != "progress.json"
+            }
+        )
+        for name in ("", "position-distributions", "phase-matched")
+    }
 
 
 def validation_closeout(path=None):
@@ -27,6 +49,10 @@ def validation_closeout(path=None):
     require(envelope["sha256"] == canonical_hash(value), "validation evidence hash mismatch")
     require(value["schema"] == "study-validation-1", "validation evidence schema mismatch")
     require(value["final_integrity"]["status"] == "PASS", "final integrity gate failed")
+    require(
+        value["final_integrity"]["measurement_set_sha256"] == measurement_sets(),
+        "validation measurement set is stale",
+    )
     expected = {
         "pytest",
         "ruff",
@@ -49,6 +75,8 @@ def validation_closeout(path=None):
         == {
             "main": sha(STUDY / "integrity_final.json"),
             "positions": sha(STUDY / "position-distributions" / "integrity_final.json"),
+            "phases": sha(STUDY / "phase-matched" / "integrity_final.json"),
+            "architecture_sanity": sha(STUDY / "phase-matched" / "architecture_sanity.json"),
         },
         "validation predates final measurements",
     )
@@ -156,6 +184,20 @@ def build(recommendation, rationale):
                 )
                 for d in domains
             },
+            "domain_buckets": {
+                d: {
+                    str(b): probability_summary(
+                        [
+                            v["distribution"]
+                            for v in selected
+                            if v["selection"]["anchor"]["domain"] == d
+                            and v["selection"]["position"] // 32 == b
+                        ]
+                    )
+                    for b in range(n // 32)
+                }
+                for d in domains
+            },
             "buckets": {
                 str(b): probability_summary(
                     [v["distribution"] for v in selected if v["selection"]["position"] // 32 == b]
@@ -198,24 +240,25 @@ def build(recommendation, rationale):
             "retention_benchmarks": "NOT_RUN",
         },
         "interpretation": {
-            "A_aggregate_reset_sensitivity": "Segmented NLL range is below2e-8; effectively "
+            "A_aggregate_reset_sensitivity": "Segmented NLL range is below 2e-8; effectively "
             "indistinguishable under the fixed protocol. This alone says nothing universal "
             "about useful history.",
-            "B_matched_history_benefit": "All512 paired NLL deltas are exactly0 at64/128/256; "
-            "95% paired bootstrap intervals are[0,0], including every domain. "
+            "B_matched_history_benefit": "All 512 paired NLL deltas are exactly 0 at 64/128/256; "
+            "95% paired bootstrap intervals are [0,0], including every domain. "
             "The current checkpoint obtains no measurable extra-history benefit for these "
-            "boundary targets. Identical boundary posteriors flag history insensitivity; "
-            "the internal cause is not identified by this study.",
+            "boundary targets. The boundary-only result motivates the separate "
+            "phase/logit/state supplement; "
+            "no universal context claim follows from the original NLL equality.",
             "C_late_position_behavior": "No late bucket degrades against its own first bucket; "
-            "differences remain below0.8%. Buckets contain different targets, so lower "
+            "differences remain below 0.8%. Buckets contain different targets, so lower "
             "late NLL is not evidence of causal context use.",
             "D_distribution_quality": "Boundary contexts have broad argmax-space dominance. "
             "Greedy whitespace primarily has moderate space concentration: probabilities "
-            "and entropy cycle every8-byte patch instead of tending to a point mass. "
+            "and entropy cycle every 8-byte patch instead of tending to a point mass. "
             "Position-stratified results are descriptive and reported separately.",
-            "E_compute_cost": "All four forward/backward probes pass with56 finite gradient "
-            "tensors and zero updates. Longest probe peaks below100MB allocated. "
-            "The first32-byte cold probe is slower than64; single-shot timings are not "
+            "E_compute_cost": "All four forward/backward probes pass with 56 finite gradient "
+            "tensors and zero updates. Longest probe peaks below 100 MB allocated. "
+            "The first 32-byte cold probe is slower than 64; single-shot timings are not "
             "an asymptotic fit or a sustained training-speed estimate.",
         },
         "binding": binding,
@@ -246,6 +289,12 @@ def build(recommendation, rationale):
         },
         "distributions": distributions,
         "position_distributions": position_distributions,
+        "position_distribution_summary": probability_summary(
+            [v["distribution"] for v in position_rows]
+        ),
+        "whitespace_diagnosis": "MIXED: broad-distribution argmax attractor at boundaries, "
+        "mostly moderate space concentration during greedy loops; rare severe individual "
+        "contexts do not establish global probability collapse.",
         "position_binding": position_binding,
         "position_measurement_hashes": {
             p.name: sha(p)
@@ -332,6 +381,8 @@ def build(recommendation, rationale):
             ],
         },
         "limitations": [
+            "Phase-only batch-8 supplement records inference wall time but no dedicated "
+            "allocator/RSS series; memory tables describe the original segmented/mechanics runs.",
             "Segmented seconds sum measured block wall durations and exclude publication/setup "
             "and interruption downtime; throughput uses those measured durations, not total "
             "end-to-end elapsed time.",
@@ -392,6 +443,28 @@ def build(recommendation, rationale):
             "reports/full_training_2m_stage_a.json"
         ],
     }
+    result["phase_supplement"] = phase_summary()
+    result["future_ab"] = {
+        "status": "PROPOSAL_ONLY_NOT_AUTHORIZED_NOT_RUN",
+        "parent": "immutable step 5000; separate disposable clones, never production resume",
+        "arms": "A:32 bytes; B:64 bytes (128 only if separately chosen before experiment)",
+        "budget": "Proposed cap: 65,536 valid target bytes per arm and 30 minutes per arm; "
+        "if either cap prevents matched exposure, report the mismatch and do not promote. "
+        "Predeclare equal valid target-byte exposure and a common compute ceiling; "
+        "report actual compute, do not imply equal bytes guarantee equal wall time. "
+        "For a compute-matched comparison, predeclare a separate common wall-time endpoint.",
+        "controls": "Same corpus/document eligibility, seed, optimizer-state initialization, "
+        "learning-rate policy and target order. Explicitly bind changed window/cursor semantics.",
+        "evaluation": "Identical accepted 32-byte validation, segmented and phase-matched "
+        "targets, distribution probes, learning gain per target-byte and second; TEST sealed.",
+        "promotion": "Discard both unless separately reviewed and explicitly promoted; "
+        "no A/B training or production continuation authorized by this report.",
+    }
+    result["anomalies"].append(
+        "Phase runner preflight hit a list-conversion TypeError before saving any result. "
+        "Empty failed binding preserved in phase-matched-preflight-001; corrected producer "
+        "bound separately before measurement. No completed measurement recomputed."
+    )
     return result
 
 
@@ -594,6 +667,12 @@ def markdown(r):
         )
     lines += [
         "",
+        "Joint length/domain/32-byte-bucket statistics, top-1 concentration and "
+        "control-vs-byte mass are preserved in JSON; this survey is descriptive.",
+        "Position-survey classes: "
+        + json.dumps(r["position_distribution_summary"]["class_counts"]),
+        r["whitespace_diagnosis"],
+        "",
         "## Historical generation and whitespace runs",
         "",
         (
@@ -711,6 +790,12 @@ def markdown(r):
             summary = [line for line in row["stdout"].splitlines() if " passed" in line]
             test_summary = "Pytest: " + " ".join(summary)
     validation_lines += ["", test_summary, ""]
+    lines[-2:-2] = phase_markdown(r["phase_supplement"])
+    lines[-2:-2] = (
+        ["## Future disposable A/B proposal — not authorization", ""]
+        + [f"- **{k}:** {v}" for k, v in r["future_ab"].items()]
+        + [""]
+    )
     lines[-2:-2] = validation_lines + [""]
     return "\n".join(lines)
 

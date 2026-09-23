@@ -1,5 +1,18 @@
 # Project state
 
+## 2M context-distribution study: READY FOR HUMAN DECISION
+
+- Immutable parent remains step 5000: 1,929,579 parameters, parameter SHA-256 `4b8416333d4faf32b86d20eabd2addf6bb6fb39c52783a3427597657db71584d`. No production update, weights/checkpoint/corpus/environment/model-source change; all ten accepted production checkpoints and frozen specifications verified unchanged. TEST remains sealed except streaming integrity hashes.
+- Original completed measurements reused: segmented 32/64/128/256 NLL remains approximately 2.36249539; all 512 boundary matched targets have exactly zero extra-history NLL deltas, including every domain. Original binding, 425 recovered measurement files, and published intermediate commits `84d4f9a49e7225aab408458cbd590fada61597ab` and `2cfacda43fc648e4938e710199976cae6bacfb90` remain preserved.
+- Separate phase supplement completed: 128 fixed validation anchors, eight phases, histories 32+r/64+r/128+r/248+r, 4,096 scores. All paired deltas and 95% intervals are exactly zero in every phase/domain. Aggregate NLL 2.7129827217 across phases; this separately selected protocol is not a replacement for original validation.
+- Mechanism: **INTERNAL_STATE_DIFFERS_OUTPUT_INSENSITIVE**. All 256 forensic pairs have different shared states but bitwise-identical logits and identical decoder hidden states; q total variation is zero. Seed-43 untrained architecture sanity with an identical recent 32-byte suffix passes (maximum logit difference 0.782281518). This demonstrates possible architectural transmission, not why the trained checkpoint suppresses older-history effects.
+- Completed 480-context position survey is descriptive. Whitespace diagnosis is mixed: broad boundary argmax-space dominance plus mostly moderate concentration in greedy loops; 17/480 sampled contexts meet the severe threshold, without evidence of global collapse. All six historical greedy outputs reproduce exactly.
+- Existing four disposable mechanics probes pass with 56 finite gradient tensors and zero optimizer updates. Single cold timings do not establish sustained training cost; effective context remains UNVERIFIED. Optional altered-prefix ablation and disposable training A/B were NOT_RUN.
+- Final actual validation receipt: **47 tests passed**, Ruff, format, compileall, CPU/CUDA dependency and diff checks pass. Receipts bind command output/timing, tested-file hashes and complete measurement-set hashes; stale evidence is rejected. Optional unused NumPy bridge warning persists.
+- Recommendation: **MORE_EVIDENCE_REQUIRED**. Review a separately authorized, bounded disposable 32-vs-64 continuation A/B before choosing a 73,167-update continuation or production curriculum. No A/B, production continuation, TEST evaluation, 20M, RSI, effort controller or MoE authorized or run here. Step 5000 remains the rollback point.
+- Reports: `reports/context_distribution_study_2m.md` and `reports/context_distribution_study_2m.json`. Ignored raw measurements remain under `data/context-study-2m-v1/`; only isolated evaluation tooling/tests, reports and this ledger are part of closeout.
+
+
 ## Future-capabilities specification: READY FOR HUMAN REVIEW
 
 - Published specification commit `dabe922ecd09762ccbbbe3e11b484ca8c4177024` already exists and is preserved. Addendum v1.0, AC-006/007/008 and the machine-readable contract remain unchanged.
