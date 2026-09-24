@@ -1,5 +1,16 @@
 # Project state
 
+## 2M disposable context-training A/B: READY FOR HUMAN DECISION
+
+- Production parent remains immutable step 5000 (parameter SHA-256 `4b8416333d4faf32b86d20eabd2addf6bb6fb39c52783a3427597657db71584d`). Both branches are DISPOSABLE_AB_ONLY; no production continuation or promotion occurred. All ten production checkpoints, progress/cursor, accepted reports, corpus, model source and FINAL specifications remain unchanged; TEST is sealed except integrity hashes.
+- Each arm completed 512 optimizer updates on the same 512 non-overlapping TRAIN blocks: 128 target bytes/update, 65,536 target bytes total. A uses 4x32-byte resets and B uses 2x64; independent parent model/AdamW/scheduler/RNG clones and exact per-update byte equality were verified. Scheduler progression 5000 to 5512 is experiment-local.
+- Full 500,000-target validation NLL: parent 2.3624953916; A32 2.3516379566; B64 2.3514031205 when evaluated at 32. At 64: A 2.3516379470; B 2.3514031097. B-A full32 difference is -0.0002348361, but B did not learn useful history: all phase-matched extra-history deltas remain zero and all 256 final forensic pairs retain identical logits despite differing shared states in both arms.
+- Distribution tradeoff: severe validation-context concentration increased from 17/480 to 22/480 in both arms; whitespace-heavy greedy outputs persist. This is not evidence of global probability collapse. Measured update time A 116.36s, B 152.20s; no physical replay updates. End-to-end study time and separate activation memory were not instrumented; timing is confounded by sequential order.
+- Actual closeout validation: 43 focused A/B, trainer/checkpoint and context tests passed; Ruff, formatting, compileall, CPU/CUDA dependency and diff checks passed. All eight disposable checkpoints restore exactly; final six generations per arm reproduce after restoration. Optional unused NumPy bridge warning remains. Machine-readable receipts bind tested files and measurements.
+- Recommendation: **CONTINUE_32_BYTE_RUN**, HUMAN REVIEW ONLY. This does not authorize production continuation. One seed and a small matched exposure do not certify effective context or settle scaling value. Step 5000 remains the authoritative rollback point; no curriculum, TEST evaluation, 20M, RSI, MoE or effort implementation occurred.
+- Reports: `reports/context_training_ab_2m.md` and `reports/context_training_ab_2m.json`. Tooling, tests, reports and this ledger are tracked; disposable weights, training selections and raw journals remain ignored under `data/context-training-ab-2m-v1/`.
+
+
 ## 2M context-distribution study: READY FOR HUMAN DECISION
 
 - Immutable parent remains step 5000: 1,929,579 parameters, parameter SHA-256 `4b8416333d4faf32b86d20eabd2addf6bb6fb39c52783a3427597657db71584d`. No production update, weights/checkpoint/corpus/environment/model-source change; all ten accepted production checkpoints and frozen specifications verified unchanged. TEST remains sealed except streaming integrity hashes.
