@@ -14,6 +14,35 @@ class CheckpointError(ValueError):
     """A checkpoint is corrupt or incompatible with the requested run."""
 
 
+def parameter_inventory(model, optimizer, resolved_sha256: str) -> dict:
+    """Bind canonical names and optimizer order, counting aliases exactly once."""
+    names, tensors, aliases = {}, [], {}
+    for name, parameter in model.named_parameters(remove_duplicate=False):
+        if not parameter.requires_grad:
+            continue
+        if id(parameter) in names:
+            aliases[name] = names[id(parameter)]
+            continue
+        names[id(parameter)] = name
+        tensors.append(
+            {"name": name, "shape": list(parameter.shape), "dtype": str(parameter.dtype)}
+        )
+    grouped = [p for group in optimizer.param_groups for p in group["params"]]
+    if len(grouped) != len({id(p) for p in grouped}) or {id(p) for p in grouped} != set(names):
+        raise CheckpointError("optimizer must cover every unique trainable parameter exactly once")
+    return {
+        "schema": "1",
+        "resolved_sha256": resolved_sha256,
+        "tensors": tensors,
+        "aliases": aliases,
+        "unique_trainable_tensors": len(tensors),
+        "optimizer_parameter_names": [names[id(p)] for p in grouped],
+        "optimizer_state_semantics": (
+            "Lazy AdamW state exists exactly for positive per-parameter update counts."
+        ),
+    }
+
+
 def load_checkpoint(path: Path) -> dict:
     path = Path(path)
     try:
@@ -29,7 +58,7 @@ def load_checkpoint(path: Path) -> dict:
         if hashlib.sha256(target.read_bytes()).hexdigest() != record["sha256"]:
             raise CheckpointError("checkpoint SHA-256 mismatch")
         state = torch.load(target, map_location="cpu", weights_only=True)
-        if not isinstance(state, dict) or state.get("schema") != "2":
+        if not isinstance(state, dict) or state.get("schema") not in ("2", "3"):
             raise CheckpointError("unsupported checkpoint schema")
         return state
     except (OSError, EOFError, RuntimeError, pickle.UnpicklingError, json.JSONDecodeError) as error:
@@ -56,7 +85,8 @@ def save_checkpoint(path: Path, state: dict) -> Path:
             handle.flush()
             os.fsync(handle.fileno())
         load_checkpoint(scratch)
-        # On this Windows-local profile rename fails if the destination already exists.
+        # Same-parent rename publishes a complete directory on supported local filesystems.
+        # Run ownership is exclusive; neither API intentionally overwrites a checkpoint.
         if path.exists():
             raise FileExistsError(f"checkpoint already exists: {path.name}")
         os.rename(scratch, path)

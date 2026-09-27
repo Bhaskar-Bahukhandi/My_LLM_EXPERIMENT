@@ -8,6 +8,10 @@ import torch.nn.functional as F
 from unified_edge.training.config import TrainingConfig
 
 
+class NumericalTrainingError(ValueError):
+    """Nonfinite training state cannot proceed or be published as valid."""
+
+
 def raw_byte_nll(logits: torch.Tensor, targets: torch.Tensor) -> tuple[torch.Tensor, int]:
     if targets.dtype != torch.long or targets.ndim != 2 or targets.numel() == 0:
         raise ValueError("raw-byte targets must be nonempty int64 [B,T]")
@@ -17,7 +21,7 @@ def raw_byte_nll(logits: torch.Tensor, targets: torch.Tensor) -> tuple[torch.Ten
         raise ValueError("logits must match targets with 267 classes")
     loss_sum = F.cross_entropy(logits.flatten(0, 1), targets.flatten(), reduction="sum")
     if not torch.isfinite(loss_sum):
-        raise ValueError("non-finite raw-byte loss")
+        raise NumericalTrainingError("non-finite raw-byte loss")
     return loss_sum, targets.numel()
 
 
@@ -50,13 +54,13 @@ def build_optimizer(model, config: TrainingConfig):
 def finite_parameters(model, context: str):
     for name, parameter in model.named_parameters():
         if not torch.isfinite(parameter).all():
-            raise ValueError(f"{context}: non-finite parameter {name}")
+            raise NumericalTrainingError(f"{context}: non-finite parameter {name}")
 
 
 def finite_gradients(model, context: str):
     for name, parameter in model.named_parameters():
         if parameter.grad is not None and not torch.isfinite(parameter.grad).all():
-            raise ValueError(f"{context}: non-finite gradient {name}")
+            raise NumericalTrainingError(f"{context}: non-finite gradient {name}")
 
 
 class WarmupCosine:

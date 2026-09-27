@@ -5,6 +5,8 @@ import json
 import math
 from dataclasses import asdict, dataclass
 
+from unified_edge.training.device import device_index
+
 
 def canonical_hash(value: dict) -> str:
     return hashlib.sha256(
@@ -32,9 +34,10 @@ class TrainingConfig:
     device: str = "cpu"
 
     def __post_init__(self):
-        if self.device not in ("cpu", "cuda:0"):
+        device_index(self.device)
+        if self.schema == "1" and self.device not in ("cpu", "cuda:0"):
             raise ValueError("training device must be cpu or cuda:0; FP32 only")
-        if self.schema != "1":
+        if self.schema not in ("1", "2"):
             raise ValueError("unsupported training schema")
         for name in (
             "seed",

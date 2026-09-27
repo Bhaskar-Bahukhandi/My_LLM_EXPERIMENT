@@ -1,16 +1,67 @@
-"""Tensor payloads and Windows process working set, kept as distinct measurements."""
+"""Tensor payloads and OS-reported host resident memory; distinct from GPU/activations."""
 
 import ctypes
-import os
+import sys
 from ctypes import wintypes
+from pathlib import Path
 
 import torch
 
 
-def process_memory() -> dict:
-    if os.name != "nt":
-        return {"process_rss_status": "UNVERIFIED", "reason": "Windows measurement only"}
+def linux_rss(status: str) -> dict:
+    """Parse Linux /proc/self/status kB units (1024 bytes), not decimal kilobytes."""
+    fields = {}
+    for line in status.splitlines():
+        key, _, value = line.partition(":")
+        if key in ("VmRSS", "VmHWM"):
+            parts = value.split()
+            if key in fields or len(parts) != 2 or parts[1] != "kB" or not parts[0].isdigit():
+                raise ValueError("invalid Linux RSS field/units")
+            fields[key] = int(parts[0]) * 1024
+    if "VmRSS" not in fields:
+        raise ValueError("Linux status has no VmRSS")
+    return {"rss_bytes": fields["VmRSS"], "peak_rss_bytes": fields.get("VmHWM")}
 
+
+def process_memory() -> dict:
+    method = (
+        "GetProcessMemoryInfo WorkingSetSize" if sys.platform == "win32" else "/proc/self/status"
+    )
+    try:
+        if sys.platform == "win32":
+            measured = _windows_memory()
+        elif sys.platform.startswith("linux"):
+            measured = linux_rss(Path("/proc/self/status").read_text(encoding="ascii"))
+        else:
+            return {
+                "rss_bytes": None,
+                "source": None,
+                "method": None,
+                "supported": False,
+                "process_rss_status": "UNSUPPORTED",
+                "reason": "unsupported host platform",
+            }
+        return {
+            **measured,
+            "source": method,
+            "method": method,
+            "supported": True,
+            "process_rss_status": "MEASURED",
+            "process_rss_bytes": measured["rss_bytes"],
+            "process_peak_working_set_bytes": measured.get("peak_rss_bytes"),
+        }
+    except (OSError, ValueError) as error:
+        return {
+            "rss_bytes": None,
+            "source": method,
+            "method": method,
+            "supported": True,
+            "process_rss_status": "UNVERIFIED",
+            "reason": str(error),
+        }
+
+
+def _windows_memory() -> dict:
     class Counters(ctypes.Structure):
         _fields_ = [
             ("cb", wintypes.DWORD),
@@ -39,14 +90,9 @@ def process_memory() -> dict:
         data.cb = ctypes.sizeof(data)
         if not psapi.GetProcessMemoryInfo(kernel.GetCurrentProcess(), ctypes.byref(data), data.cb):
             raise ctypes.WinError(ctypes.get_last_error())
-        return {
-            "process_rss_status": "MEASURED",
-            "method": "GetProcessMemoryInfo WorkingSetSize",
-            "process_rss_bytes": data.WorkingSetSize,
-            "process_peak_working_set_bytes": data.PeakWorkingSetSize,
-        }
+        return {"rss_bytes": data.WorkingSetSize, "peak_rss_bytes": data.PeakWorkingSetSize}
     except OSError as error:
-        return {"process_rss_status": "UNVERIFIED", "reason": str(error)}
+        raise OSError(f"Windows working set unavailable: {error}") from error
 
 
 def training_memory(model, optimizer, batch: int) -> dict:
@@ -57,8 +103,14 @@ def training_memory(model, optimizer, batch: int) -> dict:
         for v in state.values()
         if isinstance(v, torch.Tensor)
     ]
-    state = model.shared.initialize_state(batch)
-    recurrent = [t for layer in state.layers for t in (layer.conv, layer.ssm)]
+    shape = model.config.shape
+    # Identical canonical state axes without allocating and zeroing scratch tensors.
+    recurrent_bytes = (
+        4
+        * batch
+        * shape.shared_layers
+        * ((shape.d_inner + 2 * shape.d_state) * shape.d_conv + shape.d_inner * shape.d_state)
+    )
 
     def payload(tensors):
         unique = {id(t): t for t in tensors}
@@ -68,8 +120,8 @@ def training_memory(model, optimizer, batch: int) -> dict:
         "parameter_bytes": payload(parameters),
         "gradient_bytes": payload([p.grad for p in parameters if p.grad is not None]),
         "optimizer_state_bytes": payload(optimizer_tensors),
-        "canonical_recurrent_state_bytes": payload(recurrent),
-        "recurrent_note": "standalone canonical allocation; not persistent trainer cache",
+        "canonical_recurrent_state_bytes": recurrent_bytes,
+        "recurrent_note": "analytic canonical FP32 axes; no allocation or persistent trainer cache",
         "activation_autograd_bytes": "UNMEASURED_SEPARATELY",
         **process_memory(),
         **({"cuda": cuda_memory(parameters[0].device)} if parameters[0].is_cuda else {}),

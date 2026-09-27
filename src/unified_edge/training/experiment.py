@@ -14,7 +14,17 @@ from unified_edge.training.checkpoint import load_checkpoint
 from unified_edge.training.config import TrainingConfig
 from unified_edge.training.data import create_tiny_fixture
 from unified_edge.training.memory import process_memory
+from unified_edge.training.optimization import NumericalTrainingError
 from unified_edge.training.trainer import Trainer
+
+
+class EvidenceIntegrityError(ValueError):
+    """A synthetic mechanics/evidence gate does not match its declared contract."""
+
+
+def require_evidence(condition, message: str):
+    if not condition:
+        raise EvidenceIntegrityError(message)
 
 
 def tree_error(actual, expected) -> float:
@@ -25,18 +35,24 @@ def tree_error(actual, expected) -> float:
             or actual.dtype != expected.dtype
             or actual.shape != expected.shape
         ):
-            raise AssertionError("state tensor structure mismatch")
+            raise EvidenceIntegrityError("state tensor structure mismatch")
         error = (actual.double() - expected.double()).abs().max().item() if actual.numel() else 0.0
         if not torch.equal(actual, expected):
-            raise AssertionError(f"resume tensor mismatch: max error {error}")
+            raise EvidenceIntegrityError(f"resume tensor mismatch: max error {error}")
         return error
     if isinstance(actual, dict):
-        assert actual.keys() == expected.keys()
+        require_evidence(
+            isinstance(expected, dict) and actual.keys() == expected.keys(),
+            "state mapping keys mismatch",
+        )
         return max((tree_error(actual[k], expected[k]) for k in actual), default=0.0)
     if isinstance(actual, (tuple, list)):
-        assert type(actual) is type(expected) and len(actual) == len(expected)
+        require_evidence(
+            type(actual) is type(expected) and len(actual) == len(expected),
+            "state sequence type/length mismatch",
+        )
         return max((tree_error(a, b) for a, b in zip(actual, expected, strict=True)), default=0.0)
-    assert actual == expected
+    require_evidence(actual == expected, "state scalar mismatch")
     return 0.0
 
 
@@ -55,13 +71,16 @@ def generate_bytes(model, length: int = 64) -> dict:
     try:
         for _ in range(length):
             logits = model.predict(state)
-            assert torch.isfinite(logits[:, :256]).all()
+            if not torch.isfinite(logits[:, :256]).all():
+                raise NumericalTrainingError("non-finite generation logits")
             control_argmax += int(logits.argmax(-1).item() >= 256)
             symbol = logits[:, :256].argmax(-1)
             output.append(symbol.item())
             state = model.consume(symbol, state)
-        assert state.shared.steps == 1 + length // 8
-        assert state.hierarchy.pending.shape[1] == length % 8
+        require_evidence(state.shared.steps == 1 + length // 8, "generation shared clock mismatch")
+        require_evidence(
+            state.hierarchy.pending.shape[1] == length % 8, "generation pending bytes mismatch"
+        )
     finally:
         model.train(was_training)
     payload = bytes(output)
@@ -124,7 +143,7 @@ def run_resume_gate(root: Path, model_config, manifest, data_root: Path) -> dict
         "torch_rng": torch.get_rng_state(),
     }
     error = tree_error(actual, expected)
-    assert resumed.stream.next_batch() == next_windows
+    require_evidence(resumed.stream.next_batch() == next_windows, "resume next batch mismatch")
     return {
         "total_updates": 6,
         "split_update": 3,
@@ -142,7 +161,8 @@ def trained_causality(model, payload: bytes) -> dict:
     full = model(data)
     allowed = torch.ones(267, dtype=torch.bool)
     allowed[256:258] = False
-    assert torch.isfinite(full[..., allowed]).all()
+    if not torch.isfinite(full[..., allowed]).all():
+        raise NumericalTrainingError("non-finite causality logits")
     maximum = 0.0
     for cut in (0, 7, 8, 9, 31, 32, 63, 64, 65, 127, 128, 129):
         altered = data.clone()
@@ -187,7 +207,8 @@ def run_overfit(root: Path, model_config) -> dict:
 
     def observe(name, gradient):
         nonlocal maximum_gradient
-        assert torch.isfinite(gradient).all(), name
+        if not torch.isfinite(gradient).all():
+            raise NumericalTrainingError(f"non-finite observed gradient: {name}")
         seen.add(name)
         maximum_gradient = max(maximum_gradient, gradient.abs().max().item())
         return gradient
@@ -212,7 +233,7 @@ def run_overfit(root: Path, model_config) -> dict:
         for handle in handles:
             handle.remove()
     duration = time.perf_counter() - started
-    assert len(seen) == len(names) == 56
+    require_evidence(seen == set(names.values()), "missing participating gradient parameter names")
     final_train, final_valid = snapshots[-1]["train"], snapshots[-1]["validation"]
     checkpoint = trainer.save()
     generation = generate_bytes(trainer.model)
@@ -226,13 +247,21 @@ def run_overfit(root: Path, model_config) -> dict:
     restored = Trainer(
         model_config, config, manifest, root / "data", root / "restored", resume_from=checkpoint
     )
-    assert tree_error(restored.model.state_dict(), saved["model"]) == 0
-    assert generate_bytes(restored.model) == generation
+    tree_error(restored.model.state_dict(), saved["model"])
+    require_evidence(generate_bytes(restored.model) == generation, "restored generation mismatch")
     with torch.inference_mode():
-        assert torch.equal(restored.model(output_targets), expected_output)
-    assert restored.validate("train")["raw_byte_nll"] == final_train["raw_byte_nll"]
+        require_evidence(
+            torch.equal(restored.model(output_targets), expected_output), "restored output mismatch"
+        )
+    require_evidence(
+        restored.validate("train")["raw_byte_nll"] == final_train["raw_byte_nll"],
+        "restored training NLL mismatch",
+    )
     restored_checkpoint = restored.save()
-    assert load_checkpoint(restored_checkpoint)["global_step"] == config.total_steps
+    require_evidence(
+        load_checkpoint(restored_checkpoint)["global_step"] == config.total_steps,
+        "restored checkpoint step mismatch",
+    )
     reduction = 1 - final_train["raw_byte_nll"] / initial_train["raw_byte_nll"]
     result = {
         "training_config": config.to_dict(),
@@ -268,5 +297,7 @@ def run_overfit(root: Path, model_config) -> dict:
     }
     with (root / "overfit_result.json").open("x", encoding="utf-8") as handle:
         json.dump(result, handle, indent=2, allow_nan=False)
-    assert result["passed_reduction_gate"], "fixed tiny-overfit training reduction gate failed"
+    require_evidence(
+        result["passed_reduction_gate"], "fixed tiny-overfit training reduction gate failed"
+    )
     return result

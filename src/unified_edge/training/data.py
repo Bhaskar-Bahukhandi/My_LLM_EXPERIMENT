@@ -5,10 +5,16 @@ import json
 import random
 from dataclasses import asdict, dataclass
 from pathlib import Path, PurePosixPath
+from types import MappingProxyType
+from typing import Mapping
 
 import torch
 
 from unified_edge.training.config import canonical_hash
+
+
+class DataIntegrityError(ValueError):
+    """Active data cannot be bound to the immutable runtime manifest."""
 
 
 def file_bytes(root: Path, relative: str) -> bytes:
@@ -44,7 +50,11 @@ class DatasetManifest:
     def __post_init__(self):
         if self.schema != "1" or not isinstance(self.corpus_id, str) or not self.corpus_id:
             raise ValueError("invalid dataset schema/corpus ID")
-        if not self.documents or not all(isinstance(d, Document) for d in self.documents):
+        if (
+            type(self.documents) is not tuple
+            or not self.documents
+            or not all(isinstance(d, Document) for d in self.documents)
+        ):
             raise ValueError("manifest requires documents")
         if len({d.path for d in self.documents}) != len(self.documents):
             raise ValueError("duplicate manifest document")
@@ -85,15 +95,21 @@ class DatasetManifest:
     def verify(self, root: Path) -> dict[str, bytes]:
         result = {}
         for d in self.documents:
-            payload = file_bytes(root, d.path)
+            try:
+                payload = file_bytes(root, d.path)
+            except OSError as error:
+                raise DataIntegrityError(f"active document unavailable: {d.path}") from error
             if len(payload) != d.byte_count or hashlib.sha256(payload).hexdigest() != d.sha256:
-                raise ValueError(f"dataset mutation detected: {d.path}")
+                raise DataIntegrityError(f"dataset mutation detected: {d.path}")
             result[d.path] = payload
         return result
 
     @classmethod
     def create(cls, root: Path, corpus_id: str, files: list[tuple[str, str, str]]):
         documents = []
+        # Reject sealed split requests before opening any payload, including in create().
+        if any(split not in ("train", "validation") for _, split, _ in files):
+            raise DataIntegrityError("active runtime manifest excludes TEST and unknown splits")
         for relative, split, domain in sorted(files):
             payload = file_bytes(root, relative)
             documents.append(
@@ -124,28 +140,78 @@ class Window:
     payload: bytes
 
 
+@dataclass(frozen=True, init=False)
+class VerifiedActiveData:
+    """Eager immutable TRAIN/VALIDATION buffers, hashed before their first use.
+
+    A future indexed loader must provide equivalently verified immutable shard handles;
+    reopening a mutable path as a previously verified shard is not this contract.
+    """
+
+    manifest: DatasetManifest
+    root: Path
+    manifest_sha256: str
+    buffers: Mapping[str, bytes]
+
+    def __init__(self, manifest: DatasetManifest, root: Path):
+        if not isinstance(manifest, DatasetManifest):
+            raise DataIntegrityError("active data requires a TRAIN/VALIDATION runtime manifest")
+        object.__setattr__(self, "manifest", manifest)
+        object.__setattr__(self, "root", Path(root).resolve())
+        object.__setattr__(self, "manifest_sha256", manifest.sha256)
+        object.__setattr__(self, "buffers", MappingProxyType(manifest.verify(self.root)))
+
+    def check_binding(self, manifest: DatasetManifest):
+        if manifest is not self.manifest or manifest.sha256 != self.manifest_sha256:
+            raise DataIntegrityError("active manifest identity changed")
+
+    def verify_disk(self):
+        self.check_binding(self.manifest)
+        self.manifest.verify(self.root)
+
+
+@dataclass(frozen=True, init=False)
 class WindowDataset:
-    def __init__(self, manifest: DatasetManifest, root: Path, split: str, length: int):
+    manifest: DatasetManifest
+    root: Path
+    snapshot: VerifiedActiveData
+    windows: tuple[Window, ...]
+
+    def __init__(
+        self,
+        manifest: DatasetManifest,
+        root: Path,
+        split: str,
+        length: int,
+        *,
+        snapshot: VerifiedActiveData | None = None,
+    ):
         if (
             split not in ("train", "validation")
             or type(length) is not int
             or not 1 <= length <= 256
         ):
             raise ValueError("invalid split or bounded window length")
-        self.manifest, self.root = manifest, Path(root)
-        documents = manifest.verify(self.root)
-        self.windows = tuple(
-            Window(d.path, start, documents[d.path][start : start + length])
+        snapshot = snapshot if snapshot is not None else VerifiedActiveData(manifest, root)
+        snapshot.check_binding(manifest)
+        if Path(root).resolve() != snapshot.root:
+            raise DataIntegrityError("active data root disagrees with verified snapshot")
+        object.__setattr__(self, "manifest", manifest)
+        object.__setattr__(self, "root", snapshot.root)
+        object.__setattr__(self, "snapshot", snapshot)
+        windows = tuple(
+            Window(d.path, start, snapshot.buffers[d.path][start : start + length])
             for d in manifest.documents
             if d.split == split
             for start in range(0, d.byte_count, length)
         )
+        object.__setattr__(self, "windows", windows)
 
     def __len__(self):
         return len(self.windows)
 
     def verify(self):
-        self.manifest.verify(self.root)
+        self.snapshot.verify_disk()
 
 
 def batches_by_length(windows: list[Window]) -> list[torch.Tensor]:

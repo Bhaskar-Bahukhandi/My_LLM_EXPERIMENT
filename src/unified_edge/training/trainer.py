@@ -15,22 +15,33 @@ import torch
 from unified_edge.dense_model import DenseByteModel
 from unified_edge.parameters import audit_parameters
 from unified_edge.resolve import ResolvedConfig
-from unified_edge.training.checkpoint import CheckpointError, load_checkpoint, save_checkpoint
+from unified_edge.training.checkpoint import (
+    CheckpointError,
+    load_checkpoint,
+    parameter_inventory,
+    save_checkpoint,
+)
 from unified_edge.training.config import TrainingConfig, canonical_hash
 from unified_edge.training.data import (
     BatchStream,
     DatasetManifest,
+    VerifiedActiveData,
     WindowDataset,
     batches_by_length,
 )
 from unified_edge.training.device import (
     CUDA_ALLOCATOR_BUDGET_BYTES,
+    DeviceAdmissionError,
+    DevicePolicy,
+    admit_memory,
     configure_device,
     cuda_rng_state,
     validate_cuda_rng,
 )
 from unified_edge.training.memory import training_memory
+from unified_edge.training.monitoring import MonitoringPolicy
 from unified_edge.training.optimization import (
+    NumericalTrainingError,
     WarmupCosine,
     build_optimizer,
     finite_gradients,
@@ -59,7 +70,7 @@ def code_identity() -> dict:
     }
 
 
-def environment(config: TrainingConfig) -> dict:
+def environment(config: TrainingConfig, policy: DevicePolicy | None = None) -> dict:
     result = {
         "python": platform.python_version(),
         "torch": str(torch.__version__),
@@ -68,19 +79,23 @@ def environment(config: TrainingConfig) -> dict:
         "threads": config.cpu_threads,
         "deterministic_algorithms": True,
     }
-    if config.device == "cuda:0":
-        properties = torch.cuda.get_device_properties(0)
+    if config.device.startswith("cuda:"):
+        properties = torch.cuda.get_device_properties(torch.device(config.device))
         result["cuda"] = {
             "runtime": torch.version.cuda,
             "cudnn": torch.backends.cudnn.version(),
             "gpu": properties.name,
             "compute_capability": [properties.major, properties.minor],
-            "allocator_budget_bytes": CUDA_ALLOCATOR_BUDGET_BYTES,
+            "allocator_budget_bytes": policy.allocator_cap_bytes
+            if policy
+            else CUDA_ALLOCATOR_BUDGET_BYTES,
             "tf32": False,
             "cudnn_benchmark": False,
             "cudnn_deterministic": True,
             "cublas_workspace_config": ":4096:8",
         }
+        if policy is not None:
+            result["cuda"]["admission_policy"] = policy.to_dict()
     return result
 
 
@@ -94,31 +109,61 @@ class Trainer:
         run_dir: Path,
         *,
         resume_from: Path | None = None,
+        monitoring: MonitoringPolicy = MonitoringPolicy(),
+        device_policy: DevicePolicy | None = None,
     ):
         if not isinstance(model_config, ResolvedConfig) or not isinstance(config, TrainingConfig):
             raise TypeError("trainer requires validated model and training configurations")
         self.config, self.model_config, self.manifest = config, model_config, manifest
+        if not isinstance(monitoring, MonitoringPolicy):
+            raise TypeError("trainer requires a typed MonitoringPolicy")
+        if device_policy is not None and config.schema != "2":
+            raise ValueError("named device policies require current training schema 2")
+        self.monitoring, self.device_policy = monitoring, device_policy
+        self.observations = {
+            "full_data_verifications": 0,
+            "data_verification_seconds": 0.0,
+            "memory_samples": 0,
+            "memory_seconds": 0.0,
+            "inventory_checks": 0,
+            "inventory_seconds": 0.0,
+            "checkpoint_io_seconds": 0.0,
+            "logging_seconds": 0.0,
+            "update_compute_seconds": 0.0,
+        }
         self.run_dir = Path(run_dir)
         if self.run_dir.exists():
             raise FileExistsError(f"run already exists: {self.run_dir.name}")
-        self.train_data = WindowDataset(manifest, data_root, "train", config.sequence_length)
-        self.validation_data = WindowDataset(
-            manifest, data_root, "validation", config.sequence_length
+        started = time.perf_counter()
+        self.active_data = VerifiedActiveData(manifest, data_root)
+        self.observations["full_data_verifications"] += 1
+        self.observations["data_verification_seconds"] += time.perf_counter() - started
+        self.train_data = WindowDataset(
+            manifest, data_root, "train", config.sequence_length, snapshot=self.active_data
         )
-        self.device = configure_device(config.device)
+        self.validation_data = WindowDataset(
+            manifest, data_root, "validation", config.sequence_length, snapshot=self.active_data
+        )
+        self.device = configure_device(config.device, device_policy)
         random.seed(config.seed)
-        torch.manual_seed(config.seed)
+        torch.random.default_generator.manual_seed(config.seed)
+        if self.device.type == "cuda":
+            torch.cuda.manual_seed(config.seed)
         torch.set_num_threads(config.cpu_threads)
         torch.use_deterministic_algorithms(True)
         self.model = DenseByteModel(model_config).to(self.device)
         self.optimizer = build_optimizer(self.model, config)
+        self._parameter_inventory = parameter_inventory(
+            self.model, self.optimizer, model_config.sha256
+        )
+        self._optimizer_groups = self.optimizer.state_dict()["param_groups"]
         self.scheduler = WarmupCosine(self.optimizer, config)
         self.stream = BatchStream(self.train_data, config.seed, config.batch_size)
         self.global_step = self.micro_step = self.examples_seen = self.bytes_seen = 0
         self.metrics = []
         self._updating = self._failed = False
         self._elapsed_offset = 0.0
-        self.code, self.env = code_identity(), environment(config)
+        self.code, self.env = code_identity(), environment(config, device_policy)
         self._started = time.perf_counter()
         parent = None
         if resume_from is not None:
@@ -133,7 +178,7 @@ class Trainer:
             }
         self.run_dir.mkdir(parents=True, exist_ok=False)
         self.run_manifest = {
-            "schema": "1",
+            "schema": "2",
             "run_id": f"{self.run_dir.name}-{uuid.uuid4().hex}",
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "code": self.code,
@@ -143,6 +188,9 @@ class Trainer:
             "environment": self.env,
             "seed": config.seed,
             "parameter_count": audit_parameters(self.model)["unique_trainable_parameters"],
+            "parameter_inventory": self._parameter_inventory,
+            "monitoring": monitoring.to_dict(),
+            "active_data_contract": "verified-immutable-eager-v1",
             "resumed_from": parent,
         }
         with (self.run_dir / "run.json").open("x", encoding="utf-8") as handle:
@@ -161,8 +209,44 @@ class Trainer:
         ]
 
     def _log(self, event):
+        started = time.perf_counter()
         with (self.run_dir / "metrics.jsonl").open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(event, sort_keys=True, allow_nan=False) + "\n")
+        self.observations["logging_seconds"] += time.perf_counter() - started
+
+    def _verify_data(self, *, full: bool):
+        self.active_data.check_binding(self.manifest)
+        if full:
+            started = time.perf_counter()
+            self.active_data.verify_disk()
+            self.observations["full_data_verifications"] += 1
+            self.observations["data_verification_seconds"] += time.perf_counter() - started
+
+    def _check_inventory(self):
+        started = time.perf_counter()
+        current = parameter_inventory(self.model, self.optimizer, self.model_config.sha256)
+        if current != self._parameter_inventory:
+            raise CheckpointError("runtime trainable parameter inventory changed")
+        self.observations["inventory_checks"] += 1
+        self.observations["inventory_seconds"] += time.perf_counter() - started
+
+    def _memory(self):
+        started = time.perf_counter()
+        result = training_memory(self.model, self.optimizer, self.config.batch_size)
+        self.observations["memory_samples"] += 1
+        self.observations["memory_seconds"] += time.perf_counter() - started
+        if self.device_policy is not None:
+            cuda = result["cuda"]
+            if cuda["peak_reserved_bytes"] > self.device_policy.allocator_cap_bytes:
+                raise DeviceAdmissionError("observed CUDA allocator peak exceeds profile cap")
+            admit_memory(
+                cuda["free_device_bytes"],
+                cuda["total_device_bytes"],
+                self.device_policy.allocator_cap_bytes,
+                self.device_policy.free_headroom_bytes,
+                startup=False,
+            )
+        return result
 
     def _usable(self):
         if self._failed or self._updating:
@@ -174,9 +258,10 @@ class Trainer:
         self._usable()
         if self.global_step >= self.config.total_steps:
             raise ValueError("configured optimizer updates exhausted")
-        self.train_data.verify()
+        self._verify_data(full=self.monitoring.verify_each_update)
         self._updating, success = True, False
         try:
+            compute_started = time.perf_counter()
             finite_parameters(self.model, f"before update {self.global_step + 1}")
             microbatches = [self.stream.next_batch() for _ in range(self.config.accumulation_steps)]
             count = sum(len(w.payload) for batch in microbatches for w in batch)
@@ -190,8 +275,8 @@ class Trainer:
                         for target in (t.to(self.device) for t in batches_by_length(windows))
                     )
                     (loss / count).backward()
-                except ValueError as error:
-                    raise ValueError(
+                except NumericalTrainingError as error:
+                    raise NumericalTrainingError(
                         f"update {self.global_step + 1}, microbatch {index + 1}: {error}"
                     ) from error
                 nll_sum += loss.detach().item()
@@ -210,7 +295,12 @@ class Trainer:
             self.global_step += 1
             self.examples_seen += sum(len(batch) for batch in microbatches)
             self.bytes_seen += count
-            memory = training_memory(self.model, self.optimizer, self.config.batch_size)
+            self.observations["update_compute_seconds"] += time.perf_counter() - compute_started
+            if self.monitoring.detailed(self.global_step):
+                self._check_inventory()
+                memory = self._memory()
+            else:
+                memory = {"status": "NOT_SAMPLED", "policy": self.monitoring.to_dict()}
             self.optimizer.zero_grad(set_to_none=True)
             nll = nll_sum / count
             record = {
@@ -249,8 +339,13 @@ class Trainer:
         if split not in ("train", "validation"):
             raise ValueError("invalid validation split")
         data = self.train_data if split == "train" else self.validation_data
-        data.verify()
+        self._verify_data(full=self.monitoring.verify_each_update)
         was_training = self.model.training
+        python_rng, cpu_rng, gpu_rng = (
+            random.getstate(),
+            torch.get_rng_state(),
+            cuda_rng_state(self.device),
+        )
         total, count = 0.0, 0
         try:
             self.model.eval()
@@ -265,6 +360,10 @@ class Trainer:
                         count += valid
         finally:
             self.model.train(was_training)
+            random.setstate(python_rng)
+            torch.set_rng_state(cpu_rng)
+            if gpu_rng is not None:
+                torch.cuda.set_rng_state(gpu_rng[0], self.device)
         nll = total / count
         record = {
             "event": "validation",
@@ -280,12 +379,18 @@ class Trainer:
 
     def save(self) -> Path:
         self._usable()
-        self.train_data.verify()
+        self._verify_data(full=True)
+        self._check_inventory()
+        self._memory()
         finite_parameters(self.model, "checkpoint")
         if any(p.grad is not None for p in self.model.parameters()):
             raise RuntimeError("checkpoint requires cleared gradients at an optimizer boundary")
+        if self.scheduler.completed != self.global_step:
+            raise CheckpointError("scheduler/global step mismatch at checkpoint publication")
         state = {
-            "schema": "2",
+            "schema": "3",
+            "parameter_inventory": self._parameter_inventory,
+            "monitoring": self.monitoring.to_dict(),
             "run_id": self.run_manifest["run_id"],
             "model_config": self.model_config.to_dict(),
             "training_config": self.config.to_dict(),
@@ -314,11 +419,21 @@ class Trainer:
             "metrics": self.metrics,
             "elapsed_seconds": self._elapsed_offset + time.perf_counter() - self._started,
         }
-        return save_checkpoint(self.run_dir / "checkpoints" / f"step_{self.global_step:06d}", state)
+        self._validate_optimizer(
+            state["optimizer"], self.global_step, state["optimizer_update_counts"]
+        )
+        self.scheduler.load_state_dict(state["scheduler"])
+        started = time.perf_counter()
+        path = save_checkpoint(self.run_dir / "checkpoints" / f"step_{self.global_step:06d}", state)
+        self.observations["checkpoint_io_seconds"] += time.perf_counter() - started
+        self._memory()
+        return path
 
     def _restore(self, state):
         required = {
             "schema",
+            "parameter_inventory",
+            "monitoring",
             "run_id",
             "model_config",
             "training_config",
@@ -343,13 +458,20 @@ class Trainer:
             "metrics",
             "elapsed_seconds",
         }
-        if set(state) != required or state["schema"] != "2":
+        if state.get("schema") == "2":
+            raise CheckpointError(
+                "legacy checkpoint schema 2 requires its accepted source checkout; no migration"
+            )
+        if set(state) != required or state["schema"] != "3":
             raise CheckpointError("checkpoint schema/fields mismatch")
+        self._verify_data(full=True)
+        MonitoringPolicy.from_dict(state["monitoring"])
         for key, expected in (
             ("model_config", self.model_config.to_dict()),
             ("training_config", self.config.to_dict()),
             ("dataset_sha256", self.manifest.sha256),
             ("parameter_structure", self._structure()),
+            ("parameter_inventory", self._parameter_inventory),
             ("optimizer_type", "AdamW"),
             ("environment", self.env),
         ):
@@ -449,12 +571,12 @@ class Trainer:
         random.setstate(state["python_rng"])
         torch.set_rng_state(rng)
         if self.device.type == "cuda":
-            torch.cuda.set_rng_state_all(state["cuda_rng"])
+            torch.cuda.set_rng_state(state["cuda_rng"][0], self.device)
 
     def _validate_optimizer(self, state, step, update_counts):
         if not isinstance(state, dict) or set(state) != {"state", "param_groups"}:
             raise CheckpointError("invalid AdamW state fields")
-        expected = self.optimizer.state_dict()["param_groups"]
+        expected = self._optimizer_groups
         if len(state["param_groups"]) != len(expected):
             raise CheckpointError("optimizer group count mismatch")
         for a, b in zip(state["param_groups"], expected, strict=True):
