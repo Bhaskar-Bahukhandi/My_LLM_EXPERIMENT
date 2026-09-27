@@ -1,5 +1,15 @@
 # Project state
 
+## 20M pre-build: READY WITH REQUIRED REFACTOR
+
+2026-09-27: resumed the reconciled audit; selected512x12/state64/byte64/decoder256,
+20,387,531 meta-verified parameters, RECOMMENDED_FOR_PILOT only. See
+`reports/20m_prebuild_audit.md` and the architecture/training/Kaggle plans.
+R1-R9 must precede any pilot; no training or Kaggle compute authorized or performed.
+2M and historical snapshot remain frozen; TEST remains sealed. Previous blocked
+audit entries below are historical and superseded by the reconciliation and this design.
+
+
 ## Historical authorization provenance: RECONCILED
 
 - **CASE_A_HISTORICAL_SNAPSHOT_INTACT / CURRENT_2M_LINEAGE_UNAFFECTED.** The original expected `6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9` is valid historical evidence: it matches the CRLF representation at `720af6e63ee8759654b287848173bbd3e74867c4` and the preserved snapshot file exactly. Commit `f770e29c0a5c2e07e556f121aae0db0d83cbe7b0` intentionally superseded the root report's operational status, preserving historical authorization context.

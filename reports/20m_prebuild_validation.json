@@ -1,32 +1,197 @@
 {
-  "schema": "20m-prebuild-validation-v1",
-  "pytest": {
-    "command": [
-      ".venv/Scripts/python.exe",
-      "-m",
-      "pytest",
-      "-q"
-    ],
-    "exit_code": 1,
-    "observed_summary": "7 failed, 264 passed, 7 skipped, 1 warning in 110.54s (0:01:50)",
-    "output_scope": "Exact summary transcribed from completed tool output; full traceback was displayed in the chat.",
-    "failures": [
-      "tests/test_authorization_capacity.py::test_real_revision_preserves_budgets_and_exposes_remaining_math_holdout_deficits",
-      "tests/test_authorization_capacity.py::test_original_missing_documentation_regression_and_immutable_input",
-      "tests/test_authorization_capacity.py::test_cli_returns_nonzero_for_infeasible_authorization",
-      "tests/test_authorization_capacity.py::test_documentation_capacity_cannot_exceed_pinned_file_size",
-      "tests/test_authorization_r3.py::test_all_cells_pass_with_identical_frozen_quota_and_margin",
-      "tests/test_authorization_r3.py::test_removing_new_material_reopens_the_original_failure[validation]",
-      "tests/test_authorization_r3.py::test_removing_new_material_reopens_the_original_failure[test]"
-    ],
-    "skip_reason": "CUDA unavailable in CPU interpreter",
-    "warning": "Optional NumPy initialization: No module named numpy",
-    "fixture_scope": "Existing isolated synthetic regression updates; no production 2M continuation and no 20M updates"
-  },
-  "static_checks": [
-    {
+  "schema": "20m-prebuild-validation-v2",
+  "entry_commit": "6151a9662a9cc40fa7dfcc2266f36adfc8ca8383",
+  "previous_partial_validation": {
+    "schema": "20m-prebuild-validation-v1",
+    "pytest": {
       "command": [
         ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 1,
+      "observed_summary": "7 failed, 264 passed, 7 skipped, 1 warning in 110.54s (0:01:50)",
+      "output_scope": "Exact summary transcribed from completed tool output; full traceback was displayed in the chat.",
+      "failures": [
+        "tests/test_authorization_capacity.py::test_real_revision_preserves_budgets_and_exposes_remaining_math_holdout_deficits",
+        "tests/test_authorization_capacity.py::test_original_missing_documentation_regression_and_immutable_input",
+        "tests/test_authorization_capacity.py::test_cli_returns_nonzero_for_infeasible_authorization",
+        "tests/test_authorization_capacity.py::test_documentation_capacity_cannot_exceed_pinned_file_size",
+        "tests/test_authorization_r3.py::test_all_cells_pass_with_identical_frozen_quota_and_margin",
+        "tests/test_authorization_r3.py::test_removing_new_material_reopens_the_original_failure[validation]",
+        "tests/test_authorization_r3.py::test_removing_new_material_reopens_the_original_failure[test]"
+      ],
+      "skip_reason": "CUDA unavailable in CPU interpreter",
+      "warning": "Optional NumPy initialization: No module named numpy",
+      "fixture_scope": "Existing isolated synthetic regression updates; no production 2M continuation and no 20M updates"
+    },
+    "static_checks": [
+      {
+        "command": [
+          ".venv/Scripts/python.exe",
+          "-m",
+          "ruff",
+          "check",
+          "src",
+          "tests",
+          "scripts"
+        ],
+        "exit_code": 0,
+        "seconds": 0.14437029999680817,
+        "stdout": "All checks passed!\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          ".venv/Scripts/python.exe",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "src",
+          "tests",
+          "scripts"
+        ],
+        "exit_code": 0,
+        "seconds": 0.13200270000379533,
+        "stdout": "99 files already formatted\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          ".venv/Scripts/python.exe",
+          "-m",
+          "compileall",
+          "-q",
+          "src",
+          "tests",
+          "scripts"
+        ],
+        "exit_code": 0,
+        "seconds": 0.16713200000231154,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "command": [
+          ".venv/Scripts/python.exe",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.560986700002104,
+        "stdout": "No broken requirements found.\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          ".venv-cuda/Scripts/python.exe",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.3838793000031728,
+        "stdout": "No broken requirements found.\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.058070599974598736,
+        "stdout": "",
+        "stderr": "warning: in the working copy of 'docs/project_state.md', LF will be replaced by CRLF the next time Git touches it\n"
+      }
+    ],
+    "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+    "audit_helper_sha256": "6ad3ede91606e8dec7a3c93fddc0df9d1db82ce88ff2eddb2ec3bb36247a03cd",
+    "final_preservation_check": {
+      "status": "PASS",
+      "protected_subset_files_rechecked": 46,
+      "entry_hashes_unchanged_except_authorized_project_state": true,
+      "original_project_state_bytes_recover_exactly_by_removing_new_entry": true,
+      "real_test_payload_accessed": false,
+      "production_source_modified": false,
+      "mechanical_receipt_sha256": "c0765ce10915c930eb1602dfed02c94b34302e2dd1a7fe6c6516973af57627c1",
+      "note": "Working-file byte hashes use original checkout representation; Git autocrlf may change representation on another platform."
+    }
+  },
+  "previous_scope_correction": "Old full pytest included production TEST integrity reads; no such reads in this tranche.",
+  "current_test_scope": "Explicit reviewed non-training module allowlist; no infrastructure source modified",
+  "current_modules": [
+    "tests/test_accounting.py",
+    "tests/test_authorization_provenance.py",
+    "tests/test_cli.py",
+    "tests/test_config.py",
+    "tests/test_contamination_review_v1.py",
+    "tests/test_contamination_v2.py",
+    "tests/test_corpus_acquisition.py",
+    "tests/test_corpus_contamination.py",
+    "tests/test_corpus_duplicates.py",
+    "tests/test_corpus_filtering.py",
+    "tests/test_corpus_freeze.py",
+    "tests/test_future_capabilities_spec.py",
+    "tests/test_gutenberg_acquisition.py",
+    "tests/test_gutenberg_cleaning.py",
+    "tests/test_mode_policy_v2.py",
+    "tests/test_symbols.py",
+    "tests/test_targeted_acquisition.py"
+  ],
+  "checks": {
+    "current_non_training_tests": {
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_accounting.py",
+        "tests/test_authorization_provenance.py",
+        "tests/test_cli.py",
+        "tests/test_config.py",
+        "tests/test_contamination_review_v1.py",
+        "tests/test_contamination_v2.py",
+        "tests/test_corpus_acquisition.py",
+        "tests/test_corpus_contamination.py",
+        "tests/test_corpus_duplicates.py",
+        "tests/test_corpus_filtering.py",
+        "tests/test_corpus_freeze.py",
+        "tests/test_future_capabilities_spec.py",
+        "tests/test_gutenberg_acquisition.py",
+        "tests/test_gutenberg_cleaning.py",
+        "tests/test_mode_policy_v2.py",
+        "tests/test_symbols.py",
+        "tests/test_targeted_acquisition.py"
+      ],
+      "exit_code": 0,
+      "seconds": 22.862977699987823,
+      "stdout": "........................................................................ [ 51%]\n....................................................................     [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n140 passed, 1 warning in 21.68s\n",
+      "stderr": ""
+    },
+    "mandatory_historical_replay": {
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "tests/test_historical_authorization_replay.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.4775674999982584,
+      "stdout": "..............................                                           [100%]\n30 passed in 1.21s\n\n.\n1 passed in 1.96s\n",
+      "stderr": ""
+    },
+    "ruff": {
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
         "-m",
         "ruff",
         "check",
@@ -35,13 +200,13 @@
         "scripts"
       ],
       "exit_code": 0,
-      "seconds": 0.14437029999680817,
+      "seconds": 0.1660623000061605,
       "stdout": "All checks passed!\n",
       "stderr": ""
     },
-    {
+    "format": {
       "command": [
-        ".venv/Scripts/python.exe",
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
         "-m",
         "ruff",
         "format",
@@ -51,13 +216,13 @@
         "scripts"
       ],
       "exit_code": 0,
-      "seconds": 0.13200270000379533,
-      "stdout": "99 files already formatted\n",
+      "seconds": 0.1464261999935843,
+      "stdout": "104 files already formatted\n",
       "stderr": ""
     },
-    {
+    "compileall": {
       "command": [
-        ".venv/Scripts/python.exe",
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
         "-m",
         "compileall",
         "-q",
@@ -66,56 +231,79 @@
         "scripts"
       ],
       "exit_code": 0,
-      "seconds": 0.16713200000231154,
+      "seconds": 0.2286415999988094,
       "stdout": "",
       "stderr": ""
     },
-    {
+    "cpu_dependencies": {
       "command": [
-        ".venv/Scripts/python.exe",
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
         "-m",
         "pip",
         "check"
       ],
       "exit_code": 0,
-      "seconds": 1.560986700002104,
+      "seconds": 0.8766826000064611,
       "stdout": "No broken requirements found.\n",
       "stderr": ""
     },
-    {
+    "cuda_dependencies": {
       "command": [
-        ".venv-cuda/Scripts/python.exe",
+        "E:\\Theai\\.venv-cuda\\Scripts\\python.exe",
         "-m",
         "pip",
         "check"
       ],
       "exit_code": 0,
-      "seconds": 1.3838793000031728,
+      "seconds": 0.893118299980415,
       "stdout": "No broken requirements found.\n",
       "stderr": ""
     },
-    {
+    "diff": {
       "command": [
         "git",
         "diff",
         "--check"
       ],
       "exit_code": 0,
-      "seconds": 0.058070599974598736,
+      "seconds": 0.08826200000476092,
       "stdout": "",
-      "stderr": "warning: in the working copy of 'docs/project_state.md', LF will be replaced by CRLF the next time Git touches it\n"
+      "stderr": ""
     }
+  },
+  "initial_helper_static_check": {
+    "result": "I001 and E501; fixed only in new helper before successful full checks"
+  },
+  "no_expected_test_count_hardcoded": true,
+  "not_run": [
+    "20M forward",
+    "20M backward",
+    "20M optimizer",
+    "GPU fit/throughput",
+    "learning or generation",
+    "production corpus integrity suite",
+    "model/trainer update suites",
+    "Kaggle operations"
   ],
-  "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
-  "audit_helper_sha256": "6ad3ede91606e8dec7a3c93fddc0df9d1db82ce88ff2eddb2ec3bb36247a03cd",
-  "final_preservation_check": {
-    "status": "PASS",
-    "protected_subset_files_rechecked": 46,
-    "entry_hashes_unchanged_except_authorized_project_state": true,
-    "original_project_state_bytes_recover_exactly_by_removing_new_entry": true,
-    "real_test_payload_accessed": false,
-    "production_source_modified": false,
-    "mechanical_receipt_sha256": "c0765ce10915c930eb1602dfed02c94b34302e2dd1a7fe6c6516973af57627c1",
-    "note": "Working-file byte hashes use original checkout representation; Git autocrlf may change representation on another platform."
-  }
+  "final_preservation": {
+    "protected_old_tracked_files": 227,
+    "unexpected_changes": [],
+    "original_project_state_recoverable": true,
+    "original_mechanical_fields_unchanged": true,
+    "snapshot_files_checked": 66,
+    "snapshot_changed": [],
+    "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+    "source_matches_frozen": true,
+    "endpoint_verification": "Reused previous accepted checkpoint byte identity; no weights loaded or rewritten",
+    "production_test_payload_accessed": false
+  },
+  "design_consistency": {
+    "selected_meta_matches_retained": true,
+    "yaml_resolved_identity_matches": true,
+    "analytic_ledger_reproduces": true,
+    "exact_domain_quotas_sum": true,
+    "new_helper_sha256": "a5ea2eb3ff1a31815bd982c203e9bc992e0302e46d8f72f24021bdcbe7378d8f",
+    "selected_yaml_sha256": "b9f3104d8b1ed8aef9fd09ea09c3dc213bbfb32e1a41be984109416a05caf834"
+  },
+  "status": "PASS"
 }

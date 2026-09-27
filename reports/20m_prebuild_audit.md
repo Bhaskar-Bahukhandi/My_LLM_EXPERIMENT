@@ -1,237 +1,162 @@
-# 20M pre-build audit — BLOCKED
+# 20M pre-build audit — completed design
 
-Date: 2026-09-27. Decision: **20M_PREBUILD_NOT_READY**.
+Date: 2026-09-27. Decision: **20M_PREBUILD_READY_WITH_REQUIRED_REFACTOR**.
+Exactly one candidate is **RECOMMENDED_FOR_20M_PILOT**; none is production approved.
+No 20M training, model forward/backward, optimizer update, production corpus payload
+read, dataset acquisition or Kaggle action occurred in this resumed tranche.
 
-This is a partial audit stopped under section 29 of the supplied phase prompt:
-“STOP immediately for human review if … existing frozen evidence is inconsistent.”
-No architecture was promoted and no 20M training occurred. The unresolved historical
-evidence binding prevents a READY decision even though the endpoint checkpoint itself
-matches its accepted digest.
+## Resume scope and evidence
 
-## Blocking finding and reproduction
+Entry HEAD6151a9662a9cc40fa7dfcc2266f36adfc8ca8383 clears the former stop through
+CASE_A_HISTORICAL_SNAPSHOT_INTACT / CURRENT_2M_LINEAGE_UNAFFECTED. The historical
+investigation was not repeated. Mandatory historical replay and preservation checks
+verify continued integrity. Original expected report SHA6658bb3c...52e9 and original
+snapshot SHA8461a8d3...8d8 remain authoritative; see the full identities in the
+[reconciliation report](historical_authorization_provenance_review.md).
 
-`docs/authorization_capacity_2m_r2.json` and `_r3.json` bind
-`reports/real_corpus_2m_evidence.json` to a SHA-256 that does not match the current file.
-`scripts/authorization_capacity.py:119` correctly rejects it. Seven existing tests fail.
+The previous partial audit at aa7e047 is reused: frozen2M/checkpoint identity, source
+findings, resolver ceiling5,385,771, reference quadratic SSD analysis,517 grid shapes
+and4 targeted controls. No repeated grid search or endpoint weight load. The original
+mechanical receipt fields are unchanged; `resumed_accounting` appends the selected
+meta/YAML check, comparisons and analytic ledgers. JSON retains the old partial
+decision as explicitly superseded history; Git retains the entire prior Markdown.
+Only the reconciliation harness/docs/tests changed since that source audit; `src/`
+and old model configs remain unchanged. The source findings therefore still apply.
 
-| Identity | SHA-256 |
-|---|---|
-| Historical contract expects | `6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9` |
-| Working file, CRLF, 70,753 bytes | `7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76` |
-| Accepted commit Git blob, LF, 68,098 bytes | `c9bb670c2f9cc11447f17f58d199f032397732acb73014cbfe3702345878fd65` |
+Correction retained from reconciliation: old plain pytest included production TEST
+integrity reads, so the previous blanket no-access claim was too broad. That was not
+TEST evaluation/training. This audit uses the reviewed non-training test allowlist and
+never invokes the production corpus integrity modules or reads production payloads.
 
-The working file equals the accepted Git blob after CRLF normalization. Git reports
-`core.autocrlf=true` and `i/lf w/crlf`. Rendering that blob as CRLF reproduces the working
-hash, **not** the contract hash. Thus ordinary checkout line endings explain the
-working/blob difference but do not reconcile the contract. The mismatch predates this
-audit; those files have no working-tree diff. Its historical origin has not been traced.
-This finding does not establish checkpoint corruption or invalidate the measured loss.
-It does establish that the repository-wide evidence chain is not presently reconciled.
+## Selected design
 
-Reproduce from the existing CPU environment:
+**512 width x12 Mamba layers, state64, byte64, decoder256**: **20,387,531 parameters**,
+128 unique trainable tensors. The real meta model agrees with formula/inventory,
+named tensor shapes and the authored YAML round-trip. The resolved/tensor digests
+and complete component ledger are in the mechanical JSON. Meta has no weight values.
 
-```powershell
-.\.venv\Scripts\python.exe -m pytest -x -q tests/test_authorization_capacity.py
-```
+Allocation: Mamba excluding norm19,828,800 (97.2594%); symbols17,088; positions512;
+encoder41,856; bootstrap33,280; bridge131,328; local GRU247,296; head68,619; norms18,752.
+The previous512x12/decoder128 candidate assigns98.5783% to the trunk. This is not
+proof of bad capacity, because parameter sharing and byte/patch clocks differ, but
+the observed trained output insensitivity makes local capacity a reasonable risk
+to address. Decoder256 buys functional capacity for272,768 parameters with unchanged
+equations. It does not prove context adoption or cure tanh suppression.
 
-Observed: `1 failed, 13 passed in 0.13s`; first failure is
-`test_real_revision_preserves_budgets_and_exposes_remaining_math_holdout_deficits`.
-Do not replace the expected digest, regenerate old evidence, normalize frozen files,
-or weaken the tests merely to make this pass. Human review should authorize a separate
-provenance investigation and an additive reconciliation record.
+Retained alternatives: **512x12/decoder128 (20,114,763)** for allocation control and
+**384x21/decoder128 (20,061,951)** for depth/width comparison. Widths256/320 imply
+30-46 serial layers and larger state; widths896/1024 concentrate similar projection
+work in only3-4 layers. Selected width512 is aligned, moderate-depth and retains
+more local capacity. No candidate's GPU utilization or quality has been measured.
+Byte128 and state128 controls remain available but are not mixed into the first pilot.
 
-## Frozen baseline verification completed
+Context decision: **REQUIRE_CONTEXT_BRIDGE_AB_BEFORE_FULL_20M**. Start the bounded
+pilot with the existing bridge; then compare it against gated residual global readout
+at fixed architecture/data/LR/length. Compare unchanged, gated residual, per-byte
+injection, FiLM and normalized conditioning with exact parameter/FLOP/cache equations
+in the [architecture contract](../docs/20m_architecture_contract.md). No bridge code changed.
 
-- Initial working tree was clean. HEAD, origin/master, and live `git ls-remote` all
-  identified `3d2698b42404ec67834ead162db0bd10240d270b`, subject
-  `train: finalize frozen 2m gen0 one-pass evidence`.
-- Frozen computational source canonical SHA-256 matches the final report:
-  `7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4`.
-- Local endpoint `data/full-training-2m-v1/continuation-v1/attempt-1790232260152557800/checkpoints/step_078167/state.pt`
-  hashes to `0d4c822daadf6bb8269a727ac54d54a26e9edf49ff43fedff1b0d91ba6ad2623`,
-  matching its manifest and accepted endpoint report.
-- Accepted parameter identity remains
-  `75b1a342f3acf3b10c7dadb7f1d86feef09642cf15201a282aa7ec8b758be173`.
-  This parameter hash is cited from accepted evidence, not recomputed from a fresh load.
-- The metadata audit reconciled the 2M executable model at 1,929,579 parameters.
-  Published endpoint: 78,167 updates, 10,000,064 target bytes, validation NLL
-  2.1701512726 and BPB 3.130866479. Weak generation and unverified effective context
-  remain explicitly unpromoted.
-- Entry hashes for final reports, project state, all computational source, Bible,
-  Roadmap, Addendum and both context reports are in
-  [the mechanical receipt](20m_prebuild_mechanical.json). Its `protected_verified`
-  section records the subset of final-amendment report/spec/checkpoint hashes checked.
-  This subset check is not a claim that every historical authorization binding passed.
-- No real corpus payload, including TEST, was opened by the audit helper. Endpoint
-  deserialization and reconstruction were not repeated; the content hash matches the
-  accepted exact-restore proof. The wider lineage remains blocked by the finding above.
+**FIRST_PILOT_SEQUENCE_LENGTH=64**; assess32/64/128/256 separately. At fixed B,
+reference SSD patch-time work ratios are1/4/16/64. Mechanical recurrent history can
+exceed a training window; useful learned history remains unproven. No automatic
+length curriculum; longer lengths require positive paired heldout context benefit.
 
-## Source audit completed before the stop
+## Pilot, data and resource decision
 
-| Component | Fresh finding | Required treatment after reconciliation |
-|---|---|---|
-| config / resolve | Default widths 128/192/256, depths 2/3/4/6/8/12; exact maximum **5,385,771** | Version an explicit larger search/config. Existing explicit dimensions already work; no model rewrite is required |
-| resolve metadata | `executable model not implemented` and tensor-reconciliation next gate are stale | Use evidence-scoped status; do not set all shapes training-ready merely because 2M trained |
-| parameters | Real meta Parameters, unique identity accounting, formula cross-check | Reuse; reconcile against executable tensors for each new shape |
-| byte layers / hierarchy / dense model | Dimension-driven; completed patches only; BOS out of band; 267 symbols, patch 8 | Preserve model mathematics and frozen source |
-| Mamba batch forward | `segment` and `transition` are B×H×T×T; B/C contraction is B×T×T | Quadratic patch-time reference retained as oracle. Recurrent step has fixed state; it is a different execution path |
-| Mamba checks | Many finite checks and Python conditionals can synchronize CUDA | Profile before changing monitoring; preserve failure detection |
-| Trainer.step / data | Full manifest reread and SHA verification every update; cached byte windows already exist | Design verified immutable snapshot binding, cheap identity checks and boundary verification; metadata-only checks cannot promise identical corruption latency |
-| Data RAM | Materialized Window objects and payload copies plus Python permutation lists | Serious-corpus RAM needs indexed/sharded design preserving exact document/window order and cursor semantics |
-| Device | Exactly one visible CUDA device, `cuda:0`, FP32; **1 GiB allocator cap**, plus 1 GiB free headroom | Named RTX/T4 budget profiles; mask visible devices before CUDA initialization |
-| Memory | Windows RSS only; constructs canonical recurrent state each update; activation memory unmeasured | Linux RSS and measured phase peaks; separate analytic state size from monitoring allocation |
-| Checkpoint | Strict source/config/environment identity; Python/CPU/CUDA RNG, cursor and optimizer restored | New 20M lineage, fresh initialization. Cross-platform exactness must be proven, not bypassed |
-| Evidence helpers | Older `experiment.py` / Stage-A helpers use correctness asserts and fixed 56-tensor assumptions | New reusable validation helpers with explicit errors; preserve historical scripts |
-| README / historical contracts | Current scope omits completed real-data endpoint; some old stage descriptions remain | Add current index/status later; retain historical reports and published paths |
+Unique TRAIN budgets: smoke **1,000,000**, pilot **65,536,000**, serious
+**2,000,000,000** raw bytes. Validation100,000 /4,096,000 /20,000,000; proposed new
+sealed TEST reserve0 /4,096,000 /20,000,000. Total corpus budgets1,100,000 /
+73,728,000 /2,040,000,000. Retain50/25/15/10 general/code/docs/math mixture. Exact
+domain quotas, document/diversity targets, license/provenance/dedup/contamination
+requirements are in the [training plan](../docs/20m_training_plan.md). New TEST
+preparation is future separately authorized work, not permission to open current TEST.
 
-For a byte length L, differentiable full prediction processes
-`1 + floor((L-1)/8) = ceil(L/8)` global inputs for L>0, including BOS and excluding
-the final completed patch if it cannot influence any requested prediction. Streaming
-after consuming L bytes has `1 + floor(L/8)` shared steps. This distinction matters
-for state/parity and memory tests.
+First real-data pilot: seed17, FP32, **microbatch8 x accumulation16**, nominal128
+sequences and8,192 valid bytes/update at length64; actual tail counts govern loss.
+Fresh initialization,8,000 updates,400 warmup, cosine to0.1xLR; AdamW(0.9,0.999),
+eps1e-8, decay0.01 with existing exclusions, clip1.0. CandidateLR6e-4 is provisional:
+three bounded fresh256-update arms at3e-4/6e-4/1e-3 must pass the predeclared selection
+rule first. Checkpoints/monitor validation250, full confirmation/context1,000,
+generation500; max24GPU hours including monitoring/export. No long training authorized.
 
-Binding rules inspected include Bible §§5–9, 31–35, 126, 133–135, 141–142, 154–155,
-168; Roadmap invariants and scaling/data formulas; implementation plan; Addendum;
-AC-001 through AC-005 and AC-008. Byte causality, two clocks, exact instantiated
-accounting, reference fallback and strict checkpoint compatibility are binding.
-Illustrative final-model widths/depths and generic scaling ratios are not mandatory
-20M choices. The current ladder is 2M→20M→40M→80M→200M→400M; 800M remains research.
-The full requested document/maintainability audit was not completed after the stop.
+The full analytic ledger includes weights, gradients, both moments, scalars, recurrent
+states, activations, temporary SSD tensors, optimizer scratch, workspace, allocator
+and framework overhead. B8/L64 planning sum is **3,336,584,392 bytes =3.1074GiB**.
+RTX2050 B2/L64/acc64: **FITS_WITH_CONSTRAINTS**, planning2.9936GiB; single T4:
+**FITS_COMFORTABLY analytically**. **Measured fit for both is UNVERIFIED**. T4x2 is
+**UNVERIFIED**, about3.2593GiB/rank plus unmeasured communication workspace; VRAM
+is not pooled. These are allowances, not benchmark results or rigorous upper bounds.
 
-## Exact candidate results — construction evidence only
+REFERENCE_PARANOID and PRODUCTION_FAST retain loss, optimizer, data order,
+accumulation, equations and checkpoint contents. Fast mode consumes verified immutable
+TRAIN/VALIDATION buffers, shifts full hashes to declared boundaries and reduces heavy
+instrumentation. Integrity-detection latency differs explicitly. Bitwise synthetic
+update/resume parity is mandatory. All20M throughput entries: **NEEDS_MEASUREMENT**.
 
-`scripts/audit_20m_prebuild.py` instantiated the real `DenseByteModel` on the meta
-device for 517 grid shapes (11 widths × depths 2..48) and four targeted variants.
-For each, executable unique trainable counts, inventory counts, independent formulas
-and parameter-shape multisets agreed. It ran no forward/backward or optimizer step.
-The receipt retains all 17 within-envelope grid candidates and all four variants,
-with full named executable tensors, components, percentages and analytic memory terms.
-The other 500 grid shapes were audited but their per-candidate receipts were not retained.
+Optimized backend: **MANDATORY_ONLY_BEFORE_SERIOUS_20M**; reference allowed for
+bounded pilot only if it meets measured budget. Current upstream Triton is not an
+accepted T4 backend: [NVIDIA lists T4 as7.5](https://developer.nvidia.com/cuda/gpus),
+whereas [Triton lists8.0+](https://github.com/triton-lang/triton#compatibility), and
+[upstream Mamba-2 SSD imports Triton](https://raw.githubusercontent.com/state-spaces/mamba/main/mamba_ssm/ops/triton/ssd_combined.py).
+No compatible optimized backend has been validated. Forward/step/state/causality,
+gradient, seeded optimizer and checkpoint parity thresholds precede any promotion.
 
-| Family / construction control | d_model | Layers | d_state | Byte / decoder | Exact parameters | Difference |
-|---|---:|---:|---:|---:|---:|---:|
-| Depth-first | 256 | 46 | 64 | 64 / 128 | 20,074,587 | +0.373% |
-| Intermediate depth | 320 | 30 | 64 | 64 / 128 | 20,119,695 | +0.598% |
-| Intermediate depth | 384 | 21 | 64 | 64 / 128 | 20,061,951 | +0.310% |
-| Balanced | 512 | 12 | 64 | 64 / 128 | 20,114,763 | +0.574% |
-| Wider | 640 | 8 | 64 | 64 / 128 | 20,791,275 | +3.956% |
-| Width-first | 896 | 4 | 64 | 64 / 128 | 20,242,779 | +1.214% |
-| Width-first | 1024 | 3 | 64 | 64 / 128 | 19,807,659 | −0.962% |
-| Decoder capacity control | 512 | 12 | 64 | 64 / 256 | 20,387,531 | +1.938% |
-| Byte encoder control | 512 | 12 | 64 | 128 / 128 | 20,247,499 | +1.237% |
-| State capacity control | 512 | 12 | 128 | 64 / 128 | 20,908,875 | +4.544% |
-| State / shallower control | 512 | 11 | 128 | 64 / 128 | 19,188,763 | −4.056% |
+Kaggle remains user-supplied READ-ONLY VERIFIED at bridge4cb387d...06e1. No bridge
+operation was needed. [Execution plan](../docs/kaggle_20m_execution_plan.md): separately
+approved private write smoke -> CPU notebook -> T4 diagnostic -> mechanics -> pilot.
+Preserve LOCAL_ONLY/HOST_READ/HOST_WRITE/HOST_COMPUTE, isolated credentials and explicit
+approval-bound host execution; no arbitrary shell or sandbox-network workaround.
 
-All preserve expand=2, headdim=64, d_conv=4, patch_size=8, chunk_patches=16 and
-MoE disabled. `d_inner=2*d_model`, heads=`d_inner/64`. The comparison is not a
-quality ranking. Deep candidates imply more serial layer work and state; wide
-candidates concentrate capacity in fewer layers and change projection costs.
-No final selection or authored pilot YAML is issued because the stop gate intervened.
+## Mandatory refactors and promotion
 
-For the balanced construction **only**, the non-overlapping ledger is:
+Before ANY20M pilot complete **R1-R9** from the training plan:
 
-| Subsystem | Parameters | Share |
-|---|---:|---:|
-| Mamba trunk excluding normalization | 19,828,800 | 98.5783% |
-| Symbol embeddings | 17,088 | 0.0850% |
-| Position embeddings | 512 | 0.0025% |
-| Patch encoder excluding normalization | 41,856 | 0.2081% |
-| Bootstrap | 33,280 | 0.1655% |
-| Context bridge | 65,664 | 0.3264% |
-| Local GRU | 74,496 | 0.3704% |
-| Output head | 34,443 | 0.1712% |
-| All normalization | 18,624 | 0.0926% |
-| Total | **20,114,763** | **100%** |
+1. Explicit/versioned20M resolver selection and executable accounting.
+2. Evidence-scoped resolver readiness metadata.
+3. Current README/state index and pilot restrictions.
+4. Immutable active-data verification without TEST access or per-update corpus rereads.
+5. Paranoid/fast monitoring with exact synthetic update/resume equivalence.
+6. Linux RSS and path/process/checkpoint portability.
+7. Named GPU memory budgets and one-visible-device launcher/diagnostic.
+8. Derived128-tensor inventory and explicit production errors rather than correctness asserts.
+9. Bound LR/pilot runner, counters, diagnostics, stopping and durable checkpoint gates.
 
-Weights and gradients would each be 80,459,052 FP32 bytes; Adam moments
-160,918,104 bytes, before scalar steps, activations, buffers, allocator or process
-overhead. Per batch item: SSM 3,145,728 bytes; convolution 221,184 bytes; decoder
-hidden 512 bytes, plus pending symbols. These are tensor arithmetic, **not** VRAM
-fit measurements. The old preflight adds a planned context vector that the current
-HierarchyState does not persist separately. No RTX/T4 fit category beyond UNVERIFIED
-is established by this partial audit.
+The selected explicit YAML already solves construction beyond the old automatic
+search ceiling; old default searches and frozen configs are preserved. Infrastructure
+refactors are **not implemented** here. Before serious training also completeR10
+(optimized backend/interface/parity) andR11(indexed data/evidence scaling). True DDP
+and historical script deduplication can defer. No broad aesthetic refactor is proposed.
 
-## Context finding and uncompleted design
+Predeclared stages:20M-0 construction **PASS**;20M-1 forward/backward,20M-2 GPU,
+20M-3 tiny overfit/mechanics,20M-4 bounded real data,20M-5 quality/context all
+**NOT RUN**;20M-6 requires human full-run approval. Each has explicit PASS/STOP/ROLLBACK
+in the training plan. Generation uses9 fixed prompts, greedy plus4 fixed seeds and
+256-byte traces; tracks whitespace attractor, printable fraction, repeated runs,
+entropy, q(space), top1/top2 margin, control mass, UTF-8, diversity and divergence.
+NLL alone cannot promote. Tiny smoke need not produce polished prose. Context
+promotion requires useful paired history benefit, not merely changing shared state.
 
-The inspected bridge is Linear(d_model,decoder_dim) → tanh → initial GRU hidden;
-local byte embeddings then drive GRUCell updates and RMSNorm/output projection.
-The accepted studies report differing old-history shared states but identical trained
-hidden/logits, while an untrained sanity case transmits history. This is evidence of
-output insensitivity, not proof that tanh saturation alone caused it. Scaling the
-trunk while holding decoder width at 128 does not establish a remedy.
+## Validation, preservation and next step
 
-Context-bridge A/B policy, sequence curriculum, smoke/pilot/serious data budgets,
-LR range experiment, exact pilot microbatch/accumulation, full memory ledger,
-20M promotion thresholds, generation diagnostics and final backend choice are
-**NOT FINALIZED**. Throughput for current/cleaned reference on RTX, cleaned reference
-on T4 and optimized T4 is **NEEDS_MEASUREMENT**. The accepted 2M continuation's
-165.36 target bytes per measured update-second is historical evidence, not a 20M
-benchmark or an end-to-end throughput estimate.
+Actual commands, outcomes, timings and preservation hashes are recorded in
+`20m_prebuild_validation.json`. The current non-training allowlist and mandatory
+historical replay run independently; static, format, compileall, CPU/CUDA dependency
+and diff checks apply. No hard-coded test count is an acceptance criterion. Broad
+training or production TEST integrity suites are deliberately excluded; no infrastructure
+source changed. No20M GPU/forward/backward/performance/learning claim is validated.
 
-## Research and Kaggle boundaries preserved
+Changed files: four current audit reports; new architecture/training/Kaggle plans;
+selected model YAML; additive meta accounting helper; project-state status entry.
+Frozen2M source/weights/configs, historical evidence/snapshot, specs and reference
+fallback remain intact. The previous audit's original fields and Git history remain
+recoverable. Revert this additive commit for rollback; it neither retrains nor migrates2M.
 
-The reference Mamba must remain available. Current
-[Triton compatibility](https://github.com/triton-lang/triton#compatibility) lists
-NVIDIA compute capability 8.0+; the
-[T4 hardware specification](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet.pdf)
-identifies Turing and 16 GB. An optimized upstream Mamba/Triton path must therefore
-not be assumed to work on the intended T4 profile. Kernel compatibility and forward,
-state, gradient, causality and seeded-update parity remain untested. No optimized
-library was installed. Whether optimization is mandatory for a bounded first pilot
-has not been decided; serious-training speed must be measured.
+Risks: selected local capacity may not improve quality; context bridge may remain
+insensitive; memory allowances may miss peaks; reference throughput may miss the
+pilot budget; current optimized upstream kernels do not provide a supported T4 path;
+data-diversity quotas and notebook durability are unverified. These are enforced
+future gates, not hidden execution claims. Next best step is a scoped implementation
+ofR1-R9 with synthetic model/trainer/checkpoint regression validation, then separately
+approved hardware/mechanics gates. No20M training is authorized by this design decision.
 
-Research consulted before stopping: [Mamba-2/SSD](https://arxiv.org/abs/2405.21060),
-[MEGABYTE](https://arxiv.org/abs/2305.07185),
-[MambaByte](https://arxiv.org/abs/2401.13660),
-[BLT](https://arxiv.org/abs/2412.09871),
-[TinyStories](https://arxiv.org/abs/2305.07759), and
-[compute-optimal scaling](https://arxiv.org/abs/2203.15556).
-These are prior art, not validations of this implementation or a byte-native 20M
-optimum. No SOTA or novelty claim is made.
-
-The supplied Kaggle-Bridge status is accepted as user-provided evidence at commit
-`4cb387d340b68e9e210bbea1effcaa03108806e1`: HOST_READ verified; private writes,
-notebook execution and T4 availability unverified; compute disabled. The bridge
-was not independently inspected or invoked. No Chrome interaction, upload, host
-Kaggle read, write, compute, or sandbox-network fallback occurred.
-
-Any future plan must keep LOCAL_ONLY / HOST_READ / HOST_WRITE / HOST_COMPUTE typed,
-host execution explicit and approval-bound, OAuth credentials isolated, and no
-arbitrary shell bridge. Read authorization does not grant write or compute authority.
-First target remains one visible T4; dual T4 is future design only. Kaggle's
-[notebook documentation](https://www.kaggle.com/docs/notebooks) describes 12-hour
-CPU/GPU sessions and up to 20 GB saved outputs; account availability and persistence
-must be reverified before execution. Local checkpoint creation alone must not be
-treated as durable export. No execution-ready notebook or portability claim is issued.
-
-## Validation, preservation and next decision
-
-Full existing CPU-environment `pytest -q`: **7 failed, 264 passed, 7 skipped,
-1 warning in 110.54s**. All seven failures arise in historical authorization
-capacity tests from the evidence-hash mismatch (one CLI failure surfaces as missing
-JSON output). The seven CUDA tests skipped because this interpreter is CPU-only;
-this is not a claim that the host has no GPU. Existing synthetic fixture tests
-performed their own disposable updates; frozen 2M was not resumed and 20M was not trained.
-The pre-existing optional NumPy warning remains. Static/dependency/diff receipts
-are recorded in `20m_prebuild_validation.json`.
-
-Files added: this Markdown report, JSON decision report, mechanical receipt,
-validation receipt and the metadata-only audit helper. `docs/project_state.md`
-receives only a blocked-status entry, retaining its historical content. No `src/`,
-existing tests/configs/reports, weights, corpus, Bible, Roadmap or Addendum was edited.
-No cleanup, backend refactor or training change was implemented. New local synthetic
-test artifacts remain ignored in `evidence/`; they are not published.
-
-Fallback: accepted commit and all existing weights/evidence remain available; the
-reference Mamba and original 2M configuration are unchanged. Reverting this audit's
-additive commit removes its reports/helper and state entry without changing the
-accepted baseline. Risk: changing historical hashes without explaining provenance
-would conceal this failure. Incomplete design must not be mistaken for pilot authority.
-
-Next best step: human review of the historical binding mismatch, followed by an
-authorized read-only Git-history/provenance investigation and additive reconciliation.
-Then rerun the failing tests and resume the remaining 20M design, hardware/memory,
-data, context, backend, generation and promotion-gate work. The source findings above
-are a preliminary refactor inventory, not permission to bypass the evidence gate.
-
-20M PRE-BUILD STATUS: BLOCKED
+20M PRE-BUILD STATUS: READY WITH REQUIRED REFACTOR

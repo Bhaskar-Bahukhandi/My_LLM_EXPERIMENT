@@ -1,32 +1,120 @@
 {
-  "schema": "20m-prebuild-audit-v1",
-  "decision": "20M_PREBUILD_NOT_READY",
-  "status": "BLOCKED",
-  "scope": "Partial audit stopped under user phase prompt section 29",
-  "baseline_commit": "3d2698b42404ec67834ead162db0bd10240d270b",
-  "baseline_receipt": "reports/20m_prebuild_mechanical.json",
-  "blocking_finding": {
-    "code": "HISTORICAL_EVIDENCE_BINDING_MISMATCH",
-    "path": "reports/real_corpus_2m_evidence.json",
-    "contracts": [
-      "docs/authorization_capacity_2m_r2.json",
-      "docs/authorization_capacity_2m_r3.json"
-    ],
-    "expected_sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
-    "working_sha256": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
-    "accepted_git_blob_sha256": "c9bb670c2f9cc11447f17f58d199f032397732acb73014cbfe3702345878fd65",
-    "working_equals_accepted_after_CRLF_normalization": true,
-    "line_endings_reconcile_expected_digest": false,
-    "historical_origin": "NOT_INVESTIGATED_AFTER_STOP"
+  "schema": "20m-prebuild-audit-v2",
+  "decision": "20M_PREBUILD_READY_WITH_REQUIRED_REFACTOR",
+  "status": "RECOMMENDED_FOR_PILOT_NOT_PRODUCTION_APPROVED",
+  "entry_commit": "6151a9662a9cc40fa7dfcc2266f36adfc8ca8383",
+  "reused_partial_commit": "aa7e04726332a09024568ab7bfd8c02a0fcb7eb2",
+  "previous_partial_audit": {
+    "schema": "20m-prebuild-audit-v1",
+    "decision": "20M_PREBUILD_NOT_READY",
+    "status": "BLOCKED",
+    "scope": "Partial audit stopped under user phase prompt section 29",
+    "baseline_commit": "3d2698b42404ec67834ead162db0bd10240d270b",
+    "baseline_receipt": "reports/20m_prebuild_mechanical.json",
+    "blocking_finding": {
+      "code": "HISTORICAL_EVIDENCE_BINDING_MISMATCH",
+      "path": "reports/real_corpus_2m_evidence.json",
+      "contracts": [
+        "docs/authorization_capacity_2m_r2.json",
+        "docs/authorization_capacity_2m_r3.json"
+      ],
+      "expected_sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
+      "working_sha256": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+      "accepted_git_blob_sha256": "c9bb670c2f9cc11447f17f58d199f032397732acb73014cbfe3702345878fd65",
+      "working_equals_accepted_after_CRLF_normalization": true,
+      "line_endings_reconcile_expected_digest": false,
+      "historical_origin": "NOT_INVESTIGATED_AFTER_STOP"
+    },
+    "selected_candidate": null,
+    "mechanically_audited_balanced_example": {
+      "id": "d512_l12_n64_b64_q128",
+      "shape": {
+        "d_model": 512,
+        "shared_layers": 12,
+        "byte_dim": 64,
+        "decoder_dim": 128,
+        "d_state": 64,
+        "d_conv": 4,
+        "expand": 2,
+        "headdim": 64,
+        "patch_size": 8,
+        "chunk_patches": 16
+      },
+      "parameters": 20114763,
+      "components": {
+        "symbol_embeddings": 17088,
+        "position_embeddings": 512,
+        "patch_encoder_excluding_norm": 41856,
+        "normalization": 18624,
+        "context_bridge": 65664,
+        "local_decoder_gru": 74496,
+        "output_head": 34443,
+        "bootstrap": 33280,
+        "mamba_trunk_excluding_norm": 19828800
+      },
+      "component_percent": {
+        "symbol_embeddings": 0.08495252964203456,
+        "position_embeddings": 0.0025453941465778144,
+        "patch_encoder_excluding_norm": 0.20808597148273633,
+        "normalization": 0.092588712081768,
+        "context_bridge": 0.3264467992986047,
+        "local_decoder_gru": 0.370354848327072,
+        "output_head": 0.17123244255972592,
+        "bootstrap": 0.16545061952755793,
+        "mamba_trunk_excluding_norm": 98.57834268293392
+      },
+      "weight_bytes_fp32": 80459052,
+      "gradient_bytes_fp32": 80459052,
+      "adam_moment_bytes_fp32": 160918104
+    },
+    "default_search_max_parameters": 5385771,
+    "pilot": {
+      "sequence_length": null,
+      "data_budget": null,
+      "micro_batch": null,
+      "accumulation": null,
+      "optimizer_lr": null,
+      "context_bridge_ab_required": null,
+      "optimized_backend_mandatory": null,
+      "reason": "NOT_FINALIZED_DUE_TO_STOP_CONDITION"
+    },
+    "memory_status": {
+      "rtx_2050": "UNVERIFIED",
+      "single_T4": "UNVERIFIED",
+      "T4x2": "UNVERIFIED"
+    },
+    "throughput_status": "NEEDS_MEASUREMENT",
+    "kaggle_bridge": {
+      "authority": "USER_PROVIDED_NOT_REVERIFIED",
+      "commit": "4cb387d340b68e9e210bbea1effcaa03108806e1",
+      "status": "READ_ONLY_VERIFIED",
+      "actions_this_task": [],
+      "compute_enabled": false,
+      "future_boundary": "Explicit approved host execution; typed LOCAL_ONLY/HOST_READ/HOST_WRITE/HOST_COMPUTE; no arbitrary shell or sandbox network fallback"
+    },
+    "training_performed_20m": false,
+    "frozen_2m_continued": false,
+    "test_status": "SEALED; no real TEST payload accessed",
+    "source_modified": false,
+    "evidence_rebound": false,
+    "mandatory_next_step": "Human review and separately authorized provenance reconciliation, then resume audit",
+    "validation_receipt": "reports/20m_prebuild_validation.json",
+    "rollback": "Retain accepted commit and checkpoint; revert additive audit commit if desired"
   },
-  "selected_candidate": null,
-  "mechanically_audited_balanced_example": {
-    "id": "d512_l12_n64_b64_q128",
+  "previous_partial_scope_correction": "Earlier full pytest included production TEST integrity reads. See reconciliation report; no such reads or tests in this resumed tranche.",
+  "provenance_resolution": {
+    "case": "CASE_A_HISTORICAL_SNAPSHOT_INTACT",
+    "lineage": "CURRENT_2M_LINEAGE_UNAFFECTED",
+    "authority": "reports/historical_authorization_provenance_review.json at entry commit",
+    "investigation_repeated": false
+  },
+  "selected_candidate": {
+    "id": "d512_l12_n64_b64_q256",
     "shape": {
       "d_model": 512,
       "shared_layers": 12,
       "byte_dim": 64,
-      "decoder_dim": 128,
+      "decoder_dim": 256,
       "d_state": 64,
       "d_conv": 4,
       "expand": 2,
@@ -34,50 +122,1455 @@
       "patch_size": 8,
       "chunk_patches": 16
     },
-    "parameters": 20114763,
+    "d_inner": 1024,
+    "heads": 16,
+    "parameters": 20387531,
+    "delta_percent": 1.937655,
+    "within_envelope": true,
     "components": {
       "symbol_embeddings": 17088,
       "position_embeddings": 512,
       "patch_encoder_excluding_norm": 41856,
-      "normalization": 18624,
-      "context_bridge": 65664,
-      "local_decoder_gru": 74496,
-      "output_head": 34443,
+      "normalization": 18752,
+      "context_bridge": 131328,
+      "local_decoder_gru": 247296,
+      "output_head": 68619,
       "bootstrap": 33280,
       "mamba_trunk_excluding_norm": 19828800
     },
     "component_percent": {
-      "symbol_embeddings": 0.08495252964203456,
-      "position_embeddings": 0.0025453941465778144,
-      "patch_encoder_excluding_norm": 0.20808597148273633,
-      "normalization": 0.092588712081768,
-      "context_bridge": 0.3264467992986047,
-      "local_decoder_gru": 0.370354848327072,
-      "output_head": 0.17123244255972592,
-      "bootstrap": 0.16545061952755793,
-      "mamba_trunk_excluding_norm": 98.57834268293392
+      "symbol_embeddings": 0.08381593631911584,
+      "position_embeddings": 0.0025113389159285644,
+      "patch_encoder_excluding_norm": 0.20530195637716014,
+      "normalization": 0.09197778779588367,
+      "context_bridge": 0.6441584319356768,
+      "local_decoder_gru": 1.2129766963934967,
+      "output_head": 0.33657336928144954,
+      "bootstrap": 0.16323702953535668,
+      "mamba_trunk_excluding_norm": 97.25944745344593
     },
-    "weight_bytes_fp32": 80459052,
-    "gradient_bytes_fp32": 80459052,
-    "adam_moment_bytes_fp32": 160918104
+    "weight_bytes_fp32": 81550124,
+    "gradient_bytes_fp32": 81550124,
+    "adam_moment_bytes_fp32": 163100248,
+    "adam_step_scalar_bytes": 512,
+    "ssm_bytes_per_batch_item_fp32": 3145728,
+    "conv_bytes_per_batch_item_fp32": 221184,
+    "decoder_hidden_bytes_per_batch_item_fp32": 1024,
+    "pending_bytes_max_per_batch_item": 56,
+    "activation_pressure_proxy_B8_L64_elements": 786432,
+    "ssd_matrix_one_copy_B8_L64_bytes": 393216,
+    "authored": {
+      "hardware": {
+        "backend": "torch_reference_inventory_v1",
+        "batch_size": 8,
+        "device": "cpu",
+        "memory_budget_bytes": null,
+        "precision": "fp32"
+      },
+      "model": {
+        "byte_dim": 64,
+        "chunk_patches": 16,
+        "d_conv": 4,
+        "d_model": 512,
+        "d_state": 64,
+        "decoder_dim": 256,
+        "expand": 2,
+        "headdim": 64,
+        "moe_enabled": false,
+        "parameter_tolerance": 0.05,
+        "patch_size": 8,
+        "shared_layers": 12,
+        "target_parameters": 20000000
+      },
+      "schema_version": "1",
+      "search": {
+        "depths": [
+          2,
+          3,
+          4,
+          6,
+          8,
+          12
+        ],
+        "width_multiple": 64,
+        "widths": [
+          128,
+          192,
+          256
+        ]
+      }
+    },
+    "resolved": {
+      "schema_version": "1",
+      "inventory_version": "1",
+      "architecture_family": "edge_mamba_dense_inventory",
+      "semantic_reference_commit": "d7b1ceb3c367ec9022925e812f507bcf706937c6",
+      "backend_classification": "VALID_GENERIC_PATH",
+      "model": {
+        "d_model": 512,
+        "shared_layers": 12,
+        "byte_dim": 64,
+        "decoder_dim": 256,
+        "d_state": 64,
+        "d_conv": 4,
+        "expand": 2,
+        "headdim": 64,
+        "patch_size": 8,
+        "chunk_patches": 16
+      },
+      "derived": {
+        "d_inner": 1024,
+        "nheads": 16,
+        "num_symbols": 267,
+        "bytes_per_chunk": 128
+      },
+      "control_version": "1",
+      "control_ids": {
+        "pad": 256,
+        "bos": 257,
+        "eos": 258,
+        "tool_call": 259,
+        "tool_result": 260,
+        "rag_begin": 261,
+        "rag_end": 262,
+        "code_begin": 263,
+        "code_end": 264,
+        "error": 265,
+        "retry": 266
+      },
+      "hardware": {
+        "backend": "torch_reference_inventory_v1",
+        "device": "cpu",
+        "precision": "fp32",
+        "batch_size": 8,
+        "memory_budget_bytes": null
+      },
+      "target_parameters": 20000000,
+      "parameter_tolerance": 0.05,
+      "authored_sha256": "d4371174add734d755218c315360addd783742e5abeb8fb1f4a71ea776eb315d"
+    },
+    "resolved_sha256": "c0b58d464ac815bd0b44669e1e62e8d51884f7ebb4ec34c4e7fa47ec2bd939a4",
+    "tensor_ledger": [
+      {
+        "name": "hierarchy.embedding.symbols.weight",
+        "shape": [
+          267,
+          64
+        ],
+        "numel": 17088
+      },
+      {
+        "name": "hierarchy.embedding.positions.weight",
+        "shape": [
+          8,
+          64
+        ],
+        "numel": 512
+      },
+      {
+        "name": "hierarchy.encoder.conv.weight",
+        "shape": [
+          64,
+          1,
+          3
+        ],
+        "numel": 192
+      },
+      {
+        "name": "hierarchy.encoder.conv.bias",
+        "shape": [
+          64
+        ],
+        "numel": 64
+      },
+      {
+        "name": "hierarchy.encoder.gate.weight",
+        "shape": [
+          128,
+          64
+        ],
+        "numel": 8192
+      },
+      {
+        "name": "hierarchy.encoder.gate.bias",
+        "shape": [
+          128
+        ],
+        "numel": 128
+      },
+      {
+        "name": "hierarchy.encoder.norm.weight",
+        "shape": [
+          64
+        ],
+        "numel": 64
+      },
+      {
+        "name": "hierarchy.encoder.projection.weight",
+        "shape": [
+          512,
+          64
+        ],
+        "numel": 32768
+      },
+      {
+        "name": "hierarchy.encoder.projection.bias",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "hierarchy.decoder.context.weight",
+        "shape": [
+          256,
+          512
+        ],
+        "numel": 131072
+      },
+      {
+        "name": "hierarchy.decoder.context.bias",
+        "shape": [
+          256
+        ],
+        "numel": 256
+      },
+      {
+        "name": "hierarchy.decoder.gru.weight_ih",
+        "shape": [
+          768,
+          64
+        ],
+        "numel": 49152
+      },
+      {
+        "name": "hierarchy.decoder.gru.weight_hh",
+        "shape": [
+          768,
+          256
+        ],
+        "numel": 196608
+      },
+      {
+        "name": "hierarchy.decoder.gru.bias_ih",
+        "shape": [
+          768
+        ],
+        "numel": 768
+      },
+      {
+        "name": "hierarchy.decoder.gru.bias_hh",
+        "shape": [
+          768
+        ],
+        "numel": 768
+      },
+      {
+        "name": "hierarchy.decoder.norm.weight",
+        "shape": [
+          256
+        ],
+        "numel": 256
+      },
+      {
+        "name": "hierarchy.output.weight",
+        "shape": [
+          267,
+          256
+        ],
+        "numel": 68352
+      },
+      {
+        "name": "hierarchy.output.bias",
+        "shape": [
+          267
+        ],
+        "numel": 267
+      },
+      {
+        "name": "hierarchy.bootstrap.weight",
+        "shape": [
+          512,
+          64
+        ],
+        "numel": 32768
+      },
+      {
+        "name": "hierarchy.bootstrap.bias",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.0.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.0.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.0.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.0.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.0.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.0.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.0.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.0.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.0.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.1.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.1.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.1.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.1.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.1.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.1.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.1.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.1.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.1.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.2.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.2.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.2.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.2.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.2.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.2.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.2.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.2.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.2.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.3.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.3.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.3.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.3.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.3.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.3.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.3.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.3.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.3.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.4.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.4.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.4.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.4.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.4.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.4.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.4.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.4.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.4.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.5.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.5.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.5.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.5.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.5.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.5.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.5.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.5.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.5.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.6.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.6.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.6.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.6.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.6.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.6.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.6.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.6.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.6.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.7.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.7.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.7.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.7.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.7.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.7.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.7.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.7.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.7.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.8.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.8.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.8.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.8.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.8.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.8.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.8.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.8.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.8.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.9.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.9.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.9.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.9.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.9.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.9.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.9.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.9.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.9.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.10.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.10.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.10.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.10.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.10.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.10.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.10.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.10.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.10.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.11.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.11.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.11.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.11.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.11.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.11.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.11.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.11.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.11.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      }
+    ],
+    "validation": "META_EXECUTABLE_INVENTORY_FORMULA_AND_SHAPES_MATCH",
+    "status": "RECOMMENDED_FOR_20M_PILOT"
   },
-  "default_search_max_parameters": 5385771,
+  "retained_alternatives": [
+    "d512_l12_n64_b64_q128",
+    "d384_l21_n64_b64_q128"
+  ],
+  "selection_reason": "Moderate serial depth and aligned width; decoder256 adds real local/bridge capacity without new equations. No quality superiority asserted.",
+  "context_bridge": {
+    "decision": "REQUIRE_CONTEXT_BRIDGE_AB_BEFORE_FULL_20M",
+    "first_pilot": "A unchanged baseline",
+    "next_pair": "A versus B only",
+    "options": [
+      {
+        "id": "A",
+        "extra_parameters": 0,
+        "extra_arithmetic_per_full_patch": 0,
+        "extra_cache_bytes_per_sequence": 0
+      },
+      {
+        "id": "B",
+        "extra_parameters": 256,
+        "extra_arithmetic_per_full_patch": 2304,
+        "extra_sigmoid_calls": 256,
+        "extra_cache_bytes_per_sequence": 1024
+      },
+      {
+        "id": "C",
+        "extra_parameters": 32832,
+        "extra_arithmetic_per_full_patch": 66048,
+        "extra_cache_bytes_per_sequence": 256
+      },
+      {
+        "id": "D",
+        "extra_parameters": 262656,
+        "extra_arithmetic_per_full_patch": 529152,
+        "extra_tanh_calls": 256,
+        "extra_cache_bytes_per_sequence": 2048
+      },
+      {
+        "id": "E",
+        "extra_parameters": 512,
+        "extra_arithmetic_per_full_patch": 2049,
+        "extra_rsqrt_calls": 1,
+        "extra_cache_bytes_per_sequence": 0
+      }
+    ],
+    "equations_and_conventions": "docs/20m_architecture_contract.md",
+    "implemented": false
+  },
+  "sequence": {
+    "first_pilot": 64,
+    "evaluated": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "ssd_fixed_microbatch_relative_cost": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "automatic_curriculum": false
+  },
+  "data_budgets": [
+    {
+      "stage": "mechanics_smoke",
+      "train_bytes": 1000000,
+      "validation_bytes": 100000,
+      "future_sealed_test_bytes": 0,
+      "total_raw_bytes": 1100000,
+      "train_bytes_per_parameter": 0.04904958820172977,
+      "minimum_train_documents": 200,
+      "minimum_source_families_per_domain": 2,
+      "domain_bytes": {
+        "train": {
+          "general_text": 500000,
+          "code": 250000,
+          "documentation": 150000,
+          "structured_math": 100000
+        },
+        "validation": {
+          "general_text": 50000,
+          "code": 25000,
+          "documentation": 15000,
+          "structured_math": 10000
+        },
+        "test": {
+          "general_text": 0,
+          "code": 0,
+          "documentation": 0,
+          "structured_math": 0
+        }
+      }
+    },
+    {
+      "stage": "bounded_pilot",
+      "train_bytes": 65536000,
+      "validation_bytes": 4096000,
+      "future_sealed_test_bytes": 4096000,
+      "total_raw_bytes": 73728000,
+      "train_bytes_per_parameter": 3.2145138123885624,
+      "minimum_train_documents": 10000,
+      "minimum_source_families_per_domain": 3,
+      "domain_bytes": {
+        "train": {
+          "general_text": 32768000,
+          "code": 16384000,
+          "documentation": 9830400,
+          "structured_math": 6553600
+        },
+        "validation": {
+          "general_text": 2048000,
+          "code": 1024000,
+          "documentation": 614400,
+          "structured_math": 409600
+        },
+        "test": {
+          "general_text": 2048000,
+          "code": 1024000,
+          "documentation": 614400,
+          "structured_math": 409600
+        }
+      }
+    },
+    {
+      "stage": "serious_training",
+      "train_bytes": 2000000000,
+      "validation_bytes": 20000000,
+      "future_sealed_test_bytes": 20000000,
+      "total_raw_bytes": 2040000000,
+      "train_bytes_per_parameter": 98.09917640345955,
+      "minimum_train_documents": 200000,
+      "minimum_source_families_per_domain": 5,
+      "domain_bytes": {
+        "train": {
+          "general_text": 1000000000,
+          "code": 500000000,
+          "documentation": 300000000,
+          "structured_math": 200000000
+        },
+        "validation": {
+          "general_text": 10000000,
+          "code": 5000000,
+          "documentation": 3000000,
+          "structured_math": 2000000
+        },
+        "test": {
+          "general_text": 10000000,
+          "code": 5000000,
+          "documentation": 3000000,
+          "structured_math": 2000000
+        }
+      }
+    }
+  ],
+  "mixture_percent": {
+    "general_text": 50,
+    "code": 25,
+    "documentation": 15,
+    "structured_math": 10
+  },
   "pilot": {
-    "sequence_length": null,
-    "data_budget": null,
-    "micro_batch": null,
-    "accumulation": null,
-    "optimizer_lr": null,
-    "context_bridge_ab_required": null,
-    "optimized_backend_mandatory": null,
-    "reason": "NOT_FINALIZED_DUE_TO_STOP_CONDITION"
+    "seed": 17,
+    "sequence_length": 64,
+    "microbatch": 8,
+    "gradient_accumulation": 16,
+    "effective_sequences_per_update_nominal": 128,
+    "target_bytes_per_update_nominal_max": 8192,
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "decay_policy": "rank>=2 unless _no_weight_decay; rank<2 no decay",
+    "clip_norm": 1.0,
+    "foreach": false,
+    "fused": false,
+    "precision": "fp32",
+    "tf32": false,
+    "lr_provisional": 0.0006,
+    "lr_candidates": [
+      0.0003,
+      0.0006,
+      0.001
+    ],
+    "lr_probe_updates_per_arm": 256,
+    "lr_probe_warmup": 32,
+    "lr_probe_schedule_after_warmup": "constant",
+    "lr_selection_rule": "stable lowest selection NLL; within0.01 choose lower; no qualifying arm means STOP",
+    "warmup_updates": 400,
+    "schedule": "cosine",
+    "minimum_lr_ratio": 0.1,
+    "updates": 8000,
+    "target_bytes_nominal": 65536000,
+    "checkpoint_every": 250,
+    "validation_monitor_every": 250,
+    "full_confirmation_every": 1000,
+    "generation_every": 500,
+    "context_every": 1000,
+    "gpu_hours_max": 24,
+    "tail_policy": "Actual valid-byte accounting; no padding counted; no guaranteed one epoch"
   },
-  "memory_status": {
-    "rtx_2050": "UNVERIFIED",
-    "single_T4": "UNVERIFIED",
-    "T4x2": "UNVERIFIED"
+  "memory": {
+    "ledger": "reports/20m_prebuild_mechanical.json:resumed_accounting.memory",
+    "analytic_only": true,
+    "rtx2050": "FITS_WITH_CONSTRAINTS",
+    "single_t4": "FITS_COMFORTABLY",
+    "t4x2": "UNVERIFIED",
+    "measured_all_hardware": "UNVERIFIED",
+    "rtx_profile": "B2 L64 acc64 separate run identity",
+    "t4_profile": "B8 L64 acc16"
+  },
+  "execution_modes": {
+    "REFERENCE_PARANOID": "Per-update full active-data verification and detailed instrumentation",
+    "PRODUCTION_FAST": "Verified immutable buffers, boundary hashes, cheap identity checks, declared monitoring cadence",
+    "invariants": [
+      "loss",
+      "optimizer",
+      "data_order",
+      "gradient_accumulation",
+      "model_equations",
+      "checkpoint_semantics"
+    ],
+    "bitwise_synthetic_mode_parity_required": true,
+    "implemented": false
   },
   "throughput_status": "NEEDS_MEASUREMENT",
+  "optimized_backend": {
+    "decision": "MANDATORY_ONLY_BEFORE_SERIOUS_20M",
+    "reference_authoritative": true,
+    "t4_compute_capability": "7.5",
+    "current_triton_supported_minimum": "8.0",
+    "upstream_fast_path_on_t4": "NOT_SUPPORTED_BY_CURRENT_TRITON_COMPATIBILITY_LIST",
+    "compatible_optimized_backend_verified": false,
+    "parity_categories": [
+      "forward",
+      "streaming_step",
+      "state",
+      "causality",
+      "gradients",
+      "seeded_optimizer_update",
+      "checkpoint_behavior"
+    ],
+    "sources_checked_date": "2026-09-27"
+  },
+  "required_refactors": [
+    {
+      "id": "R1",
+      "item": "Explicit20M resolver/search policy and exact accounting",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R2",
+      "item": "Evidence-scoped current resolver metadata",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R3",
+      "item": "README/current-state index",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R4",
+      "item": "Immutable active-data verification and TEST-free runtime manifests",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R5",
+      "item": "Paranoid/fast monitoring and exact update/resume equivalence",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R6",
+      "item": "Linux RSS and portable paths/processes",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R7",
+      "item": "Named GPU caps/headroom and explicit single-device launcher",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R8",
+      "item": "Identity-derived tensor inventory and explicit runtime errors",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R9",
+      "item": "Bounded pilot/LR/diagnostic/checkpoint gate runner",
+      "classification": "MUST_FIX_BEFORE_20M_PILOT"
+    },
+    {
+      "id": "R10",
+      "item": "Optimized backend/interface, T4 compatibility and complete parity",
+      "classification": "MUST_FIX_BEFORE_FULL_20M"
+    },
+    {
+      "id": "R11",
+      "item": "Indexed/sharded data and scalable active evidence helpers",
+      "classification": "MUST_FIX_BEFORE_FULL_20M"
+    },
+    {
+      "id": "R12",
+      "item": "True multi-GPU DDP and rank-state protocol",
+      "classification": "CAN_DEFER"
+    },
+    {
+      "id": "R13",
+      "item": "Historical evidence-script deduplication",
+      "classification": "CAN_DEFER"
+    }
+  ],
+  "generation": {
+    "prompts": [
+      "",
+      "The ",
+      "Once ",
+      "def ",
+      "import ",
+      "class ",
+      "x = ",
+      "Let x = ",
+      "Parameters\n----------\n"
+    ],
+    "bytes_per_trace": 256,
+    "sample_seeds": [
+      101,
+      202,
+      303,
+      404
+    ],
+    "greedy": true,
+    "policy": "byte-renormalized sampling T1; record unfiltered267-class probabilities; no repetition penalty",
+    "metrics": [
+      "whitespace_fraction",
+      "printable_fraction",
+      "longest_repeated_byte_run",
+      "empirical_entropy_bits",
+      "predictive_entropy_bits",
+      "q_space",
+      "top1_top2_margin",
+      "control_mass",
+      "utf8_validity",
+      "output_diversity",
+      "prompt_JS_divergence"
+    ],
+    "predeclared_thresholds": "docs/20m_training_plan.md: Generation and context promotion",
+    "whitespace_attractor_explicitly_tracked": true
+  },
+  "promotion_gates": {
+    "contract": "docs/20m_training_plan.md: Stage decisions",
+    "20M-0": "PASS_META_CONSTRUCTION_ONLY",
+    "20M-1": "NOT_RUN",
+    "20M-2": "NOT_RUN",
+    "20M-3": "NOT_RUN",
+    "20M-4": "NOT_RUN",
+    "20M-5": "NOT_RUN",
+    "20M-6": "HUMAN_APPROVAL_REQUIRED"
+  },
   "kaggle_bridge": {
     "authority": "USER_PROVIDED_NOT_REVERIFIED",
     "commit": "4cb387d340b68e9e210bbea1effcaa03108806e1",
@@ -86,12 +1579,26 @@
     "compute_enabled": false,
     "future_boundary": "Explicit approved host execution; typed LOCAL_ONLY/HOST_READ/HOST_WRITE/HOST_COMPUTE; no arbitrary shell or sandbox network fallback"
   },
+  "kaggle_future_order": [
+    "private_write_smoke",
+    "CPU_notebook_smoke",
+    "T4_hardware_diagnostic",
+    "20M_mechanics_smoke",
+    "20M_pilot"
+  ],
   "training_performed_20m": false,
   "frozen_2m_continued": false,
-  "test_status": "SEALED; no real TEST payload accessed",
   "source_modified": false,
-  "evidence_rebound": false,
-  "mandatory_next_step": "Human review and separately authorized provenance reconciliation, then resume audit",
+  "historical_snapshot_modified": false,
+  "test_status": "SEALED; no production payload access in this tranche",
+  "kaggle_compute_occurred": false,
+  "dataset_acquisition_occurred": false,
+  "documents": [
+    "docs/20m_architecture_contract.md",
+    "docs/20m_training_plan.md",
+    "docs/kaggle_20m_execution_plan.md"
+  ],
   "validation_receipt": "reports/20m_prebuild_validation.json",
-  "rollback": "Retain accepted commit and checkpoint; revert additive audit commit if desired"
+  "rollback": "Revert additive audit commit; frozen model, configs, source, history and reference backend unchanged",
+  "next_step": "Implement R1-R9 in a separately scoped reversible tranche, validate synthetic regressions; no pilot execution authorized"
 }
