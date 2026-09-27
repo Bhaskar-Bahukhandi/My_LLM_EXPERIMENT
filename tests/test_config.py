@@ -182,7 +182,7 @@ def test_outside_target_is_reported_without_changing_tolerance():
     counts = [c.parameters for c in result.candidates if c.parameters is not None]
     selected_count = result.to_dict()["actual_inventory_parameters"]
     assert abs(selected_count - 2_000_000) == min(abs(c - 2_000_000) for c in counts)
-    assert not result.to_dict()["training_ready"]
+    assert not result.to_dict()["readiness"]["pilot_execution_ready"]
 
 
 def test_legal_candidate_can_meet_a_declared_band():

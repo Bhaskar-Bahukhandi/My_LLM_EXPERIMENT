@@ -4,11 +4,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from math import prod
+from typing import TYPE_CHECKING
 
 import torch
 from torch import nn
 
 from unified_edge.config import NUM_SYMBOLS, ConfigError, ModelShape, validate_architecture
+
+if TYPE_CHECKING:
+    from unified_edge.resolve import ResolvedConfig
 
 
 @dataclass(frozen=True)
@@ -137,3 +141,61 @@ def formula_parameter_estimate(shape: ModelShape) -> int:
     output = NUM_SYMBOLS * (q + 1)
     bootstrap = d * b + d
     return embedding + encoder + shape.shared_layers * block + decoder + output + bootstrap
+
+
+def audit_executable_parameters(config: ResolvedConfig) -> dict:
+    """Reconcile the real meta model without executing forward or materializing weights."""
+    from unified_edge.dense_model import DenseByteModel
+
+    inventory = instantiate_inventory(config.shape)
+    with torch.device("meta"):
+        model = DenseByteModel(config)
+    actual, declared = audit_parameters(model), audit_parameters(inventory)
+    formula = formula_parameter_estimate(config.shape)
+    if not (
+        actual["unique_trainable_parameters"] == declared["unique_trainable_parameters"] == formula
+    ):
+        raise RuntimeError("executable/inventory/formula parameter conflict")
+    if sorted(tuple(p.shape) for p in model.parameters()) != sorted(
+        tuple(p.shape) for p in inventory.parameters()
+    ):
+        raise RuntimeError("executable/inventory tensor shape conflict")
+    components, tensors, identities = {}, [], set()
+    prefixes = (
+        ("shared.", "mamba_trunk_excluding_norm"),
+        ("hierarchy.embedding.symbols", "symbol_embeddings"),
+        ("hierarchy.embedding.positions", "position_embeddings"),
+        ("hierarchy.encoder", "patch_encoder_excluding_norm"),
+        ("hierarchy.bootstrap", "bootstrap"),
+        ("hierarchy.decoder.context", "context_bridge"),
+        ("hierarchy.decoder.gru", "local_decoder_gru"),
+        ("hierarchy.output", "output_head"),
+    )
+    for name, parameter in model.named_parameters():
+        if not parameter.requires_grad or id(parameter) in identities:
+            continue
+        identities.add(id(parameter))
+        component = (
+            "normalization"
+            if "norm" in name
+            else next((group for prefix, group in prefixes if name.startswith(prefix)), None)
+        )
+        if component is None:
+            raise RuntimeError(f"unclassified executable parameter {name}")
+        components[component] = components.get(component, 0) + parameter.numel()
+        tensors.append({"name": name, "shape": list(parameter.shape), "numel": parameter.numel()})
+    if sum(components.values()) != actual["unique_trainable_parameters"]:
+        raise RuntimeError("executable component total conflict")
+    return {
+        "status": "META_VERIFIED",
+        "unique_trainable_parameters": actual["unique_trainable_parameters"],
+        "unique_trainable_tensors": len(identities),
+        "named_trainable_tensors": len(tensors),
+        "formula_parameters": formula,
+        "inventory_audit": declared,
+        "executable_audit": actual,
+        "components": components,
+        "tensor_ledger": tensors,
+        "forward_executed": False,
+        "parameter_values_materialized": False,
+    }

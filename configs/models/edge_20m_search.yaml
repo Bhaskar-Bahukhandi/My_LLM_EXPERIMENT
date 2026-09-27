@@ -1,0 +1,26 @@
+# Diagnostic candidate table only. This never selects or replaces the pinned pilot.
+# Decoder128 allocation control: copy this config and explicitly set decoder_dim: 128.
+schema_version: '1'
+resolver:
+  policy: edge_dense_v2_20m
+  mode: search
+model:
+  target_parameters: 20000000
+  parameter_tolerance: 0.05
+  d_model: auto
+  shared_layers: auto
+  d_state: 64
+  byte_dim: 64
+  decoder_dim: 256
+  expand: 2
+  headdim: 64
+  d_conv: 4
+  patch_size: 8
+  chunk_patches: 16
+  moe_enabled: false
+hardware:
+  backend: torch_reference_inventory_v1
+  device: cpu
+  precision: fp32
+  batch_size: 8
+  memory_budget_bytes: null

@@ -16,17 +16,21 @@ from unified_edge.config import (
     Hardware,
     ModelRequest,
     ModelShape,
+    ResolverPolicy,
+    SearchPolicy,
     digest,
     mapping,
     positive_int,
     validate_architecture,
 )
 from unified_edge.parameters import (
+    audit_executable_parameters,
     audit_parameters,
     formula_parameter_estimate,
     instantiate_inventory,
 )
 from unified_edge.preflight import memory_preflight
+from unified_edge.readiness import configuration_readiness
 
 
 @dataclass(frozen=True)
@@ -36,6 +40,7 @@ class ResolvedConfig:
     target_parameters: int
     parameter_tolerance: float
     authored_sha256: str
+    resolver: ResolverPolicy | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.shape, ModelShape) or not isinstance(self.hardware, Hardware):
@@ -44,6 +49,9 @@ class ResolvedConfig:
         positive_int(self.target_parameters, "resolved.target_parameters")
         # Reuse the authored tolerance contract rather than maintaining a second rule.
         ModelRequest(parameter_tolerance=self.parameter_tolerance)
+        if self.resolver is not None:
+            if not isinstance(self.resolver, ResolverPolicy) or self.resolver.mode != "explicit":
+                raise ConfigError("resolved resolver must be an explicit ResolverPolicy")
         if (
             not isinstance(self.authored_sha256, str)
             or len(self.authored_sha256) != 64
@@ -52,7 +60,7 @@ class ResolvedConfig:
             raise ConfigError("resolved.authored_sha256 must be a lowercase SHA-256 digest")
 
     def to_dict(self) -> dict:
-        return {
+        result = {
             "schema_version": SCHEMA_VERSION,
             "inventory_version": INVENTORY_VERSION,
             "architecture_family": "edge_mamba_dense_inventory",
@@ -72,6 +80,9 @@ class ResolvedConfig:
             "parameter_tolerance": self.parameter_tolerance,
             "authored_sha256": self.authored_sha256,
         }
+        if self.resolver is not None:
+            result["resolver"] = asdict(self.resolver)
+        return result
 
     @property
     def sha256(self) -> str:
@@ -94,8 +105,8 @@ class ResolvedConfig:
             "parameter_tolerance",
             "authored_sha256",
         }
-        data = mapping(value, required, "resolved")
-        if set(data) != required:
+        data = mapping(value, required | {"resolver"}, "resolved")
+        if not required.issubset(data):
             raise ConfigError(f"resolved missing fields {sorted(required - set(data))}")
         model_data = mapping(data["model"], {f.name for f in fields(ModelShape)}, "resolved.model")
         if set(model_data) != {f.name for f in fields(ModelShape)}:
@@ -111,6 +122,7 @@ class ResolvedConfig:
             data["target_parameters"],
             data["parameter_tolerance"],
             data["authored_sha256"],
+            ResolverPolicy.from_dict(data["resolver"]) if "resolver" in data else None,
         )
         # This also rejects tampered derived dimensions, controls, schema and reference pins.
         if digest(result.to_dict()) != digest(data):
@@ -135,24 +147,41 @@ class Resolution:
     status: str
     selected: ResolvedConfig | None
     candidates: tuple[Candidate, ...]
+    resolver: ResolverPolicy | None = None
+    search_space: SearchPolicy = SearchPolicy()
 
     def to_dict(self) -> dict:
         result = {
             "status": self.status,
-            "scope": "declared parameter inventory; executable model not implemented",
+            "scope": "configuration validation and meta construction; no training execution",
             "backend": BACKEND,
             "candidates": [asdict(c) for c in self.candidates],
             "resolved_config": None,
+            "resolver": asdict(self.resolver)
+            if self.resolver
+            else {"policy": "legacy_schema1_compatibility", "mode": "legacy_resolution"},
+            "search_space": asdict(self.search_space),
+            "ranking_purpose": "PARAMETER_DISTANCE_DIAGNOSTIC_NOT_ARCHITECTURE_RECOMMENDATION",
+            "candidate_ranking": [
+                asdict(c)
+                for c in sorted(
+                    (c for c in self.candidates if c.status == "VALID_GENERIC_PATH"),
+                    key=lambda c: (abs(c.delta), c.shared_layers, c.d_model),
+                )
+            ],
+            "readiness": configuration_readiness(self.selected, self.resolver).to_dict(),
         }
         if self.selected is not None:
             selected = self.selected
-            audit = audit_parameters(instantiate_inventory(selected.shape))
+            executable = audit_executable_parameters(selected)
+            audit = executable["inventory_audit"]
             actual = audit["unique_trainable_parameters"]
             result.update(
                 {
                     "resolved_config": selected.to_dict(),
                     "resolved_sha256": selected.sha256,
                     "parameter_audit": audit,
+                    "executable_accounting": executable,
                     "target_parameters": selected.target_parameters,
                     "actual_inventory_parameters": actual,
                     "active_inventory_parameters_dense": actual,
@@ -163,8 +192,7 @@ class Resolution:
                     "memory_preflight": memory_preflight(
                         selected.shape, audit, selected.hardware
                     ).to_dict(),
-                    "training_ready": False,
-                    "next_gate": "reconcile executable byte-model tensors against inventory v1",
+                    "next_gate": result["readiness"]["next_gate"],
                 }
             )
         return result
@@ -184,6 +212,8 @@ def resolve_config(config: AuthoredConfig) -> Resolution:
             shape = ModelShape(**values)
             try:
                 validate_architecture(shape)
+                if config.resolver is not None and width % shape.headdim:
+                    raise ConfigError("versioned policy requires d_model divisible by headdim")
                 if width % config.search.width_multiple:
                     raise ConfigError(
                         f"d_model={width} violates clean search policy multiple "
@@ -225,14 +255,25 @@ def resolve_config(config: AuthoredConfig) -> Resolution:
             )
             if status == "VALID_GENERIC_PATH":
                 viable.append((abs(delta), depth, width, shape, within))
+
+    def result(status, selected=None):
+        return Resolution(status, selected, tuple(candidates), config.resolver, config.search)
+
     if not viable:
-        return Resolution("NO_LEGAL_CANDIDATE", None, tuple(candidates))
+        return result("NO_LEGAL_CANDIDATE")
+    if config.resolver is not None and config.resolver.mode == "search":
+        return result("SEARCH_COMPLETE")
     _, _, _, chosen, within = min(viable, key=lambda item: item[:3])
+    if config.resolver is not None and not within:
+        # Legacy configs retain their historical OUTSIDE_TARGET selection/identity.
+        # Versioned explicit configs cannot publish a resolved candidate outside their gate.
+        return result("OUTSIDE_TARGET")
     selected = ResolvedConfig(
         chosen,
         config.hardware,
         request.target_parameters,
         request.parameter_tolerance,
         digest(config.to_dict()),
+        config.resolver,
     )
-    return Resolution("WITHIN_TARGET" if within else "OUTSIDE_TARGET", selected, tuple(candidates))
+    return result("WITHIN_TARGET" if within else "OUTSIDE_TARGET", selected)

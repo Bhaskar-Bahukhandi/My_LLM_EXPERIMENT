@@ -113,6 +113,34 @@ class SearchPolicy:
 
 
 @dataclass(frozen=True)
+class ResolverPolicy:
+    policy: str
+    mode: str
+
+    def __post_init__(self) -> None:
+        if self.policy not in ("edge_dense_v1_2m", "edge_dense_v2_20m"):
+            raise ConfigError(f"unsupported resolver.policy {self.policy!r}")
+        if self.mode not in ("explicit", "search"):
+            raise ConfigError("resolver.mode must be explicit or search")
+
+    @property
+    def search_space(self) -> SearchPolicy:
+        if self.policy == "edge_dense_v1_2m":
+            return SearchPolicy()
+        return SearchPolicy(
+            widths=(256, 320, 384, 448, 512, 576, 640, 704, 768, 896, 1024),
+            depths=(3, 4, 8, 12, 21, 30, 46),
+        )
+
+    @classmethod
+    def from_dict(cls, value: object) -> ResolverPolicy:
+        data = mapping(value, {"policy", "mode"}, "resolver")
+        if set(data) != {"policy", "mode"}:
+            raise ConfigError("resolver requires explicit policy and mode")
+        return cls(**data)
+
+
+@dataclass(frozen=True)
 class Hardware:
     backend: str = BACKEND
     device: str = "cpu"
@@ -134,12 +162,19 @@ class Hardware:
 class AuthoredConfig:
     schema_version: str = SCHEMA_VERSION
     model: ModelRequest = ModelRequest()
-    search: SearchPolicy = SearchPolicy()
+    search: SearchPolicy | None = None
     hardware: Hardware = Hardware()
+    resolver: ResolverPolicy | None = None
 
     def __post_init__(self) -> None:
         if self.schema_version != SCHEMA_VERSION:
             raise ConfigError(f"unsupported schema_version {self.schema_version!r}")
+        if self.resolver is not None and not isinstance(self.resolver, ResolverPolicy):
+            raise ConfigError("resolver must be ResolverPolicy")
+        if self.search is None:
+            object.__setattr__(
+                self, "search", self.resolver.search_space if self.resolver else SearchPolicy()
+            )
         for name, cls in (
             ("model", ModelRequest),
             ("search", SearchPolicy),
@@ -147,18 +182,34 @@ class AuthoredConfig:
         ):
             if not isinstance(getattr(self, name), cls):
                 raise ConfigError(f"{name} must be {cls.__name__}")
+        if self.resolver is not None:
+            if self.search != self.resolver.search_space:
+                raise ConfigError("search conflicts with immutable resolver policy search space")
+            automatic = (self.model.d_model == "auto", self.model.shared_layers == "auto")
+            if self.resolver.mode == "explicit" and any(automatic):
+                raise ConfigError("explicit resolver requires pinned d_model and shared_layers")
+            if self.resolver.mode == "search" and not all(automatic):
+                raise ConfigError(
+                    "search requires both dimensions auto; cannot override a pinned shape"
+                )
 
     @classmethod
     def from_dict(cls, value: object) -> AuthoredConfig:
-        data = mapping(value, {"schema_version", "model", "search", "hardware"}, "config")
+        data = mapping(
+            value, {"schema_version", "model", "search", "hardware", "resolver"}, "config"
+        )
         if "schema_version" not in data:
             raise ConfigError("config.schema_version is required")
         parts = {}
+        if "resolver" in data:
+            parts["resolver"] = ResolverPolicy.from_dict(data["resolver"])
         for name, contract in (
             ("model", ModelRequest),
             ("search", SearchPolicy),
             ("hardware", Hardware),
         ):
+            if name == "search" and name not in data:
+                continue
             part = dict(mapping(data.get(name, {}), {f.name for f in fields(contract)}, name))
             if name == "search":
                 for key in ("widths", "depths"):
@@ -170,7 +221,11 @@ class AuthoredConfig:
         return cls(schema_version=data["schema_version"], **parts)
 
     def to_dict(self) -> dict:
-        return json.loads(canonical_json(asdict(self)))
+        result = asdict(self)
+        # Absence is the original v1 contract, including its historical digests.
+        if self.resolver is None:
+            del result["resolver"]
+        return json.loads(canonical_json(result))
 
 
 @dataclass(frozen=True)

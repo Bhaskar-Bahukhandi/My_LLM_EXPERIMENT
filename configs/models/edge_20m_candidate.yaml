@@ -1,6 +1,9 @@
 # RECOMMENDED_FOR_PILOT; not PRODUCTION_APPROVED; no training authorization.
 # CPU hardware here is the existing inventory schema, not the T4 execution profile.
 # Baseline bridge; training/runtime gates are in docs/20m_training_plan.md.
+resolver:
+  policy: edge_dense_v2_20m
+  mode: explicit
 hardware:
   backend: torch_reference_inventory_v1
   batch_size: 8
@@ -22,16 +25,3 @@ model:
   shared_layers: 12
   target_parameters: 20000000
 schema_version: '1'
-search:
-  depths:
-  - 2
-  - 3
-  - 4
-  - 6
-  - 8
-  - 12
-  width_multiple: 64
-  widths:
-  - 128
-  - 192
-  - 256

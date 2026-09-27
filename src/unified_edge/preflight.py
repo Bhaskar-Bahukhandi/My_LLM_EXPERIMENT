@@ -26,7 +26,15 @@ class MemoryPreflight:
     measured_runtime: bool = False
 
     def to_dict(self) -> dict:
-        return asdict(self)
+        return {
+            **asdict(self),
+            "scope": "ANALYTIC_PAYLOAD_SCREEN_ONLY_NOT_EXECUTION_READINESS",
+            "local_state_assumption": (
+                "Conservative planned context + decoder hidden + pending symbols; "
+                "the current hierarchy does not persist a separate context vector."
+            ),
+            "runtime_fit_verified": False,
+        }
 
 
 def memory_preflight(shape: ModelShape, audit: dict, hardware: Hardware) -> MemoryPreflight:

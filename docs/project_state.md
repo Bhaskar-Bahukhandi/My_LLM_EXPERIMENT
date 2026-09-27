@@ -1,5 +1,31 @@
 # Project state
 
+## 20M-I1 resolver/configuration: READY FOR REVIEW
+
+- **R1 PASS:** explicit versioned 20M policy, pinned resolution, diagnostic-only search,
+  exact 20,387,531 parameters / 128 tensors, and unchanged legacy 2M resolved identity.
+- **R2 PASS:** evidence-scoped architecture/accounting/construction/training/quality
+  status; 20M training NOT_RUN and pilot execution NOT_READY.
+- **R3 PASS:** README and this current-state index point to current evidence and restrictions.
+- **R4-R9 NOT IMPLEMENTED. 20M pilot NOT AUTHORIZED. 20M training NOT RUN.**
+- **2M frozen; TEST sealed; Kaggle compute not run.** Model mathematics and trainer
+  remain unchanged. Current tooling source identity changes only within R1-R3.
+
+### Current-state index
+
+| Question | Current answer |
+|---|---|
+| Frozen | 2M Gen-0: 1,929,579 parameters, validation NLL about 2.17015; checkpoint/source at accepted historical commit; authorization snapshot |
+| Implemented | Reference dense model and historical training infrastructure; I1 resolver/configuration/accounting/status tooling |
+| Proposed | 20M width 512 x 12/state 64/byte 64/decoder 256; recommended for pilot, never production approved |
+| Unverified | 20M learning, useful context, measured GPU fit/throughput; optimized T4 backend and Kaggle compute |
+| Blocked | Pilot execution until R4-R9 and approved execution gates; serious training also requires R10-R11 |
+| Next | Review [I1 implementation evidence](../reports/20m_i1_resolver_config_implementation.md), then a separately scoped R4-R9 tranche |
+
+See [resolver compatibility](resolver_policy.md), [pre-build design](../reports/20m_prebuild_audit.md),
+[training gates](20m_training_plan.md), and [Kaggle boundary](kaggle_20m_execution_plan.md).
+The chronological records below are retained as historical evidence.
+
 ## 20M pre-build: READY WITH REQUIRED REFACTOR
 
 2026-09-27: resumed the reconciled audit; selected 512 x 12/state 64/byte 64/decoder 256,

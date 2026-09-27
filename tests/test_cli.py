@@ -59,3 +59,40 @@ def test_cli_invalid_config_fails_without_report(tmp_path):
     assert result.returncode == 1
     assert "unknown" in result.stderr
     assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "name,status",
+    [
+        ("edge_20m_candidate.yaml", "WITHIN_TARGET"),
+        ("edge_20m_search.yaml", "SEARCH_COMPLETE"),
+    ],
+)
+def test_versioned_cli_reports_selection_and_readiness_separately(name, status):
+    first = run_cli(ROOT / "configs/models" / name, seed="17")
+    second = run_cli(ROOT / "configs/models" / name, seed="29")
+    assert first.returncode == second.returncode == 0
+    assert first.stdout == second.stdout
+    report = json.loads(first.stdout)
+    assert report["status"] == status
+    assert report["resolver"]["policy"] == "edge_dense_v2_20m"
+    assert report["readiness"]["training_execution_status"] == "NOT_RUN"
+    assert not report["readiness"]["pilot_execution_ready"]
+    if status == "WITHIN_TARGET":
+        assert report["executable_accounting"]["unique_trainable_parameters"] == 20_387_531
+        assert "R4_R9" in report["next_gate"]
+    else:
+        assert report["resolved_config"] is None
+        assert report["candidate_ranking"]
+
+
+def test_versioned_cli_tolerance_rejection_does_not_emit_selected_config(tmp_path):
+    from unified_edge.config import load_config
+
+    data = load_config(ROOT / "configs/models/edge_20m_candidate.yaml").to_dict()
+    data["model"]["parameter_tolerance"] = 0
+    path = tmp_path / "rejected.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    result = run_cli(path)
+    assert result.returncode == 2
+    assert json.loads(result.stdout)["resolved_config"] is None

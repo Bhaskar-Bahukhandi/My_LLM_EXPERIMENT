@@ -26,7 +26,12 @@ def main(argv: list[str] | None = None) -> int:
             with args.output.open("x", encoding="utf-8") as handle:
                 handle.write(report)
         print(report, end="")
-        return {"WITHIN_TARGET": 0, "OUTSIDE_TARGET": 2, "NO_LEGAL_CANDIDATE": 3}[result.status]
+        return {
+            "WITHIN_TARGET": 0,
+            "SEARCH_COMPLETE": 0,
+            "OUTSIDE_TARGET": 2,
+            "NO_LEGAL_CANDIDATE": 3,
+        }[result.status]
     except (ConfigError, OSError) as exc:
         print(f"configuration error: {exc}", file=sys.stderr)
         return 1
