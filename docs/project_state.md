@@ -1,5 +1,35 @@
 # Project state
 
+## 20M-I2 training infrastructure: READY FOR REVIEW
+
+- **R1-R3 PASS**
+- **R4 PASS:** immutable verified TRAIN/VALIDATION buffers; startup/resume/checkpoint
+  verification, fail-closed mutation detection, no runtime TEST dependency.
+- **R5 PASS:** typed paranoid/fast monitoring; bitwise synthetic update, gradient,
+  optimizer, schedule, cursor, RNG and checkpoint/restore equivalence.
+- **R6 PASS:** portable RSS interface and logical paths; Windows measured and Linux
+  fixture-tested. Native Linux execution remains UNVERIFIED.
+- **R7 PASS:** discovery separated from explicit single-device admission; named
+  T4/RTX allocator policies are analytically planned, not measured hardware passes.
+- **R8 PASS:** model-derived checkpoint parameter inventory and explicit runtime
+  errors, including optimized-Python gates; no fixed generic tensor count.
+- **R9 NOT IMPLEMENTED**
+- **20M PILOT NOT AUTHORIZED**
+- **20M TRAINING NOT RUN**
+- **T4 HARDWARE UNVERIFIED**
+- **KAGGLE COMPUTE NOT RUN**
+- **TEST SEALED**
+- **2M FROZEN**
+
+The selected 20M resolved identity, 20,387,531 parameters / 128 tensors, model
+mathematics, frozen 2M checkpoint and historical snapshot remain unchanged.
+Only authorized synthetic CPU mechanics/overfit updates ran. Current checkpoint
+schema 3 does not migrate frozen schema-2 checkpoints; use the accepted source checkout.
+Review the [I2 report](../reports/20m_i2_training_infrastructure.md),
+[receipt](../reports/20m_i2_training_infrastructure.json), and
+[runtime policy](training_infrastructure_policy.md) before separately scoping R9.
+Earlier entries below describe their historical tranche state.
+
 ## 20M-I1 resolver/configuration: READY FOR REVIEW
 
 - **R1 PASS:** explicit versioned 20M policy, pinned resolution, diagnostic-only search,
