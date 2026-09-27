@@ -55,7 +55,7 @@ def configuration_readiness(
             "META_CONSTRUCTED",
             "COMPLETED_FROZEN_LINEAGE",
             "ENGINEERING_BASELINE_ONLY",
-            "PRESERVE_FROZEN_2M_IMPLEMENT_20M_R4_R9",
+            "PRESERVE_FROZEN_2M_COMPLETE_20M_R9",
             "Training completion refers only to the accepted historical Gen-0 run; "
             "this resolver does not train, load weights or authorize current-source resume.",
             "reports/full_training_2m_final.json at 3d2698b42404ec67834ead162db0bd10240d270b",
@@ -74,10 +74,11 @@ def configuration_readiness(
             "META_CONSTRUCTED",
             "NOT_RUN",
             "UNVERIFIED",
-            "IMPLEMENT_R4_R9_THEN_RUN_20M_1_GATES_WITH_APPROVAL",
-            "Resolver/configuration layer only. Pre-build ready with required refactors; "
-            "NOT PILOT_READY UNTIL R4-R9 and execution gates pass. No training authorization.",
-            "reports/20m_prebuild_audit.json; reports/20m_i1_resolver_config_implementation.json",
+            "IMPLEMENT_R9_THEN_RUN_APPROVED_20M_EXECUTION_GATES",
+            "R1-R8 infrastructure implemented and reviewed; R9 remains unimplemented. "
+            "Hardware execution gates remain unpassed. No pilot or training authorization.",
+            "reports/20m_prebuild_audit.json; reports/20m_i1_resolver_config_implementation.json; "
+            "reports/20m_i2_training_infrastructure.json",
         )
     return Readiness(
         "UNREVIEWED_CONFIGURATION",

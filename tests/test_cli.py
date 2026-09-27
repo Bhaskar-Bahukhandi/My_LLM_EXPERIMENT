@@ -78,9 +78,14 @@ def test_versioned_cli_reports_selection_and_readiness_separately(name, status):
     assert report["resolver"]["policy"] == "edge_dense_v2_20m"
     assert report["readiness"]["training_execution_status"] == "NOT_RUN"
     assert not report["readiness"]["pilot_execution_ready"]
+    assert not report["readiness"]["training_authorized"]
     if status == "WITHIN_TARGET":
         assert report["executable_accounting"]["unique_trainable_parameters"] == 20_387_531
-        assert "R4_R9" in report["next_gate"]
+        assert report["next_gate"] == "IMPLEMENT_R9_THEN_RUN_APPROVED_20M_EXECUTION_GATES"
+        assert (
+            "reports/20m_i2_training_infrastructure.json"
+            in (report["readiness"]["evidence_reference"])
+        )
     else:
         assert report["resolved_config"] is None
         assert report["candidate_ranking"]

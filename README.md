@@ -46,9 +46,9 @@ CLI exits: 0 for WITHIN_TARGET or SEARCH_COMPLETE, 2 for OUTSIDE_TARGET, 3 for n
 legal/memory-admissible candidate, 1 for malformed input/output errors. No exit code
 authorizes training. `--output evidence/my_review/audit.json` writes a new report
 without overwriting an existing file. Readiness separates architecture, accounting,
-construction, training and quality; 20M pilot execution remains false. I1's readiness
-metadata retains the full R4-R9 prerequisite; current tranche completion is recorded
-in the project-state index. See the [I2 runtime policy](docs/training_infrastructure_policy.md)
+construction, training and quality. R1-R8 are implemented and reviewed; R9 remains
+outstanding, the pilot remains unauthorized, and T4 hardware remains unverified.
+See the [I2 runtime policy](docs/training_infrastructure_policy.md)
 for immutable TRAIN/VALIDATION snapshots, paranoid/fast monitoring, checkpoint schema
 and planned device admission profiles.
 
