@@ -1214,7 +1214,7 @@
     "d512_l12_n64_b64_q128",
     "d384_l21_n64_b64_q128"
   ],
-  "selection_reason": "Moderate serial depth and aligned width; decoder256 adds real local/bridge capacity without new equations. No quality superiority asserted.",
+  "selection_reason": "Moderate serial depth and aligned width; decoder 256 adds real local/bridge capacity without new equations. No quality superiority asserted.",
   "context_bridge": {
     "decision": "REQUIRE_CONTEXT_BRIDGE_AB_BEFORE_FULL_20M",
     "first_pilot": "A unchanged baseline",
@@ -1400,7 +1400,7 @@
     "lr_probe_updates_per_arm": 256,
     "lr_probe_warmup": 32,
     "lr_probe_schedule_after_warmup": "constant",
-    "lr_selection_rule": "stable lowest selection NLL; within0.01 choose lower; no qualifying arm means STOP",
+    "lr_selection_rule": "stable lowest selection NLL; within 0.01 choose lower; no qualifying arm means STOP",
     "warmup_updates": 400,
     "schedule": "cosine",
     "minimum_lr_ratio": 0.1,
@@ -1460,7 +1460,7 @@
   "required_refactors": [
     {
       "id": "R1",
-      "item": "Explicit20M resolver/search policy and exact accounting",
+      "item": "Explicit 20M resolver/search policy and exact accounting",
       "classification": "MUST_FIX_BEFORE_20M_PILOT"
     },
     {
@@ -1544,7 +1544,7 @@
       404
     ],
     "greedy": true,
-    "policy": "byte-renormalized sampling T1; record unfiltered267-class probabilities; no repetition penalty",
+    "policy": "byte-renormalized sampling T1; record unfiltered 267-class probabilities; no repetition penalty",
     "metrics": [
       "whitespace_fraction",
       "printable_fraction",

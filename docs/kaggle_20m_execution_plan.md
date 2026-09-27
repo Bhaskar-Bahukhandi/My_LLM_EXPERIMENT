@@ -3,7 +3,7 @@
 Design only. No Kaggle action, upload, notebook execution or GPU allocation occurred.
 Accepted bridge commit supplied by the user:
 `4cb387d340b68e9e210bbea1effcaa03108806e1`, **READ-ONLY VERIFIED**.
-Kaggle CLI2.2.4, credential isolation and approved host read boundary are accepted
+Kaggle CLI 2.2.4, credential isolation and approved host read boundary are accepted
 from that statement, not re-audited here. Private writes, notebooks and T4 availability
 remain unverified and compute remains disabled.
 
@@ -29,7 +29,7 @@ This document grants neither HOST_WRITE nor HOST_COMPUTE permission.
 2. **CPU notebook smoke:** separate HOST_COMPUTE approval; <=5 minutes, no GPU and
    synthetic bytes only. Test import lockfile, relative POSIX paths, Linux RSS, private
    durable output and a downloaded checksum round-trip. No training. Failure retains
-   local reference artifacts and blocks step3.
+   local reference artifacts and blocks step 3.
 3. **T4 diagnostic:** separate <=10-minute GPU approval. Record actual GPU count,
    name, capability, visible-device mapping, free/total VRAM, driver/runtime/torch,
    deterministic settings and allocator metrics. Mask one physical T4 before CUDA
@@ -43,7 +43,7 @@ This document grants neither HOST_WRITE nor HOST_COMPUTE permission.
    within the same supported environment. No production 2M checkpoint is input.
 5. **20M bounded pilot:** separately approve LR probes, then the fixed pilot manifest,
    chosen LR and 8,000 updates. Budget <=24 cumulative GPU hours including monitoring
-   and exports. Pause before the measured session deadline, reserving at least30
+   and exports. Pause before the measured session deadline, reserving at least 30
    minutes for durable export. Account/session limits must be verified at execution;
    do not hard-code a documentation limit as availability. No full run follows automatically.
 
@@ -63,11 +63,11 @@ Reject incompatible environment identities, never weaken restore checks to resum
 
 ## Dual T4: deferred, not pooled VRAM
 
-Two16GB devices do not form one32GB address space. Future DDP replicates parameters,
+Two 16 GB devices do not form one 32 GB address space. Future DDP replicates parameters,
 gradients and moments on each card; communication buckets add memory and overhead.
 The analytic ledger adds two FP32 parameter-sized bucket allowances per rank.
-Per-rank B=8 and accumulation8 would give the same nominal128 sequences/update
-as one T4 B=8/accumulation16, but reduction order and data sharding change. Exact
+Per-rank B=8 and accumulation 8 would give the same nominal 128 sequences/update
+as one T4 B=8/accumulation 16, but reduction order and data sharding change. Exact
 single-device mathematical/evidence equivalence is not assumed. A new configuration,
 rank RNG/cursor checkpoint format, backend parity/learning gates and explicit approval
 are required. Current exactly-one-visible-device validation stays the fallback.

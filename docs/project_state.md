@@ -2,7 +2,7 @@
 
 ## 20M pre-build: READY WITH REQUIRED REFACTOR
 
-2026-09-27: resumed the reconciled audit; selected512x12/state64/byte64/decoder256,
+2026-09-27: resumed the reconciled audit; selected 512 x 12/state 64/byte 64/decoder 256,
 20,387,531 meta-verified parameters, RECOMMENDED_FOR_PILOT only. See
 `reports/20m_prebuild_audit.md` and the architecture/training/Kaggle plans.
 R1-R9 must precede any pilot; no training or Kaggle compute authorized or performed.

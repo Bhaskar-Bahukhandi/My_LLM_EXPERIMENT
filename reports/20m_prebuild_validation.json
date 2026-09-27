@@ -305,5 +305,200 @@
     "new_helper_sha256": "a5ea2eb3ff1a31815bd982c203e9bc992e0302e46d8f72f24021bdcbe7378d8f",
     "selected_yaml_sha256": "b9f3104d8b1ed8aef9fd09ea09c3dc213bbfb32e1a41be984109416a05caf834"
   },
-  "status": "PASS"
+  "status": "PASS",
+  "closeout": {
+    "base_commit": "af4e29bc04d8a2cc776870cbe657948170e50b3a",
+    "status": "PASS",
+    "checks": {
+      "current_non_training_tests": {
+        "command": [
+          "E:\\Theai\\.venv\\Scripts\\python.exe",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_accounting.py",
+          "tests/test_authorization_provenance.py",
+          "tests/test_cli.py",
+          "tests/test_config.py",
+          "tests/test_contamination_review_v1.py",
+          "tests/test_contamination_v2.py",
+          "tests/test_corpus_acquisition.py",
+          "tests/test_corpus_contamination.py",
+          "tests/test_corpus_duplicates.py",
+          "tests/test_corpus_filtering.py",
+          "tests/test_corpus_freeze.py",
+          "tests/test_future_capabilities_spec.py",
+          "tests/test_gutenberg_acquisition.py",
+          "tests/test_gutenberg_cleaning.py",
+          "tests/test_mode_policy_v2.py",
+          "tests/test_symbols.py",
+          "tests/test_targeted_acquisition.py"
+        ],
+        "exit_code": 0,
+        "seconds": 22.614851699967403,
+        "stdout": "........................................................................ [ 51%]\n....................................................................     [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n140 passed, 1 warning in 21.64s\n",
+        "stderr": ""
+      },
+      "mandatory_historical_replay": {
+        "command": [
+          "E:\\Theai\\.venv\\Scripts\\python.exe",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "tests/test_historical_authorization_replay.py"
+        ],
+        "exit_code": 0,
+        "seconds": 2.568953199952375,
+        "stdout": "..............................                                           [100%]\n30 passed in 1.29s\n\n.\n1 passed in 2.01s\n",
+        "stderr": ""
+      },
+      "ruff": {
+        "command": [
+          "E:\\Theai\\.venv\\Scripts\\python.exe",
+          "-m",
+          "ruff",
+          "check",
+          "src",
+          "tests",
+          "scripts"
+        ],
+        "exit_code": 0,
+        "seconds": 0.178327499947045,
+        "stdout": "All checks passed!\n",
+        "stderr": ""
+      },
+      "format": {
+        "command": [
+          "E:\\Theai\\.venv\\Scripts\\python.exe",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "src",
+          "tests",
+          "scripts"
+        ],
+        "exit_code": 0,
+        "seconds": 0.15096090000588447,
+        "stdout": "104 files already formatted\n",
+        "stderr": ""
+      },
+      "compileall": {
+        "command": [
+          "E:\\Theai\\.venv\\Scripts\\python.exe",
+          "-m",
+          "compileall",
+          "-q",
+          "src",
+          "tests",
+          "scripts"
+        ],
+        "exit_code": 0,
+        "seconds": 0.22228670003823936,
+        "stdout": "",
+        "stderr": ""
+      },
+      "cpu_dependencies": {
+        "command": [
+          "E:\\Theai\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.8567423000349663,
+        "stdout": "No broken requirements found.\n",
+        "stderr": ""
+      },
+      "cuda_dependencies": {
+        "command": [
+          "E:\\Theai\\.venv-cuda\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.9126307000406086,
+        "stdout": "No broken requirements found.\n",
+        "stderr": ""
+      },
+      "diff": {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.07345230004284531,
+        "stdout": "",
+        "stderr": "warning: in the working copy of 'docs/20m_architecture_contract.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/20m_training_plan.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/kaggle_20m_execution_plan.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_state.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'reports/20m_prebuild_audit.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'reports/20m_prebuild_audit.md', LF will be replaced by CRLF the next time Git touches it\n"
+      }
+    },
+    "meta_accounting": {
+      "parameters": 20387531,
+      "unique_trainable_tensors": 128,
+      "component_total": 20387531,
+      "resolved_sha256": "c0b58d464ac815bd0b44669e1e62e8d51884f7ebb4ec34c4e7fa47ec2bd939a4",
+      "matches_retained_accounting": true,
+      "yaml_resolved_identity_matches": true,
+      "named_tensor_signature_sha256": "3f242a2332fa41d4737f5d184b1593051bf8384a7cb5e954f457c136848dfd61"
+    },
+    "preservation": {
+      "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+      "source_matches_frozen": true,
+      "checkpoint_sha256": "0d4c822daadf6bb8269a727ac54d54a26e9edf49ff43fedff1b0d91ba6ad2623",
+      "checkpoint_matches_frozen": true,
+      "checkpoint_deserialized": false,
+      "snapshot_files_checked": 66,
+      "snapshot_mismatches": [],
+      "snapshot_membership_unchanged": true,
+      "snapshot_manifest_matches": true,
+      "unexpected_changed_paths": [],
+      "mechanical_receipt_unchanged": true,
+      "historical_expected_hashes_unchanged": true
+    },
+    "consistency": {
+      "decision": true,
+      "selected_identity": true,
+      "pilot": true,
+      "data_budgets": true,
+      "context": true,
+      "backend": true,
+      "R1_R9": true,
+      "R10_R11": true,
+      "R12_R13": true,
+      "not_production_approved": true,
+      "editorial_review": "Markdown reviewed against these unchanged numeric contracts; code symbols/equations/YAML unchanged"
+    },
+    "test_count_policy": "Observed output retained; no expected test count used for acceptance",
+    "prohibited_actions_performed": [],
+    "test_status": "SEALED_NO_PAYLOAD_ACCESS",
+    "R1_R9_implemented": false
+  },
+  "final_design_artifact_sha256": {
+    "reports/20m_prebuild_audit.md": "1b9dae5166d5ae9bf4226c62e7df01542526fc0a52076c1acf1a975644bd444c",
+    "reports/20m_prebuild_audit.json": "cd2b4faea3244cac981f26df038f4b44fa1f899204b9a37660962530710eed5b",
+    "reports/20m_prebuild_mechanical.json": "62db80f042a930d02595e94635491997d1a06bf826b23bcb09ab43aa241d66c0",
+    "docs/20m_architecture_contract.md": "d14e71ba61775354d00b8159ed8363b48d8fb31bcf927a1af8d1a3d162770e7b",
+    "docs/20m_training_plan.md": "ae59ad12d6a392986f7d7adabab7c06b648f5264c3047308cdf7b922746436b2",
+    "docs/kaggle_20m_execution_plan.md": "b58544b2e02b768ae5d93731df0d74faa0962aefb2248c1751bfa319de74c1a1",
+    "configs/models/edge_20m_candidate.yaml": "b9f3104d8b1ed8aef9fd09ea09c3dc213bbfb32e1a41be984109416a05caf834",
+    "docs/project_state.md": "7031a28498aecd20e9a272a34794ae2cad613f7f49fa6d65cdeb5592571a983e",
+    "scripts/complete_20m_accounting.py": "a5ea2eb3ff1a31815bd982c203e9bc992e0302e46d8f72f24021bdcbe7378d8f"
+  },
+  "final_design_hash_scope": "SHA-256 of exact final local file bytes, before commit. Validation JSON excluded. Git autocrlf may change representations on other checkouts; LF-normalized companion map supplied.",
+  "final_design_lf_normalized_sha256": {
+    "reports/20m_prebuild_audit.md": "454d8769215d3e916d55035069846dc86b5c1828f57c275bbc3984a676ef4b57",
+    "reports/20m_prebuild_audit.json": "7ae2c1576238938ea22ea09f7e102de1ff193753ced75f36b3b19b8984fe9d9a",
+    "reports/20m_prebuild_mechanical.json": "fbc575d481b658059906deac085d2471de4ba4ee75c1397fac80eee0cc8b16be",
+    "docs/20m_architecture_contract.md": "d14e71ba61775354d00b8159ed8363b48d8fb31bcf927a1af8d1a3d162770e7b",
+    "docs/20m_training_plan.md": "ae59ad12d6a392986f7d7adabab7c06b648f5264c3047308cdf7b922746436b2",
+    "docs/kaggle_20m_execution_plan.md": "b58544b2e02b768ae5d93731df0d74faa0962aefb2248c1751bfa319de74c1a1",
+    "configs/models/edge_20m_candidate.yaml": "0233b1991b4d17112f246cc98a4ba8d6c19a5957f10df91a5950c79ba2ef8de9",
+    "docs/project_state.md": "5f7b071d4bd77dff054fc33537ced80de00f1b97fe8d999235d19bbbb01686a1",
+    "scripts/complete_20m_accounting.py": "a5ea2eb3ff1a31815bd982c203e9bc992e0302e46d8f72f24021bdcbe7378d8f"
+  }
 }

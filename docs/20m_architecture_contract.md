@@ -35,12 +35,12 @@ forward correctness, trainability or quality. No tensor values were materialized
 | All normalization | 18,752 | 0.0920% |
 | **Total** | **20,387,531** | **100%** |
 
-The 98.5783% trunk share of the 512x12/decoder128 control is a risk signal, not
+The 98.5783% trunk share of the 512 x 12/decoder 128 control is a risk signal, not
 proof of unhealthy allocation: the global path runs once per eight bytes, whereas
 small local weights are reused each byte. Parameter shares do not measure useful
 capacity or computation shares. Nevertheless, retaining a 128-wide decoder while
 greatly enlarging the global network leaves a plausible output bottleneck.
-Decoder256 buys an actual higher-rank bridge, a larger nonlinear local state and
+Decoder 256 buys an actual higher-rank bridge, a larger nonlinear local state and
 a larger readout for 272,768 parameters (+1.36% over that control). It is a single
 local-width change, not padding or a new mechanism; it does not cure saturation by
 assertion. The trunk is still dominant. Do not widen the encoder and change the
@@ -59,14 +59,14 @@ one sequence's FP32 SSM+conv+decoder and seven pending int64 symbols.
 | 256 x 46 | 20,074,587 | 19,689,472 | 6,500,920 | Most serial launches, longest layer gradient path, narrow GEMMs; reject for first GPU pilot |
 | 320 x 30 | 20,119,695 | 19,756,800 | 5,284,408 | Still deep and state-heavy; no measured advantage |
 | 384 x 21 | 20,061,951 | 19,708,416 | 4,430,392 | Retained depth/width alternative; 75% more layer boundaries than selected |
-| 512 x 12, decoder128 | 20,114,763 | 19,759,104 | 3,367,480 | Retained allocation control; smallest change from the old local path |
-| **512 x 12, decoder256** | **20,387,531** | **19,759,104** | **3,367,992** | **Selected: moderate depth, aligned width, stronger local capacity** |
+| 512 x 12, decoder 128 | 20,114,763 | 19,759,104 | 3,367,480 | Retained allocation control; smallest change from the old local path |
+| **512 x 12, decoder 256** | **20,387,531** | **19,759,104** | **3,367,992** | **Selected: moderate depth, aligned width, stronger local capacity** |
 | 640 x 8 | 20,791,275 | 20,418,560 | 2,802,232 | Less serial work, higher projection cost, fewer sequential transforms |
 | 896 x 4 | 20,242,779 | 19,826,688 | 1,958,456 | Wide kernels may utilize GPU better, but little depth; unmeasured quality risk |
 | 1024 x 3 | 19,807,659 | 19,365,888 | 1,677,880 | Lowest depth/state; not chosen merely because its parameter count is close |
-| 512 x 12, byte128 | 20,247,499 | 19,759,104 | 3,367,480 | Encoder/embedding capacity control; does not directly bypass the observed decoder insensitivity |
-| 512 x 12, state128 | 20,908,875 | 20,545,536 | 6,537,784 | Roughly doubles recurrent memory; larger latent state is not evidence of decoder adoption |
-| 512 x 11, state128 | 19,188,763 | 18,833,408 | 5,993,016 | State/depth tradeoff control; same adoption uncertainty |
+| 512 x 12, byte 128 | 20,247,499 | 19,759,104 | 3,367,480 | Encoder/embedding capacity control; does not directly bypass the observed decoder insensitivity |
+| 512 x 12, state 128 | 20,908,875 | 20,545,536 | 6,537,784 | Roughly doubles recurrent memory; larger latent state is not evidence of decoder adoption |
+| 512 x 11, state 128 | 19,188,763 | 18,833,408 | 5,993,016 | State/depth tradeoff control; same adoption uncertainty |
 
 All use legal head-aligned widths. Similar projection work does not imply similar
 time: narrower/deeper paths have more launches, reductions and serial dependency.
@@ -135,8 +135,8 @@ quantiles, saturation fraction abs(tanh(u))>0.99, gradients, phase-wise hidden/l
 sensitivity and held-out benefit, not just state norms. Gate magnitude alone is no proof.
 
 After the first pilot, compare A versus B only, fresh paired initializations and
-matched TRAIN windows/valid target-byte exposure, seed17 primary plus seed29 confirm.
-Use the same length64, optimizer selected before comparing, and at most 8,000 updates
+matched TRAIN windows/valid target-byte exposure, seed 17 primary plus seed 29 confirm.
+Use the same length 64, optimizer selected before comparing, and at most 8,000 updates
 per arm. Other architecture dimensions stay selected. Require stage 20M-5 criteria
 in the training plan. Do not simultaneously change sequence length, mixture, decoder,
 precision, backend or LR. No automatic selection of C/D/E after B fails; revise the
@@ -164,7 +164,7 @@ forward constructs whole patch-time quadratic matrices.
 
 Training resets state for independent document windows, so gradients only span
 the chosen window. Streaming mechanical recurrence has fixed-size memory and can
-consume histories beyond64; after L bytes its step count is 1+floor(L/8), unlike
+consume histories beyond 64; after L bytes its step count is 1+floor(L/8), unlike
 prediction forward. Effective learned context requires paired validation benefit.
 No automatic 64->128->256 curriculum is approved. A later length-only comparison
 must show >=0.01 nats/byte history benefit with a positive document-bootstrap 95% CI,
@@ -180,8 +180,8 @@ too much operational risk to approve without a validated optimized path. If the
 bounded pilot fails the measured throughput gate, optimization becomes a prerequisite
 there too; do not silently extend the compute budget.
 
-Compatibility checked 2026-09-27: NVIDIA lists T4 at compute capability7.5;
-current Triton lists supported NVIDIA hardware at8.0+. The upstream Mamba-2 combined
+Compatibility checked 2026-09-27: NVIDIA lists T4 at compute capability 7.5;
+current Triton lists supported NVIDIA hardware at 8.0+. The upstream Mamba-2 combined
 SSD source imports Triton. Thus the current upstream fast path is **not a supported
 T4 choice**; installation or import success would not establish kernel support.
 Older versions/custom CUDA may differ but no compatible pinned combination has
@@ -201,8 +201,8 @@ FP32 and masks. Upstream modules are not a drop-in replacement: wrapper pre-norm
 residual, returned states and strict serialization must match this repository.
 No backend installed, ported or promoted in this audit.
 
-Predeclare backend parity on CPU reference versus target FP32, seeds17/29/43,
-B=1/2/8, patch lengths0/1/3/4/8/16/17/32, nonzero incoming state and ragged byte tails.
+Predeclare backend parity on CPU reference versus target FP32, seeds 17/29/43,
+B=1/2/8, patch lengths 0/1/3/4/8/16/17/32, nonzero incoming state and ragged byte tails.
 Forward/stream outputs and state: atol=1e-5, rtol=1e-4; gradients: atol=2e-5,
 rtol=2e-4; seeded single AdamW update including moments: atol=2e-5, rtol=2e-4.
 Report maxima and relative L2, not only allclose. Causal prefix outputs must be exactly
