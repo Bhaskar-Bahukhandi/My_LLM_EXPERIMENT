@@ -20,7 +20,7 @@
 | Proposed | 20M width 512 x 12/state 64/byte 64/decoder 256; recommended for pilot, never production approved |
 | Unverified | 20M learning, useful context, measured GPU fit/throughput; optimized T4 backend and Kaggle compute |
 | Blocked | Pilot execution until R4-R9 and approved execution gates; serious training also requires R10-R11 |
-| Next | Review [I1 implementation evidence](../reports/20m_i1_resolver_config_implementation.md), then a separately scoped R4-R9 tranche |
+| Next | Review [I1 implementation evidence](../reports/20m_i1_resolver_config_implementation.md) and [receipt](../reports/20m_i1_resolver_config_implementation.json), then a separately scoped R4-R8 tranche; R9 and approved execution gates still precede any pilot |
 
 See [resolver compatibility](resolver_policy.md), [pre-build design](../reports/20m_prebuild_audit.md),
 [training gates](20m_training_plan.md), and [Kaggle boundary](kaggle_20m_execution_plan.md).

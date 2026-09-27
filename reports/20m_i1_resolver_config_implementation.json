@@ -1,0 +1,3679 @@
+{
+  "schema": "20m-i1-resolver-config-implementation-v1",
+  "entry_commit": "fad209fccb4add87e66770fb0470f257cf787f2d",
+  "implementation_commit": "57e19c78a9bdec8abc72826ef300b7a254d9b9f1",
+  "decision": "20M_I1_READY_FOR_REVIEW",
+  "r1_status": "PASS",
+  "r2_status": "PASS",
+  "r3_status": "PASS",
+  "r4_r9_status": "NOT_IMPLEMENTED",
+  "selected_candidate": {
+    "schema_version": "1",
+    "inventory_version": "1",
+    "architecture_family": "edge_mamba_dense_inventory",
+    "semantic_reference_commit": "d7b1ceb3c367ec9022925e812f507bcf706937c6",
+    "backend_classification": "VALID_GENERIC_PATH",
+    "model": {
+      "d_model": 512,
+      "shared_layers": 12,
+      "byte_dim": 64,
+      "decoder_dim": 256,
+      "d_state": 64,
+      "d_conv": 4,
+      "expand": 2,
+      "headdim": 64,
+      "patch_size": 8,
+      "chunk_patches": 16
+    },
+    "derived": {
+      "d_inner": 1024,
+      "nheads": 16,
+      "num_symbols": 267,
+      "bytes_per_chunk": 128
+    },
+    "control_version": "1",
+    "control_ids": {
+      "pad": 256,
+      "bos": 257,
+      "eos": 258,
+      "tool_call": 259,
+      "tool_result": 260,
+      "rag_begin": 261,
+      "rag_end": 262,
+      "code_begin": 263,
+      "code_end": 264,
+      "error": 265,
+      "retry": 266
+    },
+    "hardware": {
+      "backend": "torch_reference_inventory_v1",
+      "device": "cpu",
+      "precision": "fp32",
+      "batch_size": 8,
+      "memory_budget_bytes": null
+    },
+    "target_parameters": 20000000,
+    "parameter_tolerance": 0.05,
+    "authored_sha256": "d51a39366b33420291e6b62d1af4e86a96f1bd2d43fec716670756be722f3411",
+    "resolver": {
+      "policy": "edge_dense_v2_20m",
+      "mode": "explicit"
+    }
+  },
+  "selected_parameters": 20387531,
+  "selected_trainable_tensors": 128,
+  "selected_resolved_sha256": "6e7ffdc3c3448f7f19fa4466a9780c369c05cc572030c1b026d4eef1503b9359",
+  "selected_accounting": {
+    "status": "META_VERIFIED",
+    "unique_trainable_parameters": 20387531,
+    "unique_trainable_tensors": 128,
+    "named_trainable_tensors": 128,
+    "formula_parameters": 20387531,
+    "inventory_audit": {
+      "unique_trainable_parameters": 20387531,
+      "unique_frozen_parameters": 0,
+      "unique_buffer_elements": 0,
+      "unique_parameter_bytes": 81550124,
+      "unique_buffer_bytes": 0,
+      "components": {
+        "bootstrap": 33280,
+        "decoder": 378880,
+        "embedding": 17600,
+        "encoder": 41920,
+        "output": 68619,
+        "shared": 19847232
+      },
+      "aliases": {},
+      "state_dict_tensor_entries": 128,
+      "state_dict_non_tensor_entries": [],
+      "state_dict_entry_elements": 20387531,
+      "state_dict_logical_payload_bytes": 81550124,
+      "serialized_file_bytes": null,
+      "payload_note": "logical entries; aliases may share storage; not serialized file size"
+    },
+    "executable_audit": {
+      "unique_trainable_parameters": 20387531,
+      "unique_frozen_parameters": 0,
+      "unique_buffer_elements": 0,
+      "unique_parameter_bytes": 81550124,
+      "unique_buffer_bytes": 0,
+      "components": {
+        "hierarchy": 540299,
+        "shared": 19847232
+      },
+      "aliases": {},
+      "state_dict_tensor_entries": 128,
+      "state_dict_non_tensor_entries": [],
+      "state_dict_entry_elements": 20387531,
+      "state_dict_logical_payload_bytes": 81550124,
+      "serialized_file_bytes": null,
+      "payload_note": "logical entries; aliases may share storage; not serialized file size"
+    },
+    "components": {
+      "symbol_embeddings": 17088,
+      "position_embeddings": 512,
+      "patch_encoder_excluding_norm": 41856,
+      "normalization": 18752,
+      "context_bridge": 131328,
+      "local_decoder_gru": 247296,
+      "output_head": 68619,
+      "bootstrap": 33280,
+      "mamba_trunk_excluding_norm": 19828800
+    },
+    "tensor_ledger": [
+      {
+        "name": "hierarchy.embedding.symbols.weight",
+        "shape": [
+          267,
+          64
+        ],
+        "numel": 17088
+      },
+      {
+        "name": "hierarchy.embedding.positions.weight",
+        "shape": [
+          8,
+          64
+        ],
+        "numel": 512
+      },
+      {
+        "name": "hierarchy.encoder.conv.weight",
+        "shape": [
+          64,
+          1,
+          3
+        ],
+        "numel": 192
+      },
+      {
+        "name": "hierarchy.encoder.conv.bias",
+        "shape": [
+          64
+        ],
+        "numel": 64
+      },
+      {
+        "name": "hierarchy.encoder.gate.weight",
+        "shape": [
+          128,
+          64
+        ],
+        "numel": 8192
+      },
+      {
+        "name": "hierarchy.encoder.gate.bias",
+        "shape": [
+          128
+        ],
+        "numel": 128
+      },
+      {
+        "name": "hierarchy.encoder.norm.weight",
+        "shape": [
+          64
+        ],
+        "numel": 64
+      },
+      {
+        "name": "hierarchy.encoder.projection.weight",
+        "shape": [
+          512,
+          64
+        ],
+        "numel": 32768
+      },
+      {
+        "name": "hierarchy.encoder.projection.bias",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "hierarchy.decoder.context.weight",
+        "shape": [
+          256,
+          512
+        ],
+        "numel": 131072
+      },
+      {
+        "name": "hierarchy.decoder.context.bias",
+        "shape": [
+          256
+        ],
+        "numel": 256
+      },
+      {
+        "name": "hierarchy.decoder.gru.weight_ih",
+        "shape": [
+          768,
+          64
+        ],
+        "numel": 49152
+      },
+      {
+        "name": "hierarchy.decoder.gru.weight_hh",
+        "shape": [
+          768,
+          256
+        ],
+        "numel": 196608
+      },
+      {
+        "name": "hierarchy.decoder.gru.bias_ih",
+        "shape": [
+          768
+        ],
+        "numel": 768
+      },
+      {
+        "name": "hierarchy.decoder.gru.bias_hh",
+        "shape": [
+          768
+        ],
+        "numel": 768
+      },
+      {
+        "name": "hierarchy.decoder.norm.weight",
+        "shape": [
+          256
+        ],
+        "numel": 256
+      },
+      {
+        "name": "hierarchy.output.weight",
+        "shape": [
+          267,
+          256
+        ],
+        "numel": 68352
+      },
+      {
+        "name": "hierarchy.output.bias",
+        "shape": [
+          267
+        ],
+        "numel": 267
+      },
+      {
+        "name": "hierarchy.bootstrap.weight",
+        "shape": [
+          512,
+          64
+        ],
+        "numel": 32768
+      },
+      {
+        "name": "hierarchy.bootstrap.bias",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.0.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.0.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.0.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.0.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.0.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.0.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.0.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.0.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.0.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.1.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.1.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.1.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.1.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.1.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.1.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.1.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.1.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.1.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.2.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.2.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.2.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.2.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.2.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.2.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.2.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.2.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.2.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.3.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.3.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.3.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.3.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.3.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.3.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.3.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.3.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.3.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.4.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.4.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.4.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.4.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.4.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.4.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.4.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.4.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.4.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.5.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.5.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.5.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.5.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.5.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.5.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.5.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.5.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.5.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.6.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.6.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.6.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.6.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.6.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.6.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.6.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.6.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.6.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.7.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.7.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.7.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.7.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.7.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.7.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.7.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.7.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.7.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.8.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.8.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.8.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.8.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.8.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.8.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.8.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.8.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.8.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.9.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.9.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.9.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.9.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.9.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.9.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.9.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.9.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.9.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.10.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.10.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.10.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.10.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.10.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.10.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.10.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.10.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.10.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      },
+      {
+        "name": "shared.layers.11.dt_bias",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.11.A_log",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.11.D",
+        "shape": [
+          16
+        ],
+        "numel": 16
+      },
+      {
+        "name": "shared.layers.11.pre_norm.weight",
+        "shape": [
+          512
+        ],
+        "numel": 512
+      },
+      {
+        "name": "shared.layers.11.in_proj.weight",
+        "shape": [
+          2192,
+          512
+        ],
+        "numel": 1122304
+      },
+      {
+        "name": "shared.layers.11.conv.weight",
+        "shape": [
+          1152,
+          1,
+          4
+        ],
+        "numel": 4608
+      },
+      {
+        "name": "shared.layers.11.conv.bias",
+        "shape": [
+          1152
+        ],
+        "numel": 1152
+      },
+      {
+        "name": "shared.layers.11.gated_norm.weight",
+        "shape": [
+          1024
+        ],
+        "numel": 1024
+      },
+      {
+        "name": "shared.layers.11.out_proj.weight",
+        "shape": [
+          512,
+          1024
+        ],
+        "numel": 524288
+      }
+    ],
+    "forward_executed": false,
+    "parameter_values_materialized": false
+  },
+  "candidate_evaluations": 1,
+  "legacy_2m_parameters": 1929579,
+  "legacy_2m_resolved_sha256": "7fe06b639741003e4c5ad9d57d32c2fd2b86f6805b2048ad1efd6aaa75e3a6f1",
+  "legacy_identity_preserved": true,
+  "legacy_complete_resolved_object_equal": true,
+  "legacy_inventory_accounting_equal": true,
+  "schema_review": {
+    "schema_version": "1",
+    "old_authored_parser_rejection": "config: unknown fields ['resolver']",
+    "representative_legacy_serializations_compared": 5,
+    "rule": "Missing resolver preserves legacy; present resolver is strict, typed and explicit. Older tooling rejects the unknown field."
+  },
+  "resolver_policies": {
+    "edge_dense_v1_2m": {
+      "widths": [
+        128,
+        192,
+        256
+      ],
+      "depths": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        12
+      ]
+    },
+    "edge_dense_v2_20m": {
+      "widths": [
+        256,
+        320,
+        384,
+        448,
+        512,
+        576,
+        640,
+        704,
+        768,
+        896,
+        1024
+      ],
+      "depths": [
+        3,
+        4,
+        8,
+        12,
+        21,
+        30,
+        46
+      ],
+      "width_multiple": 64
+    }
+  },
+  "selection_semantics": {
+    "explicit": "Pinned dimensions only; no selected config on tolerance failure.",
+    "search": "Both auto; diagnostic ranking only; no architecture selection.",
+    "legacy": "Absent resolver preserves original behavior and serialization; no target-size heuristic."
+  },
+  "search_status": "SEARCH_COMPLETE",
+  "search_selected": null,
+  "search_candidates": [
+    {
+      "d_model": 256,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 1737555,
+      "delta": -18262445,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 31209200
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 2169579,
+      "delta": -17830421,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 39252080
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 3897675,
+      "delta": -16102325,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 71423600
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5625771,
+      "delta": -14374229,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 103595120
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 9513987,
+      "delta": -10486013,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 175981040
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 13402203,
+      "delta": -6597797,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 248366960
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20314587,
+      "delta": 314587,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 377053040
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 2456357,
+      "delta": -17543643,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 43547664
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 3119747,
+      "delta": -16880253,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 55570928
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5773307,
+      "delta": -14226693,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 103663984
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8426867,
+      "delta": -11573133,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 151757040
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 14397377,
+      "delta": -5602623,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 259966416
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20367887,
+      "delta": 367887,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 368175792
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 30982127,
+      "delta": 10982127,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 560548016
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 3323383,
+      "delta": -16676617,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 58257712
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 4267547,
+      "delta": -15732453,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 75051888
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8044203,
+      "delta": -11955797,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 142228592
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 11820859,
+      "delta": -8179141,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 209405296
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20318335,
+      "delta": 318335,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 360552880
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 28815811,
+      "delta": 8815811,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 511700464
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 43922435,
+      "delta": 23922435,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 780407280
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 4338633,
+      "delta": -15661367,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 75339344
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5612979,
+      "delta": -14387021,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 97694960
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 10710363,
+      "delta": -9289637,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 187117424
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 15807747,
+      "delta": -4192253,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 276539888
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 27276861,
+      "delta": 7276861,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 477740432
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 38745975,
+      "delta": 18745975,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 678940976
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 59135511,
+      "delta": 39135511,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1036630832
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5502107,
+      "delta": -14497893,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 94792560
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 7156043,
+      "delta": -12843957,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 123500144
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 13771787,
+      "delta": -6228213,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 238330480
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20387531,
+      "delta": 387531,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 353160816
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 35272955,
+      "delta": 15272955,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 611529072
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 50158379,
+      "delta": 30158379,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 869897328
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 76621355,
+      "delta": 56621355,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1329218672
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 6813805,
+      "delta": -13186195,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 116617360
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8896739,
+      "delta": -11103261,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 152467440
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 17228475,
+      "delta": -2771525,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 295867760
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 25560211,
+      "delta": 5560211,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 439268080
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 44306617,
+      "delta": 24306617,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 761918800
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 63053023,
+      "delta": 43053023,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1084569520
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 96379967,
+      "delta": 76379967,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1658170800
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8273727,
+      "delta": -11726273,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 140813744
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 10835067,
+      "delta": -9164933,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 184596848
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 21080427,
+      "delta": 1080427,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 359729264
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 31325787,
+      "delta": 11325787,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 534861680
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 54377847,
+      "delta": 34377847,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 928909616
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 77429907,
+      "delta": 57429907,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1322957552
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 118411347,
+      "delta": 98411347,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2023487216
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 9881873,
+      "delta": -10118127,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 167381712
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 12971027,
+      "delta": -7028973,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 219888368
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 25327643,
+      "delta": 5327643,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 429914992
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 37684259,
+      "delta": 17684259,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 639941616
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 65486645,
+      "delta": 45486645,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1112501520
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 93289031,
+      "delta": 73289031,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1585061424
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 142715495,
+      "delta": 122715495,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2425167920
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 11638243,
+      "delta": -8361757,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 196321264
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 15304619,
+      "delta": -4695381,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 258342000
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 29970123,
+      "delta": 9970123,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 506424944
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 44635627,
+      "delta": 24635627,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 754507888
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 77633011,
+      "delta": 57633011,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1312694512
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 110630395,
+      "delta": 90630395,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1870881136
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 169292411,
+      "delta": 149292411,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2863212912
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 15595655,
+      "delta": -4404345,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 261315120
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20564699,
+      "delta": 564699,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 344735600
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 40440875,
+      "delta": 20440875,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 678417520
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 60317051,
+      "delta": 40317051,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1012099440
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 105038447,
+      "delta": 85038447,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1762883760
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 149759843,
+      "delta": 129759843,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2513668080
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 229264547,
+      "delta": 209264547,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 3848395760
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20145963,
+      "delta": 145963,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 335795312
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 26615307,
+      "delta": 6615307,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 443777648
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 52492683,
+      "delta": 32492683,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 875706992
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 78370059,
+      "delta": 58370059,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1307636336
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 136594155,
+      "delta": 116594155,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2279477360
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 194818251,
+      "delta": 174818251,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 3251318384
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 298327755,
+      "delta": 278327755,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 4979035760
+    }
+  ],
+  "search_ranking": [
+    {
+      "d_model": 1024,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20145963,
+      "delta": 145963,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 335795312
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20314587,
+      "delta": 314587,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 377053040
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20318335,
+      "delta": 318335,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 360552880
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20367887,
+      "delta": 367887,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 368175792
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20387531,
+      "delta": 387531,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 353160816
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 20564699,
+      "delta": 564699,
+      "within_tolerance": true,
+      "known_training_payload_bytes": 344735600
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 21080427,
+      "delta": 1080427,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 359729264
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 17228475,
+      "delta": -2771525,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 295867760
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 15807747,
+      "delta": -4192253,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 276539888
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 15595655,
+      "delta": -4404345,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 261315120
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 15304619,
+      "delta": -4695381,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 258342000
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 25327643,
+      "delta": 5327643,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 429914992
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 25560211,
+      "delta": 5560211,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 439268080
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 14397377,
+      "delta": -5602623,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 259966416
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 13771787,
+      "delta": -6228213,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 238330480
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 13402203,
+      "delta": -6597797,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 248366960
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 26615307,
+      "delta": 6615307,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 443777648
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 12971027,
+      "delta": -7028973,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 219888368
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 27276861,
+      "delta": 7276861,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 477740432
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 11820859,
+      "delta": -8179141,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 209405296
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 11638243,
+      "delta": -8361757,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 196321264
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 28815811,
+      "delta": 8815811,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 511700464
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 10835067,
+      "delta": -9164933,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 184596848
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 10710363,
+      "delta": -9289637,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 187117424
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 29970123,
+      "delta": 9970123,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 506424944
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 9881873,
+      "delta": -10118127,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 167381712
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 9513987,
+      "delta": -10486013,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 175981040
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 30982127,
+      "delta": 10982127,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 560548016
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8896739,
+      "delta": -11103261,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 152467440
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 31325787,
+      "delta": 11325787,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 534861680
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8426867,
+      "delta": -11573133,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 151757040
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8273727,
+      "delta": -11726273,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 140813744
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 8044203,
+      "delta": -11955797,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 142228592
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 7156043,
+      "delta": -12843957,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 123500144
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 6813805,
+      "delta": -13186195,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 116617360
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5773307,
+      "delta": -14226693,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 103663984
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5625771,
+      "delta": -14374229,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 103595120
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5612979,
+      "delta": -14387021,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 97694960
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 5502107,
+      "delta": -14497893,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 94792560
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 35272955,
+      "delta": 15272955,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 611529072
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 4338633,
+      "delta": -15661367,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 75339344
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 4267547,
+      "delta": -15732453,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 75051888
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 3897675,
+      "delta": -16102325,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 71423600
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 3323383,
+      "delta": -16676617,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 58257712
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 3119747,
+      "delta": -16880253,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 55570928
+    },
+    {
+      "d_model": 320,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 2456357,
+      "delta": -17543643,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 43547664
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 37684259,
+      "delta": 17684259,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 639941616
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 4,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 2169579,
+      "delta": -17830421,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 39252080
+    },
+    {
+      "d_model": 256,
+      "shared_layers": 3,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 1737555,
+      "delta": -18262445,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 31209200
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 38745975,
+      "delta": 18745975,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 678940976
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 40440875,
+      "delta": 20440875,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 678417520
+    },
+    {
+      "d_model": 384,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 43922435,
+      "delta": 23922435,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 780407280
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 44306617,
+      "delta": 24306617,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 761918800
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 44635627,
+      "delta": 24635627,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 754507888
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 50158379,
+      "delta": 30158379,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 869897328
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 8,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 52492683,
+      "delta": 32492683,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 875706992
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 54377847,
+      "delta": 34377847,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 928909616
+    },
+    {
+      "d_model": 448,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 59135511,
+      "delta": 39135511,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1036630832
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 60317051,
+      "delta": 40317051,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1012099440
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 63053023,
+      "delta": 43053023,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1084569520
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 65486645,
+      "delta": 45486645,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1112501520
+    },
+    {
+      "d_model": 512,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 76621355,
+      "delta": 56621355,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1329218672
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 77429907,
+      "delta": 57429907,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1322957552
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 77633011,
+      "delta": 57633011,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1312694512
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 12,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 78370059,
+      "delta": 58370059,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1307636336
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 93289031,
+      "delta": 73289031,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1585061424
+    },
+    {
+      "d_model": 576,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 96379967,
+      "delta": 76379967,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1658170800
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 105038447,
+      "delta": 85038447,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1762883760
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 110630395,
+      "delta": 90630395,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 1870881136
+    },
+    {
+      "d_model": 640,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 118411347,
+      "delta": 98411347,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2023487216
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 21,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 136594155,
+      "delta": 116594155,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2279477360
+    },
+    {
+      "d_model": 704,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 142715495,
+      "delta": 122715495,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2425167920
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 149759843,
+      "delta": 129759843,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2513668080
+    },
+    {
+      "d_model": 768,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 169292411,
+      "delta": 149292411,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 2863212912
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 30,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 194818251,
+      "delta": 174818251,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 3251318384
+    },
+    {
+      "d_model": 896,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 229264547,
+      "delta": 209264547,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 3848395760
+    },
+    {
+      "d_model": 1024,
+      "shared_layers": 46,
+      "status": "VALID_GENERIC_PATH",
+      "reason": "legal structural inventory; execution and runtime fit unverified",
+      "parameters": 298327755,
+      "delta": 278327755,
+      "within_tolerance": false,
+      "known_training_payload_bytes": 4979035760
+    }
+  ],
+  "search_ranking_purpose": "PARAMETER_DISTANCE_DIAGNOSTIC_NOT_ARCHITECTURE_RECOMMENDATION",
+  "search_repeated_output_equal": true,
+  "readiness": {
+    "scale_stage": "20M_PILOT_CANDIDATE",
+    "architecture_status": "RECOMMENDED_FOR_PILOT",
+    "accounting_status": "META_VERIFIED",
+    "construction_status": "META_CONSTRUCTED",
+    "training_execution_status": "NOT_RUN",
+    "quality_status": "UNVERIFIED",
+    "next_gate": "IMPLEMENT_R4_R9_THEN_RUN_20M_1_GATES_WITH_APPROVAL",
+    "evidence_scope": "Resolver/configuration layer only. Pre-build ready with required refactors; NOT PILOT_READY UNTIL R4-R9 and execution gates pass. No training authorization.",
+    "evidence_reference": "reports/20m_prebuild_audit.json; reports/20m_i1_resolver_config_implementation.json",
+    "pilot_execution_ready": false,
+    "training_authorized": false
+  },
+  "legacy_readiness": {
+    "scale_stage": "2M_GEN0_FROZEN",
+    "architecture_status": "IMPLEMENTED",
+    "accounting_status": "META_VERIFIED",
+    "construction_status": "META_CONSTRUCTED",
+    "training_execution_status": "COMPLETED_FROZEN_LINEAGE",
+    "quality_status": "ENGINEERING_BASELINE_ONLY",
+    "next_gate": "PRESERVE_FROZEN_2M_IMPLEMENT_20M_R4_R9",
+    "evidence_scope": "Training completion refers only to the accepted historical Gen-0 run; this resolver does not train, load weights or authorize current-source resume.",
+    "evidence_reference": "reports/full_training_2m_final.json at 3d2698b42404ec67834ead162db0bd10240d270b",
+    "pilot_execution_ready": false,
+    "training_authorized": false
+  },
+  "metadata_before": {
+    "configs/models/edge_20m_candidate.yaml": {
+      "scope": "declared parameter inventory; executable model not implemented",
+      "training_ready": false,
+      "next_gate": "reconcile executable byte-model tensors against inventory v1"
+    },
+    "configs/models/edge_2m.yaml": {
+      "scope": "declared parameter inventory; executable model not implemented",
+      "training_ready": false,
+      "next_gate": "reconcile executable byte-model tensors against inventory v1"
+    }
+  },
+  "identity_migration": {
+    "old_selected_resolved_sha256": "c0b58d464ac815bd0b44669e1e62e8d51884f7ebb4ec34c4e7fa47ec2bd939a4",
+    "new_selected_resolved_sha256": "6e7ffdc3c3448f7f19fa4466a9780c369c05cc572030c1b026d4eef1503b9359",
+    "old_yaml_raw_sha256": "b9f3104d8b1ed8aef9fd09ea09c3dc213bbfb32e1a41be984109416a05caf834",
+    "new_yaml_raw_sha256": "20b449d08b03b06e05dd9901510d2c9bc73db1e323cc46fcb37692a2ec0514d8",
+    "historical_receipts_rebound": false
+  },
+  "test_results": [
+    {
+      "name": "targeted",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_config.py",
+        "tests/test_accounting.py",
+        "tests/test_resolver_policies.py",
+        "tests/test_cli.py"
+      ],
+      "exit_code": 0,
+      "seconds": 42.815,
+      "stdout": "........................................................................ [ 66%]\n....................................                                     [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n108 passed, 1 warning in 41.73s\n",
+      "stderr": ""
+    },
+    {
+      "name": "reviewed_current",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_accounting.py",
+        "tests/test_authorization_provenance.py",
+        "tests/test_cli.py",
+        "tests/test_config.py",
+        "tests/test_contamination_review_v1.py",
+        "tests/test_contamination_v2.py",
+        "tests/test_corpus_acquisition.py",
+        "tests/test_corpus_contamination.py",
+        "tests/test_corpus_duplicates.py",
+        "tests/test_corpus_filtering.py",
+        "tests/test_corpus_freeze.py",
+        "tests/test_future_capabilities_spec.py",
+        "tests/test_gutenberg_acquisition.py",
+        "tests/test_gutenberg_cleaning.py",
+        "tests/test_mode_policy_v2.py",
+        "tests/test_symbols.py",
+        "tests/test_targeted_acquisition.py"
+      ],
+      "exit_code": 0,
+      "seconds": 41.307,
+      "stdout": "........................................................................ [ 50%]\n.......................................................................  [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n143 passed, 1 warning in 40.03s\n",
+      "stderr": ""
+    },
+    {
+      "name": "historical_replay",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "tests/test_historical_authorization_replay.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.58,
+      "stdout": "..............................                                           [100%]\n30 passed in 1.23s\n\n.\n1 passed in 2.01s\n",
+      "stderr": ""
+    }
+  ],
+  "static_checks": [
+    {
+      "name": "ruff",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.348,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "name": "format",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.183,
+      "stdout": "106 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "name": "compileall",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.29,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cpu_pip",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 2.168,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "name": "cuda_pip",
+      "command": [
+        "E:\\Theai\\.venv-cuda\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.7,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "name": "diff_check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.074,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'docs/project_state.md', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ],
+  "protected_files": {
+    "tracked_unmodified_sha256": {
+      ".gitignore": "ab2905fb6c2acc819c0153e3cd9561360b47fd64af6ac74fc64cc9c9d546ea65",
+      "Unified_Edge400_Future_Capabilities_Addendum_v1.0.md": "ad0f6ef8092ef48fcf7b3e91a0214fa73b02fafbad1215d8f3717545a951ef87",
+      "Unified_Edge400_Master_Bible_v3.0_FINAL.md": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
+      "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99",
+      "configs/models/edge_2m.yaml": "66729fb6ced67055f2e1e81ff6569fc8bf979d8c9a1bd91ddd4c9f8f4456a127",
+      "docs/20m_architecture_contract.md": "d14e71ba61775354d00b8159ed8363b48d8fb31bcf927a1af8d1a3d162770e7b",
+      "docs/20m_training_plan.md": "ae59ad12d6a392986f7d7adabab7c06b648f5264c3047308cdf7b922746436b2",
+      "docs/architecture_changes/AC-001.md": "d1eb5151929e4d3894532e7f8c9ecc68e781efe8ad9082572938ce92b91dc0b3",
+      "docs/architecture_changes/AC-002.md": "67cd8695f302dc01258dd08e2b71e06cfe9d49cea1446842416df5b50b7d2e02",
+      "docs/architecture_changes/AC-003.md": "4a10b120892e327857206da3e1c0582a58120c1c035b98810a720567ff7f7c2c",
+      "docs/architecture_changes/AC-004.md": "ac4ab354a82ecfc2ade92bf69efde4c36af2c60a2a8fab1f6443a8f3b3dae06f",
+      "docs/architecture_changes/AC-005.md": "eca8fc2c8d2c9a80f13ef7662a715c51ffa2fbb58136043294d6e9beeac78c87",
+      "docs/architecture_changes/AC-006_Verified_RSI_Framework.md": "fcecafa32af6495a699ac59a4d6f77e70af57470d3bc9ef215e058340e219885",
+      "docs/architecture_changes/AC-007_Adaptive_Reasoning_Effort.md": "4f5d472eb402b149b515bfe3710317337a7cb3b653774fe2bb0616aa77bfb2d7",
+      "docs/architecture_changes/AC-008_Context_and_Distribution_Promotion_Gates.md": "4b37b71915133012e3172cd5c266d1a353a2ae0b494fac6a7ec468c53d6f121b",
+      "docs/authorization_capacity_2m_r2.json": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28",
+      "docs/authorization_capacity_2m_r3.json": "57a7d7bd46d0181ee734cd228e423ce9b7152f7f3a8721a8c79aa0343e6606b8",
+      "docs/authorization_r3_quota_clarification.json": "0a6747c8342f2847131c17fbf4a3288def0dd69bc2c67905e6d376a60c4ded6a",
+      "docs/backend_reference.md": "816d7f2254cd8b80980a67250f1e39ade7bfbf356bf497c24f0f75f8b50afc70",
+      "docs/byte_hierarchy_contract.md": "5c11f74452fa6a178ba388a1923763ad9c655ed369b8c4deeca181d520753ca2",
+      "docs/contamination_matcher_v2_proposal.md": "374c2ed7d3fb15084a4e0d0a8d1437372bcde30ed7bdb4d76ee6b7bcea929c15",
+      "docs/contamination_policy_v2.json": "7b2b198a634842f75d27337b471f321904ff8d4ff70051e92f469593579cafbf",
+      "docs/contamination_policy_v2.sha256.json": "fb7bfceed6398da934a7b6929d277db034d28e00b0d6db1954a217be74a4b707",
+      "docs/corpus_processing_policy_2m_v1.json": "de3ac12b617ceef25f3c33be64db573ebd1a6a0d50c42ceb38ee3e73b864bc57",
+      "docs/corpus_processing_policy_2m_v1_1.json": "1af0861c3dec595d385d58424f63bec8948d5ad9806342fc240fc47bec284a96",
+      "docs/corpus_processing_policy_2m_v1_2.json": "b3315c22b55a264a9c7726e0021e238a54e5133364337e289e00ec4c3137a66b",
+      "docs/corpus_processing_policy_2m_v1_3.json": "b5ca6cb92bffb6e47c8aaeb701d228fca2882b01cf76a5bb42ed2356ca1877c2",
+      "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+      "docs/documentation_file_allowlist_2m_r2.json": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630",
+      "docs/documentation_file_allowlist_2m_r3.json": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a",
+      "docs/file_mode_policy_v2.json": "932c5f20cb17dc2c295f5abcb918d0fe3d336d535224087b8a1a4c5f5c347779",
+      "docs/file_mode_policy_v2.sha256.json": "f4d368e4fdceac1ba1888fa05505f77ffa3aab906dc9681be842ef095a03ade9",
+      "docs/future_capabilities_contract_v1.json": "32957c6142e01eab7ed6385ab46af2e7731da1d859d53e6ace89af7be246cd55",
+      "docs/gpu_execution_contract.md": "c56083eaa3915913b036dee07cd37f8f87c7b75fb7a4f81997adb27a71dfe89d",
+      "docs/gutenberg_work_allowlist_2m.json": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
+      "docs/historical_authorization_replay.md": "7dd037a15903bcd176b0665eec6e67bf2cdefc29dda10fa234a93cf04f1ffe96",
+      "docs/implementation_plan.md": "11f125c92a9f147ac3b2ff266d4de511e4b3b82c1068ba2a6884bd6c44dca6f4",
+      "docs/kaggle_20m_execution_plan.md": "b58544b2e02b768ae5d93731df0d74faa0962aefb2248c1751bfa319de74c1a1",
+      "docs/mamba_integration_contract.md": "64e804aad4933925a38e12fc6104a0e64875740111476cf6915f37691dd61db7",
+      "docs/mode_v2_file_reviews.json": "6954db360bedfe986d58489f159f88fcc00e4b6da5b6ce1cdb15994d71932beb",
+      "docs/parameter_inventory.md": "36552d70ba368175654b4c22d1789f07b4e5918143f128b0d836d7d394a1cfff",
+      "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+      "docs/targeted_acquisition_controls_v2.md": "5220dbc40a6f0e4e8f6956e9f007deba056ed88d3e3745f2f30e736cc5021626",
+      "docs/targeted_candidates_v2_r1.json": "2698868f790860ae268d5fc443356a09a1d43734fdc556c72f7abe940769ec4a",
+      "docs/targeted_file_review_v2_r1.json": "03e40a7acd610323a70875bd3e13f80388afe08fc4d07aadbb663047b5e3c601",
+      "docs/training_contract.md": "b1d3f49b6839bb16b838a41a49595813360ffd2d679de8d0f026637cb083e298",
+      "pyproject.toml": "183b8bcf34407994c6c1393c1ea06ae6f271c10a6af7ae23f7af3f1594d8ad52",
+      "reports/20m_prebuild_audit.json": "cd2b4faea3244cac981f26df038f4b44fa1f899204b9a37660962530710eed5b",
+      "reports/20m_prebuild_audit.md": "1b9dae5166d5ae9bf4226c62e7df01542526fc0a52076c1acf1a975644bd444c",
+      "reports/20m_prebuild_mechanical.json": "62db80f042a930d02595e94635491997d1a06bf826b23bcb09ab43aa241d66c0",
+      "reports/20m_prebuild_validation.json": "a9dcff9bd9e67ac118cba248a47f9e6359299a7168aa56b2d3af1a604af94aa6",
+      "reports/authorization_capacity_2m_r2.json": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27",
+      "reports/authorization_capacity_2m_r3.json": "0e799fe1b8d5c3b873bfade77ac0d8e675f0a002b8f221beb0012401313622ac",
+      "reports/authorization_correction_r3_preflight.json": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185",
+      "reports/authorization_correction_r3_preflight.md": "9a7ea1accebf7a35d9f103819c216756f308890245ce7fef639d60adefbdff40",
+      "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+      "reports/byte_hierarchy_evidence.json": "ceaf2ba491057edb0e0e2c21d439a86d6778b48bdd8b812a18ef2b682feabaf9",
+      "reports/byte_hierarchy_readiness.md": "84a5be3cdd876f58595f168ef6b323f3d6aa56d79e063cb5173b67031826f771",
+      "reports/configuration_audit.json": "96f5ef2b2f30e6824604a5b67ffa0794aba0cf5670ea85dd4936ca666fd19643",
+      "reports/configuration_evidence.json": "cbf74174c4aae6de800120ec3febcb610ecb48c8d72314e74f4f1d5c873860d1",
+      "reports/configuration_tranche.md": "95fb71219931995d81b43f2c71dbdbfb6c57e7bff5470ead097a9f72e9304922",
+      "reports/contamination_review_v1.json": "cf915d2abf16e041c38dcc5f7a34f465ead658fcc5cd358c8c7ef9010fb93030",
+      "reports/contamination_review_v1.md": "9bf3e00a02b11d842f1196ecfc8fd5446077fdd8979d355bb7800a08b99f6a59",
+      "reports/contamination_review_v1_validation.json": "58923e8c0c7338891485c744b1b96b1f3e0591df32d93c516e15f2fa9912a54f",
+      "reports/contamination_v2_existing_pool.json": "7243405cb111351d6216c4fdbf95285cba902a6270496b7c3f8ac47da498b4d1",
+      "reports/contamination_v2_existing_pool.sha256.json": "bd50fa5988fc455b33778f0934e2986d9eadb0f72a5e15f05ff17bd73bc5064a",
+      "reports/context_distribution_study_2m.json": "6d05a604c988e14b7f5cac0766f57d82cea474157a47d7ff1d6f9ebbd9fbf892",
+      "reports/context_distribution_study_2m.md": "e2ac3fac7059023ebde3f555039d277fe2492c21cc740cbd0425b41976ab4af0",
+      "reports/context_training_ab_2m.json": "ef1714573a76158fec774ff2aea7071ce59db92fbd3c6a37e2a5c573498686d7",
+      "reports/context_training_ab_2m.md": "2cecdb586bc9b0bfcd914a23c2489a127df44e5107581922b6d9c96aece1263a",
+      "reports/corpus_expansion_v2_r1.json": "6867dd6a7344908a4ef756d6384ea4c87ad85c3a626a1d0305eb8ad7e44b59de",
+      "reports/corpus_expansion_v2_r1.sha256.json": "b89b2b969571e6ef0eeb556fedc094b542bd1e5ac3b0539fecd7a387153d1432",
+      "reports/corpus_mode_v2_pool.json": "020e23f78a9df57591d72478abc1d69bcd4f006ce47989525ce72a5f520af1f3",
+      "reports/corpus_mode_v2_pool.sha256.json": "e15d48cfe6e6dde3b264d84d1f8dc5a7440e549eb3fd71dacaf4d95995cd2093",
+      "reports/cpython_filtering_v1_2.json": "9816870362af15a25d37c1f293021dfe692f40819abe5b906a06a25641ca4255",
+      "reports/cpython_filtering_v1_3.json": "7676c80cc280bd73f89cee2f1ff61f00dd6d11a95fec186a604b41bb4e051a83",
+      "reports/cpython_filtering_v1_3.md": "e145283f8b3a0970ad54e456c0bfbde27f9313014c768992f18a3ac91b9bc39f",
+      "reports/data_acquisition_plan_2m.json": "0e544874952a2aff455e5c080538799a6ffebfb3f167eebf856ed067d2bfff5b",
+      "reports/data_acquisition_plan_2m.md": "2e09df29c6acbf000ade59bba2d90b63b06ab60eecec2c4bf52c295d30198b26",
+      "reports/download_authorization_2m.json": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c",
+      "reports/download_authorization_2m.md": "26fb7f3d04a85ebed7cebc71ce23001ec8c40b27a8851d48dca7eecdf7032235",
+      "reports/download_authorization_2m_r2.json": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67",
+      "reports/download_authorization_2m_r2.md": "51fda9f6537ee8b4798d63f8def873b0d58989bb4d6c4c9f1cf6ae5445bc20de",
+      "reports/download_authorization_2m_r3.json": "6986095d875d1f009d69f48c385979beadca8eadb7178ce350c3755b57f69068",
+      "reports/download_authorization_2m_r3.md": "d5a93dc3906baf9f8b4c54c6a914734a2dbbd17376eef173066e1f94d86ae7b0",
+      "reports/edge_2m_resolved.json": "ca5b4a66a8f3f017c3e5f070cb13f13916cdc7bd083920580d65bcaea96b0f84",
+      "reports/final_corpus_loader_audit.json": "2f41b33fc4080287ae8bcaf014806eb5d701f3f942e86b130b74496989d71447",
+      "reports/final_source_leakage_audit.json": "76a46de688c86250678e5a0e5b9973d0ee377ae252cd84f591a8b7f247431d90",
+      "reports/full_training_2m_final.json": "3f2c81619131fbee87e24b16f615ef9fbc19fee1f71d1e07540d40e6e65ed1eb",
+      "reports/full_training_2m_final.md": "d793977cf584cc2b624df63d7a2ec738c22a025f60c135c5737af4627dd1c970",
+      "reports/full_training_2m_stage_a.json": "078b4b36c2432e7da9ad19f8df27d2461a614b28ec7c5bef6c1dab6607899fe8",
+      "reports/full_training_2m_stage_a.md": "06299d471fce4bd0af2af554ca62dfb00cbe79d6bb549d47fc42987463c96ec6",
+      "reports/full_training_2m_stage_a_recovery.json": "e5295e530a65d3baa82f10701724469ef4cbb44b60211228233152c6fbe3efe4",
+      "reports/future_capabilities_addendum_review.json": "0a723314c971b24e752364152458f08acd732aaadf07b164e8c715aa37df20f2",
+      "reports/future_capabilities_addendum_review.md": "138718038c95bfa1a82bbca646d5b7f89c184c99c0d9726f5ceddd64905f05de",
+      "reports/gpu_enablement_closeout.json": "ef29c934920fe89f47d17a12a392aa663fcebc391ede4f7e9b642973ba6f4e1e",
+      "reports/gpu_enablement_closeout.md": "70e546e8047bf6554712855c4536c2e36f224549ab22a4d1726803ef5f73a9ce",
+      "reports/gpu_enablement_evidence.json": "05a9319f8fdbddf65db336818e0336df660d79d9a403092988ec0cc1f1fe42c5",
+      "reports/gpu_enablement_readiness.md": "a9801524e66a34f89e23c2be62ef0b9080669424ea315555b8d450ad1ac96915",
+      "reports/gutenberg_filtering_v1.json": "78b0a35d278779ca8273bb91e1abb490f63b0f41107cf5a11ec927da17d6a282",
+      "reports/historical_authorization_provenance_review.json": "199b20ae1f63972cbb819b2da2f75c393ea9ed4e6724724272e4922e1291f7bf",
+      "reports/historical_authorization_provenance_review.md": "4f3bbe2ed614f3d9130968c5dacd47cb69eab8da0d5c569c39e73706c9f770bd",
+      "reports/mamba_integration_evidence.json": "ca25b0d4b005edeb168d0444f18900c2fa739002ed3a2b515ef23ac4426af074",
+      "reports/mamba_integration_readiness.md": "0cd7c35e6aad13528cd88a894549bcd618b4186ffad25ee407d23427dd9e3ccc",
+      "reports/mamba_reference_verification.json": "d198308502dc946b93ff21ddeaad08cff90955caf717b6c58d0fc881a03140a8",
+      "reports/mathlib_filtering_v1_3.json": "28cb309215c16c25aef956306cc2822342e561abdde40cde6b830e20d845bf96",
+      "reports/numpy_filtering_v1_3.json": "881549c01fe9ce6e2c00b3c36d53283b0bc514c48195f78951811269e483b129",
+      "reports/real_corpus_2m_build.md": "3c4c27bc54c90eb58a24b7a04cf5f314e8c194c5df3e9161f3a76192d77d3672",
+      "reports/real_corpus_2m_evidence.json": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+      "reports/real_corpus_2m_pre_acquisition_r3.json": "4b61ce548b0c22a2957035f6247c84e1701b985c9a46e454808b47c0386df389",
+      "reports/real_corpus_final_build.md": "c177dc898db05f00f5bcf89fe1252ef3fb109ff9c2005dbb0d06e67ba6198f11",
+      "reports/real_corpus_final_evidence.json": "68eed41234f7296ead6712391532d0ebe0712f5a96b0c0ada6d7cfaf4b3a7dd9",
+      "reports/real_corpus_final_validation.json": "da9bbbd49fde90a0839c951bb221f7443e4375eefb352e6c5d713ee40f8a4214",
+      "reports/real_corpus_v2_build.md": "f975faf1fa5dbedf03fac4e28e4370fe7f82972a89567c811fbef3b084ea0c4b",
+      "reports/real_corpus_v2_evidence.json": "7bfd9e9e388c8cf7cfe363a6efa46c994a56fa52ac3d75f9e66756f5f285bf4b",
+      "reports/real_corpus_v2_validation.json": "2ef9027b17cbe851b9f3b6951c0f51dbf656335c3ced1873f82eb22ccbe9c47f",
+      "reports/real_training_diagnostic_2m.json": "65ab8f0db2b20d5313ed02ca6df69b337051359e624ae28de19ed0d4ccf93ea2",
+      "reports/real_training_diagnostic_2m.md": "67bfb53971c9b054e1455b1d0133b89936c58c984d8e8fe53075d44d1cdd8267",
+      "reports/source_approval_table_2m.json": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6",
+      "reports/source_approval_table_2m.md": "6d5b064df567faa3b78c0eac706ee7fa4978e7f8a8338d0463f57bafefcabe7d",
+      "reports/source_approval_table_2m_r2.json": "0c24a96a1d67273713d5743553fb1c42406b27ab3c603c8ff6260d25980773cd",
+      "reports/source_approval_table_2m_r3.json": "c3444d0ad2318155f80fa7dd78d008b65e2888ade1a12bc734c087c8b217305d",
+      "reports/sympy_filtering_v1_3.json": "6151d2b4cd580251429ea231657ebaae5c827d2702ca7471ebc834540854bdce",
+      "reports/targeted_mode_capacity_v2_r1.json": "428b7032f608601506662a725aef13332af67eda3b10a85a0548e22176a7a1b2",
+      "reports/targeted_mode_capacity_v2_r2.json": "ff56408c34a5b68b744968f9772ba691ed4a8a7c55a35a1190a98bc5f5c81c2e",
+      "reports/targeted_project_fixture_audit_v2_r1.json": "62fe1db9f3a443c2dc608b2226b6d8f90142e1ba4400b558b337c6e0032cbc91",
+      "reports/training_infrastructure_evidence.json": "a94d7ddadfddefe6027b293d57fb1097c57fe45bbe67b5faa25192809ad58fee",
+      "reports/training_infrastructure_readiness.md": "6f7bc265b7ebd10cbec08f13d400f804efacc0a8b5a5847fb51e39a31396a5b4",
+      "requirements-cuda-lock.txt": "a1428a6260c3c0fdfeb8c734a51aa0b0bf5926a34f9180ad0cd577e66f61ea0e",
+      "requirements-lock.txt": "0cec6b4428ab6320d111f0b0c56ab4d31a0d9de321b3ab24fe0e71eefbd74ffe",
+      "scripts/audit_20m_prebuild.py": "6ad3ede91606e8dec7a3c93fddc0df9d1db82ce88ff2eddb2ec3bb36247a03cd",
+      "scripts/authorization_capacity.py": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+      "scripts/benchmark_fingerprints.py": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+      "scripts/complete_20m_accounting.py": "a5ea2eb3ff1a31815bd982c203e9bc992e0302e46d8f72f24021bdcbe7378d8f",
+      "scripts/context_ab_core.py": "85f6a7c59d6158179061e1510c21ebb0cf9019196e274bb2665dd92c0cec0539",
+      "scripts/context_ab_evaluation.py": "9c1886fc118b5830d4f0ecc58153e64852d6bdf7decd6ba573af85904cd7e02c",
+      "scripts/context_distribution_study.py": "eada62166617e2b0bc8ec146381371fd822fbe9129575c51345c03398db2e04a",
+      "scripts/context_phase_summary.py": "495925d729e30cb0331861e244faa71551fc835a931451c2542752bbad482389",
+      "scripts/context_study_metrics.py": "5cf5878641075a7158f8ae6202a9b030a861e510846bbdeb89bcd48ccaceb9d7",
+      "scripts/context_study_phases.py": "622ffddd5cfabe338668845d539a84e53cd735159a09e3b8f7edb82bd0fcda5e",
+      "scripts/context_study_positions.py": "be599f77557e190031e11354c5558f0648975185e26c4198faa81d93c9acd9ac",
+      "scripts/context_training_ab.py": "99fe63a691e6d3e193d2a8cd92ad7eb03486da09ffa047675da3f2478fcb61be",
+      "scripts/corpus_acquisition.py": "908fc0743af507182bf8fd738f0605bc241294367132152faf56ecc3f68b10a6",
+      "scripts/corpus_benchmark_index.py": "ffc5c5a7788673d6ebe1d80744b44cb4bd43406b8ccc4b2a68c529436bfda49d",
+      "scripts/corpus_complete_mode_v2.py": "5a42cd474756a1570fb7d5815b95819bba92e34196507b484032fbbd09980f53",
+      "scripts/corpus_contamination.py": "5f02b6779a7bb550d5acf2ad18cc7eac01180b5fd0546942d85c1f6593c5e967",
+      "scripts/corpus_contamination_review.py": "a4424386c14e1745aa90f65928126e65e5902d0ed81704ed135e80b10e75f904",
+      "scripts/corpus_contamination_v2.py": "17faa63afc035d5687bf9de33ee7acf005acbd3528c08f7a07d85660e5c0c153",
+      "scripts/corpus_duplicates.py": "5aa90764c0d0f8782f3458917558bedac1fb5338cda6eb4c5cd50fd043041dcb",
+      "scripts/corpus_expand_v2.py": "97f7d1ef2c67b460c4bde3d6817708693229cf3bc2cdc1158c710f8130342f6a",
+      "scripts/corpus_filter_report.py": "fbeb97b0e2f26d231ab48359d2d4108771b934ca0c5ca07d1db66452aca2e644",
+      "scripts/corpus_filtering.py": "63214bc861bd063c9655d6a6b35608eb017428112fa21781fdb82ba40880e253",
+      "scripts/corpus_fixture_audit.py": "e1360509b818fd9b874fe4dd8b2d2fa4143a27a099b720d1cf7e764d3e1e8e57",
+      "scripts/corpus_freeze.py": "e80bcd017bd856cd6e1798d1e9eb8f15515c1a1f8a4097fc05cc80f9616a9c6e",
+      "scripts/corpus_global.py": "6c4163db72abaaf2178f5dedf2ba231762595696ed57bdfe12e3270ff06a9d1c",
+      "scripts/corpus_matcher_v2_proposal.py": "86d2ec09b98860a9357b62366fe37cce68016177dbe42a0bbf2b5e4e8176aeee",
+      "scripts/corpus_mode_v2.py": "92df508896cfc521b7ff663d07557ca9fd554e910376ef23dab059341a3a241e",
+      "scripts/corpus_scan_v2.py": "33fba0541b6fb8593511d819049f125b3ae2eda78e46e7b51c15807f2303aa67",
+      "scripts/corpus_targeted_acquisition.py": "87e3354a15e588d80afb35c2ed8f9b6c6525b3bacbc32c9f21726cd3044a1de3",
+      "scripts/finish_context_distribution_study.py": "5efb7621c8edcf0d046100541560c15ba50aff28893272de957e28e9a0fe15a2",
+      "scripts/finish_context_training_ab.py": "c4fa2cdc7d8f20a75ce09e14001970b9d20fd32e4ad1c1aa6dca621aff6c0372",
+      "scripts/finish_full_training_2m.py": "af3cb1a8a001d660fa2a2f073078a5fc8dbb5f531f56c1ca3b1c6d712f8e69b7",
+      "scripts/finish_full_training_stage_a.py": "c75636cd3c0486d788ebe0f945de88f23f7fc81ce7989d5dfc80a4b51413fb1f",
+      "scripts/finish_real_training_diagnostic.py": "8b1321b2e4e24ad3271ace2e7dcfb8750144d7facd41e6d62c8846d02e1a1cd4",
+      "scripts/full_training_stage_a.py": "295b7f39661a9a04d9698e1fe2ad3e190257961697e5b9b4b954f64b128ab974",
+      "scripts/full_training_stage_b_to_endpoint.py": "3401f1a63cec7e5efb7456609293b8fcb3500383fd8067efc34a63a2eba98eb0",
+      "scripts/gutenberg_acquisition.py": "3b57772e64d2e1e65af97042373caae020c40b7319c72ac4ed73780d78bfa8c5",
+      "scripts/gutenberg_cleaning.py": "80e7cc29443c08d500f8c3f47ab3b6e53a1526c3361e057af4604d784791bb25",
+      "scripts/historical_authorization_replay.py": "1a89a488c3f1b4678df674c91e770c8de470e7dd483c4ea49f0d9e34ae618692",
+      "scripts/real_training_diagnostic.py": "075caadf2dd5d019f749f4b52f535a170dcd60d51dc72efc541e09a64094b579",
+      "scripts/recover_stage_a.py": "eb5ad18cf17b5b4d295c941fc4eff63bc7c34fcce52b35c770a8de940f6c66f9",
+      "scripts/resume_context_distribution_study.py": "fcac11bcb3814d732c35377a149b8ef667663f0fe87bf7d531a46bfcf1c31672",
+      "scripts/training_progress.py": "bb608e024def29d8beeb96dbe25ec9cb3c20d861f8c82dd54ad05300ca729c7f",
+      "scripts/validate_context_ab.py": "a74d2bd0b6e7b6d2596c99e423d84c613027cdf75f72399729ff549a8c941775",
+      "scripts/validate_context_study.py": "f911fbead99f8823ec73502fecc2b0cb55aba801bc87c9616dbd63c462f23ae7",
+      "scripts/validate_production_continuation.py": "92e6763185dc3500e12609fbecde6f05addf191437d5b9f1b97cd14dbc6867a6",
+      "src/unified_edge/__init__.py": "d17df431bd1fdcc4aaed4826250a71c6c5cf238fae1a61a1c589eb4623f79d32",
+      "src/unified_edge/byte_hierarchy.py": "fce726593d04b3d99158a12653a0aaa5789bbad7bcaf3f1546db073396c1f2ed",
+      "src/unified_edge/byte_layers.py": "8cfabe734c1ccab6bb463c42c7e10b498692de4c94e82ee29b0926b18bab4a7d",
+      "src/unified_edge/dense_model.py": "90f77bdac9eb9ac1bafd22a0cf9a543d5a7ea691d97680dc3f21fd2520861562",
+      "src/unified_edge/mamba.py": "421793d6c5972de0bd496461812765b7b1401d17034008a10005e538def08452",
+      "src/unified_edge/symbols.py": "955fba05b6a7b058a34250146d10a9bf00d6811787b7758def8de63b35f2897e",
+      "src/unified_edge/training/__init__.py": "96fb76e3f36980021d7b98121b2dda310a57f343546f6b5a074665ab8bc4fb52",
+      "src/unified_edge/training/checkpoint.py": "13d57432c09f9f93f74eab9c56ca6a074b6aead1b93ba9a34d96290c23f37aca",
+      "src/unified_edge/training/config.py": "e232891e5eb5b79939354bcaa6cbe9995b71e2de2ac018d52a179cdf9ce20a63",
+      "src/unified_edge/training/data.py": "b198b86bbff16366559bbfbef4cd5bef86457fd181ee258b5f16d2a8a21abaa5",
+      "src/unified_edge/training/device.py": "bd4752a176d85475e0822543729835b05fd00f2f254d743f0d71ffd60ad5115d",
+      "src/unified_edge/training/experiment.py": "20389d831363f846be1e77356407253eb759344695b7f3523031ce6bcd46f01f",
+      "src/unified_edge/training/gpu_probe.py": "9b0c8ab2be5681c2ac33d9c39bdda0806df61ca7cba53fdf1d6c2b5421c1e42a",
+      "src/unified_edge/training/memory.py": "6376389c58e196cbec1acc40f990efd7aa5665a04694115fa540d815ac1a7a69",
+      "src/unified_edge/training/optimization.py": "dcb6bc8999b394921c70c17dced30b17b3fc0d1fa34860b0ef5ac6218be5ec16",
+      "src/unified_edge/training/trainer.py": "d5b56d887a89145ab2676fe7f5d5c7ca14855bddcd3e0fcc96a0ece3a6456086",
+      "tests/conftest.py": "dcbe770ee556da079d5409994dc489334d9e9b842edc2afeceb49356e3c1ea52",
+      "tests/measure_mamba.py": "5bf3c7b7d22a767b7505e05f331df48af0cc2d26d53966adae08a80bb1831e86",
+      "tests/test_accounting.py": "3305a90bbfb05d7f5f2e5064653e5aaa7765dbf19daa7e47d29213967da372b9",
+      "tests/test_authorization_capacity.py": "71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40",
+      "tests/test_authorization_provenance.py": "cb30922579ae1d5299dbee3397f2270bd68f04d342d36de304fb87b1c6e23b95",
+      "tests/test_authorization_r3.py": "8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33",
+      "tests/test_benchmark_fingerprints.py": "777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97",
+      "tests/test_byte_hierarchy.py": "397aa4ae40bbe2c1e3135fcbcf13e1e3c7ded6ea4d0722e1744cdc3cf5dd69db",
+      "tests/test_contamination_review_v1.py": "d294ca1ebbc6566926b435361496d5516b860cf73046e68a44688e1b5374f0cb",
+      "tests/test_contamination_v2.py": "c682b3ba1c630fdc8b4f98bfe78a6121bafe12f988bfc994a0aa49043d4b8102",
+      "tests/test_context_ab_report.py": "58e63f7c4a8c9690efd5f6afc31dd5d22da7f6a6b52e95e6fb2b9d928e43cd33",
+      "tests/test_context_distribution_study.py": "544b14b1fcb9ce65d57ecd4db86e739c84e613a092c1fa2d63f13a9d97c53ce6",
+      "tests/test_context_study_phases.py": "9f9ff496b6774e0466ba077535045b809d0abdf3c553ac0285da637a08bb5fcf",
+      "tests/test_context_training_ab.py": "8e32509a1f20ce48b4ccffc17d3c28a9bc718dfb73ed5c7267f5bb203c30b5f6",
+      "tests/test_corpus_acquisition.py": "4e60c4f23600b22217b81ccd6e3ed411b6be733a3aa10cd8f36317ec63008ebb",
+      "tests/test_corpus_contamination.py": "20e22a8859e9e893210b159a7169feda490a8eca819dea79531183d716e83fca",
+      "tests/test_corpus_duplicates.py": "029843b0e3679355e239ec2feefd1c1bf438eb474af928d8c4ff4032d65c868c",
+      "tests/test_corpus_filtering.py": "2327cac4fc92b34aef46a25492aa111affdc72820ea3b646859576ea1cfe07e7",
+      "tests/test_corpus_freeze.py": "fb3c97ba16f9d04a94f74adb9f4a2688c04ce3bab86487f446f4069210cf5562",
+      "tests/test_dense_model.py": "46c7ea227252069436b53c52a4d3795ff58a4e9f6615fa5403a5351166049fe9",
+      "tests/test_full_training_stage_a.py": "ec577804ff117f6a55afc9b2cbf9ba57b4142f636e5f704babbdbe7955a9028a",
+      "tests/test_future_capabilities_spec.py": "696b901238947b7c66f7825f6520873ada623cd73d9a0d464a99b904fdded95d",
+      "tests/test_gpu_enablement.py": "ae8b812069a2fdb6a705c483edc0d2ac26138f35d48de3fc6485453580d9160a",
+      "tests/test_gpu_profile.py": "9199039a8e9fb37eaee66f75f9e8c77e9626109e79ea6511b43bca61145f5b04",
+      "tests/test_gutenberg_acquisition.py": "cc2e94544309602919b227c5f68f1a9d92ced20fedbaeb422c753ac41babc34f",
+      "tests/test_gutenberg_cleaning.py": "0cb6422f008edc5fdddc764638e3e0ec6f6dd4297b3ae87ce18e093760b5fa97",
+      "tests/test_historical_authorization_replay.py": "3fe7e9aae1f636a0cc9cc097c79d7c0f59e8405beef3e79253d75d6601c8c25f",
+      "tests/test_mamba.py": "c91afccee211570d3e5288c3119c86b0d7caac398b28a335db9b2292a6e2f657",
+      "tests/test_mode_policy_v2.py": "33f184cb66b1a41aae97817fddfdac63cfa7e4ec88de21f436c9da13e3c8eb3b",
+      "tests/test_production_continuation.py": "d23007b3cd5ba7dbf44112847693a08ae45d61f5195f8606fe05b37cae6c3b29",
+      "tests/test_symbols.py": "7a1295b6289c1c8e43ec53119229255d6025576881f7dad1aae477edf59eb525",
+      "tests/test_targeted_acquisition.py": "0add1d5f44d1370e8606c427bf4ef4c3739401f59e05d8886b66a41bba9b0ec7",
+      "tests/test_training.py": "a3c99ddadf376552414d429abcc5686ab9df35ff1d3a98bf44981f667149d7b4",
+      "tests/test_training_overfit.py": "83a82e466158419aff4c206bdd3f71bfef9d78a8c381d7adda1f0a4874ce0ed1",
+      "tests/test_training_progress.py": "58ef4b2247a3e89c9454bf2f4a576e6c97f568158016433d077da0618ee4ff05"
+    },
+    "model_math_files": [
+      "src/unified_edge/dense_model.py",
+      "src/unified_edge/byte_hierarchy.py",
+      "src/unified_edge/byte_layers.py",
+      "src/unified_edge/mamba.py"
+    ],
+    "trainer_files": [
+      "src/unified_edge/training/__init__.py",
+      "src/unified_edge/training/checkpoint.py",
+      "src/unified_edge/training/config.py",
+      "src/unified_edge/training/data.py",
+      "src/unified_edge/training/device.py",
+      "src/unified_edge/training/experiment.py",
+      "src/unified_edge/training/gpu_probe.py",
+      "src/unified_edge/training/memory.py",
+      "src/unified_edge/training/optimization.py",
+      "src/unified_edge/training/trainer.py"
+    ],
+    "model_math_and_trainer_byte_identical": true,
+    "existing_formula_and_validation_function_AST_unchanged": true,
+    "snapshot_files_verified": 66,
+    "snapshot_sha256": "8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d",
+    "checkpoint_path": "data/full-training-2m-v1/continuation-v1/attempt-1790232260152557800/checkpoints/step_078167/state.pt",
+    "checkpoint_sha256": "0d4c822daadf6bb8269a727ac54d54a26e9edf49ff43fedff1b0d91ba6ad2623",
+    "checkpoint_deserialized": false,
+    "historical_project_state_ledger_unchanged": true
+  },
+  "tooling_source_changed": true,
+  "current_source_sha256": "e56c334efc81a40eae0eb7839deb54e3f870a4787f76b782bd7d32cb7ab4c3cb",
+  "model_mathematics_changed": false,
+  "trainer_changed": false,
+  "test_payload_accessed": false,
+  "forward_executed": false,
+  "backward_executed": false,
+  "optimizer_update_performed": false,
+  "training_performed": false,
+  "dataset_acquisition_performed": false,
+  "kaggle_used": false,
+  "files_changed": [
+    "docs/project_state.md",
+    "reports/20m_i1_resolver_config_implementation.md",
+    "reports/20m_i1_resolver_config_implementation.json"
+  ],
+  "implementation_files_reviewed": [
+    "README.md",
+    "configs/models/edge_20m_candidate.yaml",
+    "configs/models/edge_20m_search.yaml",
+    "docs/project_state.md",
+    "docs/resolver_policy.md",
+    "src/unified_edge/cli.py",
+    "src/unified_edge/config.py",
+    "src/unified_edge/parameters.py",
+    "src/unified_edge/preflight.py",
+    "src/unified_edge/readiness.py",
+    "src/unified_edge/resolve.py",
+    "tests/test_cli.py",
+    "tests/test_config.py",
+    "tests/test_resolver_policies.py"
+  ],
+  "limitations": [
+    "R4-R9 not implemented; pilot not authorized.",
+    "No 20M execution, quality, GPU fit or throughput evidence.",
+    "No Kaggle private-write/compute verification.",
+    "Optional NumPy warning; no environment changes.",
+    "Current tooling source differs; historical checkpoint source identity checks remain enforced."
+  ],
+  "rollback": "Revert additive closeout to restore implementation commit (including its known missing-report gap); revert implementation commit next to roll back all I1 tooling. Preserve frozen evidence; no reset or checkpoint migration.",
+  "next_step": "Review I1, then separately scope and authorize R4-R8; R9 and approved execution gates remain required before any pilot.",
+  "validation_harness_note": "Ignored local checker initially compared UTF-8 Git text with a Windows-default decoded file; corrected to explicit UTF-8. Git history and evidence were unchanged.",
+  "artifact_sha256": {
+    "README.md": {
+      "raw_sha256": "9b8f25ee455d8e88507ba01b78e12b2333ead5163357479e54e4873b6f40efa4",
+      "utf8_lf_sha256": "9b8f25ee455d8e88507ba01b78e12b2333ead5163357479e54e4873b6f40efa4"
+    },
+    "configs/models/edge_20m_candidate.yaml": {
+      "raw_sha256": "20b449d08b03b06e05dd9901510d2c9bc73db1e323cc46fcb37692a2ec0514d8",
+      "utf8_lf_sha256": "5c18ad77c0763789c64cbdb44074c2eda59f14702ff06720838c07992caa915e"
+    },
+    "configs/models/edge_20m_search.yaml": {
+      "raw_sha256": "b2b7dc3ed3a5416aabb329587a048d401e7009c2ce223d5889cf774f7aaef19f",
+      "utf8_lf_sha256": "b2b7dc3ed3a5416aabb329587a048d401e7009c2ce223d5889cf774f7aaef19f"
+    },
+    "docs/project_state.md": {
+      "raw_sha256": "66ac44619fddcbd1d2bc08e2822e5f49077ceb703e2eec1b10d95eb2a69213fc",
+      "utf8_lf_sha256": "02318aba4c2373eaabe8d03f2ee053e4e818870316c112454885a7e3046180bb"
+    },
+    "docs/resolver_policy.md": {
+      "raw_sha256": "be41f0a5f41e553b433e1c456ccac0d5f057512c11c211d5829455be40db9b4a",
+      "utf8_lf_sha256": "be41f0a5f41e553b433e1c456ccac0d5f057512c11c211d5829455be40db9b4a"
+    },
+    "reports/20m_i1_resolver_config_implementation.md": {
+      "raw_sha256": "a6ea26eb0c988ae8a1c27787ba233a650a1e99294305991311b045640de2a19c",
+      "utf8_lf_sha256": "d39b1dc1b9b836f0b489825aa9274aa46c32a39e172347994775850c283d8477"
+    },
+    "src/unified_edge/cli.py": {
+      "raw_sha256": "d4b207997a110979ab561acf92e862e5fd6d9dfc28f9a59fcaed35ce43f69254",
+      "utf8_lf_sha256": "d4b207997a110979ab561acf92e862e5fd6d9dfc28f9a59fcaed35ce43f69254"
+    },
+    "src/unified_edge/config.py": {
+      "raw_sha256": "4f45ab091f51dfa05cd710e716e553ca1a9eaaadbd6e4c8fdfbbbc9e1aa64f78",
+      "utf8_lf_sha256": "4f45ab091f51dfa05cd710e716e553ca1a9eaaadbd6e4c8fdfbbbc9e1aa64f78"
+    },
+    "src/unified_edge/parameters.py": {
+      "raw_sha256": "657d1d9d07d2d6cba007dc78aec1201b5bdea2f0230c6e25dab247d4f2ae3cbf",
+      "utf8_lf_sha256": "657d1d9d07d2d6cba007dc78aec1201b5bdea2f0230c6e25dab247d4f2ae3cbf"
+    },
+    "src/unified_edge/preflight.py": {
+      "raw_sha256": "1d8765cd1e4fb42b8ae3c49cb75dc9e22851562bed25c08dacf810263c217ed9",
+      "utf8_lf_sha256": "1d8765cd1e4fb42b8ae3c49cb75dc9e22851562bed25c08dacf810263c217ed9"
+    },
+    "src/unified_edge/readiness.py": {
+      "raw_sha256": "a7d696654b924f5ce9c09c437dcf2f1c7090bec690fcb9e857348af619fcc7f6",
+      "utf8_lf_sha256": "a7d696654b924f5ce9c09c437dcf2f1c7090bec690fcb9e857348af619fcc7f6"
+    },
+    "src/unified_edge/resolve.py": {
+      "raw_sha256": "a47f199ef96f9893c8fc37c4557aed36569faffd82bcb8bc9598cf195502f97f",
+      "utf8_lf_sha256": "a47f199ef96f9893c8fc37c4557aed36569faffd82bcb8bc9598cf195502f97f"
+    },
+    "tests/test_cli.py": {
+      "raw_sha256": "aca3de310ffb3e74dcc264b875fc89a37c15cf7038886ab12240529d052d5a44",
+      "utf8_lf_sha256": "aca3de310ffb3e74dcc264b875fc89a37c15cf7038886ab12240529d052d5a44"
+    },
+    "tests/test_config.py": {
+      "raw_sha256": "747a90c16ff65271d2659a61252a5c4bd94e12bae9b93b7e5556cd010d190161",
+      "utf8_lf_sha256": "747a90c16ff65271d2659a61252a5c4bd94e12bae9b93b7e5556cd010d190161"
+    },
+    "tests/test_resolver_policies.py": {
+      "raw_sha256": "13893969c5e5ca76924eeb73bd410fdc7ead828b013a845cc1aae56cd479bccd",
+      "utf8_lf_sha256": "13893969c5e5ca76924eeb73bd410fdc7ead828b013a845cc1aae56cd479bccd"
+    }
+  },
+  "hash_convention": "raw_sha256 binds current file bytes; utf8_lf_sha256 binds UTF-8 text after universal newline decoding for cross-platform comparison. Receipt deliberately not self-hashed.",
+  "reference_check": {
+    "status": "PASS",
+    "checked": [
+      {
+        "source": "README.md",
+        "target": "docs/project_state.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "reports/full_training_2m_final.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "reports/20m_prebuild_audit.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "reports/20m_i1_resolver_config_implementation.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/20m_training_plan.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/kaggle_20m_execution_plan.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/resolver_policy.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/historical_authorization_replay.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/mamba_integration_contract.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/training_contract.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/gpu_execution_contract.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project_state.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "reports/full_training_2m_final.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "reports/20m_prebuild_audit.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "reports/20m_i1_resolver_config_implementation.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/20m_training_plan.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/kaggle_20m_execution_plan.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "configs/models/edge_20m_candidate.yaml",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "configs/models/edge_20m_search.yaml",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "configs/models/edge_2m.yaml",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/resolver_policy.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/historical_authorization_replay.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/mamba_integration_contract.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/training_contract.md",
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/gpu_execution_contract.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "../reports/20m_i1_resolver_config_implementation.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "../reports/20m_i1_resolver_config_implementation.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "resolver_policy.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "../reports/20m_prebuild_audit.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "20m_training_plan.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "kaggle_20m_execution_plan.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_i1_resolver_config_implementation.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_i1_resolver_config_implementation.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_prebuild_audit.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_prebuild_audit.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/historical_authorization_provenance_review.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/historical_authorization_replay.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_2m_evidence.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_prebuild_audit.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_prebuild_mechanical.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/20m_prebuild_validation.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/full_training_2m_final.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/full_training_2m_final.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/context_training_ab_2m.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/context_training_ab_2m.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/context_distribution_study_2m.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/context_distribution_study_2m.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/future_capabilities_addendum_review.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/full_training_2m_stage_a.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_training_diagnostic_2m.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_final_evidence.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_final_build.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_v2_build.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_v2_evidence.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/targeted_acquisition_controls_v2.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/contamination_review_v1.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/contamination_matcher_v2_proposal.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_2m_build.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/download_authorization_2m_r3.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/authorization_r3_quota_clarification.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/documentation_file_allowlist_2m_r3.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/authorization_correction_r3_preflight.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/download_authorization_2m_r2.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/documentation_file_allowlist_2m_r2.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_2m_build.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/real_corpus_2m_evidence.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/download_authorization_2m.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/gutenberg_work_allowlist_2m.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/benchmark_exclusion_coverage.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/source_file_allowlists_2m.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/source_approval_table_2m.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/data_exclusion_registry.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/data_acquisition_plan_2m.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/data_exclusion_registry.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/gpu_enablement_closeout.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/gpu_enablement_readiness.md",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "reports/gpu_enablement_evidence.json",
+        "exists": true
+      },
+      {
+        "source": "docs/project_state.md",
+        "target": "docs/gpu_execution_contract.md",
+        "exists": true
+      },
+      {
+        "source": "docs/resolver_policy.md",
+        "target": "configs/models/edge_20m_candidate.yaml",
+        "exists": true
+      },
+      {
+        "source": "docs/resolver_policy.md",
+        "target": "configs/models/edge_20m_search.yaml",
+        "exists": true
+      },
+      {
+        "source": "docs/resolver_policy.md",
+        "target": "reports/edge_2m_resolved.json",
+        "exists": true
+      },
+      {
+        "source": "src/unified_edge/readiness.py",
+        "target": "reports/full_training_2m_final.json",
+        "exists": true
+      },
+      {
+        "source": "src/unified_edge/readiness.py",
+        "target": "reports/20m_prebuild_audit.json",
+        "exists": true
+      },
+      {
+        "source": "src/unified_edge/readiness.py",
+        "target": "reports/20m_i1_resolver_config_implementation.json",
+        "exists": true
+      }
+    ],
+    "dangling": []
+  }
+}
