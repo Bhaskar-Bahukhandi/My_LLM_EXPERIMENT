@@ -1,0 +1,1192 @@
+{
+  "schema": "historical-authorization-provenance-review-v1",
+  "entry_commit": "aa7e04726332a09024568ab7bfd8c02a0fcb7eb2",
+  "case": "CASE_A_HISTORICAL_SNAPSHOT_INTACT",
+  "lineage_classification": "CURRENT_2M_LINEAGE_UNAFFECTED",
+  "historical_report": {
+    "commit": "720af6e63ee8759654b287848173bbd3e74867c4",
+    "path": "reports/real_corpus_2m_evidence.json",
+    "schema_version": 1,
+    "created_utc": "2026-09-10T01:36:21.988963+00:00",
+    "status": "NOT READY",
+    "stage": "PRE_ACQUISITION_BLOCKED",
+    "lf_byte_size": 9208,
+    "lf_sha256": "2b8f6c4fd59716434ff5a2e49030b082306a4120f5c8f6afa66423b8d3b05a9a",
+    "crlf_byte_size": 9503,
+    "crlf_sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
+    "expected_contract_sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
+    "matching_representation": "CRLF",
+    "snapshot_exactly_equals_historical_crlf": true
+  },
+  "snapshot": {
+    "root": "data/pilot-2m-r1/provenance/authorization",
+    "identity_path": "data/pilot-2m-r1/provenance/authorization_snapshot.json",
+    "identity_byte_size": 6552,
+    "algorithm": "SHA-256 of exact original authorization_snapshot.json bytes; then verify each of its 57 path-to-SHA-256 entries. No new aggregation or JSON reserialization.",
+    "aggregate_sha256": "8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d",
+    "recorded_sha256": "8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d",
+    "aggregate_matches": true,
+    "manifest_entries": 57,
+    "total_regular_files": 66,
+    "supplemental_replay_files": 4,
+    "preexisting_bytecode_files": 5,
+    "inventory": [
+      {
+        "path": "docs/architecture_changes/AC-001.md",
+        "byte_size": 2518,
+        "sha256": "d1eb5151929e4d3894532e7f8c9ecc68e781efe8ad9082572938ce92b91dc0b3",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/architecture_changes/AC-002.md",
+        "byte_size": 2578,
+        "sha256": "67cd8695f302dc01258dd08e2b71e06cfe9d49cea1446842416df5b50b7d2e02",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/architecture_changes/AC-003.md",
+        "byte_size": 2797,
+        "sha256": "4a10b120892e327857206da3e1c0582a58120c1c035b98810a720567ff7f7c2c",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/architecture_changes/AC-004.md",
+        "byte_size": 2923,
+        "sha256": "ac4ab354a82ecfc2ade92bf69efde4c36af2c60a2a8fab1f6443a8f3b3dae06f",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/architecture_changes/AC-005.md",
+        "byte_size": 2995,
+        "sha256": "eca8fc2c8d2c9a80f13ef7662a715c51ffa2fbb58136043294d6e9beeac78c87",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/authorization_capacity_2m_r2.json",
+        "byte_size": 11770,
+        "sha256": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/authorization_capacity_2m_r3.json",
+        "byte_size": 12789,
+        "sha256": "57a7d7bd46d0181ee734cd228e423ce9b7152f7f3a8721a8c79aa0343e6606b8",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/authorization_r3_quota_clarification.json",
+        "byte_size": 751,
+        "sha256": "0a6747c8342f2847131c17fbf4a3288def0dd69bc2c67905e6d376a60c4ded6a",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/backend_reference.md",
+        "byte_size": 2823,
+        "sha256": "816d7f2254cd8b80980a67250f1e39ade7bfbf356bf497c24f0f75f8b50afc70",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/byte_hierarchy_contract.md",
+        "byte_size": 6216,
+        "sha256": "5c11f74452fa6a178ba388a1923763ad9c655ed369b8c4deeca181d520753ca2",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/data_exclusion_registry.json",
+        "byte_size": 13296,
+        "sha256": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/documentation_file_allowlist_2m_r2.json",
+        "byte_size": 169330,
+        "sha256": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/documentation_file_allowlist_2m_r3.json",
+        "byte_size": 179724,
+        "sha256": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/gpu_execution_contract.md",
+        "byte_size": 4113,
+        "sha256": "c56083eaa3915913b036dee07cd37f8f87c7b75fb7a4f81997adb27a71dfe89d",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/gutenberg_work_allowlist_2m.json",
+        "byte_size": 27095,
+        "sha256": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/implementation_plan.md",
+        "byte_size": 11036,
+        "sha256": "11f125c92a9f147ac3b2ff266d4de511e4b3b82c1068ba2a6884bd6c44dca6f4",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/mamba_integration_contract.md",
+        "byte_size": 4656,
+        "sha256": "64e804aad4933925a38e12fc6104a0e64875740111476cf6915f37691dd61db7",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/parameter_inventory.md",
+        "byte_size": 3316,
+        "sha256": "36552d70ba368175654b4c22d1789f07b4e5918143f128b0d836d7d394a1cfff",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "docs/project_state.md",
+        "byte_size": 21714,
+        "sha256": "ce165e5532361fb6a5f50e75b4cc599d263c45c895f2476ab655150c841c0d7e",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/source_file_allowlists_2m.json",
+        "byte_size": 1950957,
+        "sha256": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "docs/training_contract.md",
+        "byte_size": 4462,
+        "sha256": "b1d3f49b6839bb16b838a41a49595813360ffd2d679de8d0f026637cb083e298",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/authorization_capacity_2m_r2.json",
+        "byte_size": 27794,
+        "sha256": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/authorization_capacity_2m_r3.json",
+        "byte_size": 27788,
+        "sha256": "0e799fe1b8d5c3b873bfade77ac0d8e675f0a002b8f221beb0012401313622ac",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/authorization_correction_r3_preflight.json",
+        "byte_size": 2167,
+        "sha256": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/authorization_correction_r3_preflight.md",
+        "byte_size": 1646,
+        "sha256": "9a7ea1accebf7a35d9f103819c216756f308890245ce7fef639d60adefbdff40",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/benchmark_exclusion_coverage.json",
+        "byte_size": 25939,
+        "sha256": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/byte_hierarchy_evidence.json",
+        "byte_size": 6192,
+        "sha256": "ceaf2ba491057edb0e0e2c21d439a86d6778b48bdd8b812a18ef2b682feabaf9",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/byte_hierarchy_readiness.md",
+        "byte_size": 7499,
+        "sha256": "84a5be3cdd876f58595f168ef6b323f3d6aa56d79e063cb5173b67031826f771",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/configuration_audit.json",
+        "byte_size": 9046,
+        "sha256": "96f5ef2b2f30e6824604a5b67ffa0794aba0cf5670ea85dd4936ca666fd19643",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/configuration_evidence.json",
+        "byte_size": 2983,
+        "sha256": "cbf74174c4aae6de800120ec3febcb610ecb48c8d72314e74f4f1d5c873860d1",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/configuration_tranche.md",
+        "byte_size": 8518,
+        "sha256": "95fb71219931995d81b43f2c71dbdbfb6c57e7bff5470ead097a9f72e9304922",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/data_acquisition_plan_2m.json",
+        "byte_size": 48955,
+        "sha256": "0e544874952a2aff455e5c080538799a6ffebfb3f167eebf856ed067d2bfff5b",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/data_acquisition_plan_2m.md",
+        "byte_size": 36418,
+        "sha256": "2e09df29c6acbf000ade59bba2d90b63b06ab60eecec2c4bf52c295d30198b26",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/download_authorization_2m.json",
+        "byte_size": 6737,
+        "sha256": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/download_authorization_2m.md",
+        "byte_size": 12382,
+        "sha256": "26fb7f3d04a85ebed7cebc71ce23001ec8c40b27a8851d48dca7eecdf7032235",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/download_authorization_2m_r2.json",
+        "byte_size": 8160,
+        "sha256": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/download_authorization_2m_r2.md",
+        "byte_size": 10165,
+        "sha256": "51fda9f6537ee8b4798d63f8def873b0d58989bb4d6c4c9f1cf6ae5445bc20de",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/download_authorization_2m_r3.json",
+        "byte_size": 19037,
+        "sha256": "6986095d875d1f009d69f48c385979beadca8eadb7178ce350c3755b57f69068",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/download_authorization_2m_r3.md",
+        "byte_size": 7910,
+        "sha256": "d5a93dc3906baf9f8b4c54c6a914734a2dbbd17376eef173066e1f94d86ae7b0",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/edge_2m_resolved.json",
+        "byte_size": 1200,
+        "sha256": "ca5b4a66a8f3f017c3e5f070cb13f13916cdc7bd083920580d65bcaea96b0f84",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/gpu_enablement_closeout.json",
+        "byte_size": 15948,
+        "sha256": "ef29c934920fe89f47d17a12a392aa663fcebc391ede4f7e9b642973ba6f4e1e",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/gpu_enablement_closeout.md",
+        "byte_size": 8051,
+        "sha256": "70e546e8047bf6554712855c4536c2e36f224549ab22a4d1726803ef5f73a9ce",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/gpu_enablement_evidence.json",
+        "byte_size": 130389,
+        "sha256": "05a9319f8fdbddf65db336818e0336df660d79d9a403092988ec0cc1f1fe42c5",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/gpu_enablement_readiness.md",
+        "byte_size": 16927,
+        "sha256": "a9801524e66a34f89e23c2be62ef0b9080669424ea315555b8d450ad1ac96915",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/mamba_integration_evidence.json",
+        "byte_size": 48142,
+        "sha256": "ca25b0d4b005edeb168d0444f18900c2fa739002ed3a2b515ef23ac4426af074",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/mamba_integration_readiness.md",
+        "byte_size": 10695,
+        "sha256": "0cd7c35e6aad13528cd88a894549bcd618b4186ffad25ee407d23427dd9e3ccc",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/mamba_reference_verification.json",
+        "byte_size": 437,
+        "sha256": "d198308502dc946b93ff21ddeaad08cff90955caf717b6c58d0fc881a03140a8",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "LF"
+      },
+      {
+        "path": "reports/real_corpus_2m_build.md",
+        "byte_size": 5018,
+        "sha256": "4f3892e5a16775469def1a53f5b28a345e74cf5a56378f015ef1b977e7ca1ffb",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/real_corpus_2m_evidence.json",
+        "byte_size": 9503,
+        "sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/real_corpus_2m_pre_acquisition_r3.json",
+        "byte_size": 744,
+        "sha256": "4b61ce548b0c22a2957035f6247c84e1701b985c9a46e454808b47c0386df389",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/source_approval_table_2m.json",
+        "byte_size": 41709,
+        "sha256": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/source_approval_table_2m.md",
+        "byte_size": 20013,
+        "sha256": "6d5b064df567faa3b78c0eac706ee7fa4978e7f8a8338d0463f57bafefcabe7d",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/source_approval_table_2m_r2.json",
+        "byte_size": 3500,
+        "sha256": "0c24a96a1d67273713d5743553fb1c42406b27ab3c603c8ff6260d25980773cd",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/source_approval_table_2m_r3.json",
+        "byte_size": 2729,
+        "sha256": "c3444d0ad2318155f80fa7dd78d008b65e2888ade1a12bc734c087c8b217305d",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/training_infrastructure_evidence.json",
+        "byte_size": 25543,
+        "sha256": "a94d7ddadfddefe6027b293d57fb1097c57fe45bbe67b5faa25192809ad58fee",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "reports/training_infrastructure_readiness.md",
+        "byte_size": 12971,
+        "sha256": "6f7bc265b7ebd10cbec08f13d400f804efacc0a8b5a5847fb51e39a31396a5b4",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "scripts/__pycache__/authorization_capacity.cpython-312.pyc",
+        "byte_size": 13691,
+        "sha256": "dc687d7460ced37af4c19d641aba04c3a7a35735c63a8dd9b22ea57304305e82",
+        "manifest_bound": false,
+        "role": "pre-existing bytecode; not executed/copied by new replay"
+      },
+      {
+        "path": "scripts/__pycache__/benchmark_fingerprints.cpython-312.pyc",
+        "byte_size": 11756,
+        "sha256": "3ddaf4ebd8c457cfcbf889bb8420d051147108e0703252b36d9e82a7db7bbe8d",
+        "manifest_bound": false,
+        "role": "pre-existing bytecode; not executed/copied by new replay"
+      },
+      {
+        "path": "scripts/authorization_capacity.py",
+        "byte_size": 10446,
+        "sha256": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+        "manifest_bound": true,
+        "matches_manifest": true,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "scripts/benchmark_fingerprints.py",
+        "byte_size": 7523,
+        "sha256": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+        "manifest_bound": false,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "tests/__pycache__/test_authorization_capacity.cpython-312-pytest-8.3.5.pyc",
+        "byte_size": 31967,
+        "sha256": "7d4617d5973ae05f5d601ae30e2228e42934470897a8ab65355d0633bfb982ee",
+        "manifest_bound": false,
+        "role": "pre-existing bytecode; not executed/copied by new replay"
+      },
+      {
+        "path": "tests/__pycache__/test_authorization_r3.cpython-312-pytest-8.3.5.pyc",
+        "byte_size": 27219,
+        "sha256": "437d3bd07edf1490f8d87ce44b2a9ed85f88cfcade56c507391d63313520bac4",
+        "manifest_bound": false,
+        "role": "pre-existing bytecode; not executed/copied by new replay"
+      },
+      {
+        "path": "tests/__pycache__/test_benchmark_fingerprints.cpython-312-pytest-8.3.5.pyc",
+        "byte_size": 13324,
+        "sha256": "78d5b879b69c155b9118a993a4325d350be28884aaa52ac0b753b98fc422d949",
+        "manifest_bound": false,
+        "role": "pre-existing bytecode; not executed/copied by new replay"
+      },
+      {
+        "path": "tests/test_authorization_capacity.py",
+        "byte_size": 9013,
+        "sha256": "71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40",
+        "manifest_bound": false,
+        "git_representation": "CRLF"
+      },
+      {
+        "path": "tests/test_authorization_r3.py",
+        "byte_size": 5363,
+        "sha256": "8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33",
+        "manifest_bound": false,
+        "git_representation": "LF"
+      },
+      {
+        "path": "tests/test_benchmark_fingerprints.py",
+        "byte_size": 2247,
+        "sha256": "777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97",
+        "manifest_bound": false,
+        "git_representation": "CRLF"
+      }
+    ],
+    "original_generator_command": "Not retained in inspected tracked source or local receipts; the original serialized manifest and digest remain available and exactly verify."
+  },
+  "file_history": [
+    {
+      "commit": "720af6e63ee8759654b287848173bbd3e74867c4",
+      "commit_metadata": "2026-09-13T13:34:12+05:30 Freeze approved r3 corpus authorization and feasibility evidence",
+      "git_bytes": 9208,
+      "git_sha256": "2b8f6c4fd59716434ff5a2e49030b082306a4120f5c8f6afa66423b8d3b05a9a",
+      "schema_version": 1,
+      "status": "NOT READY",
+      "stage": "PRE_ACQUISITION_BLOCKED"
+    },
+    {
+      "commit": "f770e29c0a5c2e07e556f121aae0db0d83cbe7b0",
+      "commit_metadata": "2026-09-20T07:32:54+05:30 Changes",
+      "git_bytes": 68098,
+      "git_sha256": "c9bb670c2f9cc11447f17f58d199f032397732acb73014cbfe3702345878fd65",
+      "schema_version": 2,
+      "status": "NOT READY",
+      "stage": "post_contamination_capacity"
+    }
+  ],
+  "current_superseding_report": {
+    "path": "reports/real_corpus_2m_evidence.json",
+    "raw_byte_size": 70753,
+    "raw_sha256": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+    "git_sha256": "c9bb670c2f9cc11447f17f58d199f032397732acb73014cbfe3702345878fd65",
+    "schema_version": 2,
+    "status": "NOT READY",
+    "blocking_gate": "post_contamination_capacity",
+    "declarations": {
+      "historical_authorization": {
+        "root": "data/pilot-2m-r1/provenance/authorization",
+        "snapshot_sha256": "8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d",
+        "files_verified": 57,
+        "note": "Historical estimates and blocked reports remain immutable here and in Git. Current report supersedes their operational status, not their evidence."
+      },
+      "validation.historical_test_context": "Unchanged authorization capacity/r3/benchmark tests replayed under frozen authorization snapshot, preserving hash-bound historical report inputs. Current-root historical tests would reject the intentionally updated report hash; not a current corpus readiness test."
+    }
+  },
+  "test_context": {
+    "historical_modules": [
+      "tests/test_authorization_capacity.py",
+      "tests/test_authorization_r3.py",
+      "tests/test_benchmark_fingerprints.py"
+    ],
+    "original_mechanism": "Preserved byte-identical test modules live under snapshot/tests; their __file__-relative root selects snapshot contracts/reports and scripts. Existing report receipts explicitly record replay there.",
+    "original_exact_command": "Not retained in inspected receipts; no exact historical command claimed.",
+    "previous_receipts": {
+      "reports/real_corpus_2m_evidence.json:validation.focused_tests": "51 passed in 0.76s after final report update (previous run: 1.02s)",
+      "reports/real_corpus_final_validation.json:tests": "69 passed, 1 optional NumPy warning in 3.10s",
+      "reports/real_corpus_final_validation.json:historical_test_scope": "Unchanged tests replayed in immutable provenance/authorization snapshot because their contracts bind historical report hashes."
+    },
+    "failure_cause": "Unchanged ROOT-relative tests ran against intentionally superseded root report; expected historical hashes remain valid.",
+    "new_mechanism": "Verify original snapshot and four Git-matched supplemental files; run identical copies in temporary root; post-verify original; default pytest requires wrapper.",
+    "no_training_scope": "Only explicitly listed current data/provenance/configuration unit tests and historical replay run; broader model/training tests and real-corpus verification tests not executed.",
+    "current_no_training_modules": [
+      "tests/test_accounting.py",
+      "tests/test_authorization_provenance.py",
+      "tests/test_cli.py",
+      "tests/test_config.py",
+      "tests/test_contamination_review_v1.py",
+      "tests/test_contamination_v2.py",
+      "tests/test_corpus_acquisition.py",
+      "tests/test_corpus_contamination.py",
+      "tests/test_corpus_duplicates.py",
+      "tests/test_corpus_filtering.py",
+      "tests/test_corpus_freeze.py",
+      "tests/test_future_capabilities_spec.py",
+      "tests/test_gutenberg_acquisition.py",
+      "tests/test_gutenberg_cleaning.py",
+      "tests/test_mode_policy_v2.py",
+      "tests/test_symbols.py",
+      "tests/test_targeted_acquisition.py"
+    ]
+  },
+  "lineage": {
+    "checks": {
+      "final_evidence_receipt": true,
+      "current_report_bound_by_final_corpus": true,
+      "manifest_raw": true,
+      "manifest_canonical": true,
+      "manifest_matches_training_binding": true,
+      "split_hash_metadata": true,
+      "split_bytes_metadata": true,
+      "native_manifest_raw": true,
+      "native_manifest_canonical": true,
+      "endpoint_state": true,
+      "source_identity": true
+    },
+    "split_bytes": {
+      "train": 10000000,
+      "validation": 500000,
+      "test": 500000
+    },
+    "split_sha256_from_receipts": {
+      "train": "5204262762bf2c54173d0c60e1cfb82d0d851c5a73f868de32d490d44557c120",
+      "validation": "70f52e5d362f4425182b0ad058163e56ac8987971f1db61dde1a224ea59a8614",
+      "test": "a3f7bc2b3fa3853a6784aff9e7da78bcf2e3fc535dc15d0ba6cfa1a00f44173f"
+    },
+    "manifest": {
+      "raw_sha256": "38bbb7266544129b8c1bd14d2e744f233208d55c403135244963024fad6ed86b",
+      "canonical_sha256": "f5f375b0c7b446a39000f5a3fb693dbe111d9621b6818a52a3eea339b8a29ecc"
+    },
+    "native_raw_sha256": "64e15487f29c38bbef77156680741e571ffbc0ea7e3cee2dcc20dad350c8ae44",
+    "native_canonical_sha256": "33511a26b738f59bb0a5ad4735b9a22a4e379b239b4ba8de9511dab555a892ee",
+    "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+    "endpoint_checkpoint_sha256": "0d4c822daadf6bb8269a727ac54d54a26e9edf49ff43fedff1b0d91ba6ad2623",
+    "parameter_count": 1929579,
+    "parameter_sha256_from_accepted_report": "75b1a342f3acf3b10c7dadb7f1d86feef09642cf15201a282aa7ec8b758be173",
+    "accounting": {
+      "global_step": 78167,
+      "micro_step": 156334,
+      "windows_seen": 312668,
+      "previous_target_bytes": 639613,
+      "new_target_bytes": 9360451,
+      "total_target_bytes": 10000064,
+      "expected_endpoint_target_bytes": 10000064,
+      "extra_epoch1_windows": 2,
+      "cursor_epoch": 1,
+      "cursor_offset": 2
+    },
+    "final_nll_from_accepted_report": 2.1701512726,
+    "scope": "Metadata/checkpoint hashes and accepted integrity receipts; no corpus payload rehash, model load, parameter hash recomputation, NLL reevaluation, backward or optimizer update."
+  },
+  "entry_protected_tracked_sha256": {
+    ".gitignore": "ab2905fb6c2acc819c0153e3cd9561360b47fd64af6ac74fc64cc9c9d546ea65",
+    "README.md": "13a1aa93796e72d999f5ad6cbc03b376c340f2ac986a6a8e42251fb81ce5cb64",
+    "Unified_Edge400_Future_Capabilities_Addendum_v1.0.md": "ad0f6ef8092ef48fcf7b3e91a0214fa73b02fafbad1215d8f3717545a951ef87",
+    "Unified_Edge400_Master_Bible_v3.0_FINAL.md": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
+    "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99",
+    "configs/models/edge_2m.yaml": "66729fb6ced67055f2e1e81ff6569fc8bf979d8c9a1bd91ddd4c9f8f4456a127",
+    "docs/architecture_changes/AC-001.md": "d1eb5151929e4d3894532e7f8c9ecc68e781efe8ad9082572938ce92b91dc0b3",
+    "docs/architecture_changes/AC-002.md": "67cd8695f302dc01258dd08e2b71e06cfe9d49cea1446842416df5b50b7d2e02",
+    "docs/architecture_changes/AC-003.md": "4a10b120892e327857206da3e1c0582a58120c1c035b98810a720567ff7f7c2c",
+    "docs/architecture_changes/AC-004.md": "ac4ab354a82ecfc2ade92bf69efde4c36af2c60a2a8fab1f6443a8f3b3dae06f",
+    "docs/architecture_changes/AC-005.md": "eca8fc2c8d2c9a80f13ef7662a715c51ffa2fbb58136043294d6e9beeac78c87",
+    "docs/architecture_changes/AC-006_Verified_RSI_Framework.md": "fcecafa32af6495a699ac59a4d6f77e70af57470d3bc9ef215e058340e219885",
+    "docs/architecture_changes/AC-007_Adaptive_Reasoning_Effort.md": "4f5d472eb402b149b515bfe3710317337a7cb3b653774fe2bb0616aa77bfb2d7",
+    "docs/architecture_changes/AC-008_Context_and_Distribution_Promotion_Gates.md": "4b37b71915133012e3172cd5c266d1a353a2ae0b494fac6a7ec468c53d6f121b",
+    "docs/authorization_capacity_2m_r2.json": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28",
+    "docs/authorization_capacity_2m_r3.json": "57a7d7bd46d0181ee734cd228e423ce9b7152f7f3a8721a8c79aa0343e6606b8",
+    "docs/authorization_r3_quota_clarification.json": "0a6747c8342f2847131c17fbf4a3288def0dd69bc2c67905e6d376a60c4ded6a",
+    "docs/backend_reference.md": "816d7f2254cd8b80980a67250f1e39ade7bfbf356bf497c24f0f75f8b50afc70",
+    "docs/byte_hierarchy_contract.md": "5c11f74452fa6a178ba388a1923763ad9c655ed369b8c4deeca181d520753ca2",
+    "docs/contamination_matcher_v2_proposal.md": "374c2ed7d3fb15084a4e0d0a8d1437372bcde30ed7bdb4d76ee6b7bcea929c15",
+    "docs/contamination_policy_v2.json": "7b2b198a634842f75d27337b471f321904ff8d4ff70051e92f469593579cafbf",
+    "docs/contamination_policy_v2.sha256.json": "fb7bfceed6398da934a7b6929d277db034d28e00b0d6db1954a217be74a4b707",
+    "docs/corpus_processing_policy_2m_v1.json": "de3ac12b617ceef25f3c33be64db573ebd1a6a0d50c42ceb38ee3e73b864bc57",
+    "docs/corpus_processing_policy_2m_v1_1.json": "1af0861c3dec595d385d58424f63bec8948d5ad9806342fc240fc47bec284a96",
+    "docs/corpus_processing_policy_2m_v1_2.json": "b3315c22b55a264a9c7726e0021e238a54e5133364337e289e00ec4c3137a66b",
+    "docs/corpus_processing_policy_2m_v1_3.json": "b5ca6cb92bffb6e47c8aaeb701d228fca2882b01cf76a5bb42ed2356ca1877c2",
+    "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+    "docs/documentation_file_allowlist_2m_r2.json": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630",
+    "docs/documentation_file_allowlist_2m_r3.json": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a",
+    "docs/file_mode_policy_v2.json": "932c5f20cb17dc2c295f5abcb918d0fe3d336d535224087b8a1a4c5f5c347779",
+    "docs/file_mode_policy_v2.sha256.json": "f4d368e4fdceac1ba1888fa05505f77ffa3aab906dc9681be842ef095a03ade9",
+    "docs/future_capabilities_contract_v1.json": "32957c6142e01eab7ed6385ab46af2e7731da1d859d53e6ace89af7be246cd55",
+    "docs/gpu_execution_contract.md": "c56083eaa3915913b036dee07cd37f8f87c7b75fb7a4f81997adb27a71dfe89d",
+    "docs/gutenberg_work_allowlist_2m.json": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
+    "docs/implementation_plan.md": "11f125c92a9f147ac3b2ff266d4de511e4b3b82c1068ba2a6884bd6c44dca6f4",
+    "docs/mamba_integration_contract.md": "64e804aad4933925a38e12fc6104a0e64875740111476cf6915f37691dd61db7",
+    "docs/mode_v2_file_reviews.json": "6954db360bedfe986d58489f159f88fcc00e4b6da5b6ce1cdb15994d71932beb",
+    "docs/parameter_inventory.md": "36552d70ba368175654b4c22d1789f07b4e5918143f128b0d836d7d394a1cfff",
+    "docs/project_state.md": "4c4ad06942e7453a94475a56b0fe9dc0dc7a1f2175f104d1cc59aa36b4f3ddd7",
+    "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+    "docs/targeted_acquisition_controls_v2.md": "5220dbc40a6f0e4e8f6956e9f007deba056ed88d3e3745f2f30e736cc5021626",
+    "docs/targeted_candidates_v2_r1.json": "2698868f790860ae268d5fc443356a09a1d43734fdc556c72f7abe940769ec4a",
+    "docs/targeted_file_review_v2_r1.json": "03e40a7acd610323a70875bd3e13f80388afe08fc4d07aadbb663047b5e3c601",
+    "docs/training_contract.md": "b1d3f49b6839bb16b838a41a49595813360ffd2d679de8d0f026637cb083e298",
+    "pyproject.toml": "183b8bcf34407994c6c1393c1ea06ae6f271c10a6af7ae23f7af3f1594d8ad52",
+    "reports/20m_prebuild_audit.json": "2f62b936ed5b587cbd59e53cf24dabed58773b030b97ac3d63f3273dfbf3de36",
+    "reports/20m_prebuild_audit.md": "2ca4aef0e5108e31a919c41824a0d825aa292ccd996f9e7933a772c5294513b2",
+    "reports/20m_prebuild_mechanical.json": "c0765ce10915c930eb1602dfed02c94b34302e2dd1a7fe6c6516973af57627c1",
+    "reports/20m_prebuild_validation.json": "20eaff63407c26abb7b7f9e182243b2f9a5063348812a70ed01ded5d2aba35e9",
+    "reports/authorization_capacity_2m_r2.json": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27",
+    "reports/authorization_capacity_2m_r3.json": "0e799fe1b8d5c3b873bfade77ac0d8e675f0a002b8f221beb0012401313622ac",
+    "reports/authorization_correction_r3_preflight.json": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185",
+    "reports/authorization_correction_r3_preflight.md": "9a7ea1accebf7a35d9f103819c216756f308890245ce7fef639d60adefbdff40",
+    "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+    "reports/byte_hierarchy_evidence.json": "ceaf2ba491057edb0e0e2c21d439a86d6778b48bdd8b812a18ef2b682feabaf9",
+    "reports/byte_hierarchy_readiness.md": "84a5be3cdd876f58595f168ef6b323f3d6aa56d79e063cb5173b67031826f771",
+    "reports/configuration_audit.json": "96f5ef2b2f30e6824604a5b67ffa0794aba0cf5670ea85dd4936ca666fd19643",
+    "reports/configuration_evidence.json": "cbf74174c4aae6de800120ec3febcb610ecb48c8d72314e74f4f1d5c873860d1",
+    "reports/configuration_tranche.md": "95fb71219931995d81b43f2c71dbdbfb6c57e7bff5470ead097a9f72e9304922",
+    "reports/contamination_review_v1.json": "cf915d2abf16e041c38dcc5f7a34f465ead658fcc5cd358c8c7ef9010fb93030",
+    "reports/contamination_review_v1.md": "9bf3e00a02b11d842f1196ecfc8fd5446077fdd8979d355bb7800a08b99f6a59",
+    "reports/contamination_review_v1_validation.json": "58923e8c0c7338891485c744b1b96b1f3e0591df32d93c516e15f2fa9912a54f",
+    "reports/contamination_v2_existing_pool.json": "7243405cb111351d6216c4fdbf95285cba902a6270496b7c3f8ac47da498b4d1",
+    "reports/contamination_v2_existing_pool.sha256.json": "bd50fa5988fc455b33778f0934e2986d9eadb0f72a5e15f05ff17bd73bc5064a",
+    "reports/context_distribution_study_2m.json": "6d05a604c988e14b7f5cac0766f57d82cea474157a47d7ff1d6f9ebbd9fbf892",
+    "reports/context_distribution_study_2m.md": "e2ac3fac7059023ebde3f555039d277fe2492c21cc740cbd0425b41976ab4af0",
+    "reports/context_training_ab_2m.json": "ef1714573a76158fec774ff2aea7071ce59db92fbd3c6a37e2a5c573498686d7",
+    "reports/context_training_ab_2m.md": "2cecdb586bc9b0bfcd914a23c2489a127df44e5107581922b6d9c96aece1263a",
+    "reports/corpus_expansion_v2_r1.json": "6867dd6a7344908a4ef756d6384ea4c87ad85c3a626a1d0305eb8ad7e44b59de",
+    "reports/corpus_expansion_v2_r1.sha256.json": "b89b2b969571e6ef0eeb556fedc094b542bd1e5ac3b0539fecd7a387153d1432",
+    "reports/corpus_mode_v2_pool.json": "020e23f78a9df57591d72478abc1d69bcd4f006ce47989525ce72a5f520af1f3",
+    "reports/corpus_mode_v2_pool.sha256.json": "e15d48cfe6e6dde3b264d84d1f8dc5a7440e549eb3fd71dacaf4d95995cd2093",
+    "reports/cpython_filtering_v1_2.json": "9816870362af15a25d37c1f293021dfe692f40819abe5b906a06a25641ca4255",
+    "reports/cpython_filtering_v1_3.json": "7676c80cc280bd73f89cee2f1ff61f00dd6d11a95fec186a604b41bb4e051a83",
+    "reports/cpython_filtering_v1_3.md": "e145283f8b3a0970ad54e456c0bfbde27f9313014c768992f18a3ac91b9bc39f",
+    "reports/data_acquisition_plan_2m.json": "0e544874952a2aff455e5c080538799a6ffebfb3f167eebf856ed067d2bfff5b",
+    "reports/data_acquisition_plan_2m.md": "2e09df29c6acbf000ade59bba2d90b63b06ab60eecec2c4bf52c295d30198b26",
+    "reports/download_authorization_2m.json": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c",
+    "reports/download_authorization_2m.md": "26fb7f3d04a85ebed7cebc71ce23001ec8c40b27a8851d48dca7eecdf7032235",
+    "reports/download_authorization_2m_r2.json": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67",
+    "reports/download_authorization_2m_r2.md": "51fda9f6537ee8b4798d63f8def873b0d58989bb4d6c4c9f1cf6ae5445bc20de",
+    "reports/download_authorization_2m_r3.json": "6986095d875d1f009d69f48c385979beadca8eadb7178ce350c3755b57f69068",
+    "reports/download_authorization_2m_r3.md": "d5a93dc3906baf9f8b4c54c6a914734a2dbbd17376eef173066e1f94d86ae7b0",
+    "reports/edge_2m_resolved.json": "ca5b4a66a8f3f017c3e5f070cb13f13916cdc7bd083920580d65bcaea96b0f84",
+    "reports/final_corpus_loader_audit.json": "2f41b33fc4080287ae8bcaf014806eb5d701f3f942e86b130b74496989d71447",
+    "reports/final_source_leakage_audit.json": "76a46de688c86250678e5a0e5b9973d0ee377ae252cd84f591a8b7f247431d90",
+    "reports/full_training_2m_final.json": "3f2c81619131fbee87e24b16f615ef9fbc19fee1f71d1e07540d40e6e65ed1eb",
+    "reports/full_training_2m_final.md": "d793977cf584cc2b624df63d7a2ec738c22a025f60c135c5737af4627dd1c970",
+    "reports/full_training_2m_stage_a.json": "078b4b36c2432e7da9ad19f8df27d2461a614b28ec7c5bef6c1dab6607899fe8",
+    "reports/full_training_2m_stage_a.md": "06299d471fce4bd0af2af554ca62dfb00cbe79d6bb549d47fc42987463c96ec6",
+    "reports/full_training_2m_stage_a_recovery.json": "e5295e530a65d3baa82f10701724469ef4cbb44b60211228233152c6fbe3efe4",
+    "reports/future_capabilities_addendum_review.json": "0a723314c971b24e752364152458f08acd732aaadf07b164e8c715aa37df20f2",
+    "reports/future_capabilities_addendum_review.md": "138718038c95bfa1a82bbca646d5b7f89c184c99c0d9726f5ceddd64905f05de",
+    "reports/gpu_enablement_closeout.json": "ef29c934920fe89f47d17a12a392aa663fcebc391ede4f7e9b642973ba6f4e1e",
+    "reports/gpu_enablement_closeout.md": "70e546e8047bf6554712855c4536c2e36f224549ab22a4d1726803ef5f73a9ce",
+    "reports/gpu_enablement_evidence.json": "05a9319f8fdbddf65db336818e0336df660d79d9a403092988ec0cc1f1fe42c5",
+    "reports/gpu_enablement_readiness.md": "a9801524e66a34f89e23c2be62ef0b9080669424ea315555b8d450ad1ac96915",
+    "reports/gutenberg_filtering_v1.json": "78b0a35d278779ca8273bb91e1abb490f63b0f41107cf5a11ec927da17d6a282",
+    "reports/mamba_integration_evidence.json": "ca25b0d4b005edeb168d0444f18900c2fa739002ed3a2b515ef23ac4426af074",
+    "reports/mamba_integration_readiness.md": "0cd7c35e6aad13528cd88a894549bcd618b4186ffad25ee407d23427dd9e3ccc",
+    "reports/mamba_reference_verification.json": "d198308502dc946b93ff21ddeaad08cff90955caf717b6c58d0fc881a03140a8",
+    "reports/mathlib_filtering_v1_3.json": "28cb309215c16c25aef956306cc2822342e561abdde40cde6b830e20d845bf96",
+    "reports/numpy_filtering_v1_3.json": "881549c01fe9ce6e2c00b3c36d53283b0bc514c48195f78951811269e483b129",
+    "reports/real_corpus_2m_build.md": "3c4c27bc54c90eb58a24b7a04cf5f314e8c194c5df3e9161f3a76192d77d3672",
+    "reports/real_corpus_2m_evidence.json": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+    "reports/real_corpus_2m_pre_acquisition_r3.json": "4b61ce548b0c22a2957035f6247c84e1701b985c9a46e454808b47c0386df389",
+    "reports/real_corpus_final_build.md": "c177dc898db05f00f5bcf89fe1252ef3fb109ff9c2005dbb0d06e67ba6198f11",
+    "reports/real_corpus_final_evidence.json": "68eed41234f7296ead6712391532d0ebe0712f5a96b0c0ada6d7cfaf4b3a7dd9",
+    "reports/real_corpus_final_validation.json": "da9bbbd49fde90a0839c951bb221f7443e4375eefb352e6c5d713ee40f8a4214",
+    "reports/real_corpus_v2_build.md": "f975faf1fa5dbedf03fac4e28e4370fe7f82972a89567c811fbef3b084ea0c4b",
+    "reports/real_corpus_v2_evidence.json": "7bfd9e9e388c8cf7cfe363a6efa46c994a56fa52ac3d75f9e66756f5f285bf4b",
+    "reports/real_corpus_v2_validation.json": "2ef9027b17cbe851b9f3b6951c0f51dbf656335c3ced1873f82eb22ccbe9c47f",
+    "reports/real_training_diagnostic_2m.json": "65ab8f0db2b20d5313ed02ca6df69b337051359e624ae28de19ed0d4ccf93ea2",
+    "reports/real_training_diagnostic_2m.md": "67bfb53971c9b054e1455b1d0133b89936c58c984d8e8fe53075d44d1cdd8267",
+    "reports/source_approval_table_2m.json": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6",
+    "reports/source_approval_table_2m.md": "6d5b064df567faa3b78c0eac706ee7fa4978e7f8a8338d0463f57bafefcabe7d",
+    "reports/source_approval_table_2m_r2.json": "0c24a96a1d67273713d5743553fb1c42406b27ab3c603c8ff6260d25980773cd",
+    "reports/source_approval_table_2m_r3.json": "c3444d0ad2318155f80fa7dd78d008b65e2888ade1a12bc734c087c8b217305d",
+    "reports/sympy_filtering_v1_3.json": "6151d2b4cd580251429ea231657ebaae5c827d2702ca7471ebc834540854bdce",
+    "reports/targeted_mode_capacity_v2_r1.json": "428b7032f608601506662a725aef13332af67eda3b10a85a0548e22176a7a1b2",
+    "reports/targeted_mode_capacity_v2_r2.json": "ff56408c34a5b68b744968f9772ba691ed4a8a7c55a35a1190a98bc5f5c81c2e",
+    "reports/targeted_project_fixture_audit_v2_r1.json": "62fe1db9f3a443c2dc608b2226b6d8f90142e1ba4400b558b337c6e0032cbc91",
+    "reports/training_infrastructure_evidence.json": "a94d7ddadfddefe6027b293d57fb1097c57fe45bbe67b5faa25192809ad58fee",
+    "reports/training_infrastructure_readiness.md": "6f7bc265b7ebd10cbec08f13d400f804efacc0a8b5a5847fb51e39a31396a5b4",
+    "requirements-cuda-lock.txt": "a1428a6260c3c0fdfeb8c734a51aa0b0bf5926a34f9180ad0cd577e66f61ea0e",
+    "requirements-lock.txt": "0cec6b4428ab6320d111f0b0c56ab4d31a0d9de321b3ab24fe0e71eefbd74ffe",
+    "scripts/audit_20m_prebuild.py": "6ad3ede91606e8dec7a3c93fddc0df9d1db82ce88ff2eddb2ec3bb36247a03cd",
+    "scripts/authorization_capacity.py": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+    "scripts/benchmark_fingerprints.py": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+    "scripts/context_ab_core.py": "85f6a7c59d6158179061e1510c21ebb0cf9019196e274bb2665dd92c0cec0539",
+    "scripts/context_ab_evaluation.py": "9c1886fc118b5830d4f0ecc58153e64852d6bdf7decd6ba573af85904cd7e02c",
+    "scripts/context_distribution_study.py": "eada62166617e2b0bc8ec146381371fd822fbe9129575c51345c03398db2e04a",
+    "scripts/context_phase_summary.py": "495925d729e30cb0331861e244faa71551fc835a931451c2542752bbad482389",
+    "scripts/context_study_metrics.py": "5cf5878641075a7158f8ae6202a9b030a861e510846bbdeb89bcd48ccaceb9d7",
+    "scripts/context_study_phases.py": "622ffddd5cfabe338668845d539a84e53cd735159a09e3b8f7edb82bd0fcda5e",
+    "scripts/context_study_positions.py": "be599f77557e190031e11354c5558f0648975185e26c4198faa81d93c9acd9ac",
+    "scripts/context_training_ab.py": "99fe63a691e6d3e193d2a8cd92ad7eb03486da09ffa047675da3f2478fcb61be",
+    "scripts/corpus_acquisition.py": "908fc0743af507182bf8fd738f0605bc241294367132152faf56ecc3f68b10a6",
+    "scripts/corpus_benchmark_index.py": "ffc5c5a7788673d6ebe1d80744b44cb4bd43406b8ccc4b2a68c529436bfda49d",
+    "scripts/corpus_complete_mode_v2.py": "5a42cd474756a1570fb7d5815b95819bba92e34196507b484032fbbd09980f53",
+    "scripts/corpus_contamination.py": "5f02b6779a7bb550d5acf2ad18cc7eac01180b5fd0546942d85c1f6593c5e967",
+    "scripts/corpus_contamination_review.py": "a4424386c14e1745aa90f65928126e65e5902d0ed81704ed135e80b10e75f904",
+    "scripts/corpus_contamination_v2.py": "17faa63afc035d5687bf9de33ee7acf005acbd3528c08f7a07d85660e5c0c153",
+    "scripts/corpus_duplicates.py": "5aa90764c0d0f8782f3458917558bedac1fb5338cda6eb4c5cd50fd043041dcb",
+    "scripts/corpus_expand_v2.py": "97f7d1ef2c67b460c4bde3d6817708693229cf3bc2cdc1158c710f8130342f6a",
+    "scripts/corpus_filter_report.py": "fbeb97b0e2f26d231ab48359d2d4108771b934ca0c5ca07d1db66452aca2e644",
+    "scripts/corpus_filtering.py": "63214bc861bd063c9655d6a6b35608eb017428112fa21781fdb82ba40880e253",
+    "scripts/corpus_fixture_audit.py": "e1360509b818fd9b874fe4dd8b2d2fa4143a27a099b720d1cf7e764d3e1e8e57",
+    "scripts/corpus_freeze.py": "e80bcd017bd856cd6e1798d1e9eb8f15515c1a1f8a4097fc05cc80f9616a9c6e",
+    "scripts/corpus_global.py": "6c4163db72abaaf2178f5dedf2ba231762595696ed57bdfe12e3270ff06a9d1c",
+    "scripts/corpus_matcher_v2_proposal.py": "86d2ec09b98860a9357b62366fe37cce68016177dbe42a0bbf2b5e4e8176aeee",
+    "scripts/corpus_mode_v2.py": "92df508896cfc521b7ff663d07557ca9fd554e910376ef23dab059341a3a241e",
+    "scripts/corpus_scan_v2.py": "33fba0541b6fb8593511d819049f125b3ae2eda78e46e7b51c15807f2303aa67",
+    "scripts/corpus_targeted_acquisition.py": "87e3354a15e588d80afb35c2ed8f9b6c6525b3bacbc32c9f21726cd3044a1de3",
+    "scripts/finish_context_distribution_study.py": "5efb7621c8edcf0d046100541560c15ba50aff28893272de957e28e9a0fe15a2",
+    "scripts/finish_context_training_ab.py": "c4fa2cdc7d8f20a75ce09e14001970b9d20fd32e4ad1c1aa6dca621aff6c0372",
+    "scripts/finish_full_training_2m.py": "af3cb1a8a001d660fa2a2f073078a5fc8dbb5f531f56c1ca3b1c6d712f8e69b7",
+    "scripts/finish_full_training_stage_a.py": "c75636cd3c0486d788ebe0f945de88f23f7fc81ce7989d5dfc80a4b51413fb1f",
+    "scripts/finish_real_training_diagnostic.py": "8b1321b2e4e24ad3271ace2e7dcfb8750144d7facd41e6d62c8846d02e1a1cd4",
+    "scripts/full_training_stage_a.py": "295b7f39661a9a04d9698e1fe2ad3e190257961697e5b9b4b954f64b128ab974",
+    "scripts/full_training_stage_b_to_endpoint.py": "3401f1a63cec7e5efb7456609293b8fcb3500383fd8067efc34a63a2eba98eb0",
+    "scripts/gutenberg_acquisition.py": "3b57772e64d2e1e65af97042373caae020c40b7319c72ac4ed73780d78bfa8c5",
+    "scripts/gutenberg_cleaning.py": "80e7cc29443c08d500f8c3f47ab3b6e53a1526c3361e057af4604d784791bb25",
+    "scripts/real_training_diagnostic.py": "075caadf2dd5d019f749f4b52f535a170dcd60d51dc72efc541e09a64094b579",
+    "scripts/recover_stage_a.py": "eb5ad18cf17b5b4d295c941fc4eff63bc7c34fcce52b35c770a8de940f6c66f9",
+    "scripts/resume_context_distribution_study.py": "fcac11bcb3814d732c35377a149b8ef667663f0fe87bf7d531a46bfcf1c31672",
+    "scripts/training_progress.py": "bb608e024def29d8beeb96dbe25ec9cb3c20d861f8c82dd54ad05300ca729c7f",
+    "scripts/validate_context_ab.py": "a74d2bd0b6e7b6d2596c99e423d84c613027cdf75f72399729ff549a8c941775",
+    "scripts/validate_context_study.py": "f911fbead99f8823ec73502fecc2b0cb55aba801bc87c9616dbd63c462f23ae7",
+    "scripts/validate_production_continuation.py": "92e6763185dc3500e12609fbecde6f05addf191437d5b9f1b97cd14dbc6867a6",
+    "src/unified_edge/__init__.py": "d17df431bd1fdcc4aaed4826250a71c6c5cf238fae1a61a1c589eb4623f79d32",
+    "src/unified_edge/byte_hierarchy.py": "fce726593d04b3d99158a12653a0aaa5789bbad7bcaf3f1546db073396c1f2ed",
+    "src/unified_edge/byte_layers.py": "8cfabe734c1ccab6bb463c42c7e10b498692de4c94e82ee29b0926b18bab4a7d",
+    "src/unified_edge/cli.py": "9eba733a5d8be26cf3b8c8253a4407bcb2912529e83685428602dcb355425cb0",
+    "src/unified_edge/config.py": "0ec93d74ae5eb3e493cd435635e71a458655a50e4924a26078871f2e4a19b20f",
+    "src/unified_edge/dense_model.py": "90f77bdac9eb9ac1bafd22a0cf9a543d5a7ea691d97680dc3f21fd2520861562",
+    "src/unified_edge/mamba.py": "421793d6c5972de0bd496461812765b7b1401d17034008a10005e538def08452",
+    "src/unified_edge/parameters.py": "eb15ce2ceba09a25b7d75959d7291bc1742d88362b666a0037dd268d782b7dda",
+    "src/unified_edge/preflight.py": "e8e5f5fd9f334ba708911869a4c3bb9e5cb2155270a071727c61ac74b1dcaf44",
+    "src/unified_edge/resolve.py": "c111d266dab2a9135cd99a5a0d95699b257e56d7d569cddef3b15bdcc9b6e4cd",
+    "src/unified_edge/symbols.py": "955fba05b6a7b058a34250146d10a9bf00d6811787b7758def8de63b35f2897e",
+    "src/unified_edge/training/__init__.py": "96fb76e3f36980021d7b98121b2dda310a57f343546f6b5a074665ab8bc4fb52",
+    "src/unified_edge/training/checkpoint.py": "13d57432c09f9f93f74eab9c56ca6a074b6aead1b93ba9a34d96290c23f37aca",
+    "src/unified_edge/training/config.py": "e232891e5eb5b79939354bcaa6cbe9995b71e2de2ac018d52a179cdf9ce20a63",
+    "src/unified_edge/training/data.py": "b198b86bbff16366559bbfbef4cd5bef86457fd181ee258b5f16d2a8a21abaa5",
+    "src/unified_edge/training/device.py": "bd4752a176d85475e0822543729835b05fd00f2f254d743f0d71ffd60ad5115d",
+    "src/unified_edge/training/experiment.py": "20389d831363f846be1e77356407253eb759344695b7f3523031ce6bcd46f01f",
+    "src/unified_edge/training/gpu_probe.py": "9b0c8ab2be5681c2ac33d9c39bdda0806df61ca7cba53fdf1d6c2b5421c1e42a",
+    "src/unified_edge/training/memory.py": "6376389c58e196cbec1acc40f990efd7aa5665a04694115fa540d815ac1a7a69",
+    "src/unified_edge/training/optimization.py": "dcb6bc8999b394921c70c17dced30b17b3fc0d1fa34860b0ef5ac6218be5ec16",
+    "src/unified_edge/training/trainer.py": "d5b56d887a89145ab2676fe7f5d5c7ca14855bddcd3e0fcc96a0ece3a6456086",
+    "tests/measure_mamba.py": "5bf3c7b7d22a767b7505e05f331df48af0cc2d26d53966adae08a80bb1831e86",
+    "tests/test_accounting.py": "3305a90bbfb05d7f5f2e5064653e5aaa7765dbf19daa7e47d29213967da372b9",
+    "tests/test_authorization_capacity.py": "71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40",
+    "tests/test_authorization_r3.py": "8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33",
+    "tests/test_benchmark_fingerprints.py": "777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97",
+    "tests/test_byte_hierarchy.py": "397aa4ae40bbe2c1e3135fcbcf13e1e3c7ded6ea4d0722e1744cdc3cf5dd69db",
+    "tests/test_cli.py": "cea15a9bd33a72b95be92c70dbf1bc2b051f6b21084c7b6647ca2f772e60782a",
+    "tests/test_config.py": "f38897b02bc5f4c015b6eec58c288be1a908891d0bf4d99161d30ce74ac7cbb0",
+    "tests/test_contamination_review_v1.py": "d294ca1ebbc6566926b435361496d5516b860cf73046e68a44688e1b5374f0cb",
+    "tests/test_contamination_v2.py": "c682b3ba1c630fdc8b4f98bfe78a6121bafe12f988bfc994a0aa49043d4b8102",
+    "tests/test_context_ab_report.py": "58e63f7c4a8c9690efd5f6afc31dd5d22da7f6a6b52e95e6fb2b9d928e43cd33",
+    "tests/test_context_distribution_study.py": "544b14b1fcb9ce65d57ecd4db86e739c84e613a092c1fa2d63f13a9d97c53ce6",
+    "tests/test_context_study_phases.py": "9f9ff496b6774e0466ba077535045b809d0abdf3c553ac0285da637a08bb5fcf",
+    "tests/test_context_training_ab.py": "8e32509a1f20ce48b4ccffc17d3c28a9bc718dfb73ed5c7267f5bb203c30b5f6",
+    "tests/test_corpus_acquisition.py": "4e60c4f23600b22217b81ccd6e3ed411b6be733a3aa10cd8f36317ec63008ebb",
+    "tests/test_corpus_contamination.py": "20e22a8859e9e893210b159a7169feda490a8eca819dea79531183d716e83fca",
+    "tests/test_corpus_duplicates.py": "029843b0e3679355e239ec2feefd1c1bf438eb474af928d8c4ff4032d65c868c",
+    "tests/test_corpus_filtering.py": "2327cac4fc92b34aef46a25492aa111affdc72820ea3b646859576ea1cfe07e7",
+    "tests/test_corpus_freeze.py": "fb3c97ba16f9d04a94f74adb9f4a2688c04ce3bab86487f446f4069210cf5562",
+    "tests/test_dense_model.py": "46c7ea227252069436b53c52a4d3795ff58a4e9f6615fa5403a5351166049fe9",
+    "tests/test_full_training_stage_a.py": "ec577804ff117f6a55afc9b2cbf9ba57b4142f636e5f704babbdbe7955a9028a",
+    "tests/test_future_capabilities_spec.py": "696b901238947b7c66f7825f6520873ada623cd73d9a0d464a99b904fdded95d",
+    "tests/test_gpu_enablement.py": "ae8b812069a2fdb6a705c483edc0d2ac26138f35d48de3fc6485453580d9160a",
+    "tests/test_gpu_profile.py": "9199039a8e9fb37eaee66f75f9e8c77e9626109e79ea6511b43bca61145f5b04",
+    "tests/test_gutenberg_acquisition.py": "cc2e94544309602919b227c5f68f1a9d92ced20fedbaeb422c753ac41babc34f",
+    "tests/test_gutenberg_cleaning.py": "0cb6422f008edc5fdddc764638e3e0ec6f6dd4297b3ae87ce18e093760b5fa97",
+    "tests/test_mamba.py": "c91afccee211570d3e5288c3119c86b0d7caac398b28a335db9b2292a6e2f657",
+    "tests/test_mode_policy_v2.py": "33f184cb66b1a41aae97817fddfdac63cfa7e4ec88de21f436c9da13e3c8eb3b",
+    "tests/test_production_continuation.py": "d23007b3cd5ba7dbf44112847693a08ae45d61f5195f8606fe05b37cae6c3b29",
+    "tests/test_symbols.py": "7a1295b6289c1c8e43ec53119229255d6025576881f7dad1aae477edf59eb525",
+    "tests/test_targeted_acquisition.py": "0add1d5f44d1370e8606c427bf4ef4c3739401f59e05d8886b66a41bba9b0ec7",
+    "tests/test_training.py": "a3c99ddadf376552414d429abcc5686ab9df35ff1d3a98bf44981f667149d7b4",
+    "tests/test_training_overfit.py": "83a82e466158419aff4c206bdd3f71bfef9d78a8c381d7adda1f0a4874ce0ed1",
+    "tests/test_training_progress.py": "58ef4b2247a3e89c9454bf2f4a576e6c97f568158016433d077da0618ee4ff05"
+  },
+  "validation": {
+    "current_active_no_training": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_accounting.py",
+        "tests/test_authorization_provenance.py",
+        "tests/test_cli.py",
+        "tests/test_config.py",
+        "tests/test_contamination_review_v1.py",
+        "tests/test_contamination_v2.py",
+        "tests/test_corpus_acquisition.py",
+        "tests/test_corpus_contamination.py",
+        "tests/test_corpus_duplicates.py",
+        "tests/test_corpus_filtering.py",
+        "tests/test_corpus_freeze.py",
+        "tests/test_future_capabilities_spec.py",
+        "tests/test_gutenberg_acquisition.py",
+        "tests/test_gutenberg_cleaning.py",
+        "tests/test_mode_policy_v2.py",
+        "tests/test_symbols.py",
+        "tests/test_targeted_acquisition.py"
+      ],
+      "exit_code": 0,
+      "seconds": 16.357481499988353,
+      "stdout": "........................................................................ [ 51%]\n....................................................................     [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n140 passed, 1 warning in 15.67s\n",
+      "stderr": ""
+    },
+    "historical_required_wrapper": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "tests/test_historical_authorization_replay.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.788381099991966,
+      "stdout": "..............................                                           [100%]\n30 passed in 0.89s\n\n.\n1 passed in 1.42s\n",
+      "stderr": ""
+    },
+    "ruff": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.12830620000022464,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    "format": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.13731000002007931,
+      "stdout": "103 files already formatted\n",
+      "stderr": ""
+    },
+    "compileall": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.14872309999191202,
+      "stdout": "",
+      "stderr": ""
+    },
+    "cpu_dependencies": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.621108199993614,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    "cuda_dependencies": {
+      "command": [
+        ".venv-cuda/Scripts/python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.3233447000093292,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    "diff": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.050550199986901134,
+      "stdout": "",
+      "stderr": ""
+    },
+    "harness_final_regression": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "tests/test_authorization_provenance.py",
+        "tests/test_historical_authorization_replay.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.9131358999875374,
+      "stdout": "...................................                                           [100%]\n30 passed in 0.93s\n\n.\n6 passed in 1.56s\n",
+      "stderr": ""
+    }
+  },
+  "test_status": "SEALED; no production TEST payload opened",
+  "training_executed": false,
+  "kaggle_operations": [],
+  "twenty_m_design_resumed": false,
+  "twenty_m_audit_may_resume": true,
+  "validation_initial": {
+    "current_active_no_training": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_accounting.py",
+        "tests/test_authorization_provenance.py",
+        "tests/test_cli.py",
+        "tests/test_config.py",
+        "tests/test_contamination_review_v1.py",
+        "tests/test_contamination_v2.py",
+        "tests/test_corpus_acquisition.py",
+        "tests/test_corpus_contamination.py",
+        "tests/test_corpus_duplicates.py",
+        "tests/test_corpus_filtering.py",
+        "tests/test_corpus_freeze.py",
+        "tests/test_future_capabilities_spec.py",
+        "tests/test_gutenberg_acquisition.py",
+        "tests/test_gutenberg_cleaning.py",
+        "tests/test_mode_policy_v2.py",
+        "tests/test_symbols.py",
+        "tests/test_targeted_acquisition.py"
+      ],
+      "exit_code": 0,
+      "seconds": 16.357481499988353,
+      "stdout": "........................................................................ [ 51%]\n....................................................................     [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n140 passed, 1 warning in 15.67s\n",
+      "stderr": ""
+    },
+    "historical_required_wrapper": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "tests/test_historical_authorization_replay.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.788381099991966,
+      "stdout": "..............................                                           [100%]\n30 passed in 0.89s\n\n.\n1 passed in 1.42s\n",
+      "stderr": ""
+    },
+    "ruff": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 1,
+      "seconds": 0.15727769999648444,
+      "stdout": "scripts\\historical_authorization_replay.py:20:101: E501 Line too long (108 > 100)\n   |\n18 | # Each was independently matched to LF or CRLF bytes at HISTORICAL_COMMIT.\n19 | REPLAY_FILES = {\n20 |     \"scripts/benchmark_fingerprints.py\": \"b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5\",\n   |                                                                                                     ^^^^^^^^ E501\n21 |     \"tests/test_authorization_capacity.py\": \"71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40\",\n22 |     \"tests/test_authorization_r3.py\": \"8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33\",\n   |\n\nscripts\\historical_authorization_replay.py:21:101: E501 Line too long (111 > 100)\n   |\n19 | REPLAY_FILES = {\n20 |     \"scripts/benchmark_fingerprints.py\": \"b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5\",\n21 |     \"tests/test_authorization_capacity.py\": \"71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40\",\n   |                                                                                                     ^^^^^^^^^^^ E501\n22 |     \"tests/test_authorization_r3.py\": \"8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33\",\n23 |     \"tests/test_benchmark_fingerprints.py\": \"777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97\",\n   |\n\nscripts\\historical_authorization_replay.py:22:101: E501 Line too long (105 > 100)\n   |\n20 |     \"scripts/benchmark_fingerprints.py\": \"b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5\",\n21 |     \"tests/test_authorization_capacity.py\": \"71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40\",\n22 |     \"tests/test_authorization_r3.py\": \"8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33\",\n   |                                                                                                     ^^^^^ E501\n23 |     \"tests/test_benchmark_fingerprints.py\": \"777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97\",\n24 | }\n   |\n\nscripts\\historical_authorization_replay.py:23:101: E501 Line too long (111 > 100)\n   |\n21 |     \"tests/test_authorization_capacity.py\": \"71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40\",\n22 |     \"tests/test_authorization_r3.py\": \"8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33\",\n23 |     \"tests/test_benchmark_fingerprints.py\": \"777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97\",\n   |                                                                                                     ^^^^^^^^^^^ E501\n24 | }\n25 | HISTORICAL_TESTS = tuple(name for name in REPLAY_FILES if name.startswith(\"tests/\"))\n   |\n\nFound 4 errors.\n",
+      "stderr": ""
+    },
+    "format": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.15064710000297055,
+      "stdout": "103 files already formatted\n",
+      "stderr": ""
+    },
+    "compileall": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1781743000028655,
+      "stdout": "",
+      "stderr": ""
+    },
+    "cpu_dependencies": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.621108199993614,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    "cuda_dependencies": {
+      "command": [
+        ".venv-cuda/Scripts/python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.3233447000093292,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    "diff": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.050550199986901134,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "validated_new_python_sha256": {
+    "scripts/historical_authorization_replay.py": "1a89a488c3f1b4678df674c91e770c8de470e7dd483c4ea49f0d9e34ae618692",
+    "tests/conftest.py": "dcbe770ee556da079d5409994dc489334d9e9b842edc2afeceb49356e3c1ea52",
+    "tests/test_historical_authorization_replay.py": "3fe7e9aae1f636a0cc9cc097c79d7c0f59e8405beef3e79253d75d6601c8c25f",
+    "tests/test_authorization_provenance.py": "cb30922579ae1d5299dbee3397f2270bd68f04d342d36de304fb87b1c6e23b95"
+  },
+  "final_preservation": {
+    "status": "PASS",
+    "all_66_snapshot_files_and_membership_unchanged": true,
+    "all_old_tracked_files_unchanged_except_authorized_state_entry": true,
+    "old_project_state_bytes_recover_exactly_by_removing_new_entry": true,
+    "old_tracked_file_count": 225
+  },
+  "retrospective_scope_correction": "The previous audit ran plain pytest including test_full_training_stage_a, whose inputs verify real corpus payloads including sealed TEST hashes. Its blanket no-TEST-payload-access statement was too broad. This is integrity reading, not evaluation or training exposure. This reconciliation excluded those tests and opened no production corpus payload."
+}

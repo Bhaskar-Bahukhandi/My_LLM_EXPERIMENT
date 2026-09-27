@@ -1,5 +1,13 @@
 # Project state
 
+## Historical authorization provenance: RECONCILED
+
+- **CASE_A_HISTORICAL_SNAPSHOT_INTACT / CURRENT_2M_LINEAGE_UNAFFECTED.** The original expected `6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9` is valid historical evidence: it matches the CRLF representation at `720af6e63ee8759654b287848173bbd3e74867c4` and the preserved snapshot file exactly. Commit `f770e29c0a5c2e07e556f121aae0db0d83cbe7b0` intentionally superseded the root report's operational status, preserving historical authorization context.
+- Original snapshot manifest SHA-256 `8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d` matches. All 57 manifest entries match; four supplemental replay files also match historical Git. All 66 existing snapshot files, including five old caches, remain unchanged. No old expected hash, report, script, test or snapshot byte was rewritten.
+- Added a verified temporary-copy replay harness and mandatory default-suite wrapper for the three unchanged historical modules. Current context checks validate current report bindings; historical checks use frozen inputs. **140 applicable current tests passed; 30 historical tests passed independently.** New harness/negative checks, Ruff, format, compileall, CPU/CUDA dependency and diff checks pass. Full model/training and real-corpus-reading tests were not run under this no-training/no-TEST-access scope.
+- Final corpus manifests, recorded split identities, computational source and endpoint checkpoint match accepted bindings. 2M remains frozen. **TEST remains sealed; no production corpus payload was opened and no training/backward/optimizer update occurred.** No Kaggle operation or full 20M design work occurred.
+- The previous 20M stop was fail-closed, not evidence of current corpus corruption. **20M pre-build audit may resume**, with its remaining design gates still outstanding; this is not training authorization. Reports: `reports/historical_authorization_provenance_review.md` and `.json`; replay instructions: `docs/historical_authorization_replay.md`.
+
 ## 20M pre-build review: BLOCKED
 
 - Decision **20M_PREBUILD_NOT_READY** (2026-09-27). The supplied phase prompt's frozen-evidence stop condition triggered: authorization capacity r2/r3 expects `reports/real_corpus_2m_evidence.json` SHA-256 `6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9`; the unchanged working file is `7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76`. The accepted Git blob also differs from the expected hash; ordinary CRLF conversion does not reconcile it. Historical evidence was not repaired or rebound.
