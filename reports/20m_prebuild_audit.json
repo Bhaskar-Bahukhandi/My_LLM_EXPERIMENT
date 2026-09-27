@@ -1,0 +1,97 @@
+{
+  "schema": "20m-prebuild-audit-v1",
+  "decision": "20M_PREBUILD_NOT_READY",
+  "status": "BLOCKED",
+  "scope": "Partial audit stopped under user phase prompt section 29",
+  "baseline_commit": "3d2698b42404ec67834ead162db0bd10240d270b",
+  "baseline_receipt": "reports/20m_prebuild_mechanical.json",
+  "blocking_finding": {
+    "code": "HISTORICAL_EVIDENCE_BINDING_MISMATCH",
+    "path": "reports/real_corpus_2m_evidence.json",
+    "contracts": [
+      "docs/authorization_capacity_2m_r2.json",
+      "docs/authorization_capacity_2m_r3.json"
+    ],
+    "expected_sha256": "6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9",
+    "working_sha256": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+    "accepted_git_blob_sha256": "c9bb670c2f9cc11447f17f58d199f032397732acb73014cbfe3702345878fd65",
+    "working_equals_accepted_after_CRLF_normalization": true,
+    "line_endings_reconcile_expected_digest": false,
+    "historical_origin": "NOT_INVESTIGATED_AFTER_STOP"
+  },
+  "selected_candidate": null,
+  "mechanically_audited_balanced_example": {
+    "id": "d512_l12_n64_b64_q128",
+    "shape": {
+      "d_model": 512,
+      "shared_layers": 12,
+      "byte_dim": 64,
+      "decoder_dim": 128,
+      "d_state": 64,
+      "d_conv": 4,
+      "expand": 2,
+      "headdim": 64,
+      "patch_size": 8,
+      "chunk_patches": 16
+    },
+    "parameters": 20114763,
+    "components": {
+      "symbol_embeddings": 17088,
+      "position_embeddings": 512,
+      "patch_encoder_excluding_norm": 41856,
+      "normalization": 18624,
+      "context_bridge": 65664,
+      "local_decoder_gru": 74496,
+      "output_head": 34443,
+      "bootstrap": 33280,
+      "mamba_trunk_excluding_norm": 19828800
+    },
+    "component_percent": {
+      "symbol_embeddings": 0.08495252964203456,
+      "position_embeddings": 0.0025453941465778144,
+      "patch_encoder_excluding_norm": 0.20808597148273633,
+      "normalization": 0.092588712081768,
+      "context_bridge": 0.3264467992986047,
+      "local_decoder_gru": 0.370354848327072,
+      "output_head": 0.17123244255972592,
+      "bootstrap": 0.16545061952755793,
+      "mamba_trunk_excluding_norm": 98.57834268293392
+    },
+    "weight_bytes_fp32": 80459052,
+    "gradient_bytes_fp32": 80459052,
+    "adam_moment_bytes_fp32": 160918104
+  },
+  "default_search_max_parameters": 5385771,
+  "pilot": {
+    "sequence_length": null,
+    "data_budget": null,
+    "micro_batch": null,
+    "accumulation": null,
+    "optimizer_lr": null,
+    "context_bridge_ab_required": null,
+    "optimized_backend_mandatory": null,
+    "reason": "NOT_FINALIZED_DUE_TO_STOP_CONDITION"
+  },
+  "memory_status": {
+    "rtx_2050": "UNVERIFIED",
+    "single_T4": "UNVERIFIED",
+    "T4x2": "UNVERIFIED"
+  },
+  "throughput_status": "NEEDS_MEASUREMENT",
+  "kaggle_bridge": {
+    "authority": "USER_PROVIDED_NOT_REVERIFIED",
+    "commit": "4cb387d340b68e9e210bbea1effcaa03108806e1",
+    "status": "READ_ONLY_VERIFIED",
+    "actions_this_task": [],
+    "compute_enabled": false,
+    "future_boundary": "Explicit approved host execution; typed LOCAL_ONLY/HOST_READ/HOST_WRITE/HOST_COMPUTE; no arbitrary shell or sandbox network fallback"
+  },
+  "training_performed_20m": false,
+  "frozen_2m_continued": false,
+  "test_status": "SEALED; no real TEST payload accessed",
+  "source_modified": false,
+  "evidence_rebound": false,
+  "mandatory_next_step": "Human review and separately authorized provenance reconciliation, then resume audit",
+  "validation_receipt": "reports/20m_prebuild_validation.json",
+  "rollback": "Retain accepted commit and checkpoint; revert additive audit commit if desired"
+}

@@ -1,5 +1,14 @@
 # Project state
 
+## 20M pre-build review: BLOCKED
+
+- Decision **20M_PREBUILD_NOT_READY** (2026-09-27). The supplied phase prompt's frozen-evidence stop condition triggered: authorization capacity r2/r3 expects `reports/real_corpus_2m_evidence.json` SHA-256 `6658bb3c6f1e973870c744ad26288880626132dbc6aefb96a0b32c5433ec52e9`; the unchanged working file is `7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76`. The accepted Git blob also differs from the expected hash; ordinary CRLF conversion does not reconcile it. Historical evidence was not repaired or rebound.
+- **2M remains frozen; TEST remains sealed.** Accepted source and endpoint checkpoint hashes passed. No 20M training occurred. Existing CPU regression tests exercised disposable synthetic fixtures only: 264 passed, 7 failed from the historical binding mismatch, 7 CUDA tests skipped; optional NumPy warning remains.
+- Meta-device construction audited 517 grid shapes plus four capacity controls. No selected/promoted 20M architecture or pilot YAML. The balanced construction example (width 512, 12 layers, state 64, byte 64, decoder 128) has **20,114,763 parameters**, but selection is held pending reconciliation.
+- Data budget, context-bridge decision/curriculum, optimizer/LR and pilot batch plan are not finalized. Mandatory next action is human review and additive provenance reconciliation, then completion of the source/refactor, memory, throughput and promotion-gate design. No source refactors were implemented.
+- Kaggle plan remains single T4 first, dual T4 later, with the user's approval-bound host bridge retained. No Kaggle operation occurred; private writes, compute, hardware availability and optimized backend parity remain unverified.
+- Partial evidence and limitations: `reports/20m_prebuild_audit.md`, `.json`, `reports/20m_prebuild_mechanical.json`, and `reports/20m_prebuild_validation.json`. Historical entries below remain unchanged.
+
 ## Full 2M Gen-0 training: READY FOR HUMAN REVIEW
 
 - Original 32-byte production trajectory completed at **78,167 logical updates**, 156,334 microsteps and 312,668 windows. Exact independently reconciled exposure: **10,000,064 target bytes** = 639,613 previously completed + 9,360,451 continuation bytes; final cursor epoch 1, offset 2 accounts for the two frozen wraparound windows. No update 78,168 occurred.

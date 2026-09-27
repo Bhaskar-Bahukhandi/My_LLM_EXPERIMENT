@@ -1,0 +1,121 @@
+{
+  "schema": "20m-prebuild-validation-v1",
+  "pytest": {
+    "command": [
+      ".venv/Scripts/python.exe",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 1,
+    "observed_summary": "7 failed, 264 passed, 7 skipped, 1 warning in 110.54s (0:01:50)",
+    "output_scope": "Exact summary transcribed from completed tool output; full traceback was displayed in the chat.",
+    "failures": [
+      "tests/test_authorization_capacity.py::test_real_revision_preserves_budgets_and_exposes_remaining_math_holdout_deficits",
+      "tests/test_authorization_capacity.py::test_original_missing_documentation_regression_and_immutable_input",
+      "tests/test_authorization_capacity.py::test_cli_returns_nonzero_for_infeasible_authorization",
+      "tests/test_authorization_capacity.py::test_documentation_capacity_cannot_exceed_pinned_file_size",
+      "tests/test_authorization_r3.py::test_all_cells_pass_with_identical_frozen_quota_and_margin",
+      "tests/test_authorization_r3.py::test_removing_new_material_reopens_the_original_failure[validation]",
+      "tests/test_authorization_r3.py::test_removing_new_material_reopens_the_original_failure[test]"
+    ],
+    "skip_reason": "CUDA unavailable in CPU interpreter",
+    "warning": "Optional NumPy initialization: No module named numpy",
+    "fixture_scope": "Existing isolated synthetic regression updates; no production 2M continuation and no 20M updates"
+  },
+  "static_checks": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.14437029999680817,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.13200270000379533,
+      "stdout": "99 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.16713200000231154,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.560986700002104,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv-cuda/Scripts/python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.3838793000031728,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.058070599974598736,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'docs/project_state.md', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ],
+  "source_sha256": "7d98de1b0504a1d511f3da95e17ec45dbcca1c5bd2d0dadbd251987261173eb4",
+  "audit_helper_sha256": "6ad3ede91606e8dec7a3c93fddc0df9d1db82ce88ff2eddb2ec3bb36247a03cd",
+  "final_preservation_check": {
+    "status": "PASS",
+    "protected_subset_files_rechecked": 46,
+    "entry_hashes_unchanged_except_authorized_project_state": true,
+    "original_project_state_bytes_recover_exactly_by_removing_new_entry": true,
+    "real_test_payload_accessed": false,
+    "production_source_modified": false,
+    "mechanical_receipt_sha256": "c0765ce10915c930eb1602dfed02c94b34302e2dd1a7fe6c6516973af57627c1",
+    "note": "Working-file byte hashes use original checkout representation; Git autocrlf may change representation on another platform."
+  }
+}
