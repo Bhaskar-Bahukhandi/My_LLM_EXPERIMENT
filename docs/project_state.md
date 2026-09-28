@@ -1,5 +1,25 @@
 # Project state
 
+## 20M-I3 R9 orchestration: READY FOR REVIEW
+
+- **R1-R9 IMPLEMENTED.** R9 supplies immutable plans, bounded LR selection,
+  deterministic events, prerequisite admission, durable recovery, exact exposure,
+  diagnostic metrics and endpoint promotion evaluators, tested on synthetic CPU fixtures.
+- **20M-1 NOT RUN; 20M-2 NOT RUN; 20M-3 NOT RUN.**
+- **LR PROBE NOT RUN; 20M PILOT NOT RUN; quality UNVERIFIED.**
+- **T4 UNVERIFIED; KAGGLE COMPUTE NOT RUN; TEST SEALED; 2M FROZEN.**
+- **Implementation complete != execution authorized.** Both training authorization
+  and pilot execution readiness remain false.
+
+Next: **RUN_APPROVED_20M_1_2_3_HARDWARE_AND_MECHANICS_GATES**, with approved data,
+bounded LR selection and explicit compute authorization still required before a pilot.
+See the [I3 report](../reports/20m_i3_r9_orchestration.md),
+[receipt](../reports/20m_i3_r9_orchestration.json), and
+[orchestration contract](20m_pilot_orchestration_contract.md).
+Recovery snapshot overhead and native host durability require measured execution
+gates; no real 20M forward/backward, dataset acquisition or Kaggle action occurred.
+Earlier tranche entries below retain their historical state.
+
 ## 20M-I2 training infrastructure: READY FOR REVIEW
 
 - **R1-R3 PASS**

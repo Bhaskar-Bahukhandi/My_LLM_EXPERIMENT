@@ -1,0 +1,2519 @@
+{
+  "schema": "20m-i3-r9-orchestration-1",
+  "decision": "20M_R9_READY_FOR_REVIEW",
+  "entry_commit": "1a7fc6ea0667eea3f7028ed098a8ac27edb6316a",
+  "implementation_commits": [
+    "a78538ef9bea9043b79237c2f04c7d56fa9ac59a"
+  ],
+  "implementation_files": [
+    "docs/20m_pilot_orchestration_contract.md",
+    "scripts/edge_pilot.py",
+    "src/unified_edge/readiness.py",
+    "src/unified_edge/training/optimization.py",
+    "src/unified_edge/training/pilot_context.py",
+    "src/unified_edge/training/pilot_data.py",
+    "src/unified_edge/training/pilot_diagnostics.py",
+    "src/unified_edge/training/pilot_gates.py",
+    "src/unified_edge/training/pilot_plan.py",
+    "src/unified_edge/training/pilot_probe.py",
+    "src/unified_edge/training/pilot_runner.py",
+    "src/unified_edge/training/trainer.py",
+    "tests/test_cli.py",
+    "tests/test_pilot_r9_metrics.py",
+    "tests/test_pilot_r9_runtime.py",
+    "tests/test_resolver_policies.py"
+  ],
+  "closeout_files": [
+    "README.md",
+    "docs/project_state.md",
+    "reports/20m_i3_r9_orchestration.md",
+    "reports/20m_i3_r9_orchestration.json"
+  ],
+  "files_changed": [
+    "README.md",
+    "docs/20m_pilot_orchestration_contract.md",
+    "docs/project_state.md",
+    "reports/20m_i3_r9_orchestration.json",
+    "reports/20m_i3_r9_orchestration.md",
+    "scripts/edge_pilot.py",
+    "src/unified_edge/readiness.py",
+    "src/unified_edge/training/optimization.py",
+    "src/unified_edge/training/pilot_context.py",
+    "src/unified_edge/training/pilot_data.py",
+    "src/unified_edge/training/pilot_diagnostics.py",
+    "src/unified_edge/training/pilot_gates.py",
+    "src/unified_edge/training/pilot_plan.py",
+    "src/unified_edge/training/pilot_probe.py",
+    "src/unified_edge/training/pilot_runner.py",
+    "src/unified_edge/training/trainer.py",
+    "tests/test_cli.py",
+    "tests/test_pilot_r9_metrics.py",
+    "tests/test_pilot_r9_runtime.py",
+    "tests/test_resolver_policies.py"
+  ],
+  "r1_r9_status": "IMPLEMENTED",
+  "r9_status": "SYNTHETICALLY_VERIFIED_READY_FOR_REVIEW",
+  "training_authorized": false,
+  "pilot_execution_ready": false,
+  "plan": {
+    "schema": "edge-pilot-1",
+    "seed": 17,
+    "sequence_length": 64,
+    "patch_size": 8,
+    "batch_size": 8,
+    "accumulation_steps": 16,
+    "updates": 8000,
+    "warmup": 400,
+    "scheduler": "warmup_cosine",
+    "minimum_lr_ratio": 0.1,
+    "optimizer": "AdamW",
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "clip_norm": 1.0,
+    "precision": "FP32",
+    "tf32": false,
+    "monitoring": "PRODUCTION_FAST",
+    "gpu_seconds": 86400,
+    "train_bytes": 65536000,
+    "validation_bytes": 4096000,
+    "future_sealed_test_reserve_bytes": 4096000,
+    "train_quotas": [
+      32768000,
+      16384000,
+      9830400,
+      6553600
+    ],
+    "validation_quotas": [
+      2048000,
+      1024000,
+      614400,
+      409600
+    ],
+    "lr_probe": {
+      "schema": "edge-lr-probe-1",
+      "rates": [
+        0.0003,
+        0.0006,
+        0.001
+      ],
+      "seed": 17,
+      "updates": 256,
+      "warmup": 32,
+      "scheduler": "warmup_constant_v1",
+      "gpu_seconds": 10800,
+      "nominal_bytes_per_arm": 2097152,
+      "minimum_improvement": 0.1,
+      "tie_distance": 0.01,
+      "max_clipped_fraction": 0.5
+    },
+    "evaluation": {
+      "schema": "edge-evaluation-1",
+      "lr_selection_bytes": 262144,
+      "monitor_bytes": 262144,
+      "confirmation_bytes": 3571712,
+      "checkpoint_every": 250,
+      "monitor_every": 250,
+      "confirmation_every": 1000,
+      "generation_every": 500,
+      "context_every": 1000
+    },
+    "generation": {
+      "schema": "edge-generation-1",
+      "prompts_hex": [
+        "",
+        "54686520",
+        "4f6e636520",
+        "64656620",
+        "696d706f727420",
+        "636c61737320",
+        "78203d20",
+        "4c65742078203d20",
+        "506172616d65746572730a2d2d2d2d2d2d2d2d2d2d0a"
+      ],
+      "seeds": [
+        101,
+        202,
+        303,
+        404
+      ],
+      "length": 256,
+      "temperature": 1.0,
+      "policy": "greedy_and_unmodified_byte_sampling"
+    },
+    "context": {
+      "schema": "edge-context-1",
+      "anchors": 128,
+      "anchors_per_domain": 32,
+      "documents_per_domain": 16,
+      "short_history": 32,
+      "long_history": 128,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 43
+    },
+    "promotion": {
+      "schema": "edge-promotion-1",
+      "endpoint_only": true,
+      "nll_improvement": 0.1,
+      "domain_improvement": 0.02,
+      "control_mass": 0.01,
+      "median_whitespace": 0.65,
+      "maximum_whitespace": 0.9,
+      "minimum_entropy_bits": 2.0,
+      "maximum_run": 32,
+      "median_late_space": 0.35,
+      "sustained_space": 0.8,
+      "printable": 0.9,
+      "utf8_samples": 33,
+      "diverse_prompts": 7,
+      "distinct_samples": 3,
+      "greedy_suffixes": 7,
+      "sustained_margin": 0.95,
+      "sustained_positions": 32,
+      "jsd_nats": 0.005,
+      "history_delta": 0.01,
+      "shuffle_advantage": 0.005,
+      "anchor_tv": 1e-05,
+      "responsive_fraction": 0.75,
+      "maximum_domain_degradation": 0.02,
+      "bridge_improvement": 0.01,
+      "replication_seed": 29
+    }
+  },
+  "pilot_plan_sha256": "49eb2275b70bcaa002095b381eb23e8cc9ab86a29f8c3420cddc257bf48bd164",
+  "lr_probe_plan_sha256": "65d86c7834b65a4c0cdf8cbed79c4228ca6e5a29e66fe1fe736e967646d0858d",
+  "subplan_sha256": {
+    "lr_probe": "65d86c7834b65a4c0cdf8cbed79c4228ca6e5a29e66fe1fe736e967646d0858d",
+    "evaluation": "7cab8e9dff26e86851a037e2e3a4c0c65da863af8ca574e399647f56ffec2d73",
+    "generation": "7246633ceae7968ee98a987d4477da085505f179647cab3fa1575952f76d85dd",
+    "context": "403fea272f1ff0b695fca10f2dcb2cb1c1697df9d47bb7358c946872bb784368",
+    "promotion": "d9eee7535973696d195d9997cd0d44dd16d302b1e5a32a29edc89494327c1600"
+  },
+  "cadence": {
+    "0": [
+      "monitor",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "1000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "1250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "1500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "1750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "2000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "2250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "2500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "2750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "3000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "3250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "3500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "3750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "4000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "4250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "4500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "4750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "5000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "5250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "5500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "5750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "6000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "6250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "6500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "6750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "7000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ],
+    "7250": [
+      "monitor",
+      "checkpoint"
+    ],
+    "7500": [
+      "monitor",
+      "generation",
+      "checkpoint"
+    ],
+    "7750": [
+      "monitor",
+      "checkpoint"
+    ],
+    "8000": [
+      "monitor",
+      "confirmation",
+      "generation",
+      "context",
+      "checkpoint"
+    ]
+  },
+  "initial_confirmation": "Once at step0, separately from confirmation cadence, before any update.",
+  "budget_policy": {
+    "probe_seconds": 10800,
+    "pilot_seconds": 86400,
+    "accounting": "Cumulative synchronized conservative wall intervals; mocked in tests",
+    "automatic_extension": false
+  },
+  "lr_selection": "Fresh identical seed/order/parameters; fixed 256 endpoint only; 32 warmup then constant; exact stable-arm/tie rules.",
+  "exposure_accounting": "Actual complete updates/microsteps/sequences/examples/valid bytes/tails; no BOS/padding or epoch promise. Failed physical overhead can be explicitly unverified.",
+  "execution_gates": {
+    "20M-0": "EXISTING_META_EVIDENCE_CONSUMABLE",
+    "20M-1": "NOT_RUN",
+    "20M-2": "NOT_RUN",
+    "20M-3": "NOT_RUN",
+    "LR_PROBE": "NOT_RUN",
+    "PILOT": "NOT_RUN",
+    "QUALITY": "UNVERIFIED",
+    "T4": "UNVERIFIED"
+  },
+  "resume": {
+    "interruptions": [
+      "before_event",
+      "after_event",
+      "before_checkpoint_publication",
+      "after_checkpoint_publication"
+    ],
+    "result": "EXACT_TINY_CPU_STATE_AND_EVENT_SET_PASS",
+    "recovery_snapshot_every_update": true,
+    "ambiguous_incomplete_intent": "BLOCK_AUTOMATIC_REPLAY_REQUIRE_RECOVERY_REVIEW",
+    "duplicate_launch": "REFUSED_WITHIN_APPROVED_DURABLE_REGISTRY",
+    "force_override": false
+  },
+  "rng_isolation": "BITWISE_NEXT_UPDATE_PASS_WITH_ACTUAL_TINY_MODEL_VALIDATION_GENERATION_AND_REPRESENTATIVE_CONTEXT_DIAGNOSTICS",
+  "r5_equivalence": "BITWISE_PASS_I2_REGRESSION",
+  "bootstrap": "DOCUMENT_CLUSTER_2000_SEED43_DETERMINISTIC_DUPLICATE_SAFE",
+  "threshold_arithmetic": "Decimal(str(value)); operands converted before differences; no epsilon relaxation",
+  "source_sha256": "313d8217f7b3bee8a82bef9225e144c37cf5912bc11d6bb8cfb60c80c8c325a8",
+  "selected_tensor_signature_sha256": "3f242a2332fa41d4737f5d184b1593051bf8384a7cb5e954f457c136848dfd61",
+  "legacy_arithmetic_ast_equal": {
+    "build_optimizer": true,
+    "raw_byte_nll": true,
+    "WarmupCosine.lr_at": true
+  },
+  "selected_accounting_equal_to_i1": true,
+  "test_results": [
+    {
+      "name": "r9",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_pilot_r9_metrics.py",
+        "tests/test_pilot_r9_runtime.py"
+      ],
+      "exit_code": 0,
+      "seconds": 49.766,
+      "stdout": "...............................................                          [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n47 passed, 1 warning in 48.88s\n",
+      "stderr": ""
+    },
+    {
+      "name": "i1_i2",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_resolver_policies.py",
+        "tests/test_cli.py",
+        "tests/test_config.py",
+        "tests/test_training_infrastructure_i2.py"
+      ],
+      "exit_code": 0,
+      "seconds": 66.828,
+      "stdout": "........................................................................ [ 59%]\n..................................................                       [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n122 passed, 1 warning in 65.65s (0:01:05)\n",
+      "stderr": ""
+    },
+    {
+      "name": "checkpoint_training",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_training.py",
+        "tests/test_training_progress.py",
+        "tests/test_production_continuation.py",
+        "tests/test_gpu_profile.py"
+      ],
+      "exit_code": 0,
+      "seconds": 16.125,
+      "stdout": ".........................                                                [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n25 passed, 1 warning in 14.75s\n",
+      "stderr": ""
+    },
+    {
+      "name": "historical_replay",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "tests/test_historical_authorization_replay.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.485,
+      "stdout": "..............................                                           [100%]\n30 passed in 1.02s\n\n.\n1 passed in 2.11s\n",
+      "stderr": ""
+    },
+    {
+      "name": "reviewed_current",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_accounting.py",
+        "tests/test_authorization_provenance.py",
+        "tests/test_cli.py",
+        "tests/test_config.py",
+        "tests/test_contamination_review_v1.py",
+        "tests/test_contamination_v2.py",
+        "tests/test_corpus_acquisition.py",
+        "tests/test_corpus_contamination.py",
+        "tests/test_corpus_duplicates.py",
+        "tests/test_corpus_filtering.py",
+        "tests/test_corpus_freeze.py",
+        "tests/test_future_capabilities_spec.py",
+        "tests/test_gutenberg_acquisition.py",
+        "tests/test_gutenberg_cleaning.py",
+        "tests/test_mode_policy_v2.py",
+        "tests/test_symbols.py",
+        "tests/test_targeted_acquisition.py",
+        "tests/test_resolver_policies.py"
+      ],
+      "exit_code": 0,
+      "seconds": 32.89,
+      "stdout": "........................................................................ [ 43%]\n........................................................................ [ 86%]\n.......................                                                  [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275\n  E:\\Theai\\.venv\\Lib\\site-packages\\torch\\_subclasses\\functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\torch\\csrc\\utils\\tensor_numpy.cpp:81.)\n    cpu = _conversion_method_template(device=torch.device(\"cpu\"))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n167 passed, 1 warning in 32.08s\n",
+      "stderr": ""
+    }
+  ],
+  "static_checks": [
+    {
+      "name": "ruff",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.141,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "name": "format",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.125,
+      "stdout": "118 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "name": "compileall",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "seconds": 0.187,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cpu_pip",
+      "command": [
+        "E:\\Theai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.563,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "name": "cuda_pip",
+      "command": [
+        "E:\\Theai\\.venv-cuda\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.328,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.063,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_state.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/unified_edge/readiness.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_cli.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_resolver_policies.py', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ],
+  "validation_scope_note": "Final R9/static rerun after isolated anchor/CLI cooperative-stop review; unaffected earlier full-matrix results retained. No code changes after final validation.",
+  "development_corrections": [
+    {
+      "finding": "Synthetic endpoint3 rejected against hardcoded8000 during after-event resume",
+      "resolution": "Bind endpoint into run identity and verify against it",
+      "initial_result": "1 failed,41 passed",
+      "final_result": "47 passed"
+    },
+    {
+      "finding": "Anchor document ID could be mutable; CLI lacked cooperative signal handler",
+      "resolution": "Reject non-string ID; SIGINT/SIGTERM request safe-boundary stop",
+      "verification": "Final R9/static rerun PASS"
+    }
+  ],
+  "preservation": {
+    "status": "PASS",
+    "protected_sha256": {
+      ".gitignore": "ab2905fb6c2acc819c0153e3cd9561360b47fd64af6ac74fc64cc9c9d546ea65",
+      "Unified_Edge400_Future_Capabilities_Addendum_v1.0.md": "ad0f6ef8092ef48fcf7b3e91a0214fa73b02fafbad1215d8f3717545a951ef87",
+      "Unified_Edge400_Master_Bible_v3.0_FINAL.md": "754e99e9feca52c8744b71891d6e71993233dea43c3d7155900334e28c121f75",
+      "Unified_Edge400_Master_Roadmap_and_Formula_Board_v1.0_FINAL.md": "91bb81b09162e8ccdbdd2baa5bcd5c849a912bfe15e53f798c09bd70b788af99",
+      "configs/models/edge_20m_candidate.yaml": "20b449d08b03b06e05dd9901510d2c9bc73db1e323cc46fcb37692a2ec0514d8",
+      "configs/models/edge_20m_search.yaml": "b2b7dc3ed3a5416aabb329587a048d401e7009c2ce223d5889cf774f7aaef19f",
+      "configs/models/edge_2m.yaml": "66729fb6ced67055f2e1e81ff6569fc8bf979d8c9a1bd91ddd4c9f8f4456a127",
+      "docs/20m_architecture_contract.md": "d14e71ba61775354d00b8159ed8363b48d8fb31bcf927a1af8d1a3d162770e7b",
+      "docs/20m_training_plan.md": "ae59ad12d6a392986f7d7adabab7c06b648f5264c3047308cdf7b922746436b2",
+      "docs/architecture_changes/AC-001.md": "d1eb5151929e4d3894532e7f8c9ecc68e781efe8ad9082572938ce92b91dc0b3",
+      "docs/architecture_changes/AC-002.md": "67cd8695f302dc01258dd08e2b71e06cfe9d49cea1446842416df5b50b7d2e02",
+      "docs/architecture_changes/AC-003.md": "4a10b120892e327857206da3e1c0582a58120c1c035b98810a720567ff7f7c2c",
+      "docs/architecture_changes/AC-004.md": "ac4ab354a82ecfc2ade92bf69efde4c36af2c60a2a8fab1f6443a8f3b3dae06f",
+      "docs/architecture_changes/AC-005.md": "eca8fc2c8d2c9a80f13ef7662a715c51ffa2fbb58136043294d6e9beeac78c87",
+      "docs/architecture_changes/AC-006_Verified_RSI_Framework.md": "fcecafa32af6495a699ac59a4d6f77e70af57470d3bc9ef215e058340e219885",
+      "docs/architecture_changes/AC-007_Adaptive_Reasoning_Effort.md": "4f5d472eb402b149b515bfe3710317337a7cb3b653774fe2bb0616aa77bfb2d7",
+      "docs/architecture_changes/AC-008_Context_and_Distribution_Promotion_Gates.md": "4b37b71915133012e3172cd5c266d1a353a2ae0b494fac6a7ec468c53d6f121b",
+      "docs/authorization_capacity_2m_r2.json": "a4efe413d96b02bbe56468019ec453222271a65af52e70c5d387b20999e76d28",
+      "docs/authorization_capacity_2m_r3.json": "57a7d7bd46d0181ee734cd228e423ce9b7152f7f3a8721a8c79aa0343e6606b8",
+      "docs/authorization_r3_quota_clarification.json": "0a6747c8342f2847131c17fbf4a3288def0dd69bc2c67905e6d376a60c4ded6a",
+      "docs/backend_reference.md": "816d7f2254cd8b80980a67250f1e39ade7bfbf356bf497c24f0f75f8b50afc70",
+      "docs/byte_hierarchy_contract.md": "5c11f74452fa6a178ba388a1923763ad9c655ed369b8c4deeca181d520753ca2",
+      "docs/contamination_matcher_v2_proposal.md": "374c2ed7d3fb15084a4e0d0a8d1437372bcde30ed7bdb4d76ee6b7bcea929c15",
+      "docs/contamination_policy_v2.json": "7b2b198a634842f75d27337b471f321904ff8d4ff70051e92f469593579cafbf",
+      "docs/contamination_policy_v2.sha256.json": "fb7bfceed6398da934a7b6929d277db034d28e00b0d6db1954a217be74a4b707",
+      "docs/corpus_processing_policy_2m_v1.json": "de3ac12b617ceef25f3c33be64db573ebd1a6a0d50c42ceb38ee3e73b864bc57",
+      "docs/corpus_processing_policy_2m_v1_1.json": "1af0861c3dec595d385d58424f63bec8948d5ad9806342fc240fc47bec284a96",
+      "docs/corpus_processing_policy_2m_v1_2.json": "b3315c22b55a264a9c7726e0021e238a54e5133364337e289e00ec4c3137a66b",
+      "docs/corpus_processing_policy_2m_v1_3.json": "b5ca6cb92bffb6e47c8aaeb701d228fca2882b01cf76a5bb42ed2356ca1877c2",
+      "docs/data_exclusion_registry.json": "8df5bffb1f9b6ca45327453b5ea61d77c8c2c5afd8390c49bb736ccf062cbeb3",
+      "docs/documentation_file_allowlist_2m_r2.json": "70d2e82ee72a08baf233e6bbc0a6c3b6515410344b7db171ef0e7057a81e9630",
+      "docs/documentation_file_allowlist_2m_r3.json": "3a89a846111fbc05a3579fa55908bb68c02a214a8b56a9ec64d240e7cd7d4a7a",
+      "docs/file_mode_policy_v2.json": "932c5f20cb17dc2c295f5abcb918d0fe3d336d535224087b8a1a4c5f5c347779",
+      "docs/file_mode_policy_v2.sha256.json": "f4d368e4fdceac1ba1888fa05505f77ffa3aab906dc9681be842ef095a03ade9",
+      "docs/future_capabilities_contract_v1.json": "32957c6142e01eab7ed6385ab46af2e7731da1d859d53e6ace89af7be246cd55",
+      "docs/gpu_execution_contract.md": "c56083eaa3915913b036dee07cd37f8f87c7b75fb7a4f81997adb27a71dfe89d",
+      "docs/gutenberg_work_allowlist_2m.json": "beaacb53ac5d813bf3d35a42441642587d8145fd732c51f7bd0efea1a8e4604b",
+      "docs/historical_authorization_replay.md": "7dd037a15903bcd176b0665eec6e67bf2cdefc29dda10fa234a93cf04f1ffe96",
+      "docs/implementation_plan.md": "11f125c92a9f147ac3b2ff266d4de511e4b3b82c1068ba2a6884bd6c44dca6f4",
+      "docs/kaggle_20m_execution_plan.md": "b58544b2e02b768ae5d93731df0d74faa0962aefb2248c1751bfa319de74c1a1",
+      "docs/mamba_integration_contract.md": "64e804aad4933925a38e12fc6104a0e64875740111476cf6915f37691dd61db7",
+      "docs/mode_v2_file_reviews.json": "6954db360bedfe986d58489f159f88fcc00e4b6da5b6ce1cdb15994d71932beb",
+      "docs/parameter_inventory.md": "36552d70ba368175654b4c22d1789f07b4e5918143f128b0d836d7d394a1cfff",
+      "docs/resolver_policy.md": "be41f0a5f41e553b433e1c456ccac0d5f057512c11c211d5829455be40db9b4a",
+      "docs/source_file_allowlists_2m.json": "cf8bd585473ae45d2929ca1301f0aa5dcb2f23fbe67077c53ff1bee2a3819dad",
+      "docs/targeted_acquisition_controls_v2.md": "5220dbc40a6f0e4e8f6956e9f007deba056ed88d3e3745f2f30e736cc5021626",
+      "docs/targeted_candidates_v2_r1.json": "2698868f790860ae268d5fc443356a09a1d43734fdc556c72f7abe940769ec4a",
+      "docs/targeted_file_review_v2_r1.json": "03e40a7acd610323a70875bd3e13f80388afe08fc4d07aadbb663047b5e3c601",
+      "docs/training_contract.md": "b1d3f49b6839bb16b838a41a49595813360ffd2d679de8d0f026637cb083e298",
+      "docs/training_infrastructure_policy.md": "cd23f646d89ab7a92977865c9db5d3482471bc9170622f80d2949ec3ac293020",
+      "pyproject.toml": "183b8bcf34407994c6c1393c1ea06ae6f271c10a6af7ae23f7af3f1594d8ad52",
+      "reports/20m_i1_resolver_config_implementation.json": "c9a76a7c3adca1675324093a7568fbaf74e1bd96189987bb9ef2edf4348920fc",
+      "reports/20m_i1_resolver_config_implementation.md": "a6ea26eb0c988ae8a1c27787ba233a650a1e99294305991311b045640de2a19c",
+      "reports/20m_i2_training_infrastructure.json": "1baa170dc54c645a548373438b2e67848655610dd984040ed94d075410b835f9",
+      "reports/20m_i2_training_infrastructure.md": "ebdf988936c97cef5120ccc474cbd6016ecb4eafb952e0b2cd190f41b405a815",
+      "reports/20m_prebuild_audit.json": "cd2b4faea3244cac981f26df038f4b44fa1f899204b9a37660962530710eed5b",
+      "reports/20m_prebuild_audit.md": "1b9dae5166d5ae9bf4226c62e7df01542526fc0a52076c1acf1a975644bd444c",
+      "reports/20m_prebuild_mechanical.json": "62db80f042a930d02595e94635491997d1a06bf826b23bcb09ab43aa241d66c0",
+      "reports/20m_prebuild_validation.json": "a9dcff9bd9e67ac118cba248a47f9e6359299a7168aa56b2d3af1a604af94aa6",
+      "reports/authorization_capacity_2m_r2.json": "d178648b7f2b817303e3a87174763d14172db2fca88f20ee847661c047f53f27",
+      "reports/authorization_capacity_2m_r3.json": "0e799fe1b8d5c3b873bfade77ac0d8e675f0a002b8f221beb0012401313622ac",
+      "reports/authorization_correction_r3_preflight.json": "d446685a94248c13c63f3ecee94706f2bb60da8e3de4c346c78f9a1ba613f185",
+      "reports/authorization_correction_r3_preflight.md": "9a7ea1accebf7a35d9f103819c216756f308890245ce7fef639d60adefbdff40",
+      "reports/benchmark_exclusion_coverage.json": "103ab7a2b5cc3076dcd5f9b9cf04c07cec0fc004d4baed1f6a0531dacafa745d",
+      "reports/byte_hierarchy_evidence.json": "ceaf2ba491057edb0e0e2c21d439a86d6778b48bdd8b812a18ef2b682feabaf9",
+      "reports/byte_hierarchy_readiness.md": "84a5be3cdd876f58595f168ef6b323f3d6aa56d79e063cb5173b67031826f771",
+      "reports/configuration_audit.json": "96f5ef2b2f30e6824604a5b67ffa0794aba0cf5670ea85dd4936ca666fd19643",
+      "reports/configuration_evidence.json": "cbf74174c4aae6de800120ec3febcb610ecb48c8d72314e74f4f1d5c873860d1",
+      "reports/configuration_tranche.md": "95fb71219931995d81b43f2c71dbdbfb6c57e7bff5470ead097a9f72e9304922",
+      "reports/contamination_review_v1.json": "cf915d2abf16e041c38dcc5f7a34f465ead658fcc5cd358c8c7ef9010fb93030",
+      "reports/contamination_review_v1.md": "9bf3e00a02b11d842f1196ecfc8fd5446077fdd8979d355bb7800a08b99f6a59",
+      "reports/contamination_review_v1_validation.json": "58923e8c0c7338891485c744b1b96b1f3e0591df32d93c516e15f2fa9912a54f",
+      "reports/contamination_v2_existing_pool.json": "7243405cb111351d6216c4fdbf95285cba902a6270496b7c3f8ac47da498b4d1",
+      "reports/contamination_v2_existing_pool.sha256.json": "bd50fa5988fc455b33778f0934e2986d9eadb0f72a5e15f05ff17bd73bc5064a",
+      "reports/context_distribution_study_2m.json": "6d05a604c988e14b7f5cac0766f57d82cea474157a47d7ff1d6f9ebbd9fbf892",
+      "reports/context_distribution_study_2m.md": "e2ac3fac7059023ebde3f555039d277fe2492c21cc740cbd0425b41976ab4af0",
+      "reports/context_training_ab_2m.json": "ef1714573a76158fec774ff2aea7071ce59db92fbd3c6a37e2a5c573498686d7",
+      "reports/context_training_ab_2m.md": "2cecdb586bc9b0bfcd914a23c2489a127df44e5107581922b6d9c96aece1263a",
+      "reports/corpus_expansion_v2_r1.json": "6867dd6a7344908a4ef756d6384ea4c87ad85c3a626a1d0305eb8ad7e44b59de",
+      "reports/corpus_expansion_v2_r1.sha256.json": "b89b2b969571e6ef0eeb556fedc094b542bd1e5ac3b0539fecd7a387153d1432",
+      "reports/corpus_mode_v2_pool.json": "020e23f78a9df57591d72478abc1d69bcd4f006ce47989525ce72a5f520af1f3",
+      "reports/corpus_mode_v2_pool.sha256.json": "e15d48cfe6e6dde3b264d84d1f8dc5a7440e549eb3fd71dacaf4d95995cd2093",
+      "reports/cpython_filtering_v1_2.json": "9816870362af15a25d37c1f293021dfe692f40819abe5b906a06a25641ca4255",
+      "reports/cpython_filtering_v1_3.json": "7676c80cc280bd73f89cee2f1ff61f00dd6d11a95fec186a604b41bb4e051a83",
+      "reports/cpython_filtering_v1_3.md": "e145283f8b3a0970ad54e456c0bfbde27f9313014c768992f18a3ac91b9bc39f",
+      "reports/data_acquisition_plan_2m.json": "0e544874952a2aff455e5c080538799a6ffebfb3f167eebf856ed067d2bfff5b",
+      "reports/data_acquisition_plan_2m.md": "2e09df29c6acbf000ade59bba2d90b63b06ab60eecec2c4bf52c295d30198b26",
+      "reports/download_authorization_2m.json": "69aa01c3b835cefafa9d6bf0c25693afa2ad7362dde8738473d8391edd539b9c",
+      "reports/download_authorization_2m.md": "26fb7f3d04a85ebed7cebc71ce23001ec8c40b27a8851d48dca7eecdf7032235",
+      "reports/download_authorization_2m_r2.json": "4c54e3bb648277406f4f22dc9e53f2a02427bafabd74b1d0172c040081e3eb67",
+      "reports/download_authorization_2m_r2.md": "51fda9f6537ee8b4798d63f8def873b0d58989bb4d6c4c9f1cf6ae5445bc20de",
+      "reports/download_authorization_2m_r3.json": "6986095d875d1f009d69f48c385979beadca8eadb7178ce350c3755b57f69068",
+      "reports/download_authorization_2m_r3.md": "d5a93dc3906baf9f8b4c54c6a914734a2dbbd17376eef173066e1f94d86ae7b0",
+      "reports/edge_2m_resolved.json": "ca5b4a66a8f3f017c3e5f070cb13f13916cdc7bd083920580d65bcaea96b0f84",
+      "reports/final_corpus_loader_audit.json": "2f41b33fc4080287ae8bcaf014806eb5d701f3f942e86b130b74496989d71447",
+      "reports/final_source_leakage_audit.json": "76a46de688c86250678e5a0e5b9973d0ee377ae252cd84f591a8b7f247431d90",
+      "reports/full_training_2m_final.json": "3f2c81619131fbee87e24b16f615ef9fbc19fee1f71d1e07540d40e6e65ed1eb",
+      "reports/full_training_2m_final.md": "d793977cf584cc2b624df63d7a2ec738c22a025f60c135c5737af4627dd1c970",
+      "reports/full_training_2m_stage_a.json": "078b4b36c2432e7da9ad19f8df27d2461a614b28ec7c5bef6c1dab6607899fe8",
+      "reports/full_training_2m_stage_a.md": "06299d471fce4bd0af2af554ca62dfb00cbe79d6bb549d47fc42987463c96ec6",
+      "reports/full_training_2m_stage_a_recovery.json": "e5295e530a65d3baa82f10701724469ef4cbb44b60211228233152c6fbe3efe4",
+      "reports/future_capabilities_addendum_review.json": "0a723314c971b24e752364152458f08acd732aaadf07b164e8c715aa37df20f2",
+      "reports/future_capabilities_addendum_review.md": "138718038c95bfa1a82bbca646d5b7f89c184c99c0d9726f5ceddd64905f05de",
+      "reports/gpu_enablement_closeout.json": "ef29c934920fe89f47d17a12a392aa663fcebc391ede4f7e9b642973ba6f4e1e",
+      "reports/gpu_enablement_closeout.md": "70e546e8047bf6554712855c4536c2e36f224549ab22a4d1726803ef5f73a9ce",
+      "reports/gpu_enablement_evidence.json": "05a9319f8fdbddf65db336818e0336df660d79d9a403092988ec0cc1f1fe42c5",
+      "reports/gpu_enablement_readiness.md": "a9801524e66a34f89e23c2be62ef0b9080669424ea315555b8d450ad1ac96915",
+      "reports/gutenberg_filtering_v1.json": "78b0a35d278779ca8273bb91e1abb490f63b0f41107cf5a11ec927da17d6a282",
+      "reports/historical_authorization_provenance_review.json": "199b20ae1f63972cbb819b2da2f75c393ea9ed4e6724724272e4922e1291f7bf",
+      "reports/historical_authorization_provenance_review.md": "4f3bbe2ed614f3d9130968c5dacd47cb69eab8da0d5c569c39e73706c9f770bd",
+      "reports/mamba_integration_evidence.json": "ca25b0d4b005edeb168d0444f18900c2fa739002ed3a2b515ef23ac4426af074",
+      "reports/mamba_integration_readiness.md": "0cd7c35e6aad13528cd88a894549bcd618b4186ffad25ee407d23427dd9e3ccc",
+      "reports/mamba_reference_verification.json": "d198308502dc946b93ff21ddeaad08cff90955caf717b6c58d0fc881a03140a8",
+      "reports/mathlib_filtering_v1_3.json": "28cb309215c16c25aef956306cc2822342e561abdde40cde6b830e20d845bf96",
+      "reports/numpy_filtering_v1_3.json": "881549c01fe9ce6e2c00b3c36d53283b0bc514c48195f78951811269e483b129",
+      "reports/real_corpus_2m_build.md": "3c4c27bc54c90eb58a24b7a04cf5f314e8c194c5df3e9161f3a76192d77d3672",
+      "reports/real_corpus_2m_evidence.json": "7ff340a96a861538319554883543eaf2eacb299828743379c2504b9ce1a5db76",
+      "reports/real_corpus_2m_pre_acquisition_r3.json": "4b61ce548b0c22a2957035f6247c84e1701b985c9a46e454808b47c0386df389",
+      "reports/real_corpus_final_build.md": "c177dc898db05f00f5bcf89fe1252ef3fb109ff9c2005dbb0d06e67ba6198f11",
+      "reports/real_corpus_final_evidence.json": "68eed41234f7296ead6712391532d0ebe0712f5a96b0c0ada6d7cfaf4b3a7dd9",
+      "reports/real_corpus_final_validation.json": "da9bbbd49fde90a0839c951bb221f7443e4375eefb352e6c5d713ee40f8a4214",
+      "reports/real_corpus_v2_build.md": "f975faf1fa5dbedf03fac4e28e4370fe7f82972a89567c811fbef3b084ea0c4b",
+      "reports/real_corpus_v2_evidence.json": "7bfd9e9e388c8cf7cfe363a6efa46c994a56fa52ac3d75f9e66756f5f285bf4b",
+      "reports/real_corpus_v2_validation.json": "2ef9027b17cbe851b9f3b6951c0f51dbf656335c3ced1873f82eb22ccbe9c47f",
+      "reports/real_training_diagnostic_2m.json": "65ab8f0db2b20d5313ed02ca6df69b337051359e624ae28de19ed0d4ccf93ea2",
+      "reports/real_training_diagnostic_2m.md": "67bfb53971c9b054e1455b1d0133b89936c58c984d8e8fe53075d44d1cdd8267",
+      "reports/source_approval_table_2m.json": "0aedd2fef69455ee272b39c7271ac2082f6e032216b433d0755a25cbb434d7a6",
+      "reports/source_approval_table_2m.md": "6d5b064df567faa3b78c0eac706ee7fa4978e7f8a8338d0463f57bafefcabe7d",
+      "reports/source_approval_table_2m_r2.json": "0c24a96a1d67273713d5743553fb1c42406b27ab3c603c8ff6260d25980773cd",
+      "reports/source_approval_table_2m_r3.json": "c3444d0ad2318155f80fa7dd78d008b65e2888ade1a12bc734c087c8b217305d",
+      "reports/sympy_filtering_v1_3.json": "6151d2b4cd580251429ea231657ebaae5c827d2702ca7471ebc834540854bdce",
+      "reports/targeted_mode_capacity_v2_r1.json": "428b7032f608601506662a725aef13332af67eda3b10a85a0548e22176a7a1b2",
+      "reports/targeted_mode_capacity_v2_r2.json": "ff56408c34a5b68b744968f9772ba691ed4a8a7c55a35a1190a98bc5f5c81c2e",
+      "reports/targeted_project_fixture_audit_v2_r1.json": "62fe1db9f3a443c2dc608b2226b6d8f90142e1ba4400b558b337c6e0032cbc91",
+      "reports/training_infrastructure_evidence.json": "a94d7ddadfddefe6027b293d57fb1097c57fe45bbe67b5faa25192809ad58fee",
+      "reports/training_infrastructure_readiness.md": "6f7bc265b7ebd10cbec08f13d400f804efacc0a8b5a5847fb51e39a31396a5b4",
+      "requirements-cuda-lock.txt": "a1428a6260c3c0fdfeb8c734a51aa0b0bf5926a34f9180ad0cd577e66f61ea0e",
+      "requirements-lock.txt": "0cec6b4428ab6320d111f0b0c56ab4d31a0d9de321b3ab24fe0e71eefbd74ffe",
+      "scripts/audit_20m_prebuild.py": "6ad3ede91606e8dec7a3c93fddc0df9d1db82ce88ff2eddb2ec3bb36247a03cd",
+      "scripts/authorization_capacity.py": "c219ea37c2540a6a6e7320380e71613eeaeb07164df77d0af94a228e01721342",
+      "scripts/benchmark_fingerprints.py": "b0b772942cf971caf43b807ec96d4a888cfb9af9bb1d2b59aa7ed82a568a15c5",
+      "scripts/complete_20m_accounting.py": "a5ea2eb3ff1a31815bd982c203e9bc992e0302e46d8f72f24021bdcbe7378d8f",
+      "scripts/context_ab_core.py": "85f6a7c59d6158179061e1510c21ebb0cf9019196e274bb2665dd92c0cec0539",
+      "scripts/context_ab_evaluation.py": "9c1886fc118b5830d4f0ecc58153e64852d6bdf7decd6ba573af85904cd7e02c",
+      "scripts/context_distribution_study.py": "eada62166617e2b0bc8ec146381371fd822fbe9129575c51345c03398db2e04a",
+      "scripts/context_phase_summary.py": "495925d729e30cb0331861e244faa71551fc835a931451c2542752bbad482389",
+      "scripts/context_study_metrics.py": "5cf5878641075a7158f8ae6202a9b030a861e510846bbdeb89bcd48ccaceb9d7",
+      "scripts/context_study_phases.py": "622ffddd5cfabe338668845d539a84e53cd735159a09e3b8f7edb82bd0fcda5e",
+      "scripts/context_study_positions.py": "be599f77557e190031e11354c5558f0648975185e26c4198faa81d93c9acd9ac",
+      "scripts/context_training_ab.py": "99fe63a691e6d3e193d2a8cd92ad7eb03486da09ffa047675da3f2478fcb61be",
+      "scripts/corpus_acquisition.py": "908fc0743af507182bf8fd738f0605bc241294367132152faf56ecc3f68b10a6",
+      "scripts/corpus_benchmark_index.py": "ffc5c5a7788673d6ebe1d80744b44cb4bd43406b8ccc4b2a68c529436bfda49d",
+      "scripts/corpus_complete_mode_v2.py": "5a42cd474756a1570fb7d5815b95819bba92e34196507b484032fbbd09980f53",
+      "scripts/corpus_contamination.py": "5f02b6779a7bb550d5acf2ad18cc7eac01180b5fd0546942d85c1f6593c5e967",
+      "scripts/corpus_contamination_review.py": "a4424386c14e1745aa90f65928126e65e5902d0ed81704ed135e80b10e75f904",
+      "scripts/corpus_contamination_v2.py": "17faa63afc035d5687bf9de33ee7acf005acbd3528c08f7a07d85660e5c0c153",
+      "scripts/corpus_duplicates.py": "5aa90764c0d0f8782f3458917558bedac1fb5338cda6eb4c5cd50fd043041dcb",
+      "scripts/corpus_expand_v2.py": "97f7d1ef2c67b460c4bde3d6817708693229cf3bc2cdc1158c710f8130342f6a",
+      "scripts/corpus_filter_report.py": "fbeb97b0e2f26d231ab48359d2d4108771b934ca0c5ca07d1db66452aca2e644",
+      "scripts/corpus_filtering.py": "63214bc861bd063c9655d6a6b35608eb017428112fa21781fdb82ba40880e253",
+      "scripts/corpus_fixture_audit.py": "e1360509b818fd9b874fe4dd8b2d2fa4143a27a099b720d1cf7e764d3e1e8e57",
+      "scripts/corpus_freeze.py": "e80bcd017bd856cd6e1798d1e9eb8f15515c1a1f8a4097fc05cc80f9616a9c6e",
+      "scripts/corpus_global.py": "6c4163db72abaaf2178f5dedf2ba231762595696ed57bdfe12e3270ff06a9d1c",
+      "scripts/corpus_matcher_v2_proposal.py": "86d2ec09b98860a9357b62366fe37cce68016177dbe42a0bbf2b5e4e8176aeee",
+      "scripts/corpus_mode_v2.py": "92df508896cfc521b7ff663d07557ca9fd554e910376ef23dab059341a3a241e",
+      "scripts/corpus_scan_v2.py": "33fba0541b6fb8593511d819049f125b3ae2eda78e46e7b51c15807f2303aa67",
+      "scripts/corpus_targeted_acquisition.py": "87e3354a15e588d80afb35c2ed8f9b6c6525b3bacbc32c9f21726cd3044a1de3",
+      "scripts/finish_context_distribution_study.py": "5efb7621c8edcf0d046100541560c15ba50aff28893272de957e28e9a0fe15a2",
+      "scripts/finish_context_training_ab.py": "c4fa2cdc7d8f20a75ce09e14001970b9d20fd32e4ad1c1aa6dca621aff6c0372",
+      "scripts/finish_full_training_2m.py": "af3cb1a8a001d660fa2a2f073078a5fc8dbb5f531f56c1ca3b1c6d712f8e69b7",
+      "scripts/finish_full_training_stage_a.py": "c75636cd3c0486d788ebe0f945de88f23f7fc81ce7989d5dfc80a4b51413fb1f",
+      "scripts/finish_real_training_diagnostic.py": "8b1321b2e4e24ad3271ace2e7dcfb8750144d7facd41e6d62c8846d02e1a1cd4",
+      "scripts/full_training_stage_a.py": "295b7f39661a9a04d9698e1fe2ad3e190257961697e5b9b4b954f64b128ab974",
+      "scripts/full_training_stage_b_to_endpoint.py": "3401f1a63cec7e5efb7456609293b8fcb3500383fd8067efc34a63a2eba98eb0",
+      "scripts/gutenberg_acquisition.py": "3b57772e64d2e1e65af97042373caae020c40b7319c72ac4ed73780d78bfa8c5",
+      "scripts/gutenberg_cleaning.py": "80e7cc29443c08d500f8c3f47ab3b6e53a1526c3361e057af4604d784791bb25",
+      "scripts/historical_authorization_replay.py": "1a89a488c3f1b4678df674c91e770c8de470e7dd483c4ea49f0d9e34ae618692",
+      "scripts/real_training_diagnostic.py": "075caadf2dd5d019f749f4b52f535a170dcd60d51dc72efc541e09a64094b579",
+      "scripts/recover_stage_a.py": "eb5ad18cf17b5b4d295c941fc4eff63bc7c34fcce52b35c770a8de940f6c66f9",
+      "scripts/resume_context_distribution_study.py": "fcac11bcb3814d732c35377a149b8ef667663f0fe87bf7d531a46bfcf1c31672",
+      "scripts/training_progress.py": "bb608e024def29d8beeb96dbe25ec9cb3c20d861f8c82dd54ad05300ca729c7f",
+      "scripts/validate_context_ab.py": "a74d2bd0b6e7b6d2596c99e423d84c613027cdf75f72399729ff549a8c941775",
+      "scripts/validate_context_study.py": "f911fbead99f8823ec73502fecc2b0cb55aba801bc87c9616dbd63c462f23ae7",
+      "scripts/validate_production_continuation.py": "92e6763185dc3500e12609fbecde6f05addf191437d5b9f1b97cd14dbc6867a6",
+      "src/unified_edge/__init__.py": "d17df431bd1fdcc4aaed4826250a71c6c5cf238fae1a61a1c589eb4623f79d32",
+      "src/unified_edge/byte_hierarchy.py": "fce726593d04b3d99158a12653a0aaa5789bbad7bcaf3f1546db073396c1f2ed",
+      "src/unified_edge/byte_layers.py": "8cfabe734c1ccab6bb463c42c7e10b498692de4c94e82ee29b0926b18bab4a7d",
+      "src/unified_edge/cli.py": "d4b207997a110979ab561acf92e862e5fd6d9dfc28f9a59fcaed35ce43f69254",
+      "src/unified_edge/config.py": "4f45ab091f51dfa05cd710e716e553ca1a9eaaadbd6e4c8fdfbbbc9e1aa64f78",
+      "src/unified_edge/dense_model.py": "90f77bdac9eb9ac1bafd22a0cf9a543d5a7ea691d97680dc3f21fd2520861562",
+      "src/unified_edge/mamba.py": "421793d6c5972de0bd496461812765b7b1401d17034008a10005e538def08452",
+      "src/unified_edge/parameters.py": "657d1d9d07d2d6cba007dc78aec1201b5bdea2f0230c6e25dab247d4f2ae3cbf",
+      "src/unified_edge/preflight.py": "1d8765cd1e4fb42b8ae3c49cb75dc9e22851562bed25c08dacf810263c217ed9",
+      "src/unified_edge/resolve.py": "a47f199ef96f9893c8fc37c4557aed36569faffd82bcb8bc9598cf195502f97f",
+      "src/unified_edge/symbols.py": "955fba05b6a7b058a34250146d10a9bf00d6811787b7758def8de63b35f2897e",
+      "src/unified_edge/training/__init__.py": "96fb76e3f36980021d7b98121b2dda310a57f343546f6b5a074665ab8bc4fb52",
+      "src/unified_edge/training/checkpoint.py": "76fb5471a89f280740f7c41d457567be0d127e572cf6d875ce04806ce7242d1a",
+      "src/unified_edge/training/config.py": "6eee2aabee6ef070b32b70a9f75be0de65641a40b2d56517457b34a6108f4b5a",
+      "src/unified_edge/training/data.py": "d994e5a621efe4f85755d11a47b935f71c16bb53c258c06649304eb5cd24552d",
+      "src/unified_edge/training/device.py": "ca72423c36930ebb18f4338288d63a31f8f9d3ce94c6ade19104d0dfb3bb8d3a",
+      "src/unified_edge/training/experiment.py": "3734c22f5617280cafb2a675258c9d1076999263db3e188511f2ae657240f41f",
+      "src/unified_edge/training/gpu_probe.py": "9b0c8ab2be5681c2ac33d9c39bdda0806df61ca7cba53fdf1d6c2b5421c1e42a",
+      "src/unified_edge/training/memory.py": "bc03358aee8a09f7bfae7da6bf65d2b0e80a335a87528eba1b15a08ebec95095",
+      "src/unified_edge/training/monitoring.py": "08e80af11e01d85cc2a36852528253a2d050751eebe5cfdb26d002c5d264e7ae",
+      "tests/conftest.py": "dcbe770ee556da079d5409994dc489334d9e9b842edc2afeceb49356e3c1ea52",
+      "tests/measure_mamba.py": "5bf3c7b7d22a767b7505e05f331df48af0cc2d26d53966adae08a80bb1831e86",
+      "tests/test_accounting.py": "3305a90bbfb05d7f5f2e5064653e5aaa7765dbf19daa7e47d29213967da372b9",
+      "tests/test_authorization_capacity.py": "71bb617d95fba6def28a5999891990185d73182edeb23adcc74471cee69b0b40",
+      "tests/test_authorization_provenance.py": "cb30922579ae1d5299dbee3397f2270bd68f04d342d36de304fb87b1c6e23b95",
+      "tests/test_authorization_r3.py": "8f64b921e847eea2475c2029cad1e13cc15f299d55fa72e7e2c8c3922e5efa33",
+      "tests/test_benchmark_fingerprints.py": "777ea36cb30694b19f121dd0b11423e12b06dce076e646db69d88884d1bbae97",
+      "tests/test_byte_hierarchy.py": "397aa4ae40bbe2c1e3135fcbcf13e1e3c7ded6ea4d0722e1744cdc3cf5dd69db",
+      "tests/test_config.py": "747a90c16ff65271d2659a61252a5c4bd94e12bae9b93b7e5556cd010d190161",
+      "tests/test_contamination_review_v1.py": "d294ca1ebbc6566926b435361496d5516b860cf73046e68a44688e1b5374f0cb",
+      "tests/test_contamination_v2.py": "c682b3ba1c630fdc8b4f98bfe78a6121bafe12f988bfc994a0aa49043d4b8102",
+      "tests/test_context_ab_report.py": "58e63f7c4a8c9690efd5f6afc31dd5d22da7f6a6b52e95e6fb2b9d928e43cd33",
+      "tests/test_context_distribution_study.py": "544b14b1fcb9ce65d57ecd4db86e739c84e613a092c1fa2d63f13a9d97c53ce6",
+      "tests/test_context_study_phases.py": "9f9ff496b6774e0466ba077535045b809d0abdf3c553ac0285da637a08bb5fcf",
+      "tests/test_context_training_ab.py": "8e32509a1f20ce48b4ccffc17d3c28a9bc718dfb73ed5c7267f5bb203c30b5f6",
+      "tests/test_corpus_acquisition.py": "4e60c4f23600b22217b81ccd6e3ed411b6be733a3aa10cd8f36317ec63008ebb",
+      "tests/test_corpus_contamination.py": "20e22a8859e9e893210b159a7169feda490a8eca819dea79531183d716e83fca",
+      "tests/test_corpus_duplicates.py": "029843b0e3679355e239ec2feefd1c1bf438eb474af928d8c4ff4032d65c868c",
+      "tests/test_corpus_filtering.py": "2327cac4fc92b34aef46a25492aa111affdc72820ea3b646859576ea1cfe07e7",
+      "tests/test_corpus_freeze.py": "fb3c97ba16f9d04a94f74adb9f4a2688c04ce3bab86487f446f4069210cf5562",
+      "tests/test_dense_model.py": "46c7ea227252069436b53c52a4d3795ff58a4e9f6615fa5403a5351166049fe9",
+      "tests/test_full_training_stage_a.py": "ec577804ff117f6a55afc9b2cbf9ba57b4142f636e5f704babbdbe7955a9028a",
+      "tests/test_future_capabilities_spec.py": "696b901238947b7c66f7825f6520873ada623cd73d9a0d464a99b904fdded95d",
+      "tests/test_gpu_enablement.py": "ae8b812069a2fdb6a705c483edc0d2ac26138f35d48de3fc6485453580d9160a",
+      "tests/test_gpu_profile.py": "9199039a8e9fb37eaee66f75f9e8c77e9626109e79ea6511b43bca61145f5b04",
+      "tests/test_gutenberg_acquisition.py": "cc2e94544309602919b227c5f68f1a9d92ced20fedbaeb422c753ac41babc34f",
+      "tests/test_gutenberg_cleaning.py": "0cb6422f008edc5fdddc764638e3e0ec6f6dd4297b3ae87ce18e093760b5fa97",
+      "tests/test_historical_authorization_replay.py": "3fe7e9aae1f636a0cc9cc097c79d7c0f59e8405beef3e79253d75d6601c8c25f",
+      "tests/test_mamba.py": "c91afccee211570d3e5288c3119c86b0d7caac398b28a335db9b2292a6e2f657",
+      "tests/test_mode_policy_v2.py": "33f184cb66b1a41aae97817fddfdac63cfa7e4ec88de21f436c9da13e3c8eb3b",
+      "tests/test_production_continuation.py": "d23007b3cd5ba7dbf44112847693a08ae45d61f5195f8606fe05b37cae6c3b29",
+      "tests/test_symbols.py": "7a1295b6289c1c8e43ec53119229255d6025576881f7dad1aae477edf59eb525",
+      "tests/test_targeted_acquisition.py": "0add1d5f44d1370e8606c427bf4ef4c3739401f59e05d8886b66a41bba9b0ec7",
+      "tests/test_training.py": "a3c99ddadf376552414d429abcc5686ab9df35ff1d3a98bf44981f667149d7b4",
+      "tests/test_training_infrastructure_i2.py": "7c6cb0b5aae00295e4bc49f575016bfd02fe04bfe96a64bef2d12ce09f1be328",
+      "tests/test_training_overfit.py": "83a82e466158419aff4c206bdd3f71bfef9d78a8c381d7adda1f0a4874ce0ed1",
+      "tests/test_training_progress.py": "58ef4b2247a3e89c9454bf2f4a576e6c97f568158016433d077da0618ee4ff05"
+    },
+    "snapshot_files_verified": 66,
+    "snapshot_sha256": "8461a8d3aaad724a6880627a91520257ab743dae3713c95ad592b5467395ad8d",
+    "checkpoint_sha256": "0d4c822daadf6bb8269a727ac54d54a26e9edf49ff43fedff1b0d91ba6ad2623",
+    "checkpoint_deserialized": false,
+    "production_TEST_payload_opened": false,
+    "model_math_byte_identical": true,
+    "models": {
+      "edge_2m.yaml": {
+        "resolved_sha256": "7fe06b639741003e4c5ad9d57d32c2fd2b86f6805b2048ad1efd6aaa75e3a6f1",
+        "parameters": 1929579,
+        "tensors": 56,
+        "readiness": {
+          "scale_stage": "2M_GEN0_FROZEN",
+          "architecture_status": "IMPLEMENTED",
+          "accounting_status": "META_VERIFIED",
+          "construction_status": "META_CONSTRUCTED",
+          "training_execution_status": "COMPLETED_FROZEN_LINEAGE",
+          "quality_status": "ENGINEERING_BASELINE_ONLY",
+          "next_gate": "PRESERVE_FROZEN_2M_RUN_APPROVED_20M_EXECUTION_GATES",
+          "evidence_scope": "Training completion refers only to the accepted historical Gen-0 run; this resolver does not train, load weights or authorize current-source resume.",
+          "evidence_reference": "reports/full_training_2m_final.json at 3d2698b42404ec67834ead162db0bd10240d270b",
+          "pilot_execution_ready": false,
+          "training_authorized": false
+        },
+        "accounting": {
+          "status": "META_VERIFIED",
+          "unique_trainable_parameters": 1929579,
+          "unique_trainable_tensors": 56,
+          "named_trainable_tensors": 56,
+          "formula_parameters": 1929579,
+          "inventory_audit": {
+            "unique_trainable_parameters": 1929579,
+            "unique_frozen_parameters": 0,
+            "unique_buffer_elements": 0,
+            "unique_parameter_bytes": 7718316,
+            "unique_buffer_bytes": 0,
+            "components": {
+              "bootstrap": 16640,
+              "decoder": 107520,
+              "embedding": 17600,
+              "encoder": 25280,
+              "output": 34443,
+              "shared": 1728096
+            },
+            "aliases": {},
+            "state_dict_tensor_entries": 56,
+            "state_dict_non_tensor_entries": [],
+            "state_dict_entry_elements": 1929579,
+            "state_dict_logical_payload_bytes": 7718316,
+            "serialized_file_bytes": null,
+            "payload_note": "logical entries; aliases may share storage; not serialized file size"
+          },
+          "executable_audit": {
+            "unique_trainable_parameters": 1929579,
+            "unique_frozen_parameters": 0,
+            "unique_buffer_elements": 0,
+            "unique_parameter_bytes": 7718316,
+            "unique_buffer_bytes": 0,
+            "components": {
+              "hierarchy": 201483,
+              "shared": 1728096
+            },
+            "aliases": {},
+            "state_dict_tensor_entries": 56,
+            "state_dict_non_tensor_entries": [],
+            "state_dict_entry_elements": 1929579,
+            "state_dict_logical_payload_bytes": 7718316,
+            "serialized_file_bytes": null,
+            "payload_note": "logical entries; aliases may share storage; not serialized file size"
+          },
+          "components": {
+            "symbol_embeddings": 17088,
+            "position_embeddings": 512,
+            "patch_encoder_excluding_norm": 25216,
+            "normalization": 3264,
+            "context_bridge": 32896,
+            "local_decoder_gru": 74496,
+            "output_head": 34443,
+            "bootstrap": 16640,
+            "mamba_trunk_excluding_norm": 1725024
+          },
+          "tensor_ledger": [
+            {
+              "name": "hierarchy.embedding.symbols.weight",
+              "shape": [
+                267,
+                64
+              ],
+              "numel": 17088
+            },
+            {
+              "name": "hierarchy.embedding.positions.weight",
+              "shape": [
+                8,
+                64
+              ],
+              "numel": 512
+            },
+            {
+              "name": "hierarchy.encoder.conv.weight",
+              "shape": [
+                64,
+                1,
+                3
+              ],
+              "numel": 192
+            },
+            {
+              "name": "hierarchy.encoder.conv.bias",
+              "shape": [
+                64
+              ],
+              "numel": 64
+            },
+            {
+              "name": "hierarchy.encoder.gate.weight",
+              "shape": [
+                128,
+                64
+              ],
+              "numel": 8192
+            },
+            {
+              "name": "hierarchy.encoder.gate.bias",
+              "shape": [
+                128
+              ],
+              "numel": 128
+            },
+            {
+              "name": "hierarchy.encoder.norm.weight",
+              "shape": [
+                64
+              ],
+              "numel": 64
+            },
+            {
+              "name": "hierarchy.encoder.projection.weight",
+              "shape": [
+                256,
+                64
+              ],
+              "numel": 16384
+            },
+            {
+              "name": "hierarchy.encoder.projection.bias",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "hierarchy.decoder.context.weight",
+              "shape": [
+                128,
+                256
+              ],
+              "numel": 32768
+            },
+            {
+              "name": "hierarchy.decoder.context.bias",
+              "shape": [
+                128
+              ],
+              "numel": 128
+            },
+            {
+              "name": "hierarchy.decoder.gru.weight_ih",
+              "shape": [
+                384,
+                64
+              ],
+              "numel": 24576
+            },
+            {
+              "name": "hierarchy.decoder.gru.weight_hh",
+              "shape": [
+                384,
+                128
+              ],
+              "numel": 49152
+            },
+            {
+              "name": "hierarchy.decoder.gru.bias_ih",
+              "shape": [
+                384
+              ],
+              "numel": 384
+            },
+            {
+              "name": "hierarchy.decoder.gru.bias_hh",
+              "shape": [
+                384
+              ],
+              "numel": 384
+            },
+            {
+              "name": "hierarchy.decoder.norm.weight",
+              "shape": [
+                128
+              ],
+              "numel": 128
+            },
+            {
+              "name": "hierarchy.output.weight",
+              "shape": [
+                267,
+                128
+              ],
+              "numel": 34176
+            },
+            {
+              "name": "hierarchy.output.bias",
+              "shape": [
+                267
+              ],
+              "numel": 267
+            },
+            {
+              "name": "hierarchy.bootstrap.weight",
+              "shape": [
+                256,
+                64
+              ],
+              "numel": 16384
+            },
+            {
+              "name": "hierarchy.bootstrap.bias",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "shared.layers.0.dt_bias",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.0.A_log",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.0.D",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.0.pre_norm.weight",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "shared.layers.0.in_proj.weight",
+              "shape": [
+                1160,
+                256
+              ],
+              "numel": 296960
+            },
+            {
+              "name": "shared.layers.0.conv.weight",
+              "shape": [
+                640,
+                1,
+                4
+              ],
+              "numel": 2560
+            },
+            {
+              "name": "shared.layers.0.conv.bias",
+              "shape": [
+                640
+              ],
+              "numel": 640
+            },
+            {
+              "name": "shared.layers.0.gated_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.0.out_proj.weight",
+              "shape": [
+                256,
+                512
+              ],
+              "numel": 131072
+            },
+            {
+              "name": "shared.layers.1.dt_bias",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.1.A_log",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.1.D",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.1.pre_norm.weight",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "shared.layers.1.in_proj.weight",
+              "shape": [
+                1160,
+                256
+              ],
+              "numel": 296960
+            },
+            {
+              "name": "shared.layers.1.conv.weight",
+              "shape": [
+                640,
+                1,
+                4
+              ],
+              "numel": 2560
+            },
+            {
+              "name": "shared.layers.1.conv.bias",
+              "shape": [
+                640
+              ],
+              "numel": 640
+            },
+            {
+              "name": "shared.layers.1.gated_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.1.out_proj.weight",
+              "shape": [
+                256,
+                512
+              ],
+              "numel": 131072
+            },
+            {
+              "name": "shared.layers.2.dt_bias",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.2.A_log",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.2.D",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.2.pre_norm.weight",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "shared.layers.2.in_proj.weight",
+              "shape": [
+                1160,
+                256
+              ],
+              "numel": 296960
+            },
+            {
+              "name": "shared.layers.2.conv.weight",
+              "shape": [
+                640,
+                1,
+                4
+              ],
+              "numel": 2560
+            },
+            {
+              "name": "shared.layers.2.conv.bias",
+              "shape": [
+                640
+              ],
+              "numel": 640
+            },
+            {
+              "name": "shared.layers.2.gated_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.2.out_proj.weight",
+              "shape": [
+                256,
+                512
+              ],
+              "numel": 131072
+            },
+            {
+              "name": "shared.layers.3.dt_bias",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.3.A_log",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.3.D",
+              "shape": [
+                8
+              ],
+              "numel": 8
+            },
+            {
+              "name": "shared.layers.3.pre_norm.weight",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "shared.layers.3.in_proj.weight",
+              "shape": [
+                1160,
+                256
+              ],
+              "numel": 296960
+            },
+            {
+              "name": "shared.layers.3.conv.weight",
+              "shape": [
+                640,
+                1,
+                4
+              ],
+              "numel": 2560
+            },
+            {
+              "name": "shared.layers.3.conv.bias",
+              "shape": [
+                640
+              ],
+              "numel": 640
+            },
+            {
+              "name": "shared.layers.3.gated_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.3.out_proj.weight",
+              "shape": [
+                256,
+                512
+              ],
+              "numel": 131072
+            }
+          ],
+          "forward_executed": false,
+          "parameter_values_materialized": false
+        }
+      },
+      "edge_20m_candidate.yaml": {
+        "resolved_sha256": "6e7ffdc3c3448f7f19fa4466a9780c369c05cc572030c1b026d4eef1503b9359",
+        "parameters": 20387531,
+        "tensors": 128,
+        "readiness": {
+          "scale_stage": "20M_PILOT_CANDIDATE",
+          "architecture_status": "RECOMMENDED_FOR_PILOT",
+          "accounting_status": "META_VERIFIED",
+          "construction_status": "META_CONSTRUCTED",
+          "training_execution_status": "NOT_RUN",
+          "quality_status": "UNVERIFIED",
+          "next_gate": "RUN_APPROVED_20M_1_2_3_HARDWARE_AND_MECHANICS_GATES",
+          "evidence_scope": "R1-R9 implemented; R9 orchestration synthetically verified, ready for review. Hardware execution gates remain unpassed; T4 unverified; LR probe and pilot not run; quality unverified. No pilot or training authorization.",
+          "evidence_reference": "reports/20m_prebuild_audit.json; reports/20m_i1_resolver_config_implementation.json; reports/20m_i2_training_infrastructure.json; reports/20m_i3_r9_orchestration.json",
+          "pilot_execution_ready": false,
+          "training_authorized": false
+        },
+        "accounting": {
+          "status": "META_VERIFIED",
+          "unique_trainable_parameters": 20387531,
+          "unique_trainable_tensors": 128,
+          "named_trainable_tensors": 128,
+          "formula_parameters": 20387531,
+          "inventory_audit": {
+            "unique_trainable_parameters": 20387531,
+            "unique_frozen_parameters": 0,
+            "unique_buffer_elements": 0,
+            "unique_parameter_bytes": 81550124,
+            "unique_buffer_bytes": 0,
+            "components": {
+              "bootstrap": 33280,
+              "decoder": 378880,
+              "embedding": 17600,
+              "encoder": 41920,
+              "output": 68619,
+              "shared": 19847232
+            },
+            "aliases": {},
+            "state_dict_tensor_entries": 128,
+            "state_dict_non_tensor_entries": [],
+            "state_dict_entry_elements": 20387531,
+            "state_dict_logical_payload_bytes": 81550124,
+            "serialized_file_bytes": null,
+            "payload_note": "logical entries; aliases may share storage; not serialized file size"
+          },
+          "executable_audit": {
+            "unique_trainable_parameters": 20387531,
+            "unique_frozen_parameters": 0,
+            "unique_buffer_elements": 0,
+            "unique_parameter_bytes": 81550124,
+            "unique_buffer_bytes": 0,
+            "components": {
+              "hierarchy": 540299,
+              "shared": 19847232
+            },
+            "aliases": {},
+            "state_dict_tensor_entries": 128,
+            "state_dict_non_tensor_entries": [],
+            "state_dict_entry_elements": 20387531,
+            "state_dict_logical_payload_bytes": 81550124,
+            "serialized_file_bytes": null,
+            "payload_note": "logical entries; aliases may share storage; not serialized file size"
+          },
+          "components": {
+            "symbol_embeddings": 17088,
+            "position_embeddings": 512,
+            "patch_encoder_excluding_norm": 41856,
+            "normalization": 18752,
+            "context_bridge": 131328,
+            "local_decoder_gru": 247296,
+            "output_head": 68619,
+            "bootstrap": 33280,
+            "mamba_trunk_excluding_norm": 19828800
+          },
+          "tensor_ledger": [
+            {
+              "name": "hierarchy.embedding.symbols.weight",
+              "shape": [
+                267,
+                64
+              ],
+              "numel": 17088
+            },
+            {
+              "name": "hierarchy.embedding.positions.weight",
+              "shape": [
+                8,
+                64
+              ],
+              "numel": 512
+            },
+            {
+              "name": "hierarchy.encoder.conv.weight",
+              "shape": [
+                64,
+                1,
+                3
+              ],
+              "numel": 192
+            },
+            {
+              "name": "hierarchy.encoder.conv.bias",
+              "shape": [
+                64
+              ],
+              "numel": 64
+            },
+            {
+              "name": "hierarchy.encoder.gate.weight",
+              "shape": [
+                128,
+                64
+              ],
+              "numel": 8192
+            },
+            {
+              "name": "hierarchy.encoder.gate.bias",
+              "shape": [
+                128
+              ],
+              "numel": 128
+            },
+            {
+              "name": "hierarchy.encoder.norm.weight",
+              "shape": [
+                64
+              ],
+              "numel": 64
+            },
+            {
+              "name": "hierarchy.encoder.projection.weight",
+              "shape": [
+                512,
+                64
+              ],
+              "numel": 32768
+            },
+            {
+              "name": "hierarchy.encoder.projection.bias",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "hierarchy.decoder.context.weight",
+              "shape": [
+                256,
+                512
+              ],
+              "numel": 131072
+            },
+            {
+              "name": "hierarchy.decoder.context.bias",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "hierarchy.decoder.gru.weight_ih",
+              "shape": [
+                768,
+                64
+              ],
+              "numel": 49152
+            },
+            {
+              "name": "hierarchy.decoder.gru.weight_hh",
+              "shape": [
+                768,
+                256
+              ],
+              "numel": 196608
+            },
+            {
+              "name": "hierarchy.decoder.gru.bias_ih",
+              "shape": [
+                768
+              ],
+              "numel": 768
+            },
+            {
+              "name": "hierarchy.decoder.gru.bias_hh",
+              "shape": [
+                768
+              ],
+              "numel": 768
+            },
+            {
+              "name": "hierarchy.decoder.norm.weight",
+              "shape": [
+                256
+              ],
+              "numel": 256
+            },
+            {
+              "name": "hierarchy.output.weight",
+              "shape": [
+                267,
+                256
+              ],
+              "numel": 68352
+            },
+            {
+              "name": "hierarchy.output.bias",
+              "shape": [
+                267
+              ],
+              "numel": 267
+            },
+            {
+              "name": "hierarchy.bootstrap.weight",
+              "shape": [
+                512,
+                64
+              ],
+              "numel": 32768
+            },
+            {
+              "name": "hierarchy.bootstrap.bias",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.0.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.0.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.0.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.0.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.0.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.0.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.0.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.0.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.0.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.1.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.1.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.1.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.1.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.1.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.1.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.1.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.1.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.1.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.2.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.2.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.2.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.2.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.2.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.2.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.2.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.2.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.2.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.3.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.3.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.3.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.3.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.3.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.3.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.3.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.3.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.3.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.4.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.4.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.4.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.4.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.4.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.4.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.4.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.4.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.4.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.5.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.5.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.5.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.5.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.5.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.5.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.5.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.5.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.5.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.6.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.6.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.6.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.6.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.6.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.6.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.6.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.6.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.6.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.7.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.7.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.7.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.7.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.7.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.7.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.7.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.7.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.7.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.8.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.8.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.8.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.8.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.8.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.8.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.8.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.8.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.8.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.9.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.9.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.9.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.9.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.9.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.9.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.9.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.9.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.9.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.10.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.10.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.10.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.10.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.10.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.10.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.10.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.10.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.10.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            },
+            {
+              "name": "shared.layers.11.dt_bias",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.11.A_log",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.11.D",
+              "shape": [
+                16
+              ],
+              "numel": 16
+            },
+            {
+              "name": "shared.layers.11.pre_norm.weight",
+              "shape": [
+                512
+              ],
+              "numel": 512
+            },
+            {
+              "name": "shared.layers.11.in_proj.weight",
+              "shape": [
+                2192,
+                512
+              ],
+              "numel": 1122304
+            },
+            {
+              "name": "shared.layers.11.conv.weight",
+              "shape": [
+                1152,
+                1,
+                4
+              ],
+              "numel": 4608
+            },
+            {
+              "name": "shared.layers.11.conv.bias",
+              "shape": [
+                1152
+              ],
+              "numel": 1152
+            },
+            {
+              "name": "shared.layers.11.gated_norm.weight",
+              "shape": [
+                1024
+              ],
+              "numel": 1024
+            },
+            {
+              "name": "shared.layers.11.out_proj.weight",
+              "shape": [
+                512,
+                1024
+              ],
+              "numel": 524288
+            }
+          ],
+          "forward_executed": false,
+          "parameter_values_materialized": false
+        }
+      }
+    },
+    "source": {
+      "commit": "1a7fc6ea0667eea3f7028ed098a8ac27edb6316a",
+      "dirty": true,
+      "source_sha256": "313d8217f7b3bee8a82bef9225e144c37cf5912bc11d6bb8cfb60c80c8c325a8"
+    },
+    "pilot_plan_sha256": "49eb2275b70bcaa002095b381eb23e8cc9ab86a29f8c3420cddc257bf48bd164",
+    "lr_probe_plan_sha256": "65d86c7834b65a4c0cdf8cbed79c4228ca6e5a29e66fe1fe736e967646d0858d"
+  },
+  "artifact_sha256": {
+    "README.md": {
+      "raw_sha256": "178318eccbf78a0bb301b833e7be4733f3ebaebe2f29155081a6e2ca51c6d641",
+      "utf8_lf_sha256": "178318eccbf78a0bb301b833e7be4733f3ebaebe2f29155081a6e2ca51c6d641"
+    },
+    "docs/20m_pilot_orchestration_contract.md": {
+      "raw_sha256": "ce47a357c9aaf60c440114e3685f567edd38aba1a4b8dc6b5bd43a4fe210bcb6",
+      "utf8_lf_sha256": "ce47a357c9aaf60c440114e3685f567edd38aba1a4b8dc6b5bd43a4fe210bcb6"
+    },
+    "docs/project_state.md": {
+      "raw_sha256": "67600b4004f81812c976317d2c2ef79c6190d49c7576397660e1df3d3419481b",
+      "utf8_lf_sha256": "9cba3a42c1054b7b2d66dcb01bbdf50f744a0e2382b330f7395ddec83da2e3f3"
+    },
+    "reports/20m_i3_r9_orchestration.md": {
+      "raw_sha256": "1b54f4aec2b311b1a8a00aa99285fedfb9cc41d4e22a0b920e807c2ed0dc41d7",
+      "utf8_lf_sha256": "e1326dceb4ac023f11015ff294e42c22ca2e8927afc5e578ffbea3fbfce0ed36"
+    },
+    "scripts/edge_pilot.py": {
+      "raw_sha256": "752ef046e740d48ce14f11713bcf700b68a0dc762c36873deb24780c55fdf2a8",
+      "utf8_lf_sha256": "752ef046e740d48ce14f11713bcf700b68a0dc762c36873deb24780c55fdf2a8"
+    },
+    "src/unified_edge/readiness.py": {
+      "raw_sha256": "479902977503187d0f76e56a9d910ac7f0727c9d787ba2943aa36d8834780251",
+      "utf8_lf_sha256": "479902977503187d0f76e56a9d910ac7f0727c9d787ba2943aa36d8834780251"
+    },
+    "src/unified_edge/training/optimization.py": {
+      "raw_sha256": "100cb88ba33be63380e3f285dc35ffded008910bcfda38ad7519427b7ef0fa20",
+      "utf8_lf_sha256": "ccd6550e1f9a69ec7f0361e9d79ae241b18237882867b3b3392a7ca0e57365de"
+    },
+    "src/unified_edge/training/pilot_context.py": {
+      "raw_sha256": "4292f9e820c6160abf5945a2443a0cfb92116726f082289142b2a5f7f917a773",
+      "utf8_lf_sha256": "4292f9e820c6160abf5945a2443a0cfb92116726f082289142b2a5f7f917a773"
+    },
+    "src/unified_edge/training/pilot_data.py": {
+      "raw_sha256": "f16b3bd6089b2ce657ea1483abd4e218c7af18eaa8340323e3e0bbe4b6460fab",
+      "utf8_lf_sha256": "f16b3bd6089b2ce657ea1483abd4e218c7af18eaa8340323e3e0bbe4b6460fab"
+    },
+    "src/unified_edge/training/pilot_diagnostics.py": {
+      "raw_sha256": "9da82d01571ca8a1c1b9f6a036f5c9d6522a914fe6e2608e94f41f61369d4e88",
+      "utf8_lf_sha256": "9da82d01571ca8a1c1b9f6a036f5c9d6522a914fe6e2608e94f41f61369d4e88"
+    },
+    "src/unified_edge/training/pilot_gates.py": {
+      "raw_sha256": "438cd6e867ad068436b35a4523d7a5306e3910c8d89820c70d9eb2b71f3ae973",
+      "utf8_lf_sha256": "438cd6e867ad068436b35a4523d7a5306e3910c8d89820c70d9eb2b71f3ae973"
+    },
+    "src/unified_edge/training/pilot_plan.py": {
+      "raw_sha256": "787399403cc660caf2a9095ec9790cb6863f22b43c8c6aa5fe37ae42d0df9236",
+      "utf8_lf_sha256": "787399403cc660caf2a9095ec9790cb6863f22b43c8c6aa5fe37ae42d0df9236"
+    },
+    "src/unified_edge/training/pilot_probe.py": {
+      "raw_sha256": "faf0897dc6f9706f27f968d74be7ed9019ea10ae9d44af16be775ce8377d8847",
+      "utf8_lf_sha256": "faf0897dc6f9706f27f968d74be7ed9019ea10ae9d44af16be775ce8377d8847"
+    },
+    "src/unified_edge/training/pilot_runner.py": {
+      "raw_sha256": "202edd4532f943143c3dbf1165cc130ab8cc8fb325a7cb09574d8790f1be733e",
+      "utf8_lf_sha256": "202edd4532f943143c3dbf1165cc130ab8cc8fb325a7cb09574d8790f1be733e"
+    },
+    "src/unified_edge/training/trainer.py": {
+      "raw_sha256": "00460ea275bdfc72bde43ecfd29933eede81251f37d0338b829e162bd584369b",
+      "utf8_lf_sha256": "85334a9c4f9f701b4c6b1c09d053fd46575ea45b6b7279fe4913b6e56b847b76"
+    },
+    "tests/test_cli.py": {
+      "raw_sha256": "6e9bffecd0f080ee3f1bd6e4312b71991d69732a5720cd2a4b5072fd921b7fe8",
+      "utf8_lf_sha256": "6e9bffecd0f080ee3f1bd6e4312b71991d69732a5720cd2a4b5072fd921b7fe8"
+    },
+    "tests/test_pilot_r9_metrics.py": {
+      "raw_sha256": "6f026b3fcae36ba3b45f166a8b43b9ac7a8a04703b90092cb776986507fa7dc5",
+      "utf8_lf_sha256": "6f026b3fcae36ba3b45f166a8b43b9ac7a8a04703b90092cb776986507fa7dc5"
+    },
+    "tests/test_pilot_r9_runtime.py": {
+      "raw_sha256": "f22dc1be8a24f769807ea97c1e5af4e34675c085cffc08912c174cfbb2fb3db1",
+      "utf8_lf_sha256": "f22dc1be8a24f769807ea97c1e5af4e34675c085cffc08912c174cfbb2fb3db1"
+    },
+    "tests/test_resolver_policies.py": {
+      "raw_sha256": "91b5067d6fac973f77f78f4abb425b8893dbdee618de9ca2b9d5f4ca0c35199b",
+      "utf8_lf_sha256": "91b5067d6fac973f77f78f4abb425b8893dbdee618de9ca2b9d5f4ca0c35199b"
+    }
+  },
+  "hash_convention": "Raw and UTF-8 LF hashes bind final artifacts. Receipt excludes its own hash; closeout SHA recorded by Git/final response.",
+  "model_math_changed": false,
+  "selected_20m_forward_backward": false,
+  "real_lr_probe_performed": false,
+  "pilot_training_performed": false,
+  "synthetic_cpu_updates_performed": true,
+  "frozen_2m_continued": false,
+  "production_TEST_payload_opened": false,
+  "test_status": "SEALED",
+  "dataset_acquisition": false,
+  "kaggle_used": false,
+  "kaggle_boundary": "Separate bridge; approved host actions only; no write/compute invoked.",
+  "r10_r11_or_bridge_implemented": false,
+  "limitations": [
+    "No selected-20M forward/backward, real LR probe, pilot, data acquisition, production TEST access or Kaggle operation occurred.",
+    "T4 availability, actual GPU phase memory/throughput, 20M-1/2/3, native Linux and remote output durability remain unverified.",
+    "Per-update recovery snapshots add unmeasured I/O cost; their full cost must satisfy the later 24-hour hardware gate with the 30% projection reserve.",
+    "An incomplete update or diagnostic intent with ambiguous physical work/time blocks automatic replay/resume; preserve the last durable checkpoint and obtain explicit recovery review. No force bypass.",
+    "Failed partial-update byte overhead can be unverified; it is explicitly null with a reason, never silently zero or logical exposure.",
+    "Intervals conservatively count synchronized wall time, including host work; synthetic mock clocks are not measured GPU-hour evidence.",
+    "Receipt digests require independently reviewed trust inputs; receipt self-assertions or TEST_ONLY objects do not grant real execution authority.",
+    "Synthetic metrics and anti-collapse thresholds do not establish 20M language quality or useful context. No context bridge B is implemented.",
+    "Existing optional missing-NumPy warning remains; no dependencies or CPU/CUDA environments were changed."
+  ],
+  "rollback": "Revert closeout, then a78538ef9bea9043b79237c2f04c7d56fa9ac59a additively. Preserve frozen artifacts/reference fallback.",
+  "next_gate": "RUN_APPROVED_20M_1_2_3_HARDWARE_AND_MECHANICS_GATES"
+}
