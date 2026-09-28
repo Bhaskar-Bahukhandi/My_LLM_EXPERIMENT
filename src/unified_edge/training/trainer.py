@@ -42,6 +42,7 @@ from unified_edge.training.memory import training_memory
 from unified_edge.training.monitoring import MonitoringPolicy
 from unified_edge.training.optimization import (
     NumericalTrainingError,
+    WarmupConstant,
     WarmupCosine,
     build_optimizer,
     finite_gradients,
@@ -111,9 +112,12 @@ class Trainer:
         resume_from: Path | None = None,
         monitoring: MonitoringPolicy = MonitoringPolicy(),
         device_policy: DevicePolicy | None = None,
+        scheduler_type: str = "warmup_cosine",
     ):
         if not isinstance(model_config, ResolvedConfig) or not isinstance(config, TrainingConfig):
             raise TypeError("trainer requires validated model and training configurations")
+        if scheduler_type not in ("warmup_cosine", "warmup_constant_v1"):
+            raise ValueError("unsupported versioned scheduler")
         self.config, self.model_config, self.manifest = config, model_config, manifest
         if not isinstance(monitoring, MonitoringPolicy):
             raise TypeError("trainer requires a typed MonitoringPolicy")
@@ -157,7 +161,8 @@ class Trainer:
             self.model, self.optimizer, model_config.sha256
         )
         self._optimizer_groups = self.optimizer.state_dict()["param_groups"]
-        self.scheduler = WarmupCosine(self.optimizer, config)
+        scheduler = WarmupCosine if scheduler_type == "warmup_cosine" else WarmupConstant
+        self.scheduler = scheduler(self.optimizer, config)
         self.stream = BatchStream(self.train_data, config.seed, config.batch_size)
         self.global_step = self.micro_step = self.examples_seen = self.bytes_seen = 0
         self.metrics = []
@@ -311,6 +316,17 @@ class Trainer:
                 "raw_byte_nll": nll,
                 "raw_byte_perplexity": math.exp(nll),
                 "valid_target_count": count,
+                "tail_windows": sum(
+                    len(w.payload) < self.config.sequence_length
+                    for batch in microbatches
+                    for w in batch
+                ),
+                "tail_bytes": sum(
+                    len(w.payload)
+                    for batch in microbatches
+                    for w in batch
+                    if len(w.payload) < self.config.sequence_length
+                ),
                 "learning_rate": lr,
                 "gradient_norm": norm,
                 "clip_threshold": self.config.clip_norm,
@@ -377,7 +393,7 @@ class Trainer:
         self._log(record)
         return record
 
-    def save(self) -> Path:
+    def save(self, *, checkpoint_path: Path | None = None) -> Path:
         self._usable()
         self._verify_data(full=True)
         self._check_inventory()
@@ -424,7 +440,12 @@ class Trainer:
         )
         self.scheduler.load_state_dict(state["scheduler"])
         started = time.perf_counter()
-        path = save_checkpoint(self.run_dir / "checkpoints" / f"step_{self.global_step:06d}", state)
+        path = save_checkpoint(
+            checkpoint_path
+            if checkpoint_path is not None
+            else self.run_dir / "checkpoints" / f"step_{self.global_step:06d}",
+            state,
+        )
         self.observations["checkpoint_io_seconds"] += time.perf_counter() - started
         self._memory()
         return path

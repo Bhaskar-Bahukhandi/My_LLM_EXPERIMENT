@@ -64,6 +64,8 @@ def finite_gradients(model, context: str):
 
 
 class WarmupCosine:
+    scheduler_type = "warmup_cosine"
+
     def __init__(self, optimizer, config: TrainingConfig):
         self.optimizer, self.config = optimizer, config
         self.completed = 0
@@ -95,7 +97,7 @@ class WarmupCosine:
     def state_dict(self):
         return {
             "schema": "1",
-            "type": "warmup_cosine",
+            "type": self.scheduler_type,
             "completed": self.completed,
             "training_sha256": self.config.sha256,
         }
@@ -110,7 +112,7 @@ class WarmupCosine:
             raise ValueError("invalid scheduler state fields")
         if (
             state["schema"] != "1"
-            or state["type"] != "warmup_cosine"
+            or state["type"] != self.scheduler_type
             or state["training_sha256"] != self.config.sha256
         ):
             raise ValueError("scheduler compatibility mismatch")
@@ -121,3 +123,13 @@ class WarmupCosine:
         if any(group["lr"] != expected_lr for group in self.optimizer.param_groups):
             raise ValueError("optimizer LR disagrees with restored scheduler")
         self.completed = count
+
+
+class WarmupConstant(WarmupCosine):
+    """Distinct version-1 probe schedule; never changes legacy cosine arithmetic."""
+
+    scheduler_type = "warmup_constant_v1"
+
+    def lr_at(self, index: int) -> float:
+        c = self.config
+        return c.learning_rate * ((index + 1) / c.warmup_steps if index < c.warmup_steps else 1)

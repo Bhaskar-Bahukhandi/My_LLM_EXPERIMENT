@@ -207,18 +207,19 @@ def test_status_is_scoped_and_does_not_execute_model_or_change_rng(pilot, monkey
     assert status["accounting_status"] == "META_VERIFIED"
     assert status["training_execution_status"] == "NOT_RUN"
     assert not status["pilot_execution_ready"] and not status["training_authorized"]
-    assert status["next_gate"] == "IMPLEMENT_R9_THEN_RUN_APPROVED_20M_EXECUTION_GATES"
+    assert status["next_gate"] == "RUN_APPROVED_20M_1_2_3_HARDWARE_AND_MECHANICS_GATES"
     assert status["scale_stage"] == "20M_PILOT_CANDIDATE"
     assert status["construction_status"] == "META_CONSTRUCTED"
     assert status["quality_status"] == "UNVERIFIED"
-    assert "R1-R8 infrastructure implemented and reviewed" in status["evidence_scope"]
-    assert "R9 remains unimplemented" in status["evidence_scope"]
+    assert "R1-R9 implemented" in status["evidence_scope"]
+    assert "R9 orchestration synthetically verified, ready for review" in status["evidence_scope"]
     assert "Hardware execution gates remain unpassed" in status["evidence_scope"]
     assert "No pilot or training authorization" in status["evidence_scope"]
     assert status["evidence_reference"].split("; ") == [
         "reports/20m_prebuild_audit.json",
         "reports/20m_i1_resolver_config_implementation.json",
         "reports/20m_i2_training_infrastructure.json",
+        "reports/20m_i3_r9_orchestration.json",
     ]
     assert all((ROOT / path).is_file() for path in status["evidence_reference"].split("; "))
     assert "training_ready" not in report
@@ -226,7 +227,7 @@ def test_status_is_scoped_and_does_not_execute_model_or_change_rng(pilot, monkey
     legacy = resolve_config(load_config(ROOT / "configs/models/edge_2m.yaml")).to_dict()
     assert legacy["readiness"]["training_execution_status"] == "COMPLETED_FROZEN_LINEAGE"
     assert legacy["readiness"]["quality_status"] == "ENGINEERING_BASELINE_ONLY"
-    assert legacy["readiness"]["next_gate"] == "PRESERVE_FROZEN_2M_COMPLETE_20M_R9"
+    assert legacy["readiness"]["next_gate"] == "PRESERVE_FROZEN_2M_RUN_APPROVED_20M_EXECUTION_GATES"
     assert (
         "does not train, load weights or authorize current-source resume"
         in (legacy["readiness"]["evidence_scope"])
